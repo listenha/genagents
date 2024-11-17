@@ -37,7 +37,6 @@ def extract_first_json_dict(input_str):
     return None
 
 
-
 def extract_first_json_dict_categorical(input_str): 
   reasoning_pattern = r'"Reasoning":\s*"([^"]+)"'
   response_pattern = r'"Response":\s*"([^"]+)"'
