@@ -7,6 +7,7 @@ This repository contains the core codebase accompanying the paper:
 *Authors*: Joon Sung Park, Carolyn Q. Zou, Aaron Shaw, Benjamin Mako Hill, Carrie Cai, Meredith Ringel Morris, Robb Willer, Percy Liang, Michael S. Bernstein
 
 ---
+![Cover Image](static_dir/cover.jpeg)
 
 ## Overview
 
