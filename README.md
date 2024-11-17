@@ -6,7 +6,7 @@ This repository contains the core codebase accompanying the paper:
 
 *Authors*: Joon Sung Park, Carolyn Q. Zou, Aaron Shaw, Benjamin Mako Hill, Carrie Cai, Meredith Ringel Morris, Robb Willer, Percy Liang, Michael S. Bernstein
 
----
+
 ![Cover Image](static_dir/cover.jpeg)
 
 ## Overview
@@ -19,7 +19,7 @@ The code in this repository allows researchers to:
 - **Interact with Agents**: Query agents with surveys, experiments, and other stimuli to study their responses.
 - **Evaluate Agent Performance**: Compare agent responses to actual participant data to assess accuracy.
 
----
+
 
 ## Table of Contents
 
@@ -36,7 +36,7 @@ The code in this repository allows researchers to:
 - [License](#license)
 - [References](#references)
 
----
+
 
 ## Installation
 
@@ -67,7 +67,7 @@ Alternatively, you can set the API key in the `settings.py` file:
 OPENAI_API_KEY = "your-api-key-here"
 ```
 
----
+
 
 ## Getting Started
 
@@ -80,7 +80,7 @@ cd generative-agent-simulations
 
 Set up the Python environment and install dependencies as described above.
 
----
+
 
 ## Repository Structure
 
@@ -100,7 +100,7 @@ Set up the Python environment and install dependencies as described above.
 - `README.md`: This readme file
 - `requirements.txt`: List of Python dependencies
 
----
+
 
 ## Usage
 
@@ -199,7 +199,6 @@ To load an existing agent:
 agent = GenerativeAgent(agent_folder="path/to/save_directory")
 ```
 
----
 
 ## Sample Agent
 
@@ -218,7 +217,6 @@ response = agent.categorical_resp(questions)
 print(response["responses"])
 ```
 
----
 
 ## Agent Bank Access
 
@@ -226,7 +224,6 @@ Due to participant privacy concerns, the full agent bank containing over 1,000 g
 
 Researchers interested in accessing individual responses on open tasks can request restricted access by contacting the authors and following a review process that ensures ethical considerations are met.
 
----
 
 ## Contributing
 
@@ -237,13 +234,11 @@ Contributions to the project are welcome. Please follow these steps:
 3. Make your changes and commit them with clear messages.
 4. Submit a pull request to the main repository.
 
----
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
 
----
 
 ## References
 
@@ -251,7 +246,6 @@ Please refer to the original paper for detailed information on the methodology a
 
 - Park, J. S., Zou, C. Q., Shaw, A., Hill, B. M., Cai, C., Morris, M. R., Willer, R., Liang, P., & Bernstein, M. S. (2024). *Generative Agent Simulations of 1,000 People*.
 
----
 
 ## Contact
 
@@ -259,18 +253,7 @@ For questions or inquiries, please contact the corresponding author:
 
 - **Joon Sung Park**: [joonspk@stanford.edu](mailto:joonspk@stanford.edu)
 
----
 
 ## Acknowledgments
 
 We thank all participants and contributors to this project. This work was supported by [list any funding sources if applicable].
-
----
-
-## Notes
-
-- **Ethical Considerations**: When using this codebase, please adhere to ethical guidelines, especially concerning participant privacy and data handling.
-- **Model Limitations**: The performance of the generative agents depends on the underlying language model and the quality of the input data.
-- **Updates**: Stay tuned for updates and enhancements to the codebase.
-
----
