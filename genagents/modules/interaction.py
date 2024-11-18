@@ -34,6 +34,9 @@ def _utterance_agent_desc(agent, anchor):
   agent_desc += f"Other observations about the subject:\n\n"
 
   retrieved = agent.memory_stream.retrieve([anchor], 0, n_count=120)
+  if len(retrieved) == 0:
+    return agent_desc
+  
   nodes = list(retrieved.values())[0]
   for node in nodes:
     agent_desc += f"{node.content}\n"
