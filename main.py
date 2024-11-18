@@ -28,7 +28,7 @@ class Conversation:
 # Example usage:
 if __name__ == "__main__":
   # Specify the folder where the agent is stored
-  agent_folder = "agent_bank/populations/sample_agent/01fd7d2a-0357-4c1b-9f3e-8eade2d537ae"
+  agent_folder = "agent_bank/populations/single_agent/01fd7d2a-0357-4c1b-9f3e-8eade2d537ae"
   # Create a Conversation instance
   conversation = Conversation(agent_folder, interviewer_name="Jane Doe")
   # Start the conversation

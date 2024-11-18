@@ -218,6 +218,7 @@ def extract_recency(seq_nodes):
     recency_out: A dictionary whose keys are the node.node_id and whose values
                  are the float that represents the recency score. 
   """
+  
   max_timestep = max([node.last_retrieved for node in seq_nodes])
 
   recency_decay = 0.99
@@ -361,6 +362,10 @@ class MemoryStream:
         values are a list of nodes that are retrieved for that query str. 
     """
     curr_nodes = []
+
+    # If the memory stream is empty, we return an empty dictionary.
+    if len(self.seq_nodes) == 0:
+      return dict()
 
     # Filtering for the desired node type. curr_filter can be one of the three
     # elements: 'all', 'reflection', 'observation' 
