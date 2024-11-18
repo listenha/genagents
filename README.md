@@ -1,6 +1,6 @@
 # genagents: Generative Agent Simulations of 1,000 People
 
-![Cover Image](static_dir/cover2.png)
+![Cover Image](static_dir/cover3.png)
 
 ## Overview
 
