@@ -252,6 +252,12 @@ Please refer to the original paper for detailed information on the methodology a
 
 - Park, J. S., Zou, C. Q., Shaw, A., Hill, B. M., Cai, C., Morris, M. R., Willer, R., Liang, P., & Bernstein, M. S. (2024). *Generative Agent Simulations of 1,000 People*.
 
+## Acknowledgements
+We thank Akaash Kolluri for the help setting up this open source repository. 
+
+In addition, we thank Douglas Guilbeault, Amir Goldberg, Diyi Yang, Jeff Hancock, Serina Chang for their insights and discussions. 
+
+
 ## Contact
 
 For questions or inquiries, please contact the corresponding author:
