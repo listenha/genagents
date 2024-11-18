@@ -1,42 +1,46 @@
-# Generative Agent Simulations of 1,000 People
+# genagents: Generative Agent Simulations of 1,000 People
 
-This repository contains the core codebase accompanying the paper:
-
-**Generative Agent Simulations of 1,000 People**
-
-*Authors*: Joon Sung Park, Carolyn Q. Zou, Aaron Shaw, Benjamin Mako Hill, Carrie Cai, Meredith Ringel Morris, Robb Willer, Percy Liang, Michael S. Bernstein
-
-
-![Cover Image](static_dir/cover.jpeg)
+![Cover Image](static_dir/cover2.png)
 
 ## Overview
 
-This project presents a novel agent architecture that simulates the attitudes and behaviors of 1,052 real individuals by applying large language models (LLMs) to qualitative interviews about their lives. The generative agents replicate participants' responses on various social science measures, providing a foundation for new tools that can help investigate individual and collective behavior.
+This project introduces a novel agent architecture that simulates the attitudes and behaviors of real individuals by applying large language models (LLMs) to qualitative interviews about their lives. These agents replicate participants' responses on various social science measures, providing a foundation for new tools to investigate individual and collective behavior.
 
-The code in this repository allows researchers to:
+In the coming months, the authors at Stanford University plan to make available generative agents of 1,000 people—based on 2,000 hours of interviews—via a restricted API for research purposes. To support research while protecting participant privacy, this restricted access will offer a two-pronged system:
 
-- **Create Generative Agents**: Build agents based on interview data that can simulate human attitudes and behaviors.
-- **Interact with Agents**: Query agents with surveys, experiments, and other stimuli to study their responses.
-- **Evaluate Agent Performance**: Compare agent responses to actual participant data to assess accuracy.
+1. **Open Access to Aggregated Responses on Fixed Tasks**: Researchers can access aggregated data to analyze general trends and patterns.
+2. **Restricted Access to Individual Responses on Open Tasks**: Researchers can request access to individual agents' responses for more detailed studies, subject to a review process ensuring ethical considerations are met.
 
+This codebase offers two main components:
 
+1. **Codebase for Creating and Interacting with Generative Agents**: Tools to build new agents based on your own data and interact with them. Query agents with surveys, experiments, and other stimuli to study their responses.
+2. **Demographic Agent Banks**: A bank of over 3,000 agents created using demographic information from the General Social Survey (GSS) as a starting point to explore the codebase. *Note: The names and addresses are fictional.*
+
+Additionally, to provide users with a sense of the interview-based agents, we offer an example generative agent of one of the authors, created using the same interview protocol used in our paper.
 
 ## Table of Contents
 
 - [Installation](#installation)
-- [Getting Started](#getting-started)
+  - [Requirements](#requirements)
+  - [Dependencies](#dependencies)
+  - [Configuration](#configuration)
 - [Repository Structure](#repository-structure)
 - [Usage](#usage)
   - [Creating a Generative Agent](#creating-a-generative-agent)
   - [Interacting with Agents](#interacting-with-agents)
+    - [Categorical Responses](#categorical-responses)
+    - [Numerical Responses](#numerical-responses)
+    - [Open-Ended Questions](#open-ended-questions)
   - [Memory and Reflection](#memory-and-reflection)
+    - [Adding Memories](#adding-memories)
+    - [Reflection](#reflection)
+  - [Saving and Loading Agents](#saving-and-loading-agents)
 - [Sample Agent](#sample-agent)
 - [Agent Bank Access](#agent-bank-access)
 - [Contributing](#contributing)
 - [License](#license)
 - [References](#references)
-
-
+- [Contact](#contact)
 
 ## Installation
 
@@ -53,60 +57,55 @@ Install the required Python packages using pip:
 pip install -r requirements.txt
 ```
 
-### OpenAI API Key
+### Configuration
 
-Set your OpenAI API key as an environment variable:
-
-```bash
-export OPENAI_API_KEY='your-api-key-here'
-```
-
-Alternatively, you can set the API key in the `settings.py` file:
+Create a `settings.py` file in the `simulation_engine` folder (where `example-settings.py` is located). Place the following content in `settings.py`:
 
 ```python
-OPENAI_API_KEY = "your-api-key-here"
+from pathlib import Path
+
+OPENAI_API_KEY = "YOUR_API_KEY"
+KEY_OWNER = "YOUR_NAME"
+
+DEBUG = False
+
+MAX_CHUNK_SIZE = 4
+
+LLM_VERS = "gpt-4o-mini"
+
+BASE_DIR = f"{Path(__file__).resolve().parent.parent}"
+
+POPULATIONS_DIR = f"{BASE_DIR}/agent_bank/populations"
+LLM_PROMPT_DIR = f"{BASE_DIR}/simulation_engine/prompt_template"
 ```
 
-
-
-## Getting Started
-
-Clone the repository:
-
-```bash
-git clone https://github.com/your-username/generative-agent-simulations.git
-cd generative-agent-simulations
-```
-
-Set up the Python environment and install dependencies as described above.
-
-
+Replace `"YOUR_API_KEY"` with your actual OpenAI API key and `"YOUR_NAME"` with your name.
 
 ## Repository Structure
 
 - `genagents/`: Core module for creating and interacting with generative agents
   - `genagents.py`: Main class for the generative agent
-  - `modules/`: Submodules for interaction and memory stream management
+  - `modules/`: Submodules for interaction and memory management
     - `interaction.py`: Handles agent interactions and responses
     - `memory_stream.py`: Manages the agent's memory and reflections
 - `simulation_engine/`: Contains settings and global methods
+  - `prompt_template/`: All LLM prompts used in this project
   - `settings.py`: Configuration settings for the simulation engine
   - `global_methods.py`: Helper functions used across modules
   - `gpt_structure.py`: Functions for interacting with the GPT models
   - `llm_json_parser.py`: Parses JSON outputs from language models
 - `agent_bank/`: Directory for storing agent data
-  - `populations/`: Contains pre-generated agents (see [Agent Bank Access](#agent-bank-access))
-    - `sample_agent/`: Example agent data (see [Sample Agent](#sample-agent))
+  - `populations/`: Contains pre-generated agents
+    - `gss_agents/`: Demographic agent data based on the GSS
+    - `single_agent/`: Example agent data (see [Sample Agent](#sample-agent))
 - `README.md`: This readme file
 - `requirements.txt`: List of Python dependencies
-
-
 
 ## Usage
 
 ### Creating a Generative Agent
 
-To create a new generative agent, you can use the `GenerativeAgent` class from the `genagents` module.
+To create a new generative agent, use the `GenerativeAgent` class from the `genagents` module:
 
 ```python
 from genagents.genagents import GenerativeAgent
@@ -130,7 +129,7 @@ The `update_scratch` method allows you to add personal attributes to the agent, 
 
 #### Categorical Responses
 
-You can ask the agent to respond to categorical survey questions.
+You can ask the agent to respond to categorical survey questions:
 
 ```python
 questions = {
@@ -156,7 +155,7 @@ print(response["responses"])
 
 #### Open-Ended Questions
 
-You can have the agent generate open-ended responses.
+Have the agent generate open-ended responses:
 
 ```python
 dialogue = [
@@ -179,7 +178,7 @@ agent.remember("Went for a hike in the mountains.", time_step=1)
 
 #### Reflection
 
-Agents can reflect on their memories to form new insights.
+Agents can reflect on their memories to form new insights:
 
 ```python
 agent.reflect(anchor="outdoor activities", time_step=2)
@@ -187,7 +186,7 @@ agent.reflect(anchor="outdoor activities", time_step=2)
 
 ### Saving and Loading Agents
 
-You can save the agent's state to a directory for later use.
+You can save the agent's state to a directory for later use:
 
 ```python
 agent.save("path/to/save_directory")
@@ -199,15 +198,14 @@ To load an existing agent:
 agent = GenerativeAgent(agent_folder="path/to/save_directory")
 ```
 
-
 ## Sample Agent
 
-A sample agent is provided in the `agent_bank/populations/sample_agent` directory. This agent includes a pre-populated memory stream and scratchpad information for demonstration purposes.
+A sample agent is provided in the `agent_bank/populations/single_agent/` directory. This agent includes a pre-populated memory stream and scratchpad information for demonstration purposes.
 
 You can load and interact with the sample agent as follows:
 
 ```python
-agent = GenerativeAgent(agent_folder="agent_bank/populations/sample_agent")
+agent = GenerativeAgent(agent_folder="agent_bank/populations/single_agent")
 
 # Interact with the agent
 questions = {
@@ -217,28 +215,36 @@ response = agent.categorical_resp(questions)
 print(response["responses"])
 ```
 
-
 ## Agent Bank Access
 
-Due to participant privacy concerns, the full agent bank containing over 1,000 generative agents based on real interviews is not publicly available. However, aggregated responses on fixed tasks are accessible for general research use.
-
-Researchers interested in accessing individual responses on open tasks can request restricted access by contacting the authors and following a review process that ensures ethical considerations are met.
-
+Due to participant privacy concerns, the full agent bank containing over 1,000 generative agents based on real interviews is not publicly available at the moment. However, we plan to make aggregated responses on fixed tasks accessible for general research use in the coming months. Researchers interested in accessing individual responses on open tasks can request restricted access by contacting the authors and following a review process that ensures ethical considerations are met.
 
 ## Contributing
 
-Contributions to the project are welcome. Please follow these steps:
+We welcome contributions to enhance the functionality and usability of this project. If you are interested in contributing, please follow these steps:
 
-1. Fork the repository.
-2. Create a new branch for your feature or bugfix.
-3. Make your changes and commit them with clear messages.
-4. Submit a pull request to the main repository.
+1. **Fork the Repository**: Click on the "Fork" button at the top right corner of this page to create a copy of the repository on your GitHub account.
+2. **Clone the Forked Repository**: Use `git clone` to clone the repository to your local machine.
+3. **Create a New Branch**: Create a new branch for your feature or bug fix.
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+4. **Make Changes**: Implement your feature or fix the bug.
+5. **Commit Changes**: Commit your changes with a descriptive commit message.
+   ```bash
+   git commit -am "Add new feature: your feature name"
+   ```
+6. **Push to GitHub**: Push your changes to your forked repository.
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+7. **Submit a Pull Request**: Go to the original repository and create a pull request from your forked repository.
 
+Please ensure that your code follows the project's coding conventions and includes relevant tests and documentation.
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
 
 ## References
 
@@ -246,14 +252,8 @@ Please refer to the original paper for detailed information on the methodology a
 
 - Park, J. S., Zou, C. Q., Shaw, A., Hill, B. M., Cai, C., Morris, M. R., Willer, R., Liang, P., & Bernstein, M. S. (2024). *Generative Agent Simulations of 1,000 People*.
 
-
 ## Contact
 
 For questions or inquiries, please contact the corresponding author:
 
 - **Joon Sung Park**: [joonspk@stanford.edu](mailto:joonspk@stanford.edu)
-
-
-## Acknowledgments
-
-We thank all participants and contributors to this project. This work was supported by [list any funding sources if applicable].
