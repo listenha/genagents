@@ -168,8 +168,24 @@ def run_gpt_generate_utterance(
     return [agent_desc, context, str_dialogue]
 
   def _func_clean_up(gpt_response, prompt=""): 
-    utterance = extract_first_json_dict(gpt_response)["utterance"]
-    return utterance
+    result = extract_first_json_dict(gpt_response)
+    if result is None:
+      # If JSON parsing fails, try to extract the utterance directly from the response
+      # Look for common patterns in the response
+      response_lower = gpt_response.lower()
+      if "utterance" in response_lower or "response" in response_lower:
+        # Try to find text after "utterance" or similar keywords
+        import re
+        # Look for JSON-like structure even if not perfect
+        utterance_match = re.search(r'["\']utterance["\']\s*:\s*["\']([^"\']+)["\']', gpt_response, re.IGNORECASE)
+        if utterance_match:
+          return utterance_match.group(1)
+        # Or just return the response if it looks like a direct answer
+        if len(gpt_response.strip()) > 10 and not gpt_response.strip().startswith('{'):
+          return gpt_response.strip()
+      # Last resort: return a message indicating parsing failed
+      return f"[Response received but JSON parsing failed. Raw response: {gpt_response[:200]}...]"
+    return result.get("utterance", gpt_response.strip())
 
   def _get_fail_safe():
     return None

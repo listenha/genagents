@@ -68,26 +68,89 @@ def load_local_model(model_name: str = None, device: str = None):
         # For older transformers versions
         auth_kwargs['use_auth_token'] = _hf_token
     
-    # Load tokenizer
-    tokenizer = AutoTokenizer.from_pretrained(model_name, **auth_kwargs)
+    # Determine if we're using a local path or HuggingFace model name
+    # If it's a local path, use the model name for tokenizer (which will download it)
+    # but use local path for model weights
+    is_local_path = os.path.exists(model_name) if os.path.isabs(model_name) else False
+    
+    if is_local_path:
+        # For local paths, try to infer the model name from the path
+        # Path format: /path/to/models/Qwen2.5-7B-Instruct/snapshots/...
+        # Extract "Qwen2.5-7B-Instruct" from the path
+        path_parts = model_name.split('/')
+        
+        # Find the model directory name (usually before "snapshots")
+        tokenizer_model_name = None
+        for i, part in enumerate(path_parts):
+            if part == "snapshots" and i > 0:
+                # The model name should be the directory before "snapshots"
+                tokenizer_model_name = path_parts[i-1]
+                break
+        
+        # If we didn't find it, try to extract from the path
+        if not tokenizer_model_name:
+            # Look for common model name patterns in the path
+            for part in path_parts:
+                if "Qwen2.5" in part or ("Qwen" in part and "Instruct" in part):
+                    tokenizer_model_name = part
+                    break
+        
+        # Map to HuggingFace model name
+        if tokenizer_model_name:
+            if "Qwen2.5" in tokenizer_model_name:
+                # Extract version (7B, 14B, etc.)
+                if "7B" in tokenizer_model_name:
+                    tokenizer_model_name = "Qwen/Qwen2.5-7B-Instruct"
+                elif "14B" in tokenizer_model_name:
+                    tokenizer_model_name = "Qwen/Qwen2.5-14B-Instruct"
+                else:
+                    tokenizer_model_name = "Qwen/Qwen2.5-7B-Instruct"  # Default
+            elif "Llama" in tokenizer_model_name:
+                tokenizer_model_name = f"meta-llama/{tokenizer_model_name}"
+            else:
+                # Fallback: use the extracted name as-is
+                tokenizer_model_name = tokenizer_model_name
+        else:
+            # Ultimate fallback
+            tokenizer_model_name = "Qwen/Qwen2.5-7B-Instruct"
+        
+        print(f"Using HuggingFace model name '{tokenizer_model_name}' for tokenizer (local path for model weights)")
+        # Load tokenizer from HuggingFace (will download if needed)
+        tokenizer = AutoTokenizer.from_pretrained(tokenizer_model_name, **auth_kwargs)
+    else:
+        # Use the model name directly (HuggingFace identifier)
+        tokenizer = AutoTokenizer.from_pretrained(model_name, **auth_kwargs)
+    
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
     
     # Load model
-    if device == "cuda":
-        model = AutoModelForCausalLM.from_pretrained(
-            model_name,
-            torch_dtype=torch.float16,
-            device_map="auto",
-            **auth_kwargs
-        )
+    if device == "cuda" and torch.cuda.is_available():
+        try:
+            # Try using device_map for automatic GPU placement
+            model = AutoModelForCausalLM.from_pretrained(
+                model_name,
+                dtype=torch.float16,
+                device_map="auto",
+                **auth_kwargs
+            )
+        except (ValueError, ImportError):
+            # Fallback: load to GPU manually
+            model = AutoModelForCausalLM.from_pretrained(
+                model_name,
+                dtype=torch.float16,
+                **auth_kwargs
+            )
+            model = model.to(device)
     else:
+        # CPU mode
         model = AutoModelForCausalLM.from_pretrained(
             model_name,
-            torch_dtype=torch.float32,
+            dtype=torch.float32,
             **auth_kwargs
         )
-        model = model.to(device)
+        if device != "cpu":
+            model = model.to(device)
     
     model.eval()
     
@@ -146,26 +209,25 @@ def local_model_request(prompt: str,
         if hasattr(tokenizer, 'apply_chat_template') and tokenizer.chat_template is not None:
             # Use chat template for proper formatting
             messages = [{"role": "user", "content": prompt}]
-            inputs = tokenizer.apply_chat_template(
+            # Apply chat template and tokenize
+            formatted_prompt = tokenizer.apply_chat_template(
                 messages,
                 add_generation_prompt=True,
-                tokenize=True,
-                return_dict=True,
-                return_tensors="pt"
+                tokenize=False  # Get the formatted string first
             )
-            # Move inputs to device
-            if isinstance(inputs, dict):
-                inputs = {k: v.to(device) for k, v in inputs.items()}
-            else:
-                inputs = inputs.to(device)
+            # Now tokenize the formatted prompt
+            inputs = tokenizer(formatted_prompt, return_tensors="pt")
+            # Move to device
+            inputs = {k: v.to(device) for k, v in inputs.items()}
         else:
             # Fallback: simple prompt formatting
-            inputs = tokenizer(prompt, return_tensors="pt").to(device)
+            inputs = tokenizer(prompt, return_tensors="pt")
+            inputs = {k: v.to(device) for k, v in inputs.items()}
         
         # Generate
         with torch.no_grad():
             outputs = model.generate(
-                **inputs if isinstance(inputs, dict) else {"input_ids": inputs},
+                **inputs,
                 max_new_tokens=max_tokens,
                 temperature=temperature,
                 top_p=0.9,
@@ -174,10 +236,7 @@ def local_model_request(prompt: str,
             )
         
         # Decode response
-        if isinstance(inputs, dict):
-            input_length = inputs["input_ids"].shape[1]
-        else:
-            input_length = inputs.shape[1]
+        input_length = inputs["input_ids"].shape[1]
         
         generated_tokens = outputs[0][input_length:]
         response = tokenizer.decode(generated_tokens, skip_special_tokens=True)
@@ -185,6 +244,9 @@ def local_model_request(prompt: str,
         return response.strip()
     
     except Exception as e:
+        import traceback
+        error_details = traceback.format_exc()
+        print(f"Generation error details:\n{error_details}")
         return f"GENERATION ERROR: {str(e)}"
 
 

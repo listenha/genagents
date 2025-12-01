@@ -491,6 +491,28 @@ class MemoryStream:
                      scores[count], record_ids)
 
 
+  def re_embed_all_memories(self):
+    """
+    Re-embed all memories using the current embedding model.
+    This is useful when switching embedding models (e.g., from OpenAI to local).
+    
+    Returns:
+      Number of memories re-embedded
+    """
+    if len(self.embeddings) == 0:
+      return 0
+    
+    print(f"Re-embedding {len(self.embeddings)} memories with current embedding model...")
+    new_embeddings = {}
+    
+    for content in self.embeddings.keys():
+      new_embeddings[content] = get_text_embedding(content)
+    
+    self.embeddings = new_embeddings
+    print(f"✓ Re-embedded {len(new_embeddings)} memories successfully!")
+    return len(new_embeddings)
+
+
 
 
 
