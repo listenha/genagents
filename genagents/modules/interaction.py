@@ -14,12 +14,18 @@ from simulation_engine.gpt_structure import *
 from simulation_engine.llm_json_parser import *
 
 
-def _main_agent_desc(agent, anchor): 
+def _main_agent_desc(agent, anchor, n_count=None, time_step=None): 
   agent_desc = ""
   agent_desc += f"Self description: {agent.get_self_description()}\n==\n"
   agent_desc += f"Other observations about the subject:\n\n"
 
-  retrieved = agent.memory_stream.retrieve([anchor], 0, n_count=120)
+  # Use global defaults if not provided
+  if n_count is None:
+    n_count = MEMORY_N_COUNT
+  if time_step is None:
+    time_step = MEMORY_TIME_STEP
+
+  retrieved = agent.memory_stream.retrieve([anchor], time_step, n_count=n_count)
   if len(retrieved) == 0:
     return agent_desc
   nodes = list(retrieved.values())[0]
@@ -28,12 +34,18 @@ def _main_agent_desc(agent, anchor):
   return agent_desc
 
 
-def _utterance_agent_desc(agent, anchor): 
+def _utterance_agent_desc(agent, anchor, n_count=None, time_step=None): 
   agent_desc = ""
   agent_desc += f"Self description: {agent.get_self_description()}\n==\n"
   agent_desc += f"Other observations about the subject:\n\n"
 
-  retrieved = agent.memory_stream.retrieve([anchor], 0, n_count=120)
+  # Use global defaults if not provided
+  if n_count is None:
+    n_count = MEMORY_N_COUNT
+  if time_step is None:
+    time_step = MEMORY_TIME_STEP
+
+  retrieved = agent.memory_stream.retrieve([anchor], time_step, n_count=n_count)
   if len(retrieved) == 0:
     return agent_desc
   

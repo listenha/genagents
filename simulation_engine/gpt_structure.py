@@ -5,7 +5,30 @@ from typing import List, Union
 
 from simulation_engine.settings import *
 
-openai.api_key = OPENAI_API_KEY
+# Default to OpenAI if MODEL_PROVIDER not defined (backward compatibility)
+try:
+    _model_provider = MODEL_PROVIDER
+except NameError:
+    _model_provider = "openai"
+
+# Only set OpenAI API key if using OpenAI provider
+if _model_provider == "openai":
+    openai.api_key = OPENAI_API_KEY
+
+# Import local model adapter if using local models
+if _model_provider == "local":
+    try:
+        from simulation_engine.local_model_adapter import (
+            local_model_request,
+            local_get_text_embedding
+        )
+    except ImportError:
+        print("Warning: local_model_adapter not found. Install transformers, torch, and sentence-transformers to use local models.")
+        local_model_request = None
+        local_get_text_embedding = None
+else:
+    local_model_request = None
+    local_get_text_embedding = None
 
 
 # ============================================================================
@@ -53,29 +76,46 @@ def generate_prompt(prompt_input: Union[str, List[str]],
 def gpt_request(prompt: str, 
                 model: str = "gpt-4o", 
                 max_tokens: int = 1500) -> str:
-  """Make a request to OpenAI's GPT model."""
-  if model == "o1-preview": 
+  """Make a request to either OpenAI or local model based on MODEL_PROVIDER."""
+  try:
+    _model_provider = MODEL_PROVIDER
+  except NameError:
+    _model_provider = "openai"
+  
+  if _model_provider == "local":
+    # Use local model
+    if local_model_request is None:
+      return "GENERATION ERROR: Local model adapter not available. Install required dependencies."
+    try:
+      model_name = LOCAL_MODEL_NAME
+    except NameError:
+      model_name = "Qwen/Qwen2.5-7B-Instruct"
+    return local_model_request(prompt, model_name=model_name, 
+                              max_tokens=max_tokens, temperature=0.7)
+  else:
+    # Original OpenAI code
+    if model == "o1-preview": 
+      try:
+        client = openai.OpenAI(api_key=OPENAI_API_KEY)
+        response = client.chat.completions.create(
+          model=model,
+          messages=[{"role": "user", "content": prompt}]
+        )
+        return response.choices[0].message.content
+      except Exception as e:
+        return f"GENERATION ERROR: {str(e)}"
+
     try:
       client = openai.OpenAI(api_key=OPENAI_API_KEY)
       response = client.chat.completions.create(
         model=model,
-        messages=[{"role": "user", "content": prompt}]
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=max_tokens,
+        temperature=0.7
       )
       return response.choices[0].message.content
     except Exception as e:
       return f"GENERATION ERROR: {str(e)}"
-
-  try:
-    client = openai.OpenAI(api_key=OPENAI_API_KEY)
-    response = client.chat.completions.create(
-      model=model,
-      messages=[{"role": "user", "content": prompt}],
-      max_tokens=max_tokens,
-      temperature=0.7
-    )
-    return response.choices[0].message.content
-  except Exception as e:
-    return f"GENERATION ERROR: {str(e)}"
 
 
 def gpt4_vision(messages: List[dict], max_tokens: int = 1500) -> str:
@@ -154,14 +194,29 @@ def chat_safe_generate(prompt_input: Union[str, List[str]],
 
 def get_text_embedding(text: str, 
                        model: str = "text-embedding-3-small") -> List[float]:
-  """Generate an embedding for the given text using OpenAI's API."""
-  if not isinstance(text, str) or not text.strip():
-    raise ValueError("Input text must be a non-empty string.")
+  """Generate embedding using either OpenAI or local model."""
+  try:
+    _model_provider = MODEL_PROVIDER
+  except NameError:
+    _model_provider = "openai"
+  
+  if _model_provider == "local":
+    if local_get_text_embedding is None:
+      raise ValueError("Local embedding model adapter not available. Install required dependencies.")
+    try:
+      embedding_model = LOCAL_EMBEDDING_MODEL
+    except NameError:
+      embedding_model = "sentence-transformers/all-MiniLM-L6-v2"
+    return local_get_text_embedding(text, model_name=embedding_model)
+  else:
+    # Original OpenAI code
+    if not isinstance(text, str) or not text.strip():
+      raise ValueError("Input text must be a non-empty string.")
 
-  text = text.replace("\n", " ").strip()
-  response = openai.embeddings.create(
-    input=[text], model=model).data[0].embedding
-  return response
+    text = text.replace("\n", " ").strip()
+    response = openai.embeddings.create(
+      input=[text], model=model).data[0].embedding
+    return response
 
 
 

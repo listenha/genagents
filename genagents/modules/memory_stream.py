@@ -221,7 +221,7 @@ def extract_recency(seq_nodes):
   
   max_timestep = max([node.last_retrieved for node in seq_nodes])
 
-  recency_decay = 0.99
+  recency_decay = MEMORY_RECENCY_DECAY
   recency_out = dict()
   for count, node in enumerate(seq_nodes): 
     recency_out[node.node_id] = (recency_decay
@@ -343,24 +343,34 @@ class MemoryStream:
     return count
 
 
-  def retrieve(self, focal_points, time_step, n_count=120, curr_filter="all",
-               hp=[0, 1, 0.5], stateless=True, verbose=False): 
+  def retrieve(self, focal_points, time_step=None, n_count=None, curr_filter=None,
+               hp=None, stateless=True, verbose=False): 
     """
     Retrieve elements from the memory stream. 
 
     Parameters:
       focal_points: This is the query sentence. It is in a list form where 
         the elemnts of the list are the query sentences.
-      time_step: Current time_step 
-      n_count: The number of nodes that we want to retrieve. 
-      curr_filter: Filtering the node.type that we want to retrieve. 
+      time_step: Current time_step (default: MEMORY_TIME_STEP from settings)
+      n_count: The number of nodes that we want to retrieve (default: MEMORY_N_COUNT)
+      curr_filter: Filtering the node.type that we want to retrieve (default: MEMORY_CURR_FILTER)
         Acceptable values are 'all', 'reflection', 'observation' 
-      hp: Hyperparameter for [recency_w, relevance_w, importance_w]
+      hp: Hyperparameter for [recency_w, relevance_w, importance_w] (default: MEMORY_HP)
       verbose: verbose
     Returns: 
       retrieved: A dictionary whose keys are a focal_pt query str, and whose
         values are a list of nodes that are retrieved for that query str. 
     """
+    # Use global defaults if not provided
+    if time_step is None:
+      time_step = MEMORY_TIME_STEP
+    if n_count is None:
+      n_count = MEMORY_N_COUNT
+    if curr_filter is None:
+      curr_filter = MEMORY_CURR_FILTER
+    if hp is None:
+      hp = MEMORY_HP
+    
     curr_nodes = []
 
     # If the memory stream is empty, we return an empty dictionary.
@@ -461,8 +471,16 @@ class MemoryStream:
     self._add_node(time_step, "observation", content, score, None)
 
 
-  def reflect(self, anchor, reflection_count=5, 
-              retrieval_count=120, time_step=0): 
+  def reflect(self, anchor, reflection_count=None, 
+              retrieval_count=None, time_step=None): 
+    # Use global defaults if not provided
+    if reflection_count is None:
+      reflection_count = MEMORY_REFLECTION_COUNT
+    if retrieval_count is None:
+      retrieval_count = MEMORY_RETRIEVAL_COUNT
+    if time_step is None:
+      time_step = MEMORY_TIME_STEP
+    
     records = self.retrieve([anchor], time_step, retrieval_count)[anchor]
     record_ids = [i.node_id for i in records]
     reflections = generate_reflection(records, anchor, reflection_count)
