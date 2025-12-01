@@ -27,6 +27,9 @@ class GenerativeAgent:
       self.id = uuid.uuid4()
       self.scratch = scratch
       self.memory_stream = MemoryStream(nodes, embeddings)
+      
+      # Check for embedding dimension mismatch and re-embed if needed
+      self._check_and_fix_embeddings(agent_folder)
 
     else: 
       self.id = uuid.uuid4()
@@ -134,5 +137,55 @@ class GenerativeAgent:
   def utterance(self, curr_dialogue, context=""): 
     ret = utterance(self, curr_dialogue, context)
     return ret 
+
+
+  def _check_and_fix_embeddings(self, agent_folder):
+    """
+    Check if embeddings are compatible with current embedding model.
+    If not, re-embed all memories.
+    """
+    if len(self.memory_stream.embeddings) == 0:
+      return
+    
+    # Get a sample embedding to check dimension
+    sample_content = list(self.memory_stream.embeddings.keys())[0]
+    old_embedding = self.memory_stream.embeddings[sample_content]
+    old_dim = len(old_embedding)
+    
+    # Get current embedding model dimension
+    try:
+      from simulation_engine.settings import MODEL_PROVIDER
+      if MODEL_PROVIDER == "local":
+        from simulation_engine.local_model_adapter import load_embedding_model
+        test_model = load_embedding_model()
+        test_embedding = test_model.encode("test", convert_to_numpy=True)
+        new_dim = len(test_embedding)
+      else:
+        # OpenAI embeddings - skip check
+        return
+    except Exception:
+      # If we can't determine, skip the check
+      return
+    
+    # If dimensions don't match, re-embed all memories
+    if old_dim != new_dim:
+      print(f"\n⚠ Embedding dimension mismatch detected!")
+      print(f"  Existing embeddings: {old_dim} dimensions")
+      print(f"  Current embedding model: {new_dim} dimensions")
+      print(f"  Re-embedding all memories to match current model...\n")
+      
+      self.memory_stream.re_embed_all_memories()
+      
+      # Optionally save the updated embeddings back to disk
+      try:
+        import os
+        embeddings_file = f"{agent_folder}/memory_stream/embeddings.json"
+        if os.path.exists(os.path.dirname(embeddings_file)):
+          import json
+          with open(embeddings_file, "w") as json_file:
+            json.dump(self.memory_stream.embeddings, json_file)
+          print(f"✓ Updated embeddings saved to {embeddings_file}\n")
+      except Exception as e:
+        print(f"  Note: Could not save updated embeddings: {e}\n")
 
 
