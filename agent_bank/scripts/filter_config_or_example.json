@@ -1,0 +1,32 @@
+{
+  "filter_groups": [
+    {
+      "age": {
+        "type": "numeric_range",
+        "min": 18,
+        "max": 22,
+        "description": "Age 18-22"
+      },
+      "highest_degree_received": {
+        "type": "categorical",
+        "include": ["High school", "Bachelor's", "Graduate"],
+        "description": "Education: High school, Bachelor's, or Graduate"
+      }
+    },
+    {
+      "age": {
+        "type": "numeric_range",
+        "min": 22,
+        "max": 30,
+        "description": "Age 22-30"
+      },
+      "highest_degree_received": {
+        "type": "categorical",
+        "include": ["Bachelor's", "Graduate"],
+        "description": "Education: Bachelor's or Graduate only"
+      }
+    }
+  ],
+  "notes": "OR logic: Agents matching group 1 OR group 2. Each group uses AND logic internally."
+}
+
