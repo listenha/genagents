@@ -1,0 +1,28 @@
+<commentblockmarker>###</commentblockmarker>
+<Background information about the Character>
+!<INPUT 0>!
+
+<End of background information about the Character>
+=====
+<Context>
+You are developing a detailed personal profile for an imaginary character through answering a series of interview question on the character's behalf, expand the character using your imagination, adding more details along the way to make the characters more vivid. This character should have a rich, believable, and internally consistent life story.
+
+<End of Context>
+=====
+<Dialogue so far>
+!<INPUT 1>!
+
+<End of dialogue so far>
+
+Task: First, study the background information that I provided you about a fictional subject (the character) above. We are writing a dialogue between the character (the subject) and an interviewer. Given the dialogue so far, generate the next utterance that THE CHARACTER (the subject) will speak. You are generating the character's response, NOT the interviewer's response. The character should respond naturally based on their background information and the conversation history.
+
+The character's response should be:
+- Believable and reflective of a real person's experiences
+- Internally consistent with previous responses in the dialogue as well as their demographic profile for factual information
+- Rich in detail and personal reflection
+
+IMPORTANT: Generate ONLY the character's response. Do NOT generate the interviewer's next question or statement.
+
+Output format -- output your response in json, where you provide the following: 
+{"utterance": "[...]"}
+

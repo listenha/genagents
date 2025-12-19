@@ -34,7 +34,7 @@ def _main_agent_desc(agent, anchor, n_count=None, time_step=None):
   return agent_desc
 
 
-def _utterance_agent_desc(agent, anchor, n_count=None, time_step=None): 
+def _utterance_agent_desc(agent, anchor, n_count=None, time_step=None, curr_filter="reflection"): 
   agent_desc = ""
   agent_desc += f"Self description: {agent.get_self_description()}\n==\n"
   agent_desc += f"Other observations about the subject:\n\n"
@@ -45,7 +45,8 @@ def _utterance_agent_desc(agent, anchor, n_count=None, time_step=None):
   if time_step is None:
     time_step = MEMORY_TIME_STEP
 
-  retrieved = agent.memory_stream.retrieve([anchor], time_step, n_count=n_count)
+  # Retrieve only reflection nodes to avoid dialogue repetition (observation nodes contain Q&A which is already in dialogue history)
+  retrieved = agent.memory_stream.retrieve([anchor], time_step, n_count=n_count, curr_filter=curr_filter)
   if len(retrieved) == 0:
     return agent_desc
   
@@ -137,9 +138,18 @@ def run_gpt_generate_numerical_resp(
   prompt_input = create_prompt_input(agent_desc, questions, float_resp) 
   fail_safe = _get_fail_safe() 
 
+  # For batch questions, increase max_tokens to avoid truncation
+  # Each question needs ~200-300 tokens for reasoning + response
+  num_questions = len(questions)
+  if num_questions > 1:
+    # Calculate max_tokens: ~300 per question + buffer
+    calculated_max_tokens = max(2000, num_questions * 300)
+  else:
+    calculated_max_tokens = 1500  # Default for single question
+
   output, prompt, prompt_input, fail_safe = chat_safe_generate(
     prompt_input, prompt_lib_file, gpt_version, 1, fail_safe, 
-    _func_clean_up, verbose)
+    _func_clean_up, verbose, max_tokens=calculated_max_tokens)
 
   if float_resp: 
     output["responses"] = [float(i) for i in output["responses"]]
@@ -162,10 +172,14 @@ def run_gpt_generate_utterance(
   context,
   prompt_version="1",
   gpt_version="GPT4o",  
-  verbose=False):
+  verbose=False,
+  prompt_template=None):
 
   def create_prompt_input(agent_desc, str_dialogue, context):
-    return [agent_desc, context, str_dialogue]
+    # For interview template, context is embedded in the template itself
+    # For other templates (like utterance_v1.txt), context is passed as INPUT 2
+    # Always return 3 elements for compatibility, but context may be empty for interview template
+    return [agent_desc, str_dialogue, context]
 
   def _func_clean_up(gpt_response, prompt=""): 
     result = extract_first_json_dict(gpt_response)
@@ -190,7 +204,11 @@ def run_gpt_generate_utterance(
   def _get_fail_safe():
     return None
 
-  prompt_lib_file = f"{LLM_PROMPT_DIR}/generative_agent/interaction/utternace/utterance_v1.txt" 
+  # Use provided template or default to utterance_v1.txt
+  if prompt_template is None:
+    prompt_lib_file = f"{LLM_PROMPT_DIR}/generative_agent/interaction/utternace/utterance_v1.txt" 
+  else:
+    prompt_lib_file = prompt_template 
 
   prompt_input = create_prompt_input(agent_desc, str_dialogue, context) 
   fail_safe = _get_fail_safe() 
@@ -202,16 +220,20 @@ def run_gpt_generate_utterance(
   return output, [output, prompt, prompt_input, fail_safe]
 
 
-def utterance(agent, curr_dialogue, context): 
+def utterance(agent, curr_dialogue, context="", prompt_template=None): 
   str_dialogue = ""
   for row in curr_dialogue:
     str_dialogue += f"[{row[0]}]: {row[1]}\n"
   str_dialogue += f"[{agent.get_fullname()}]: [Fill in]\n"
 
   anchor = str_dialogue
-  agent_desc = _utterance_agent_desc(agent, anchor)
+  # For interview template, retrieve only reflection nodes to avoid dialogue repetition
+  # For other templates, use default (all nodes)
+  curr_filter = "reflection" if prompt_template and "interview" in prompt_template else "all"
+  agent_desc = _utterance_agent_desc(agent, anchor, curr_filter=curr_filter)
   return run_gpt_generate_utterance(
-           agent_desc, str_dialogue, context, "1", LLM_VERS)[0]
+           agent_desc, str_dialogue, context, "1", LLM_VERS, 
+           verbose=False, prompt_template=prompt_template)[0]
 
 ##  Ask function.
 def run_gpt_generate_ask(

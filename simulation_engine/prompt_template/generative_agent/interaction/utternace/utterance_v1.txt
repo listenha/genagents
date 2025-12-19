@@ -7,11 +7,14 @@
 <Dialogue so far>
 !<INPUT 1>!
 
+<End of dialogue so far>
+=====
+<Context>
 !<INPUT 2>!
 
-<End of dialogue so far>
+<End of Context>
 
-Task: First, study the background information that I provided you about a fictional subject above. We are writing a dialogue between the subject above, and me. Given the dialogue so far, generate the next utterance that the character will speak. 
+Task: First, study the background information that I provided you about a fictional subject (the character) above. We are writing a dialogue between the character (the subject) and an interviewer. Given the dialogue so far, generate the next utterance that THE CHARACTER (the subject) will speak. You are generating the character's response, NOT the interviewer's response. The character should respond naturally based on their background information and the conversation history.
 
 Output format -- output your response in json, where you provide the following: 
 {"utterance": "[...]"} 

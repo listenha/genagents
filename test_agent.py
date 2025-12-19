@@ -11,7 +11,7 @@ def test_agent_loading():
     print("Testing Agent Loading")
     print("=" * 60)
     
-    agent_folder = "agent_bank/populations/single_agent/01fd7d2a-0357-4c1b-9f3e-8eade2d537ae"
+    agent_folder = "agent_bank/populations/gss_agents/0000"
     
     try:
         agent = GenerativeAgent(agent_folder)
@@ -58,7 +58,7 @@ def test_agent_utterance(agent):
         # Check embedding dimension compatibility
         import json
         import os
-        agent_folder = "agent_bank/populations/single_agent/01fd7d2a-0357-4c1b-9f3e-8eade2d537ae"
+        agent_folder = "agent_bank/populations/gss_agent/0000"
         embeddings_file = os.path.join(agent_folder, "memory_stream/embeddings.json")
         
         if os.path.exists(embeddings_file):
