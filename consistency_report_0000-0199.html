@@ -86,6 +86,151 @@
             color: #666;
         }
     </style>
+    <script>
+
+        function showTab(tabName, event) {
+            // Hide all tabs
+            var tabs = document.getElementsByClassName('tab-content');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            var tabButtons = document.getElementsByClassName('tab');
+            for (var i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('active');
+            }
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+        }
+        
+        function updateTrajectoryView() {
+            var selector = document.getElementById('agent-selector');
+            var selectedAgent = selector.value || selector.textContent || 'all';
+            var container = document.getElementById('trajectory-charts-container');
+            
+            // Hide all trajectory divs
+            var allDivs = container.querySelectorAll('[id^="traj-"]');
+            for (var i = 0; i < allDivs.length; i++) {
+                allDivs[i].style.display = 'none';
+            }
+            
+            // Show selected view
+            if (selectedAgent === 'all' || selectedAgent === '') {
+                // Show all views: combined + individual
+                var allView = document.getElementById('traj-all-combined');
+                if (allView) allView.style.display = 'block';
+                
+                var allIndiv = container.querySelectorAll('[id^="traj-indiv-"]');
+                for (var i = 0; i < allIndiv.length; i++) {
+                    allIndiv[i].style.display = 'block';
+                }
+            } else {
+                // Show only selected agent
+                var agentView = document.getElementById('traj-indiv-' + selectedAgent);
+                if (agentView) agentView.style.display = 'block';
+            }
+            
+            // Apply instrument filter after showing the view
+            updateTrajectoryInstrumentFilter();
+        }
+        
+        function updateTrajectoryInstrumentFilter() {
+            var instrumentFilter = document.getElementById('instrument-filter');
+            var selectedInstrument = instrumentFilter ? instrumentFilter.value : 'all';
+            
+            // Find all visible Plotly graph divs in trajectory charts
+            var container = document.getElementById('trajectory-charts-container');
+            if (!container) return;
+            
+            // Get all plotly divs (they have class 'plotly' or id starting with the chart id)
+            var plotlyDivs = container.querySelectorAll('.js-plotly-plot, [id*="plotly"]');
+            
+            // Define score ranges for each instrument
+            var yAxisRanges = {
+                'all': {min: 0, max: 50},
+                'bfi10': {min: 0, max: 5},
+                'besa': {min: 20, max: 45},
+                'rei': {min: 20, max: 45}
+            };
+            
+            var yAxisRange = yAxisRanges[selectedInstrument] || yAxisRanges['all'];
+            
+            plotlyDivs.forEach(function(plotDiv) {
+                // Get the Plotly graph div (the actual div Plotly uses)
+                var graphDiv = plotDiv;
+                
+                // Wait for Plotly to be ready, then update
+                if (typeof Plotly !== 'undefined' && graphDiv.data) {
+                    // Determine which traces should be visible based on instrument
+                    var visible = [];
+                    
+                    // Get trace names from the graph
+                    for (var i = 0; i < graphDiv.data.length; i++) {
+                        var traceName = graphDiv.data[i].name || '';
+                        
+                        var shouldShow = false;
+                        if (selectedInstrument === 'all') {
+                            shouldShow = true;
+                        } else if (selectedInstrument === 'bfi10') {
+                            // BFI-10 scores: Extraversion, Agreeableness, Conscientiousness, Neuroticism, Openness
+                            // Trace names may include agent ID prefix (e.g., "0001-Extraversion")
+                            shouldShow = traceName.includes('Extraversion') || traceName.includes('Agreeableness') || 
+                                       traceName.includes('Conscientiousness') || traceName.includes('Neuroticism') || 
+                                       traceName.includes('Openness');
+                        } else if (selectedInstrument === 'besa') {
+                            // BES-A score: CE_total
+                            shouldShow = traceName.includes('CE_total');
+                        } else if (selectedInstrument === 'rei') {
+                            // REI score: RA_total
+                            shouldShow = traceName.includes('RA_total');
+                        }
+                        visible.push(shouldShow);
+                    }
+                    
+                    // Update visibility and y-axis range
+                    Plotly.update(graphDiv, {
+                        visible: visible
+                    }, {
+                        'yaxis.range': [yAxisRange.min, yAxisRange.max]
+                    });
+                }
+            });
+        }
+        
+        function updateRawQuestionView() {
+            var selector = document.getElementById('raw-question-view');
+            var viewType = selector.value;
+            var byAgentDiv = document.getElementById('raw-question-by-agent');
+            var aggregatedDiv = document.getElementById('raw-question-aggregated');
+            
+            if (viewType === 'by-agent') {
+                if (byAgentDiv) byAgentDiv.style.display = 'block';
+                if (aggregatedDiv) aggregatedDiv.style.display = 'none';
+            } else {
+                if (byAgentDiv) byAgentDiv.style.display = 'none';
+                if (aggregatedDiv) aggregatedDiv.style.display = 'block';
+            }
+        }
+        
+        function updateDistilledScoreView() {
+            var selector = document.getElementById('distilled-score-view');
+            var viewType = selector.value;
+            var byAgentDiv = document.getElementById('distilled-score-by-agent');
+            var aggregatedDiv = document.getElementById('distilled-score-aggregated');
+            
+            if (viewType === 'by-agent') {
+                if (byAgentDiv) byAgentDiv.style.display = 'block';
+                if (aggregatedDiv) aggregatedDiv.style.display = 'none';
+            } else {
+                if (byAgentDiv) byAgentDiv.style.display = 'none';
+                if (aggregatedDiv) aggregatedDiv.style.display = 'block';
+            }
+        }
+    
+    </script>
 </head>
 <body>
     <div class="container">
@@ -95,14 +240,14 @@
         <p><strong>Total Responses:</strong> 17400</p>
         
         <div class="tabs">
-            <button class="tab active" onclick="showTab('summary')">Summary</button>
-            <button class="tab" onclick="showTab('raw-questions')">Raw: Question-Level</button>
-            <button class="tab" onclick="showTab('raw-agents')">Raw: Agent-Level</button>
-            <button class="tab" onclick="showTab('raw-sections')">Raw: Section-Level</button>
-            <button class="tab" onclick="showTab('distilled-scores')">Distilled: Score-Level</button>
-            <button class="tab" onclick="showTab('distilled-agents')">Distilled: Agent-Level</button>
-            <button class="tab" onclick="showTab('distilled-sections')">Distilled: Section-Level</button>
-            <button class="tab" onclick="showTab('trajectories')">Trajectories</button>
+            <button class="tab active" onclick="showTab('summary', event)">Summary</button>
+            <button class="tab" onclick="showTab('raw-questions', event)">Raw: Question-Level</button>
+            <button class="tab" onclick="showTab('raw-agents', event)">Raw: Agent-Level</button>
+            <button class="tab" onclick="showTab('raw-sections', event)">Raw: Section-Level</button>
+            <button class="tab" onclick="showTab('distilled-scores', event)">Distilled: Score-Level</button>
+            <button class="tab" onclick="showTab('distilled-agents', event)">Distilled: Agent-Level</button>
+            <button class="tab" onclick="showTab('distilled-sections', event)">Distilled: Section-Level</button>
+            <button class="tab" onclick="showTab('trajectories', event)">Trajectories</button>
         </div>
         
         <div id="summary" class="tab-content active">
@@ -101088,7 +101233,10 @@
             
             <div style="margin: 20px 0;">
                 <label for="agent-selector" style="font-weight: bold; margin-right: 10px;">Select Agent:</label>
-                <select id="agent-selector" onchange="updateTrajectoryView()" style="padding: 5px 10px; font-size: 14px;">
+                <input list="agent-list" id="agent-selector" placeholder="Type to search or select..." 
+                       onchange="updateTrajectoryView()" oninput="updateTrajectoryView()"
+                       style="padding: 5px 10px; font-size: 14px; width: 200px; margin-right: 20px;">
+                <datalist id="agent-list">
                     <option value="all">View All</option>
                     <option value="0000">Agent 0000</option>
                     <option value="0001">Agent 0001</option>
@@ -101290,6 +101438,13 @@
                     <option value="0197">Agent 0197</option>
                     <option value="0198">Agent 0198</option>
                     <option value="0199">Agent 0199</option>
+                </datalist>
+                <label for="instrument-filter" style="font-weight: bold; margin-right: 10px;">Filter by Instrument:</label>
+                <select id="instrument-filter" onchange="updateTrajectoryInstrumentFilter()" style="padding: 5px 10px; font-size: 14px;">
+                    <option value="all">All Scores</option>
+                    <option value="bfi10">BFI-10 Only</option>
+                    <option value="besa">BES-A Only</option>
+                    <option value="rei">REI Only</option>
                 </select>
             </div>
             <div id="trajectory-charts-container">
@@ -101301,82 +101456,6 @@
             
         </div>
     </div>
-    
-    <script>
-        function showTab(tabName) {{
-            // Hide all tabs
-            var tabs = document.getElementsByClassName('tab-content');
-            for (var i = 0; i < tabs.length; i++) {{
-                tabs[i].classList.remove('active');
-            }}
-            var tabButtons = document.getElementsByClassName('tab');
-            for (var i = 0; i < tabButtons.length; i++) {{
-                tabButtons[i].classList.remove('active');
-            }}
-            
-            // Show selected tab
-            document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
-        }}
-        
-        function updateTrajectoryView() {{
-            var selector = document.getElementById('agent-selector');
-            var selectedAgent = selector.value;
-            var container = document.getElementById('trajectory-charts-container');
-            
-            // Hide all trajectory divs
-            var allDivs = container.querySelectorAll('[id^="traj-"]');
-            for (var i = 0; i < allDivs.length; i++) {{
-                allDivs[i].style.display = 'none';
-            }}
-            
-            // Show selected view
-            if (selectedAgent === 'all') {{
-                // Show all views: combined + individual
-                var allView = document.getElementById('traj-all-combined');
-                if (allView) allView.style.display = 'block';
-                
-                var allIndiv = container.querySelectorAll('[id^="traj-indiv-"]');
-                for (var i = 0; i < allIndiv.length; i++) {{
-                    allIndiv[i].style.display = 'block';
-                }}
-            }} else {{
-                // Show only selected agent
-                var agentView = document.getElementById('traj-indiv-' + selectedAgent);
-                if (agentView) agentView.style.display = 'block';
-            }}
-        }}
-        
-        function updateRawQuestionView() {{
-            var selector = document.getElementById('raw-question-view');
-            var viewType = selector.value;
-            var byAgentDiv = document.getElementById('raw-question-by-agent');
-            var aggregatedDiv = document.getElementById('raw-question-aggregated');
-            
-            if (viewType === 'by-agent') {{
-                if (byAgentDiv) byAgentDiv.style.display = 'block';
-                if (aggregatedDiv) aggregatedDiv.style.display = 'none';
-            }} else {{
-                if (byAgentDiv) byAgentDiv.style.display = 'none';
-                if (aggregatedDiv) aggregatedDiv.style.display = 'block';
-            }}
-        }}
-        
-        function updateDistilledScoreView() {{
-            var selector = document.getElementById('distilled-score-view');
-            var viewType = selector.value;
-            var byAgentDiv = document.getElementById('distilled-score-by-agent');
-            var aggregatedDiv = document.getElementById('distilled-score-aggregated');
-            
-            if (viewType === 'by-agent') {{
-                if (byAgentDiv) byAgentDiv.style.display = 'block';
-                if (aggregatedDiv) aggregatedDiv.style.display = 'none';
-            }} else {{
-                if (byAgentDiv) byAgentDiv.style.display = 'none';
-                if (aggregatedDiv) aggregatedDiv.style.display = 'block';
-            }}
-        }}
-    </script>
 
     </div>
 </body>
