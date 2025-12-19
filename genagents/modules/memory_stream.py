@@ -218,11 +218,13 @@ def extract_recency(seq_nodes):
     recency_out: A dictionary whose keys are the node.node_id and whose values
                  are the float that represents the recency score. 
   """
+  recency_out = dict()
+  if len(seq_nodes) == 0:
+    return recency_out
   
   max_timestep = max([node.last_retrieved for node in seq_nodes])
 
   recency_decay = MEMORY_RECENCY_DECAY
-  recency_out = dict()
   for count, node in enumerate(seq_nodes): 
     recency_out[node.node_id] = (recency_decay
                                  ** (max_timestep - node.last_retrieved))
@@ -385,6 +387,10 @@ class MemoryStream:
       for curr_node in self.seq_nodes: 
         if curr_node.node_type == curr_filter: 
           curr_nodes += [curr_node]
+
+    # If no nodes match the filter, return empty dictionary
+    if len(curr_nodes) == 0:
+      return dict()
 
     # <retrieved> is the main dictionary that we are returning
     retrieved = dict() 

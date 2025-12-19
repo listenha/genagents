@@ -27,7 +27,7 @@ class GenerativeAgent:
       self.id = uuid.uuid4()
       self.scratch = scratch
       self.memory_stream = MemoryStream(nodes, embeddings)
-      
+
       # Check for embedding dimension mismatch and re-embed if needed
       self._check_and_fix_embeddings(agent_folder)
 
@@ -112,16 +112,18 @@ class GenerativeAgent:
     self.memory_stream.remember(content, time_step)
 
 
-  def reflect(self, anchor, time_step=0): 
+  def reflect(self, anchor, time_step=0, reflection_count=None): 
     """
     Add a new reflection to the memory stream. 
 
     Parameters:
       anchor: str reflection anchor
+      time_step: int current time step
+      reflection_count: int number of reflections to generate (default: MEMORY_REFLECTION_COUNT)
     Returns: 
       None
     """
-    self.memory_stream.reflect(anchor, time_step)
+    self.memory_stream.reflect(anchor, reflection_count=reflection_count, time_step=time_step)
 
 
   def categorical_resp(self, questions): 
@@ -134,8 +136,8 @@ class GenerativeAgent:
     return ret
 
 
-  def utterance(self, curr_dialogue, context=""): 
-    ret = utterance(self, curr_dialogue, context)
+  def utterance(self, curr_dialogue, context="", prompt_template=None): 
+    ret = utterance(self, curr_dialogue, context, prompt_template)
     return ret 
 
 
