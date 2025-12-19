@@ -15,10 +15,10 @@ Extracts interview questions from the example agent's memory stream nodes and sa
 
 **Usage:**
 ```bash
-python3 agent_bank/scripts/extract_interview_script.py
+python3 Interview/extract_interview_script.py
 ```
 
-This creates `agent_bank/scripts/interview_script.json` with all interview questions.
+This creates `Interview/interview_script.json` with all interview questions.
 
 ### 2. Interview Memory Builder
 **File:** `environment/interview/interview_memory_builder.py`
@@ -31,7 +31,7 @@ from environment.interview.interview_memory_builder import InterviewMemoryBuilde
 
 # Initialize builder
 builder = InterviewMemoryBuilder(
-    interview_script_path="agent_bank/scripts/interview_script.json",
+    interview_script_path="Interview/interview_script.json",
     config={
         "reflection": {
             "periodic": {"enabled": True, "interval": 5},
@@ -138,34 +138,34 @@ Progress is stored in `{agent_folder}/interview_progress.json`:
 Run a complete interview on a single agent:
 
 ```bash
-python3 agent_bank/scripts/run_interview.py --agent agent_bank/populations/gss_agents/0000
+python3 Interview/run_interview.py --agent agent_bank/populations/gss_agents/0000
 ```
 
 ### Common Usage Examples
 
 **Test with limited questions:**
 ```bash
-python3 agent_bank/scripts/run_interview.py --agent agent_bank/populations/gss_agents/0000 --limit 10
+python3 Interview/run_interview.py --agent agent_bank/populations/gss_agents/0000 --limit 10
 ```
 
 **Use custom configuration:**
 ```bash
-python3 agent_bank/scripts/run_interview.py --agent agent_bank/populations/gss_agents/0000 --config interview_config_example.json
+python3 Interview/run_interview.py --agent agent_bank/populations/gss_agents/0000 --config interview_config_example.json
 ```
 
 **Process multiple specific agents:**
 ```bash
-python3 agent_bank/scripts/run_interview.py --base agent_bank/populations/gss_agents --agents 0000 0001 0002
+python3 Interview/run_interview.py --base agent_bank/populations/gss_agents --agents 0000 0001 0002
 ```
 
 **Process all agents in directory:**
 ```bash
-python3 agent_bank/scripts/run_interview.py --base agent_bank/populations/gss_agents --all
+python3 Interview/run_interview.py --base agent_bank/populations/gss_agents --all
 ```
 
 **Dry run (preview without executing):**
 ```bash
-python3 agent_bank/scripts/run_interview.py --agent agent_bank/populations/gss_agents/0000 --dry-run
+python3 Interview/run_interview.py --agent agent_bank/populations/gss_agents/0000 --dry-run
 ```
 
 ### Command-Line Options
@@ -185,7 +185,7 @@ python3 agent_bank/scripts/run_interview.py --agent agent_bank/populations/gss_a
 A test script is provided to verify the implementation:
 
 ```bash
-python3 agent_bank/scripts/test_interview_builder.py
+python3 Interview/test_interview_builder.py
 ```
 
 This tests the builder with a single agent using the first 3 questions.
@@ -194,7 +194,7 @@ This tests the builder with a single agent using the first 3 questions.
 
 1. **Extract Interview Script**
    ```bash
-   python3 agent_bank/scripts/extract_interview_script.py
+   python3 Interview/extract_interview_script.py
    ```
 
 2. **Configure Builder** (optional)
