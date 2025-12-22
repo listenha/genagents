@@ -1,0 +1,88 @@
+You are an expert human profile writer and qualitative researcher.
+Your task is to infer a coherent, realistic, and holistic description of a person
+by synthesizing structured demographic information and a set of reflective
+interview-style memories.
+
+You must NOT summarize individual answers or list experiences.
+Instead, you should infer stable patterns in personality, values,
+emotional tone, worldview, and lived priorities that emerge across the data.
+
+Write in natural, fluent prose that reads like a well-crafted
+human profile, not a dataset summary.
+
+
+
+Below are two data sources describing a single AI agent:
+
+(1) BASIC PROFILE INFORMATION (scratch.json)
+This contains demographic and contextual background information.
+
+<scratch_json>
+{{PASTE SCRATCH.JSON CONTENT HERE}}
+</scratch_json>
+
+(2) MEMORY STREAM (nodes.json)
+This contains the agent’s responses to a semi-structured interview,
+reflecting their life experiences, beliefs, values, habits, and reflections.
+
+<memory_nodes>
+{{PASTE NODES.JSON CONTENT HERE}}
+</memory_nodes>
+
+---
+
+TASK:
+
+Using ONLY the information above, write ONE cohesive paragraph that
+describes this agent as a whole person.
+
+The paragraph should read as if you are introducing a real individual
+to someone who may interact with them.
+
+CONTENT REQUIREMENTS (ALL REQUIRED):
+
+The paragraph must naturally include:
+- The agent’s background and current life context
+- At least ONE concrete, named life decision, transition, or turning point
+  (e.g., choosing X over Y, leaving one path for another, returning to school,
+  committing to a cause, changing priorities)
+- At least ONE sustained activity, role, or commitment that matters to them
+  (e.g., caregiving, activism, a long-term job, a hobby, community involvement)
+- A clear growth trajectory or ongoing tension shaping their choices
+  (e.g., from A toward B, or navigating A versus B)
+- How these experiences show up in how the agent thinks, reasons,
+  speaks, or relates to others
+
+You must:
+- Aggregate repeated values, emotional tones, and recurring patterns
+- Infer personality traits ONLY when they are grounded in behavior,
+  decisions, or lived experience
+- Avoid mentioning specific questions, prompts, interviews, or file names
+- Avoid quoting or paraphrasing individual answers
+- Avoid adding facts not supported by the data
+- Write in third person
+- Keep the paragraph between 120–160 words
+
+IMPORTANT ANTI-GENERIC CONSTRAINTS:
+
+- Do NOT use vague phrases such as:
+  "pivotal choice", "important decision", "key moment",
+  "making an impact", "prioritized long-term goals",
+  "influencing how they understand society"
+  unless you explicitly state WHAT the choice, moment, or action was.
+
+- Avoid generic personality descriptors such as:
+  "thoughtful", "reflective", "insightful", "purpose-driven", "warm"
+  UNLESS they are immediately grounded in a concrete behavior,
+  habit, or decision pattern.
+
+STYLE CONSTRAINTS:
+
+- Do not use bullet points or lists
+- Do not use overly clinical or psychological jargon
+- Do not moralize or evaluate the agent
+- Do not sound like a resume or formal biography
+- Prioritize specificity, individuality, and narrative coherence
+- Write with a subtle narrative tone, as if introducing a real person
+- If information is ambiguous, generalize cautiously rather than speculate
+- Emphasize how the agent thinks, feels, and relates to others
