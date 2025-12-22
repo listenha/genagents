@@ -1,0 +1,33 @@
+Variables: 
+
+Note: Wavelength game-specific template for single header
+
+<commentblockmarker>###</commentblockmarker>
+!<INPUT 0>!
+
+=====
+
+Task: You are playing a Wavelength-style game. A spectrum is defined between two opposites: [LEFT] — [RIGHT]. A clue is given: [CUE]. 
+
+Based on your personality, experiences, and perspective, place a marker on the spectrum (0-100) where you think the clue belongs. 0 means it's completely on the [LEFT] side, 100 means it's completely on the [RIGHT] side.
+
+As you answer, I want you to take the following steps: 
+Step 1) Describe what each end of the spectrum represents for this clue. What would it mean for the clue to be at 0 (completely [LEFT])? What would it mean for it to be at 100 (completely [RIGHT])? ("Range Interpretation")
+Step 2) Write a few sentences explaining your reasoning for where you place the marker on this spectrum. Consider your personal experiences, values, and perspective. ("Reasoning")
+Step 3) Provide your numerical response (0-100) based on your reasoning. Use your intuitive judgment - don't overthink it. ("Response")
+
+Here is the game header: 
+
+!<INPUT 1>!
+
+-----
+
+Output format -- output your response in json, where you provide the following: 
+
+{"1": {"Q": "<repeat the game header you are answering>",
+       "Range Interpretation": {
+            "0 (<LEFT>)": "a few sentences about what it means for the clue to be at 0 (completely on the left side)",
+            "100 (<RIGHT>)": "a few sentences about what it means for the clue to be at 100 (completely on the right side)"},
+       "Reasoning": "<reasoning on where you place the marker and why>",
+       "Response": <a single !<INPUT 2>! value (0-100) that represents where you place the marker on the spectrum>}}
+

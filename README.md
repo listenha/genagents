@@ -6,17 +6,10 @@
 
 This project introduces a novel agent architecture that simulates the attitudes and behaviors of real individuals by applying large language models (LLMs) to qualitative interviews about their lives. These agents replicate participants' responses on various social science measures, providing a foundation for new tools to investigate individual and collective behavior.
 
-In the coming months, the authors at Stanford University plan to make available generative agents of 1,000 people—based on 2,000 hours of interviews—via a restricted API for research purposes. To support research while protecting participant privacy, this restricted access will offer a two-pronged system:
-
-1. **Open Access to Aggregated Responses on Fixed Tasks**: Researchers can access aggregated data to analyze general trends and patterns.
-2. **Restricted Access to Individual Responses on Open Tasks**: Researchers can request access to individual agents' responses for more detailed studies, subject to a review process ensuring ethical considerations are met.
-
 This codebase offers two main components:
 
 1. **Codebase for Creating and Interacting with Generative Agents**: Tools to build new agents based on your own data and interact with them. Query agents with surveys, experiments, and other stimuli to study their responses.
 2. **Demographic Agent Banks**: A bank of over 3,000 agents created using demographic information from the General Social Survey (GSS) as a starting point to explore the codebase. *Note: The names and addresses are fictional.*
-
-Additionally, to provide users with a sense of the interview-based agents, we offer an example generative agent of one of the authors, created using the same interview protocol used in our paper.
 
 ## Table of Contents
 
@@ -151,8 +144,7 @@ genagents/
 │   └── prompt_template/                # All LLM prompts used in this project
 ├── agent_bank/                         # Directory for storing agent data
 │   └── populations/                   # Contains pre-generated agents
-│       ├── gss_agents/                 # Demographic agent data based on the GSS
-│       └── single_agent/                # Example agent data
+│       ├── gss_agents/                 # Demographic agent data based on 
 ├── Interview/                          # Interview module (see Interview/README.md)
 │   ├── README.md                       # Interview module documentation
 │   ├── run_interview.py                 # CLI for running interviews
@@ -704,24 +696,6 @@ For detailed technical documentation, see the memory system implementation in `g
 
 ---
 
-## Sample Agent
-
-A sample agent is provided in the `agent_bank/populations/single_agent/` directory. This agent includes a pre-populated memory stream and scratchpad information for demonstration purposes.
-
-You can load and interact with the sample agent as follows:
-
-```python
-agent = GenerativeAgent(agent_folder="agent_bank/populations/single_agent")
-
-# Interact with the agent
-questions = {
-    "Do you enjoy outdoor activities?": ["Yes", "No", "Sometimes"]
-}
-response = agent.categorical_resp(questions)
-print(response["responses"])
-```
-
----
 
 ## Agent Bank Access
 
@@ -729,38 +703,9 @@ Due to participant privacy concerns, the full agent bank containing over 1,000 g
 
 The codebase includes a demographic agent bank (`agent_bank/populations/gss_agents/`) with over 3,000 agents created using demographic information from the General Social Survey (GSS). *Note: The names and addresses are fictional.*
 
----
-
-## Contributing
-
-We welcome contributions to enhance the functionality and usability of this project. If you are interested in contributing, please follow these steps:
-
-1. **Fork the Repository**: Click on the "Fork" button at the top right corner of this page to create a copy of the repository on your GitHub account.
-2. **Clone the Forked Repository**: Use `git clone` to clone the repository to your local machine.
-3. **Create a New Branch**: Create a new branch for your feature or bug fix.
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-4. **Make Changes**: Implement your feature or fix the bug.
-5. **Commit Changes**: Commit your changes with a descriptive commit message.
-   ```bash
-   git commit -am "Add new feature: your feature name"
-   ```
-6. **Push to GitHub**: Push your changes to your forked repository.
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-7. **Submit a Pull Request**: Go to the original repository and create a pull request from your forked repository.
-
-Please ensure that your code follows the project's coding conventions and includes relevant tests and documentation.
 
 ---
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
 
 ## References
 
@@ -768,18 +713,3 @@ Please refer to the original paper for detailed information on the methodology a
 
 - Park, J. S., Zou, C. Q., Shaw, A., Hill, B. M., Cai, C., Morris, M. R., Willer, R., Liang, P., & Bernstein, M. S. (2024). *Generative Agent Simulations of 1,000 People*.
 
----
-
-## Acknowledgements
-
-We thank Akaash Kolluri (Github: akaashkolluri) for the help setting up this open source repository.
-
-In addition, we thank Douglas Guilbeault, Amir Goldberg, Diyi Yang, Jeff Hancock, Serina Chang for their insights and discussions.
-
----
-
-## Contact
-
-For questions or inquiries, please contact the corresponding author:
-
-- **Joon Sung Park**: [joonspk@stanford.edu](mailto:joonspk@stanford.edu)

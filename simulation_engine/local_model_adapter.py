@@ -12,6 +12,46 @@ import os
 
 from simulation_engine.settings import *
 
+def get_available_gpu():
+    """
+    Find an available GPU with sufficient free memory.
+    Returns device string like "cuda:1" or "cuda" (defaults to 0).
+    """
+    if not torch.cuda.is_available():
+        return "cpu"
+    
+    import subprocess
+    try:
+        # Get GPU memory info from nvidia-smi
+        result = subprocess.run(
+            ["nvidia-smi", "--query-gpu=index,memory.free", "--format=csv,noheader,nounits"],
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        
+        # Parse output: "0, 1000\n1, 2000\n..."
+        gpus = []
+        for line in result.stdout.strip().split('\n'):
+            if line.strip():
+                idx, free_mem = line.split(',')
+                gpus.append((int(idx.strip()), int(free_mem.strip())))
+        
+        # Sort by free memory (descending) and find one with >10GB free
+        gpus.sort(key=lambda x: x[1], reverse=True)
+        for gpu_idx, free_mem_gb in gpus:
+            if free_mem_gb > 10000:  # 10GB free memory threshold
+                return f"cuda:{gpu_idx}"
+        
+        # If no GPU has 10GB free, use the one with most free memory
+        if gpus:
+            return f"cuda:{gpus[0][0]}"
+    except Exception as e:
+        print(f"Warning: Could not detect free GPU: {e}")
+    
+    # Fallback to default
+    return "cuda"
+
 # Get local model settings with defaults
 try:
     _local_model_name = LOCAL_MODEL_NAME
@@ -25,8 +65,12 @@ except NameError:
 
 try:
     _device = DEVICE
+    # If DEVICE is just "cuda", try to find an available GPU
+    if _device == "cuda":
+        _device = get_available_gpu()
+        print(f"Auto-selected GPU: {_device}")
 except NameError:
-    _device = "cuda"
+    _device = get_available_gpu() if torch.cuda.is_available() else "cpu"
 
 try:
     _hf_token = HF_TOKEN
@@ -37,6 +81,7 @@ except NameError:
 _model_cache = {}
 _tokenizer_cache = {}
 _embedding_model_cache = None
+
 
 
 def load_local_model(model_name: str = None, device: str = None):
@@ -57,10 +102,30 @@ def load_local_model(model_name: str = None, device: str = None):
     
     # Check cache first
     cache_key = f"{model_name}_{device}"
+    # Debug: report cache status
+    # if len(_model_cache) > 0:
+    #     print(f"DEBUG: Model cache has {len(_model_cache)} entries: {list(_model_cache.keys())}", flush=True)
     if cache_key in _model_cache:
+        # print(f"Using cached model for {cache_key}", flush=True)
+        # Report memory when using cached model
+        # if device.startswith("cuda") and torch.cuda.is_available():
+        #     # Convert device string to device index for memory reporting
+        #     if ":" in device:
+        #         device_idx = int(device.split(":")[1])
+        #     else:
+        #         device_idx = 0
+        #     allocated = torch.cuda.memory_allocated(device_idx) / 1e9
+        #     reserved = torch.cuda.memory_reserved(device_idx) / 1e9
+        #     # Check model dtype
+        #     model = _model_cache[cache_key]
+        #     first_param_dtype = next(model.parameters()).dtype
+        #     print(f"Cached model dtype: {first_param_dtype}, Memory: {allocated:.2f} GB allocated, {reserved:.2f} GB reserved on {device}", flush=True)
+        # Clear cache before returning to free up fragmented memory
+        if device.startswith("cuda"):
+            torch.cuda.empty_cache()
         return _model_cache[cache_key], _tokenizer_cache[cache_key]
     
-    print(f"Loading model: {model_name} on {device}")
+    # print(f"Loading new model for {cache_key} (cache miss)", flush=True)
     
     # Prepare authentication
     auth_kwargs = {}
@@ -185,7 +250,7 @@ def load_local_model(model_name: str = None, device: str = None):
         tokenizer.pad_token = tokenizer.eos_token
     
     # Load model
-    if device == "cuda" and torch.cuda.is_available():
+    if device.startswith("cuda") and torch.cuda.is_available():
         try:
             # Try using device_map for automatic GPU placement
             model = AutoModelForCausalLM.from_pretrained(
@@ -213,6 +278,22 @@ def load_local_model(model_name: str = None, device: str = None):
             model = model.to(device)
     
     model.eval()
+    
+    # Verify model dtype and print memory usage
+    # if device.startswith("cuda") and torch.cuda.is_available():
+    #     # Check actual model dtype
+    #     first_param_dtype = next(model.parameters()).dtype
+    #     print(f"Model dtype: {first_param_dtype}, Expected: torch.float16", flush=True)
+    #     
+    #     # Print GPU memory usage - convert device string to index
+    #     if torch.cuda.is_available():
+    #         if ":" in device:
+    #             device_idx = int(device.split(":")[1])
+    #         else:
+    #             device_idx = 0
+    #         allocated = torch.cuda.memory_allocated(device_idx) / 1e9
+    #         reserved = torch.cuda.memory_reserved(device_idx) / 1e9
+    #         print(f"GPU memory after loading: {allocated:.2f} GB allocated, {reserved:.2f} GB reserved on {device} (device_idx={device_idx})", flush=True)
     
     # Cache the model
     _model_cache[cache_key] = model
@@ -296,6 +377,19 @@ def local_model_request(prompt: str,
             inputs = tokenizer(formatted_prompt, return_tensors="pt")
             # Move to device
             inputs = {k: v.to(device) for k, v in inputs.items()}
+            
+            # Clear cache before generation to free fragmented memory
+            if device.startswith("cuda"):
+                torch.cuda.empty_cache()
+                torch.cuda.synchronize()
+                # Report memory before generation - convert device string to index
+                # if ":" in device:
+                #     device_idx = int(device.split(":")[1])
+                # else:
+                #     device_idx = 0
+                # allocated = torch.cuda.memory_allocated(device_idx) / 1e9
+                # reserved = torch.cuda.memory_reserved(device_idx) / 1e9
+                # print(f"Memory before generation: {allocated:.2f} GB allocated, {reserved:.2f} GB reserved on {device} (device_idx={device_idx})", flush=True)
         else:
             # Fallback: simple prompt formatting
             inputs = tokenizer(prompt, return_tensors="pt")
@@ -312,22 +406,52 @@ def local_model_request(prompt: str,
             gen_temperature = temperature  # Use provided temperature (typically 0.7)
             top_p = 0.8
         
-        # Generate
+        # Generate with memory-efficient settings
         with torch.no_grad():
-            outputs = model.generate(
-                **inputs,
-                max_new_tokens=max_tokens,
-                temperature=gen_temperature,
-                top_p=top_p,
-                top_k=20,
-                do_sample=True,
-                pad_token_id=tokenizer.eos_token_id,
-            )
+            try:
+                outputs = model.generate(
+                    **inputs,
+                    max_new_tokens=min(max_tokens, 512),  # Cap at 512 to save memory
+                    temperature=gen_temperature,
+                    top_p=top_p,
+                    top_k=20,
+                    do_sample=True,
+                    pad_token_id=tokenizer.eos_token_id,
+                )
+            except RuntimeError as e:
+                if "out of memory" in str(e).lower():
+                    # Report memory state on OOM - convert device string to index
+                    if device.startswith("cuda") and torch.cuda.is_available():
+                        if ":" in device:
+                            device_idx = int(device.split(":")[1])
+                        else:
+                            device_idx = 0
+                        allocated = torch.cuda.memory_allocated(device_idx) / 1e9
+                        reserved = torch.cuda.memory_reserved(device_idx) / 1e9
+                        print(f"OOM Error! Memory state: {allocated:.2f} GB allocated, {reserved:.2f} GB reserved on {device} (device_idx={device_idx})", flush=True)
+                        torch.cuda.empty_cache()
+                    raise
+                else:
+                    raise
         
         # Decode response
         input_length = inputs["input_ids"].shape[1]
         generated_tokens = outputs[0][input_length:]
         response = tokenizer.decode(generated_tokens, skip_special_tokens=True)
+        
+        # Clear memory after generation to free up attention matrices
+        if device.startswith("cuda"):
+            del inputs, outputs, generated_tokens
+            torch.cuda.empty_cache()
+            torch.cuda.synchronize()
+            # Report memory after generation
+            # if ":" in device:
+            #     device_idx = int(device.split(":")[1])
+            # else:
+            #     device_idx = 0
+            # allocated = torch.cuda.memory_allocated(device_idx) / 1e9
+            # reserved = torch.cuda.memory_reserved(device_idx) / 1e9
+            # print(f"Memory after generation: {allocated:.2f} GB allocated, {reserved:.2f} GB reserved on {device}", flush=True)
         
         # Clean up reasoning blocks if present (for Qwen3 thinking mode)
         # Even with enable_thinking=False, sometimes blocks may appear

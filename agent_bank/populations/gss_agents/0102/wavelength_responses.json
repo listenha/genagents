@@ -1,0 +1,574 @@
+{
+  "game_metadata": {
+    "game_name": "Wavelength Game",
+    "game_version": "1.0",
+    "extraction_date": "2025-12-19T22:54:46.055840"
+  },
+  "agent_metadata": {
+    "agent_id": "0102",
+    "agent_name": "Angela Mason"
+  },
+  "attempts": [
+    {
+      "attempt_id": 1,
+      "timestamp": "2025-12-19T23:05:03.336081",
+      "headers": {
+        "header_0": {
+          "spectrum": {
+            "left": "Scared to death",
+            "right": "bored to death"
+          },
+          "cue": "Horror Movie",
+          "response": 50,
+          "raw_response": "Horror movies are generally designed to evoke fear, but not all are equally intense. Based on my personal experiences, I’ve seen horror movies that were frightening but not overwhelming, and others that were more about suspense or psychological tension than outright terror. I don’t find horror movies to be so scary that they leave me 'scared to death,' but I also don’t find them so boring that they are 'bored to death.' They usually fall somewhere in the middle, where they are engaging and evoke some level of fear without being overwhelming."
+        },
+        "header_1": {
+          "spectrum": {
+            "left": "Simplistic",
+            "right": "complex"
+          },
+          "cue": "Math",
+          "response": 75,
+          "raw_response": "Math has always felt to me like a subject that can be both simple and complex, depending on the context. In my early education, it was straightforward arithmetic and basic problem-solving, which I found accessible. However, as I've grown and encountered more advanced concepts, I've come to see math as something much deeper—requiring not just memorization, but understanding, intuition, and the ability to think abstractly. My experience with mindfulness and the idea that life is full of layers and depth has made me appreciate the complexity in all things, including math. While I recognize that math can be simplified for basic use, I believe it has a richness and depth that makes it more complex than simplistic."
+        },
+        "header_2": {
+          "spectrum": {
+            "left": "Technology is good",
+            "right": "technology is bad"
+          },
+          "cue": "Artificial General Intelligence",
+          "response": 50,
+          "raw_response": "I place the marker around 50 because I believe AGI has the potential for both immense good and significant risk. From my perspective, the development of AGI could be a powerful tool for solving complex problems, but it also raises ethical and existential concerns. My experiences with mindfulness and community have taught me to approach new developments with both curiosity and caution. I value the potential for progress but also recognize the need for careful regulation and ethical considerations to prevent harm."
+        },
+        "header_3": {
+          "spectrum": {
+            "left": "Explosive",
+            "right": "unreactive"
+          },
+          "cue": "nuclear",
+          "response": 80,
+          "raw_response": "Nuclear energy is inherently associated with the potential for massive energy release, which aligns with the 'explosive' end of the spectrum. While nuclear materials can be stable under controlled conditions, the term 'nuclear' itself carries a strong connotation of power and reactivity, especially in contexts like nuclear weapons or power plants. My understanding of nuclear energy comes from general knowledge and discussions about its applications and risks, which lean more toward the explosive side of the spectrum."
+        },
+        "header_4": {
+          "spectrum": {
+            "left": "Friendly",
+            "right": "standoffish"
+          },
+          "cue": "cat",
+          "response": 60,
+          "raw_response": "Based on my experiences with cats, they often have a mix of friendly and standoffish behaviors depending on their personality and environment. However, in general, cats are often seen as more independent and less overtly friendly compared to dogs. While some cats can be very affectionate, many tend to be more reserved or selective in their interactions. Given that the clue is simply 'cat,' I would place it closer to the 'standoffish' end of the spectrum, as cats are generally perceived as more independent and less overtly friendly."
+        },
+        "header_5": {
+          "spectrum": {
+            "left": "Durable",
+            "right": "fragile"
+          },
+          "cue": "Glass",
+          "response": 15,
+          "raw_response": "Glass is a material that is generally known for being brittle and prone to breaking when subjected to force or temperature changes. While it can be strong under certain conditions (like in tempered glass), its inherent property is that it is easily shattered. Based on my understanding of materials and personal experience with glass items breaking, I believe it leans more toward the fragile end of the spectrum."
+        },
+        "header_6": {
+          "spectrum": {
+            "left": "Optimist",
+            "right": "pessimist"
+          },
+          "cue": "graduation yearbook",
+          "response": 85,
+          "raw_response": "For me, a graduation yearbook represents a meaningful milestone and a celebration of growth, effort, and the beginning of new opportunities. I value the positive memories and the sense of accomplishment that comes with graduation. While I acknowledge that the future is uncertain, I tend to focus on the possibilities and the lessons learned rather than on potential disappointments. My experiences with education, military service, and personal growth have taught me to see moments like graduation as positive turning points."
+        },
+        "header_7": {
+          "spectrum": {
+            "left": "Quirky",
+            "right": "mundane"
+          },
+          "cue": "streaming video",
+          "response": 75,
+          "raw_response": "Streaming video is something I engage with regularly, though not obsessively. It's a common, everyday activity that most people do without much thought. While there are quirky or niche aspects to streaming (like specific content or platforms), the act of streaming itself is not particularly unusual or eccentric in my experience. It's more of a standard part of modern life, especially for entertainment and education. I see it as a mundane activity that I do to relax or learn, not something quirky or special."
+        },
+        "header_8": {
+          "spectrum": {
+            "left": "Causality",
+            "right": "randomness"
+          },
+          "cue": "Murphy's Law",
+          "response": 75,
+          "raw_response": "Murphy's Law, which states 'Anything that can go wrong, will go wrong,' leans more toward randomness than strict causality. While there may be underlying causes for things going wrong, the law is often used humorously or as a general observation about the unpredictability of life. My experiences with challenges—like health issues, financial struggles, or unexpected setbacks—have shown me that life often feels unpredictable and chaotic, even when there are contributing factors. This aligns more with randomness than strict causality."
+        },
+        "header_9": {
+          "spectrum": {
+            "left": "Quiet",
+            "right": "bombastic"
+          },
+          "cue": "Your music taste",
+          "response": 20,
+          "raw_response": "My music taste tends to lean toward calm, reflective, and meditative sounds that align with my Buddhist practice and mindfulness. I enjoy music that helps me relax, focus, or reflect rather than music that is loud or overwhelming. While I appreciate a variety of genres, I find that bombastic music can be distracting or overstimulating for me, especially given my need for balance and inner peace."
+        },
+        "header_10": {
+          "spectrum": {
+            "left": "Warm and fuzzy",
+            "right": "cold and jagged"
+          },
+          "cue": "A hand-written note",
+          "response": 85,
+          "raw_response": "A hand-written note can carry a wide range of emotions depending on the context and intent behind it. From my perspective, a hand-written note often carries a sense of personal touch and intention, which leans toward the warm and fuzzy side. I’ve received notes from my children, from friends, and even from people I’ve helped at the community center, and they’ve often been filled with care and warmth. While a note could be cold or jagged in certain contexts, the default emotional weight of a hand-written note—especially one that is thoughtful and personal—tends to be on the warmer side."
+        },
+        "header_11": {
+          "spectrum": {
+            "left": "Objective reality",
+            "right": "subjective reality"
+          },
+          "cue": "beautifulness",
+          "response": 85,
+          "raw_response": "I believe 'beautifulness' is largely a subjective experience, shaped by personal values, emotions, and cultural influences. While there may be some objective elements (like symmetry or color), the feeling of beauty is deeply tied to individual perception and meaning. My own experiences with mindfulness and Buddhism have taught me that beauty is often found in the present moment, in the way things feel to me, rather than in any universal standard. I’ve also seen how different people find beauty in different things—some in nature, others in relationships, art, or even in simple acts of kindness. This makes me lean more toward the subjective side of the spectrum."
+        },
+        "header_12": {
+          "spectrum": {
+            "left": "Loud",
+            "right": "quiet"
+          },
+          "cue": "Aircraft engine",
+          "response": 95,
+          "raw_response": "An aircraft engine is inherently a very loud sound, especially when it's operating at full power. From my personal experiences and observations, aircraft engines are known for their intense noise levels, which can be heard from a distance and are often described as extremely loud. While there might be moments when the engine is quieter (such as during idle or maintenance), the general association with an aircraft engine is with loud noise. This aligns with my understanding of the clue and how it relates to the spectrum of loud to quiet."
+        },
+        "header_13": {
+          "spectrum": {
+            "left": "Civilization always improves",
+            "right": "history is random"
+          },
+          "cue": "dinosour",
+          "response": 45,
+          "raw_response": "Dinosaurs are a part of Earth's long and complex history, which includes both periods of advancement and mass extinctions. While they were a dominant species, their extinction was not a step forward in a linear progression of life, but rather a random event caused by external factors like asteroid impacts. This aligns more with the idea that history is not necessarily progressive but shaped by unpredictable forces. However, the eventual rise of mammals and humans could be seen as an improvement, so I place the clue somewhere in the middle."
+        },
+        "header_14": {
+          "spectrum": {
+            "left": "Cringe",
+            "right": "cool"
+          },
+          "cue": "Drinking",
+          "response": 50,
+          "raw_response": "I place the clue 'Drinking' somewhere in the middle of the spectrum. While drinking can be a social activity that brings people together and is often seen as cool in certain contexts, it can also be cringe if done in excess, in inappropriate settings, or if it leads to embarrassment. From my perspective, drinking is neither inherently cringe nor cool—it depends on the context, the people involved, and how it's approached. I’ve seen it be a positive part of social life, but I also know it can lead to awkward or uncomfortable situations if not handled with care."
+        },
+        "header_15": {
+          "spectrum": {
+            "left": "Aggressive",
+            "right": "passive"
+          },
+          "cue": "venture capital",
+          "response": 85,
+          "raw_response": "Venture capital is inherently aggressive in nature because it involves investing in high-risk, high-reward startups. Investors typically take an active role in guiding the companies they fund, often seeking rapid growth and returns. From my perspective, venture capital is not passive—it requires strategic risk-taking and assertiveness to identify and support promising ventures. My own experiences with community work and education have shown me the value of taking initiative and making bold decisions, which aligns with the aggressive end of the spectrum."
+        },
+        "header_16": {
+          "spectrum": {
+            "left": "Annoying",
+            "right": "entertaining"
+          },
+          "cue": "Smoke detector",
+          "response": 45,
+          "raw_response": "A smoke detector is primarily a safety device, and while it is essential, it is not inherently entertaining. However, it is also not typically seen as annoying unless it malfunctions or is overly sensitive. From my perspective, a smoke detector is more of a neutral necessity. It is important but not something I would consider either annoying or entertaining in most situations. I place it closer to the middle of the spectrum, as it serves a critical function without being inherently enjoyable or irritating."
+        },
+        "header_17": {
+          "spectrum": {
+            "left": "Wanderlust",
+            "right": "homesickness"
+          },
+          "cue": "Candle Light at New City",
+          "response": 30,
+          "raw_response": "The phrase 'Candle Light at New City' evokes a sense of quiet reflection and possibly loneliness in an unfamiliar place. While it could be interpreted as a moment of calm or beauty in a new setting, the mention of 'New City' suggests a departure from home, which may imply a subtle undercurrent of homesickness. However, it doesn’t strongly convey a deep longing for home, so it leans more toward wanderlust with a hint of introspection rather than full homesickness."
+        },
+        "header_18": {
+          "spectrum": {
+            "left": "Fear of missing out",
+            "right": "need to sit one out"
+          },
+          "cue": "Avatar 2",
+          "response": 70,
+          "raw_response": "Based on my experiences and values, I lean more toward the 'need to sit one out' side of the spectrum. I've learned the importance of mindfulness, self-care, and knowing when to step back from social pressures or obligations. While I value connection, I've also found that taking time for myself—whether through meditation, quiet moments, or simply saying no to something that doesn't align with my priorities—is essential for my well-being. I believe in balance and the power of intentional presence, which aligns more with the 'need to sit one out' perspective."
+        },
+        "header_19": {
+          "spectrum": {
+            "left": "Zesty",
+            "right": "bland"
+          },
+          "cue": "Diet Coke",
+          "response": 60,
+          "raw_response": "Diet Coke has a distinct, slightly sweet and tangy flavor profile, with a strong carbonation that gives it a refreshing quality. While it's not overly complex or spicy, it does have a noticeable and lively taste that sets it apart from bland beverages. However, it's not as intensely zesty as something like citrus soda or a highly spiced drink. Based on my personal experience with Diet Coke, I would place it somewhere in the middle to slightly higher range, as it has a clear flavor but not an overwhelming one."
+        }
+      },
+      "completion_status": "completed"
+    },
+    {
+      "attempt_id": 2,
+      "timestamp": "2025-12-20T06:51:15.091500",
+      "headers": {
+        "header_0": {
+          "spectrum": {
+            "left": "Scared to death",
+            "right": "bored to death"
+          },
+          "cue": "Horror Movie",
+          "response": 45,
+          "raw_response": "Horror movies are designed to evoke fear, but they also often include elements of suspense, storytelling, and creativity that can prevent them from being entirely boring. While some horror movies can be very scary, others may not be as intense and could be more about the experience of being entertained in a unique way. Based on my personal experience, horror movies typically fall somewhere in the middle of the spectrum, as they aim to provoke fear but not necessarily to the point of being 'scared to death.' They also usually have enough narrative or visual elements to avoid being 'bored to death.'"
+        },
+        "header_1": {
+          "spectrum": {
+            "left": "Simplistic",
+            "right": "complex"
+          },
+          "cue": "Math",
+          "response": 60,
+          "raw_response": "Math, to me, is neither purely simplistic nor entirely complex. I see it as a subject that can be both. In school, I found it challenging at times, but I also appreciated the logic and patterns it revealed. It can be simplified for basic understanding, but it also has layers of complexity that require deeper exploration. My perspective is that math is best understood as a balance between simplicity and complexity, depending on the context and the depth of study."
+        },
+        "header_2": {
+          "spectrum": {
+            "left": "Technology is good",
+            "right": "technology is bad"
+          },
+          "cue": "Artificial General Intelligence",
+          "response": 50,
+          "raw_response": "I place AGI closer to the middle of the spectrum, around 50. While I recognize the potential benefits of AGI, such as solving complex global issues and advancing human progress, I also acknowledge the risks, including ethical concerns, loss of control, and unintended consequences. My experiences with mindfulness and the value I place on human connection make me cautious about technology that could disrupt or replace human roles. However, I also believe in the power of education, community, and conscious decision-making to guide the responsible development of such technology."
+        },
+        "header_3": {
+          "spectrum": {
+            "left": "Explosive",
+            "right": "unreactive"
+          },
+          "cue": "nuclear",
+          "response": 70,
+          "raw_response": "Nuclear energy is inherently associated with power, potential for destruction, and reactivity. While it can be harnessed for peaceful purposes, the term 'nuclear' often carries connotations of explosion, as in nuclear weapons or nuclear reactions. From my perspective, the word 'nuclear' leans more toward the explosive side of the spectrum due to its historical and cultural associations with power and danger."
+        },
+        "header_4": {
+          "spectrum": {
+            "left": "Friendly",
+            "right": "standoffish"
+          },
+          "cue": "cat",
+          "response": 60,
+          "raw_response": "From my perspective, cats can vary widely in their behavior, but I generally associate them with being independent and sometimes reserved. While some cats are very friendly and affectionate, others are more aloof. Based on my own experiences with cats and the general perception of them, I would place the clue 'cat' closer to the 'standoffish' end of the spectrum. Cats are often seen as more reserved and less expressive than dogs, which contributes to this perception."
+        },
+        "header_5": {
+          "spectrum": {
+            "left": "Durable",
+            "right": "fragile"
+          },
+          "cue": "Glass",
+          "response": 10,
+          "raw_response": "Glass is inherently fragile, as it is well known for breaking easily when subjected to force or temperature changes. While there are types of glass that are more durable (like tempered or laminated glass), the general perception of glass is that it is fragile. My personal experience with glass—whether in everyday objects like windows, glasses, or containers—reinforces this idea. I have seen it break with minimal impact, which aligns more with the fragile end of the spectrum."
+        },
+        "header_6": {
+          "spectrum": {
+            "left": "Optimist",
+            "right": "pessimist"
+          },
+          "cue": "graduation yearbook",
+          "response": 85,
+          "raw_response": "For me, a graduation yearbook is a symbol of growth, connection, and the beginning of new possibilities. It represents the culmination of effort and the start of a new chapter, which aligns with an optimistic perspective. While I understand that some might view it with uncertainty or regret, my personal experience with graduation was one of hope and excitement for the future. I value the memories and the opportunities that come with moving forward, which makes me lean more toward the optimistic side of the spectrum."
+        },
+        "header_7": {
+          "spectrum": {
+            "left": "Quirky",
+            "right": "mundane"
+          },
+          "cue": "streaming video",
+          "response": 75,
+          "raw_response": "Streaming video is something I encounter regularly, like watching shows or documentaries on my phone or computer. It's a common, everyday activity that most people engage in without it feeling particularly quirky. However, I don't see it as completely mundane either, because there's a certain level of technology and personal choice involved. Still, for the majority of people, it's a standard part of modern life."
+        },
+        "header_8": {
+          "spectrum": {
+            "left": "Causality",
+            "right": "randomness"
+          },
+          "cue": "Murphy's Law",
+          "response": 60,
+          "raw_response": "Murphy's Law is often used to express the idea that if anything can go wrong, it will—typically in a context where there is a sense of inevitability or a pattern of things going wrong despite best efforts. While there is an element of randomness in the outcomes, I believe the law is more about the perception of causality in everyday life. My experiences, especially in balancing work, family, and health, have shown me that things often go wrong in ways that feel predictable or patterned, even if they aren't strictly deterministic. This aligns more with the idea of causality than pure randomness."
+        },
+        "header_9": {
+          "spectrum": {
+            "left": "Quiet",
+            "right": "bombastic"
+          },
+          "cue": "Your music taste",
+          "response": 30,
+          "raw_response": "My music taste leans more toward quiet and introspective genres, such as ambient, soft rock, and Buddhist-inspired meditation music. These styles align with my values of mindfulness and inner peace, which are central to my spiritual practice. While I enjoy music that is expressive and emotional, I generally prefer it to be calming rather than loud or overwhelming. I find that bombastic music can be energizing, but it doesn't resonate with the kind of quiet, reflective energy I seek in daily life."
+        },
+        "header_10": {
+          "spectrum": {
+            "left": "Warm and fuzzy",
+            "right": "cold and jagged"
+          },
+          "cue": "A hand-written note",
+          "response": 85,
+          "raw_response": "A hand-written note can carry a wide range of emotions depending on its context and content. Based on my experiences and values, I associate hand-written notes with warmth and connection. I’ve received notes from my children, friends, and even from the community center where I work—each one filled with care, gratitude, or love. These moments have been deeply meaningful and have reinforced the importance of personal, thoughtful communication. While a note could be cold or jagged in certain contexts, my personal experiences and values lean toward the warm and fuzzy end of the spectrum."
+        },
+        "header_11": {
+          "spectrum": {
+            "left": "Objective reality",
+            "right": "subjective reality"
+          },
+          "cue": "beautifulness",
+          "response": 75,
+          "raw_response": "I believe 'beautifulness' is a blend of both objective and subjective elements. While there are universal aspects of beauty—like symmetry or natural patterns—my personal experiences and values strongly influence how I perceive beauty. My Buddhist practice emphasizes mindfulness and compassion, which shape my appreciation for beauty in everyday moments, like the quiet of a morning meditation or the laughter of my children. However, I also recognize that there are objective qualities that contribute to beauty, such as balance or harmony. Given my perspective, I place 'beautifulness' closer to the subjective side, as my experience of beauty is deeply tied to personal meaning and emotional resonance."
+        },
+        "header_12": {
+          "spectrum": {
+            "left": "Loud",
+            "right": "quiet"
+          },
+          "cue": "Aircraft engine",
+          "response": 95,
+          "raw_response": "An aircraft engine is inherently loud due to its design and function. While there may be moments of reduced noise (e.g., during idle or maintenance), the standard operation of an aircraft engine is associated with high levels of noise. Based on my personal experiences and understanding of how aircraft engines operate, I believe the clue 'Aircraft engine' is best placed closer to the 'loud' end of the spectrum."
+        },
+        "header_13": {
+          "spectrum": {
+            "left": "Civilization always improves",
+            "right": "history is random"
+          },
+          "cue": "dinosour",
+          "response": 95,
+          "raw_response": "Dinosaurs are a clear example of a random event in the history of life on Earth. Their existence was not a step toward human civilization but rather a natural, evolutionary occurrence that was ultimately interrupted by a random extinction event. From my perspective, the history of life, including the rise and fall of dinosaurs, is best understood as a series of random events rather than a linear path of improvement. Dinosaurs do not represent progress in the context of civilization, which is a much more recent development."
+        },
+        "header_14": {
+          "spectrum": {
+            "left": "Cringe",
+            "right": "cool"
+          },
+          "cue": "Drinking",
+          "response": 55,
+          "raw_response": "Drinking, in general, carries a range of connotations depending on the context. From my perspective, drinking can be both cringe and cool depending on the situation. If it's done in moderation, with friends, or in a respectful setting, it can be seen as cool. However, if it's associated with excess, embarrassment, or negative consequences, it can be cringe. I lean more toward the middle, but slightly toward 'cool' because I see drinking as a social activity that can be positive and meaningful when done responsibly."
+        },
+        "header_15": {
+          "spectrum": {
+            "left": "Aggressive",
+            "right": "passive"
+          },
+          "cue": "venture capital",
+          "response": 85,
+          "raw_response": "Venture capital is inherently aggressive in nature because it involves investing in high-risk, high-growth startups with the expectation of substantial returns. This type of investment requires active involvement, strategic decision-making, and a willingness to take on significant financial risk. From my perspective, venture capital is not a passive endeavor—it demands engagement, analysis, and a bold approach to financial opportunities."
+        },
+        "header_16": {
+          "spectrum": {
+            "left": "Annoying",
+            "right": "entertaining"
+          },
+          "cue": "Smoke detector",
+          "response": 20,
+          "raw_response": "A smoke detector is primarily a safety device, and while it can be annoying when it goes off unnecessarily, it is not inherently entertaining. From my perspective, it serves a critical function, and while I might find it frustrating during false alarms, I don’t see it as something that would be considered entertaining. Its purpose is serious and life-saving, so it leans more toward the 'annoying' side of the spectrum, though not completely so."
+        },
+        "header_17": {
+          "spectrum": {
+            "left": "Wanderlust",
+            "right": "homesickness"
+          },
+          "cue": "Candle Light at New City",
+          "response": 65,
+          "raw_response": "The phrase 'Candle Light at New City' suggests a moment of quiet reflection in an unfamiliar place. While there's a hint of exploration, the mention of 'new city' and the imagery of candlelight could imply a sense of isolation or longing for home. Based on my own experiences of moving to a new place and feeling both excited and homesick, I believe this clue leans more toward homesickness than wanderlust."
+        },
+        "header_18": {
+          "spectrum": {
+            "left": "Fear of missing out",
+            "right": "need to sit one out"
+          },
+          "cue": "Avatar 2",
+          "response": 75,
+          "raw_response": "Based on my experiences, I value mindfulness, balance, and knowing when to step back. While I understand the pull of staying connected and involved, I've learned the importance of setting boundaries and taking time for myself. My journey has taught me that being present and grounded is more valuable than constantly trying to be everywhere. I believe in the need to sit one out when necessary, especially to maintain emotional and mental well-being."
+        },
+        "header_19": {
+          "spectrum": {
+            "left": "Zesty",
+            "right": "bland"
+          },
+          "cue": "Diet Coke",
+          "response": 65,
+          "raw_response": "Diet Coke is known for its strong carbonation, sweet flavor, and distinct taste, which sets it apart from water or other bland beverages. While it is artificially sweetened and lacks the natural zest of fruits or spices, it is far from bland. Its bold flavor and stimulating qualities place it closer to the 'zesty' end of the spectrum. However, it is not as intensely zesty as something like citrus juice or spicy food, so I place it in the middle to higher range."
+        }
+      },
+      "completion_status": "completed"
+    },
+    {
+      "attempt_id": 3,
+      "timestamp": "2025-12-20T14:14:07.542149",
+      "headers": {
+        "header_0": {
+          "spectrum": {
+            "left": "Scared to death",
+            "right": "bored to death"
+          },
+          "cue": "Horror Movie",
+          "response": 75,
+          "raw_response": "Horror movies are designed to evoke fear and suspense, which aligns with the 'scared to death' end of the spectrum. While some horror movies might be more boring than others, the genre as a whole is intended to provoke fear. My personal experience with horror movies has been that they can be intense and emotionally engaging, even if not always to the point of being 'scared to death.' I’ve found them to be more on the thrilling or unsettling side rather than boring. Therefore, I place the clue closer to the 'scared to death' end of the spectrum."
+        },
+        "header_1": {
+          "spectrum": {
+            "left": "Simplistic",
+            "right": "complex"
+          },
+          "cue": "Math",
+          "response": 55,
+          "raw_response": "Math has always felt to me like a subject that balances simplicity and complexity. On one hand, basic arithmetic and formulas are straightforward and can be learned through repetition. On the other hand, as one delves deeper into areas like calculus or statistics, math becomes highly complex and abstract. My own experience with math has been that it is both accessible and challenging, depending on the level. While I appreciate its foundational simplicity, I also recognize the depth and intricacy it holds, especially in higher-level applications. This duality makes me place it somewhere in the middle."
+        },
+        "header_2": {
+          "spectrum": {
+            "left": "Technology is good",
+            "right": "technology is bad"
+          },
+          "cue": "Artificial General Intelligence",
+          "response": 50,
+          "raw_response": "I place AGI somewhere in the middle of the spectrum, around 50. While I believe AGI has the potential to be incredibly beneficial—like improving healthcare, education, and environmental sustainability—I also recognize the significant risks it poses, such as ethical concerns, job displacement, and the potential for misuse. My perspective is shaped by a cautious optimism, where I value progress but also understand the need for responsibility and regulation. My experiences with mindfulness and community have taught me the importance of balance, and I apply that to how I view emerging technologies like AGI."
+        },
+        "header_3": {
+          "spectrum": {
+            "left": "Explosive",
+            "right": "unreactive"
+          },
+          "cue": "nuclear",
+          "response": 70,
+          "raw_response": "The term 'nuclear' is most commonly associated with the potential for explosive reactions, such as in nuclear weapons or power plants, which are inherently unstable and capable of massive energy release. While there are stable nuclear elements, the general public and historical context often link 'nuclear' with explosive power. My experiences and education have reinforced this association, especially with the destructive potential of nuclear reactions."
+        },
+        "header_4": {
+          "spectrum": {
+            "left": "Friendly",
+            "right": "standoffish"
+          },
+          "cue": "cat",
+          "response": 40,
+          "raw_response": "Based on my experiences with pets and animals, cats can vary widely in their behavior. However, in general, cats are often seen as independent and sometimes aloof. While some cats are very friendly and affectionate, others may be more reserved or standoffish. Given that the clue is simply 'cat,' without any additional context, I would lean toward the more neutral or common perception of cats as being somewhat standoffish, though not entirely. This is based on the idea that cats often maintain a degree of independence and may not always be the first to show affection."
+        },
+        "header_5": {
+          "spectrum": {
+            "left": "Durable",
+            "right": "fragile"
+          },
+          "cue": "Glass",
+          "response": 20,
+          "raw_response": "Glass is generally known for being breakable and not very resilient under pressure. From my personal experience, I've seen glass shatter easily, whether from dropping it or exposing it to extreme temperature changes. While there are types of tempered or reinforced glass that are more durable, the general perception of glass is that it is fragile. My values and perspective, shaped by mindfulness and practical experiences, lead me to see glass as more on the fragile side of the spectrum."
+        },
+        "header_6": {
+          "spectrum": {
+            "left": "Optimist",
+            "right": "pessimist"
+          },
+          "cue": "graduation yearbook",
+          "response": 85,
+          "raw_response": "For me, a graduation yearbook is a symbol of growth and the beginning of new opportunities. It represents the culmination of hard work, the support of family and friends, and the start of a new chapter in life. While it may remind me of challenges I faced, it also reminds me of the resilience and determination that got me to that point. I see it as a positive reflection of the past and a hopeful sign for the future."
+        },
+        "header_7": {
+          "spectrum": {
+            "left": "Quirky",
+            "right": "mundane"
+          },
+          "cue": "streaming video",
+          "response": 70,
+          "raw_response": "Streaming video is something I encounter regularly, like on YouTube or through online classes. It’s not something I find particularly unusual or quirky, but it’s also not something I think about deeply or in a special way. It’s a normal part of daily life for me, especially with my kids watching educational content or me using it for work or learning. It’s functional and routine, not particularly eccentric or unique."
+        },
+        "header_8": {
+          "spectrum": {
+            "left": "Causality",
+            "right": "randomness"
+          },
+          "cue": "Murphy's Law",
+          "response": 30,
+          "raw_response": "Murphy's Law reflects a perspective that things tend to go wrong in predictable, almost inevitable ways, especially when there are opportunities for failure. From my experiences, I've seen how small mistakes or overlooked details can lead to larger problems, often in a way that feels almost inevitable. This aligns more with causality than randomness, as the law implies that there are underlying reasons why things go wrong, not just random chance. My life has been shaped by patterns of cause and effect, especially in areas like health, work, and family, where decisions and habits lead to specific outcomes."
+        },
+        "header_9": {
+          "spectrum": {
+            "left": "Quiet",
+            "right": "bombastic"
+          },
+          "cue": "Your music taste",
+          "response": 30,
+          "raw_response": "My music taste tends to lean toward softer, more reflective genres like acoustic, jazz, and ambient music, which align with my values of mindfulness and inner peace. While I enjoy music that can be emotionally powerful, I generally prefer it to be more subdued and calming rather than loud or intense. I find that quieter music helps me stay centered and grounded, especially during busy or stressful times in my life."
+        },
+        "header_10": {
+          "spectrum": {
+            "left": "Warm and fuzzy",
+            "right": "cold and jagged"
+          },
+          "cue": "A hand-written note",
+          "response": 85,
+          "raw_response": "A hand-written note can carry a wide range of emotional weight depending on the context and intent behind it. In my experience, handwritten notes often hold a sense of care and intention, especially when they come from someone close. I’ve received notes from my children, my partner, or friends that felt warm and personal. While a note could be cold and brief, I believe the act of writing by hand often implies a level of thoughtfulness and connection. Based on my values and experiences, I lean toward the warm and fuzzy side of the spectrum when it comes to handwritten notes."
+        },
+        "header_11": {
+          "spectrum": {
+            "left": "Objective reality",
+            "right": "subjective reality"
+          },
+          "cue": "beautifulness",
+          "response": 85,
+          "raw_response": "I believe 'beautifulness' is largely a subjective experience, shaped by personal values, emotions, and cultural context. While there may be some objective elements (like symmetry or color), the perception of beauty is deeply influenced by individual and cultural perspectives. My own experiences with mindfulness and Buddhism have taught me that beauty is often found in the present moment and in personal meaning, which aligns more with the subjective side of the spectrum."
+        },
+        "header_12": {
+          "spectrum": {
+            "left": "Loud",
+            "right": "quiet"
+          },
+          "cue": "Aircraft engine",
+          "response": 95,
+          "raw_response": "An aircraft engine is inherently associated with loud noise, especially during operation. While there may be quieter moments (like when the engine is idling), the primary function of an aircraft engine is to generate power for flight, which requires a significant amount of noise. Based on my experiences and understanding of how aircraft engines operate, I would place this clue closer to the 'loud' end of the spectrum."
+        },
+        "header_13": {
+          "spectrum": {
+            "left": "Civilization always improves",
+            "right": "history is random"
+          },
+          "cue": "dinosour",
+          "response": 85,
+          "raw_response": "Dinosaurs are often seen as a part of the natural, random process of evolution, not as a step in a linear progression of improvement. Their existence was not a result of a directed, improving civilization but rather a product of chance and environmental conditions. While their extinction was a significant event, it doesn't align with the idea of civilization always improving. Dinosaurs are more representative of the randomness and unpredictability of history, especially in the context of biological evolution."
+        },
+        "header_14": {
+          "spectrum": {
+            "left": "Cringe",
+            "right": "cool"
+          },
+          "cue": "Drinking",
+          "response": 70,
+          "raw_response": "Drinking, in my experience, can be both cringe and cool depending on the context. If it's done in a way that feels forced, excessive, or out of place (like drinking at a family event where it's not common), it leans toward cringe. However, when it's done in a social, relaxed setting—like having a drink with friends at a local bar or café—it can feel cool and natural. I associate drinking more with the cool side because it’s often a way to connect with others, relax, and enjoy life. I also value mindfulness and moderation, so I wouldn’t see drinking as inherently cringe, but rather as something that can be enjoyed responsibly."
+        },
+        "header_15": {
+          "spectrum": {
+            "left": "Aggressive",
+            "right": "passive"
+          },
+          "cue": "venture capital",
+          "response": 65,
+          "raw_response": "Venture capital, by its nature, involves taking calculated risks and actively investing in high-potential startups with the goal of achieving significant returns. While it's not purely aggressive, it does require a level of assertiveness, risk-taking, and strategic involvement. From my perspective, venture capital is more about calculated engagement than complete passivity, but it's not as overtly aggressive as, say, hostile takeovers or predatory business practices. I see it as a middle ground where the investor is proactive and engaged, but not overly forceful or dominant."
+        },
+        "header_16": {
+          "spectrum": {
+            "left": "Annoying",
+            "right": "entertaining"
+          },
+          "cue": "Smoke detector",
+          "response": 40,
+          "raw_response": "A smoke detector is primarily a safety device, and while it is not inherently entertaining, it also isn't typically seen as annoying unless it malfunctions. From my perspective, a functioning smoke detector is a necessary part of life, but it doesn't bring joy or amusement. However, it also doesn't cause significant irritation unless it is faulty. I would place it closer to the middle, as it is neither particularly annoying nor entertaining, but rather a neutral, essential tool."
+        },
+        "header_17": {
+          "spectrum": {
+            "left": "Wanderlust",
+            "right": "homesickness"
+          },
+          "cue": "Candle Light at New City",
+          "response": 60,
+          "raw_response": "The phrase 'Candle Light at New City' evokes a sense of quiet reflection and a moment of stillness in a new place. While it doesn't explicitly express a desire to explore or a longing for home, it suggests a moment of contemplation in a new environment. This could imply a balance between the excitement of being in a new place and a subtle undercurrent of longing for familiarity. Based on my own experiences of moving to new places and finding comfort in small moments, I believe this clue leans slightly more toward homesickness, as it reflects a moment of reflection that might hint at a deeper emotional connection to the past."
+        },
+        "header_18": {
+          "spectrum": {
+            "left": "Fear of missing out",
+            "right": "need to sit one out"
+          },
+          "cue": "Avatar 2",
+          "response": 70,
+          "raw_response": "Based on my experiences and values, I tend to value presence, mindfulness, and meaningful connections over constant engagement. While I understand the fear of missing out, I've learned the importance of knowing when to step back and prioritize my own well-being. My Buddhist practice has taught me that being present in the moment is more valuable than trying to be everywhere at once. I believe that sometimes, choosing to 'sit one out' is not a sign of exclusion, but of self-awareness and intentionality."
+        },
+        "header_19": {
+          "spectrum": {
+            "left": "Zesty",
+            "right": "bland"
+          },
+          "cue": "Diet Coke",
+          "response": 60,
+          "raw_response": "Diet Coke is a carbonated, artificially sweetened beverage known for its crisp, refreshing taste and effervescence. While it lacks the natural sweetness of regular Coke, it has a distinct, zesty quality due to its carbonation and the sharpness of its artificial sweeteners. It's not overly complex or rich, but it does have a noticeable, lively flavor that sets it apart from bland drinks. My personal experience with Diet Coke is that it's more on the zesty side of the spectrum, though not as intensely as something like citrus juice or spicy food."
+        }
+      },
+      "completion_status": "completed"
+    }
+  ]
+}

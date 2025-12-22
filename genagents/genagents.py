@@ -131,8 +131,8 @@ class GenerativeAgent:
     return ret
     
 
-  def numerical_resp(self, questions, float_resp=False): 
-    ret = numerical_resp(self, questions, float_resp)
+  def numerical_resp(self, questions, float_resp=False, prompt_template=None): 
+    ret = numerical_resp(self, questions, float_resp, prompt_template)
     return ret
 
 

@@ -107,7 +107,8 @@ def run_gpt_generate_numerical_resp(
   float_resp,
   prompt_version="1",
   gpt_version="GPT4o",  
-  verbose=False):
+  verbose=False,
+  prompt_template=None):
 
   def create_prompt_input(agent_desc, questions, float_resp):
     str_questions = ""
@@ -130,10 +131,19 @@ def run_gpt_generate_numerical_resp(
   def _get_fail_safe():
     return None
 
-  if len(questions) > 1: 
-    prompt_lib_file = f"{LLM_PROMPT_DIR}/generative_agent/interaction/numerical_resp/batch_v1.txt" 
-  else: 
-    prompt_lib_file = f"{LLM_PROMPT_DIR}/generative_agent/interaction/numerical_resp/singular_v1.txt" 
+  # Use provided template or default to batch/singular based on question count
+  if prompt_template is None:
+    if len(questions) > 1: 
+      prompt_lib_file = f"{LLM_PROMPT_DIR}/generative_agent/interaction/numerical_resp/batch_v1.txt" 
+    else: 
+      prompt_lib_file = f"{LLM_PROMPT_DIR}/generative_agent/interaction/numerical_resp/singular_v1.txt"
+  else:
+    # If prompt_template is provided, use it directly (should be full path or relative to LLM_PROMPT_DIR)
+    if prompt_template.startswith("/") or prompt_template.startswith("."):
+      prompt_lib_file = prompt_template
+    else:
+      # Assume it's in numerical_resp directory
+      prompt_lib_file = f"{LLM_PROMPT_DIR}/generative_agent/interaction/numerical_resp/{prompt_template}"
 
   prompt_input = create_prompt_input(agent_desc, questions, float_resp) 
   fail_safe = _get_fail_safe() 
@@ -159,11 +169,12 @@ def run_gpt_generate_numerical_resp(
   return output, [output, prompt, prompt_input, fail_safe]
 
 
-def numerical_resp(agent, questions, float_resp): 
+def numerical_resp(agent, questions, float_resp, prompt_template=None): 
   anchor = " ".join(list(questions.keys()))
   agent_desc = _main_agent_desc(agent, anchor)
   return run_gpt_generate_numerical_resp(
-           agent_desc, questions, float_resp, "1", LLM_VERS)[0]
+           agent_desc, questions, float_resp, "1", LLM_VERS, 
+           verbose=False, prompt_template=prompt_template)[0]
 
 
 def run_gpt_generate_utterance(
