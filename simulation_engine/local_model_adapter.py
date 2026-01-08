@@ -409,15 +409,15 @@ def local_model_request(prompt: str,
         # Generate with memory-efficient settings
         with torch.no_grad():
             try:
-                outputs = model.generate(
-                    **inputs,
+            outputs = model.generate(
+                **inputs,
                     max_new_tokens=min(max_tokens, 512),  # Cap at 512 to save memory
-                    temperature=gen_temperature,
-                    top_p=top_p,
-                    top_k=20,
-                    do_sample=True,
-                    pad_token_id=tokenizer.eos_token_id,
-                )
+                temperature=gen_temperature,
+                top_p=top_p,
+                top_k=20,
+                do_sample=True,
+                pad_token_id=tokenizer.eos_token_id,
+            )
             except RuntimeError as e:
                 if "out of memory" in str(e).lower():
                     # Report memory state on OOM - convert device string to index

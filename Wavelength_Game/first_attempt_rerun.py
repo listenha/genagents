@@ -60,10 +60,10 @@ def has_null_first_attempt(agent_folder):
     for attempt in data["attempts"]:
         if attempt.get("attempt_id") == 2:
             second_headers = attempt.get("headers", {})
-            has_valid_second = any(
-                h.get("response") is not None 
-                for h in second_headers.values()
-            )
+        has_valid_second = any(
+            h.get("response") is not None 
+            for h in second_headers.values()
+        )
             break
     
     return all_null and has_valid_second
@@ -115,7 +115,7 @@ def main():
             # Remove the null first attempt (if it exists)
             # Find and remove attempt_id 1 if it exists
             attempt_1_idx = None
-            for idx, attempt in enumerate(responses_data["attempts"]):
+                for idx, attempt in enumerate(responses_data["attempts"]):
                 if attempt.get("attempt_id") == 1:
                     attempt_1_idx = idx
                     break

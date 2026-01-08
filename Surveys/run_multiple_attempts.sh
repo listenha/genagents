@@ -11,11 +11,11 @@ BASE_PATH="agent_bank/populations/gss_agents"
 
 # Agent range (format: START-END, e.g., "0000-0099")
 # For specific agents, use: AGENT_RANGE="0000 0001 0002" and set USE_RANGE=false
-AGENT_RANGE="0000-0099"
+AGENT_RANGE="0100-0199"
 USE_RANGE=true  # Set to false to use AGENT_RANGE as space-separated list
 
 # Number of attempts per agent
-NUM_ATTEMPTS=3
+NUM_ATTEMPTS=7
 
 # Survey options
 BATCH_BY_SECTION=false   # true: faster (all questions in section at once), false: one question at a time
