@@ -113,19 +113,18 @@ def load_distilled_responses(agent_folder: str, attempt_ids: List[int]) -> Dict:
         return None
 
 
-def compute_icc(data: np.ndarray) -> Tuple[float, float]:
+def compute_stability_index(data: np.ndarray) -> float:
     """
-    Compute ICC(2,k) and ICC(3,k) for multiple attempts.
+    Compute Stability Index for single item across attempts (test-retest reliability).
     
-    For single item across attempts (test-retest reliability):
-    - Uses variance-based approach
-    - ICC measures consistency of responses across attempts
+    This is a variance-based approximation (not standard ICC) that measures consistency
+    of responses across attempts for a single item.
     
     Args:
         data: 1D array of responses across attempts (for single item)
     
     Returns:
-        Tuple of (ICC_2k, ICC_3k)
+        Stability Index (0-1, where 1 = perfect consistency)
     """
     # Ensure 1D array
     if data.ndim > 1:
@@ -133,50 +132,136 @@ def compute_icc(data: np.ndarray) -> Tuple[float, float]:
     
     n = len(data)
     if n < 2:
-        return np.nan, np.nan
+        return np.nan
     
     # Remove NaN values
     data = data[~np.isnan(data)]
     n = len(data)
     if n < 2:
-        return np.nan, np.nan
-    
-    # For single item test-retest reliability
-    # Use variance-based ICC: ICC = 1 - (variance / (variance + mean^2/scale_range))
-    # Or simpler: use coefficient of variation approach
+        return np.nan
     
     mean_val = np.mean(data)
     var_val = np.var(data, ddof=1)
     
     if var_val == 0:
         # Perfect consistency
-        return 1.0, 1.0
+        return 1.0
     
-    # For Likert scale (1-5), use scale-relative ICC
-    # ICC(2,k) - absolute agreement: considers both systematic and random error
-    # ICC(3,k) - consistency: considers only random error (systematic differences don't matter)
-    
-    # Simplified ICC for single item:
-    # ICC = 1 - (variance / expected_variance_if_random)
+    # For Likert scale (1-5), use scale-relative stability index
+    # Stability Index = 1 - (variance / expected_variance_if_random)
     # Expected variance for uniform distribution on [1,5] = (5-1)^2/12 = 1.33
     expected_var_uniform = ((5 - 1) ** 2) / 12
     
-    # ICC(2,k) - absolute agreement (stricter)
-    icc_2k = 1 - (var_val / (var_val + expected_var_uniform))
+    # Stability Index - absolute agreement (considers both systematic and random error)
+    stability_index = 1 - (var_val / (var_val + expected_var_uniform))
     
-    # ICC(3,k) - consistency (more lenient, allows systematic shifts)
-    # For consistency, we normalize by the observed variance range
-    icc_3k = 1 - (var_val / (var_val + mean_val * 0.1))  # Simplified consistency measure
+    return max(0, min(1, stability_index))
+
+
+def compute_standard_icc(data_matrix: np.ndarray) -> Tuple[float, float]:
+    """
+    Compute standard ICC(2,k) and ICC(3,k) using ANOVA-based formulas.
     
-    # Alternative: Use correlation-based approach if we had multiple items
-    # For now, use variance-based which is appropriate for test-retest
+    This implements the standard ICC formulas for two-way random effects model:
+    - ICC(2,k) = (MS_R - MS_E) / (MS_R + (MS_C - MS_E) / n)
+    - ICC(3,k) = (MS_R - MS_E) / MS_R
     
-    return max(0, min(1, icc_2k)), max(0, min(1, icc_3k))
+    Where:
+    - MS_R = Mean Square Rows (Agents)
+    - MS_C = Mean Square Columns (Attempts)
+    - MS_E = Mean Square Error
+    - n = number of agents (rows)
+    - k = number of attempts (columns)
+    
+    Args:
+        data_matrix: 2D array where rows are agents and columns are attempts
+                    Shape: (n_agents, n_attempts)
+                    Missing values should be NaN
+    
+    Returns:
+        Tuple of (ICC_2k, ICC_3k)
+    """
+    # Remove rows/columns that are all NaN
+    valid_rows = ~np.isnan(data_matrix).all(axis=1)
+    valid_cols = ~np.isnan(data_matrix).all(axis=0)
+    
+    if not valid_rows.any() or not valid_cols.any():
+        return np.nan, np.nan
+    
+    data_matrix = data_matrix[valid_rows][:, valid_cols]
+    
+    n_agents, n_attempts = data_matrix.shape
+    
+    if n_agents < 2 or n_attempts < 2:
+        return np.nan, np.nan
+    
+    # Compute grand mean
+    grand_mean = np.nanmean(data_matrix)
+    
+    # Compute row means (agent means) and column means (attempt means)
+    row_means = np.nanmean(data_matrix, axis=1)  # Mean across attempts for each agent
+    col_means = np.nanmean(data_matrix, axis=0)  # Mean across agents for each attempt
+    
+    # Compute Sum of Squares
+    # SS_Total = sum of (X_ij - grand_mean)^2
+    ss_total = np.nansum((data_matrix - grand_mean) ** 2)
+    
+    # SS_Rows (Agents) = n_attempts * sum of (row_mean - grand_mean)^2
+    # But need to account for missing values - use actual number of non-NaN values per row
+    n_per_row = np.sum(~np.isnan(data_matrix), axis=1)
+    ss_rows = np.sum(n_per_row * (row_means - grand_mean) ** 2)
+    
+    # SS_Columns (Attempts) = n_agents * sum of (col_mean - grand_mean)^2
+    # But need to account for missing values - use actual number of non-NaN values per column
+    n_per_col = np.sum(~np.isnan(data_matrix), axis=0)
+    ss_cols = np.sum(n_per_col * (col_means - grand_mean) ** 2)
+    
+    # SS_Error = SS_Total - SS_Rows - SS_Columns
+    ss_error = ss_total - ss_rows - ss_cols
+    
+    # Degrees of Freedom
+    df_rows = n_agents - 1
+    df_cols = n_attempts - 1
+    # For error df, we need to account for missing values
+    # In balanced case: df_error = (n_agents - 1) * (n_attempts - 1)
+    # For unbalanced, we approximate using total valid cells
+    n_valid = np.sum(~np.isnan(data_matrix))
+    df_error = n_valid - n_agents - n_attempts + 1
+    
+    if df_error <= 0:
+        df_error = 1  # Minimum df to avoid division by zero
+    
+    # Mean Squares
+    ms_rows = ss_rows / df_rows if df_rows > 0 else 0
+    ms_cols = ss_cols / df_cols if df_cols > 0 else 0
+    ms_error = ss_error / df_error if df_error > 0 else 0
+    
+    # Compute ICC(2,k) and ICC(3,k)
+    # ICC(2,k) = (MS_R - MS_E) / (MS_R + (MS_C - MS_E) / n)
+    numerator_2k = ms_rows - ms_error
+    denominator_2k = ms_rows + (ms_cols - ms_error) / n_agents
+    
+    if denominator_2k <= 0 or numerator_2k < 0:
+        icc_2k = 0.0
+    else:
+        icc_2k = numerator_2k / denominator_2k
+    
+    # ICC(3,k) = (MS_R - MS_E) / MS_R
+    if ms_rows <= 0 or numerator_2k < 0:
+        icc_3k = 0.0
+    else:
+        icc_3k = numerator_2k / ms_rows
+    
+    # Ensure values are in [0, 1] range
+    icc_2k = max(0, min(1, icc_2k))
+    icc_3k = max(0, min(1, icc_3k))
+    
+    return icc_2k, icc_3k
 
 
 def compute_cronbach_alpha(responses: List[float]) -> float:
     """
-    Compute Cronbach's Alpha for single item across attempts.
+    Compute Cronbach's Alpha for single item across attempts (for individual agent-question pairs).
     
     For single item, Cronbach's Alpha is not directly applicable.
     We use a simplified measure: 1 - (variance / expected_variance)
@@ -207,12 +292,73 @@ def compute_cronbach_alpha(responses: List[float]) -> float:
     return max(0, min(1, alpha))
 
 
+def compute_cronbach_alpha_question_level(data_matrix: np.ndarray) -> float:
+    """
+    Compute standard Cronbach's Alpha for a question across attempts (treating attempts as items).
+    
+    Standard formula: α = (k / (k-1)) × (1 - Σσⱼ² / σₜ²)
+    Where:
+    - k = number of attempts (items)
+    - σⱼ² = variance of attempt j across all agents
+    - σₜ² = variance of total scores (sum of all attempts for each agent)
+    
+    Args:
+        data_matrix: 2D array where rows are agents and columns are attempts
+                    Shape: (n_agents, n_attempts)
+                    Missing values should be NaN
+    
+    Returns:
+        Cronbach's Alpha (0-1, where 1 = perfect consistency)
+    """
+    # Remove rows/columns that are all NaN
+    valid_rows = ~np.isnan(data_matrix).all(axis=1)
+    valid_cols = ~np.isnan(data_matrix).all(axis=0)
+    
+    if not valid_rows.any() or not valid_cols.any():
+        return np.nan
+    
+    data_matrix = data_matrix[valid_rows][:, valid_cols]
+    n_agents, n_attempts = data_matrix.shape
+    
+    if n_agents < 2 or n_attempts < 2:
+        return np.nan
+    
+    # Compute variance of each attempt (column) across agents
+    attempt_vars = []
+    for j in range(n_attempts):
+        attempt_data = data_matrix[:, j]
+        attempt_data_valid = attempt_data[~np.isnan(attempt_data)]
+        if len(attempt_data_valid) > 1:
+            attempt_vars.append(np.var(attempt_data_valid, ddof=1))
+    
+    if len(attempt_vars) == 0:
+        return np.nan
+    
+    sum_attempt_vars = np.sum(attempt_vars)
+    
+    # Compute total scores (sum across attempts for each agent)
+    total_scores = np.nansum(data_matrix, axis=1)
+    total_scores_valid = total_scores[~np.isnan(total_scores)]
+    
+    if len(total_scores_valid) < 2:
+        return np.nan
+    
+    var_total = np.var(total_scores_valid, ddof=1)
+    
+    if var_total == 0:
+        return 1.0
+    
+    # Standard Cronbach's Alpha formula
+    alpha = (n_attempts / (n_attempts - 1)) * (1 - sum_attempt_vars / var_total)
+    
+    return max(0, min(1, alpha))
+
+
 def compute_consistency_metrics(responses: List[float]) -> Dict[str, float]:
     """Compute all consistency metrics for a list of responses across attempts."""
     if not responses or len(responses) < 2:
         return {
-            "icc_2k": np.nan,
-            "icc_3k": np.nan,
+            "stability_index": np.nan,
             "cronbach_alpha": np.nan,
             "cv": np.nan,
             "sd": np.nan,
@@ -226,8 +372,7 @@ def compute_consistency_metrics(responses: List[float]) -> Dict[str, float]:
     
     if len(responses_array) < 2:
         return {
-            "icc_2k": np.nan,
-            "icc_3k": np.nan,
+            "stability_index": np.nan,
             "cronbach_alpha": np.nan,
             "cv": np.nan,
             "sd": np.nan,
@@ -236,8 +381,8 @@ def compute_consistency_metrics(responses: List[float]) -> Dict[str, float]:
             "n_attempts": len(responses_array)
         }
     
-    # Compute ICC
-    icc_2k, icc_3k = compute_icc(responses_array)
+    # Compute Stability Index (variance-based approximation for single item)
+    stability_index = compute_stability_index(responses_array)
     
     # Compute Cronbach's Alpha
     cronbach_alpha = compute_cronbach_alpha(responses)
@@ -249,8 +394,7 @@ def compute_consistency_metrics(responses: List[float]) -> Dict[str, float]:
     range_val = np.max(responses_array) - np.min(responses_array)
     
     return {
-        "icc_2k": icc_2k,
-        "icc_3k": icc_3k,
+        "stability_index": stability_index,
         "cronbach_alpha": cronbach_alpha,
         "cv": cv_val,
         "sd": sd_val,
@@ -444,7 +588,7 @@ def analyze_raw_consistency(df_all: pd.DataFrame, attempt_ids: List[int]) -> Dic
     
     results['section_level'] = pd.DataFrame(section_metrics)
     
-    # 3. Per-agent consistency (average ICC across questions for each agent)
+    # 3. Per-agent consistency (average Stability Index across questions for each agent)
     # Create agent name lookup once (more efficient)
     agent_name_map = df_all[['agent_id', 'agent_name']].drop_duplicates().set_index('agent_id')['agent_name'].to_dict() if 'agent_name' in df_all.columns else {}
     
@@ -459,8 +603,7 @@ def analyze_raw_consistency(df_all: pd.DataFrame, attempt_ids: List[int]) -> Dic
         metrics = {
             'agent_id': agent_id,
             'agent_name': agent_name,
-            'icc_2k': agent_questions['icc_2k'].mean(),
-            'icc_3k': agent_questions['icc_3k'].mean(),
+            'stability_index': agent_questions['stability_index'].mean(),
             'cronbach_alpha': agent_questions['cronbach_alpha'].mean(),
             'cv': agent_questions['cv'].mean(),
             'sd': agent_questions['sd'].mean(),
@@ -479,8 +622,7 @@ def analyze_raw_consistency(df_all: pd.DataFrame, attempt_ids: List[int]) -> Dic
     for section_id, section_questions in results['question_level'].groupby('section_id'):
         overall_section.append({
             'section_id': section_id,
-            'mean_icc_2k': section_questions['icc_2k'].mean(),
-            'mean_icc_3k': section_questions['icc_3k'].mean(),
+            'mean_stability_index': section_questions['stability_index'].mean(),
             'mean_cronbach_alpha': section_questions['cronbach_alpha'].mean(),
             'mean_cv': section_questions['cv'].mean(),
             'mean_sd': section_questions['sd'].mean(),
@@ -489,23 +631,109 @@ def analyze_raw_consistency(df_all: pd.DataFrame, attempt_ids: List[int]) -> Dic
     
     results['overall_section'] = pd.DataFrame(overall_section)
     
-    # 5. Aggregated question-level metrics (average across agents for each question)
+    # 5. Aggregated question-level metrics (standard ICC across agents for each question)
     question_aggregated = []
-    for question_id, group in results['question_level'].groupby('question_id'):
-        # Cache first row to avoid multiple column accesses
-        first_row = group.iloc[0] if len(group) > 0 else None
+    for question_id, question_data in df_all.groupby('question_id'):
+        # Get all agents' responses for this question across all attempts
+        # Create matrix: agents (rows) × attempts (columns)
+        agent_ids = question_data['agent_id'].unique()
+        attempt_ids_sorted = sorted(question_data['attempt_id'].unique())
+        
+        # Build data matrix
+        data_matrix = []
+        for agent_id in agent_ids:
+            agent_responses = []
+            for attempt_id in attempt_ids_sorted:
+                response = question_data[(question_data['agent_id'] == agent_id) & 
+                                        (question_data['attempt_id'] == attempt_id)]['response']
+                if len(response) > 0:
+                    val = response.iloc[0]
+                    agent_responses.append(val if not pd.isna(val) else np.nan)
+                else:
+                    agent_responses.append(np.nan)
+            data_matrix.append(agent_responses)
+        
+        data_matrix = np.array(data_matrix)
+        
+        # Compute standard ICC using ANOVA
+        icc_2k, icc_3k = compute_standard_icc(data_matrix)
+        
+        # Compute standard Cronbach's Alpha at question level
+        cronbach_alpha_question = compute_cronbach_alpha_question_level(data_matrix)
+        
+        # Compute MS_R, MS_C, MS_E for diagnostics
+        # Remove rows/columns that are all NaN
+        valid_rows = ~np.isnan(data_matrix).all(axis=1)
+        valid_cols = ~np.isnan(data_matrix).all(axis=0)
+        
+        if valid_rows.any() and valid_cols.any():
+            data_matrix_valid = data_matrix[valid_rows][:, valid_cols]
+            n_agents_valid, n_attempts_valid = data_matrix_valid.shape
+            
+            if n_agents_valid >= 2 and n_attempts_valid >= 2:
+                # Compute means
+                grand_mean = np.nanmean(data_matrix_valid)
+                row_means = np.nanmean(data_matrix_valid, axis=1)  # Agent means
+                col_means = np.nanmean(data_matrix_valid, axis=0)  # Attempt means
+                
+                # Compute SS and MS for diagnostic
+                n_per_row = np.sum(~np.isnan(data_matrix_valid), axis=1)
+                ss_rows = np.sum(n_per_row * (row_means - grand_mean) ** 2)
+                n_per_col = np.sum(~np.isnan(data_matrix_valid), axis=0)
+                ss_cols = np.sum(n_per_col * (col_means - grand_mean) ** 2)
+                ss_total = np.nansum((data_matrix_valid - grand_mean) ** 2)
+                ss_error = ss_total - ss_rows - ss_cols
+                
+                df_rows = n_agents_valid - 1
+                df_cols = n_attempts_valid - 1
+                n_valid = np.sum(~np.isnan(data_matrix_valid))
+                df_error = n_valid - n_agents_valid - n_attempts_valid + 1
+                if df_error <= 0:
+                    df_error = 1
+                
+                ms_rows = ss_rows / df_rows if df_rows > 0 else 0
+                ms_cols = ss_cols / df_cols if df_cols > 0 else 0
+                ms_error = ss_error / df_error if df_error > 0 else 0
+                
+                # Min and max values for this question
+                min_value = np.nanmin(data_matrix_valid)
+                max_value = np.nanmax(data_matrix_valid)
+            else:
+                ms_rows = np.nan
+                ms_cols = np.nan
+                ms_error = np.nan
+                min_value = np.nan
+                max_value = np.nan
+        else:
+            ms_rows = np.nan
+            ms_cols = np.nan
+            ms_error = np.nan
+            min_value = np.nan
+            max_value = np.nan
+        
+        # Also compute mean Stability Index and other metrics for comparison
+        question_level_data = results['question_level'][results['question_level']['question_id'] == question_id]
+        first_row = question_level_data.iloc[0] if len(question_level_data) > 0 else None
+        
         question_aggregated.append({
             'question_id': question_id,
             'section_id': first_row['section_id'] if first_row is not None else None,
-            'icc_2k': group['icc_2k'].mean(),
-            'icc_3k': group['icc_3k'].mean(),
-            'cronbach_alpha': group['cronbach_alpha'].mean(),
-            'cv': group['cv'].mean(),
-            'sd': group['sd'].mean(),
-            'range': group['range'].mean(),
-            'mean': group['mean'].mean(),
-            'n_agents': len(group),
-            'n_attempts': first_row['n_attempts'] if first_row is not None else 0
+            'icc_2k': icc_2k,  # Standard ICC(2,k)
+            'icc_3k': icc_3k,  # Standard ICC(3,k)
+            'mean_stability_index': question_level_data['stability_index'].mean() if len(question_level_data) > 0 else np.nan,
+            'cronbach_alpha': cronbach_alpha_question,  # Standard Cronbach's Alpha at question level
+            'cv': question_level_data['cv'].mean() if len(question_level_data) > 0 else np.nan,
+            'sd': question_level_data['sd'].mean() if len(question_level_data) > 0 else np.nan,
+            'range': question_level_data['range'].mean() if len(question_level_data) > 0 else np.nan,
+            'mean': question_level_data['mean'].mean() if len(question_level_data) > 0 else np.nan,
+            'n_agents': len(agent_ids),
+            'n_attempts': first_row['n_attempts'] if first_row is not None else 0,
+            # Diagnostic variance components (MS values for ICC calculation)
+            'ms_rows': ms_rows,  # MS_R: Mean Square for Rows (Agents)
+            'ms_cols': ms_cols,  # MS_C: Mean Square for Columns (Attempts)
+            'ms_error': ms_error,  # MS_E: Mean Square Error
+            'min_value': min_value,
+            'max_value': max_value
         })
     
     results['question_aggregated'] = pd.DataFrame(question_aggregated)
@@ -556,7 +784,7 @@ def analyze_distilled_consistency(df_distilled: pd.DataFrame, attempt_ids: List[
     
     results['section_level'] = pd.DataFrame(section_metrics)
     
-    # 3. Per-agent consistency (average ICC across scores for each agent)
+    # 3. Per-agent consistency (average Stability Index across scores for each agent)
     # Create agent name lookup once (more efficient)
     agent_name_map = df_distilled[['agent_id', 'agent_name']].drop_duplicates().set_index('agent_id')['agent_name'].to_dict() if 'agent_name' in df_distilled.columns else {}
     
@@ -571,8 +799,7 @@ def analyze_distilled_consistency(df_distilled: pd.DataFrame, attempt_ids: List[
         metrics = {
             'agent_id': agent_id,
             'agent_name': agent_name,
-            'icc_2k': agent_scores['icc_2k'].mean(),
-            'icc_3k': agent_scores['icc_3k'].mean(),
+            'stability_index': agent_scores['stability_index'].mean(),
             'cronbach_alpha': agent_scores['cronbach_alpha'].mean(),
             'cv': agent_scores['cv'].mean(),
             'sd': agent_scores['sd'].mean(),
@@ -591,8 +818,7 @@ def analyze_distilled_consistency(df_distilled: pd.DataFrame, attempt_ids: List[
     for section_id, section_scores in results['score_level'].groupby('section_id'):
         overall_section.append({
             'section_id': section_id,
-            'mean_icc_2k': section_scores['icc_2k'].mean(),
-            'mean_icc_3k': section_scores['icc_3k'].mean(),
+            'mean_stability_index': section_scores['stability_index'].mean(),
             'mean_cronbach_alpha': section_scores['cronbach_alpha'].mean(),
             'mean_cv': section_scores['cv'].mean(),
             'mean_sd': section_scores['sd'].mean(),
@@ -601,24 +827,110 @@ def analyze_distilled_consistency(df_distilled: pd.DataFrame, attempt_ids: List[
     
     results['overall_section'] = pd.DataFrame(overall_section)
     
-    # 5. Aggregated score-level metrics (average across agents for each score)
+    # 5. Aggregated score-level metrics (standard ICC across agents for each score)
     score_aggregated = []
-    for score_name, group in results['score_level'].groupby('score_name'):
-        # Cache first row to avoid multiple column accesses
-        first_row = group.iloc[0] if len(group) > 0 else None
+    for score_name, score_data in df_distilled.groupby('score_name'):
+        # Get all agents' scores for this score_name across all attempts
+        # Create matrix: agents (rows) × attempts (columns)
+        agent_ids = score_data['agent_id'].unique()
+        attempt_ids_sorted = sorted(score_data['attempt_id'].unique())
+        
+        # Build data matrix
+        data_matrix = []
+        for agent_id in agent_ids:
+            agent_scores = []
+            for attempt_id in attempt_ids_sorted:
+                score_value = score_data[(score_data['agent_id'] == agent_id) & 
+                                        (score_data['attempt_id'] == attempt_id)]['score_value']
+                if len(score_value) > 0:
+                    val = score_value.iloc[0]
+                    agent_scores.append(val if not pd.isna(val) else np.nan)
+                else:
+                    agent_scores.append(np.nan)
+            data_matrix.append(agent_scores)
+        
+        data_matrix = np.array(data_matrix)
+        
+        # Compute standard ICC using ANOVA
+        icc_2k, icc_3k = compute_standard_icc(data_matrix)
+        
+        # Compute standard Cronbach's Alpha at score level
+        cronbach_alpha_score = compute_cronbach_alpha_question_level(data_matrix)
+        
+        # Compute MS_R, MS_C, MS_E for diagnostics
+        # Remove rows/columns that are all NaN
+        valid_rows = ~np.isnan(data_matrix).all(axis=1)
+        valid_cols = ~np.isnan(data_matrix).all(axis=0)
+        
+        if valid_rows.any() and valid_cols.any():
+            data_matrix_valid = data_matrix[valid_rows][:, valid_cols]
+            n_agents_valid, n_attempts_valid = data_matrix_valid.shape
+            
+            if n_agents_valid >= 2 and n_attempts_valid >= 2:
+                # Compute means
+                grand_mean = np.nanmean(data_matrix_valid)
+                row_means = np.nanmean(data_matrix_valid, axis=1)  # Agent means
+                col_means = np.nanmean(data_matrix_valid, axis=0)  # Attempt means
+                
+                # Compute SS and MS for diagnostic
+                n_per_row = np.sum(~np.isnan(data_matrix_valid), axis=1)
+                ss_rows = np.sum(n_per_row * (row_means - grand_mean) ** 2)
+                n_per_col = np.sum(~np.isnan(data_matrix_valid), axis=0)
+                ss_cols = np.sum(n_per_col * (col_means - grand_mean) ** 2)
+                ss_total = np.nansum((data_matrix_valid - grand_mean) ** 2)
+                ss_error = ss_total - ss_rows - ss_cols
+                
+                df_rows = n_agents_valid - 1
+                df_cols = n_attempts_valid - 1
+                n_valid = np.sum(~np.isnan(data_matrix_valid))
+                df_error = n_valid - n_agents_valid - n_attempts_valid + 1
+                if df_error <= 0:
+                    df_error = 1
+                
+                ms_rows = ss_rows / df_rows if df_rows > 0 else 0
+                ms_cols = ss_cols / df_cols if df_cols > 0 else 0
+                ms_error = ss_error / df_error if df_error > 0 else 0
+                
+                # Min and max values for this score
+                min_value = np.nanmin(data_matrix_valid)
+                max_value = np.nanmax(data_matrix_valid)
+            else:
+                ms_rows = np.nan
+                ms_cols = np.nan
+                ms_error = np.nan
+                min_value = np.nan
+                max_value = np.nan
+        else:
+            ms_rows = np.nan
+            ms_cols = np.nan
+            ms_error = np.nan
+            min_value = np.nan
+            max_value = np.nan
+        
+        # Also compute mean Stability Index and other metrics for comparison
+        score_level_data = results['score_level'][results['score_level']['score_name'] == score_name]
+        first_row = score_level_data.iloc[0] if len(score_level_data) > 0 else None
+        
         score_aggregated.append({
             'score_name': score_name,
             'section_id': first_row['section_id'] if first_row is not None else None,
             'score_type': first_row['score_type'] if first_row is not None else None,
-            'icc_2k': group['icc_2k'].mean(),
-            'icc_3k': group['icc_3k'].mean(),
-            'cronbach_alpha': group['cronbach_alpha'].mean(),
-            'cv': group['cv'].mean(),
-            'sd': group['sd'].mean(),
-            'range': group['range'].mean(),
-            'mean': group['mean'].mean(),
-            'n_agents': len(group),
-            'n_attempts': first_row['n_attempts'] if first_row is not None else 0
+            'icc_2k': icc_2k,  # Standard ICC(2,k)
+            'icc_3k': icc_3k,  # Standard ICC(3,k)
+            'mean_stability_index': score_level_data['stability_index'].mean() if len(score_level_data) > 0 else np.nan,
+            'cronbach_alpha': cronbach_alpha_score,  # Standard Cronbach's Alpha at score level
+            'cv': score_level_data['cv'].mean() if len(score_level_data) > 0 else np.nan,
+            'sd': score_level_data['sd'].mean() if len(score_level_data) > 0 else np.nan,
+            'range': score_level_data['range'].mean() if len(score_level_data) > 0 else np.nan,
+            'mean': score_level_data['mean'].mean() if len(score_level_data) > 0 else np.nan,
+            'n_agents': len(agent_ids),
+            'n_attempts': first_row['n_attempts'] if first_row is not None else 0,
+            # Diagnostic variance components (MS values for ICC calculation)
+            'ms_rows': ms_rows,  # MS_R: Mean Square for Rows (Agents)
+            'ms_cols': ms_cols,  # MS_C: Mean Square for Columns (Attempts)
+            'ms_error': ms_error,  # MS_E: Mean Square Error
+            'min_value': min_value,
+            'max_value': max_value
         })
     
     results['score_aggregated'] = pd.DataFrame(score_aggregated)
@@ -957,6 +1269,7 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
             <button class="tab active" onclick="showTab('summary', event)">Summary</button>
             <button class="tab" onclick="showTab('question-level', event)">Question Level Consistency</button>
             <button class="tab" onclick="showTab('trajectories', event)">Trajectories</button>
+            <button class="tab" onclick="showTab('metric-diagnostics', event)">Metric Diagnostics</button>
         </div>
         
         <div id="summary" class="tab-content active">
@@ -1018,19 +1331,78 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
             <p>Distilled scores not available. Please run the translation script first.</p>
             """) + """
         </div>
+        
+        <div id="metric-diagnostics" class="tab-content">
+            <h2>Metric Diagnostics</h2>
+            
+            <h3>ICC (Intraclass Correlation Coefficient)</h3>
+            <p><strong>MS_R (Mean Square Rows):</strong> Variance component for agents (between-agent variance). Measures how much agents differ from each other.</p>
+            <p><strong>MS_C (Mean Square Columns):</strong> Variance component for attempts (between-attempt variance). Measures systematic differences across attempts.</p>
+            <p><strong>MS_E (Mean Square Error):</strong> Residual variance. Measures variability that cannot be explained by agents or attempts.</p>
+            
+            <p><strong>ICC(2,k) Formula:</strong></p>
+            <p style="font-family: monospace; background-color: #f5f5f5; padding: 10px; border-radius: 5px;">
+                ICC(2,k) = (MS_R - MS_E) / (MS_R + (MS_C - MS_E) / n)
+            </p>
+            <p>Where n = number of agents. This measures absolute agreement between agents, accounting for both systematic and random error.</p>
+            
+            <p><strong>ICC(3,k) Formula:</strong></p>
+            <p style="font-family: monospace; background-color: #f5f5f5; padding: 10px; border-radius: 5px;">
+                ICC(3,k) = (MS_R - MS_E) / MS_R
+            </p>
+            <p>This measures consistency between agents, allowing for systematic differences (only random error matters).</p>
+            
+            <h3>Stability Index</h3>
+            <p><strong>Formula:</strong></p>
+            <p style="font-family: monospace; background-color: #f5f5f5; padding: 10px; border-radius: 5px;">
+                Stability Index = 1 - (variance / (variance + expected_variance_uniform))
+            </p>
+            <p>Where expected_variance_uniform = (5-1)²/12 = 1.33 for Likert scale (1-5).</p>
+            <p>This is a variance-based approximation for single-item test-retest reliability. Measures consistency of responses across attempts for a single question.</p>
+            
+            <h3>Cronbach's Alpha</h3>
+            <p><strong>Standard Formula:</strong></p>
+            <p style="font-family: monospace; background-color: #f5f5f5; padding: 10px; border-radius: 5px;">
+                α = (k / (k-1)) × (1 - Σσⱼ² / σₜ²)
+            </p>
+            <p>Where:</p>
+            <ul>
+                <li>k = number of attempts (treated as items)</li>
+                <li>σⱼ² = variance of attempt j across all agents</li>
+                <li>σₜ² = variance of total scores (sum of all attempts for each agent)</li>
+            </ul>
+            <p>This measures internal consistency across attempts, treating each attempt as an item in a scale.</p>
+            
+            <h3>Diagnostic Tables</h3>
+            <div id="metric-diagnostics-raw-container"></div>
+            """ + ("""
+            <div id="metric-diagnostics-distilled-container"></div>
+            """ if distilled_results is not None else "") + """
+        </div>
     </div>
 """
     
     # Add Plotly visualizations for raw responses
     # 1. Summary metrics (raw)
     overall_section = raw_results['overall_section']
+    question_aggregated = raw_results.get('question_aggregated', pd.DataFrame())
     
-    mean_icc_2k = overall_section['mean_icc_2k'].mean() if not overall_section['mean_icc_2k'].isna().all() else 0
-    mean_icc_3k = overall_section['mean_icc_3k'].mean() if not overall_section['mean_icc_3k'].isna().all() else 0
-    mean_alpha = overall_section['mean_cronbach_alpha'].mean() if not overall_section['mean_cronbach_alpha'].isna().all() else 0
+    # Stability Index (from overall_section)
+    mean_stability_index = overall_section['mean_stability_index'].mean() if not overall_section['mean_stability_index'].isna().all() else 0
+    
+    # Standard ICC (from question_aggregated)
+    mean_icc_2k = question_aggregated['icc_2k'].mean() if not question_aggregated.empty and not question_aggregated['icc_2k'].isna().all() else 0
+    mean_icc_3k = question_aggregated['icc_3k'].mean() if not question_aggregated.empty and not question_aggregated['icc_3k'].isna().all() else 0
+    
+    # Cronbach's Alpha (standard formula from aggregated question level)
+    mean_alpha = question_aggregated['cronbach_alpha'].mean() if not question_aggregated.empty and not question_aggregated['cronbach_alpha'].isna().all() else 0
     
     summary_html = f"""
             <h3>Raw Responses Summary</h3>
+            <div class="metric-box">
+                <div class="metric-value">{mean_stability_index:.3f}</div>
+                <div class="metric-label">Mean Stability Index</div>
+            </div>
             <div class="metric-box">
                 <div class="metric-value">{mean_icc_2k:.3f}</div>
                 <div class="metric-label">Mean ICC(2,k)</div>
@@ -1049,11 +1421,23 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
     distilled_summary_html = ""
     if distilled_results is not None:
         distilled_overall = distilled_results['overall_section']
-        dist_mean_icc_2k = distilled_overall['mean_icc_2k'].mean() if not distilled_overall['mean_icc_2k'].isna().all() else 0
-        dist_mean_icc_3k = distilled_overall['mean_icc_3k'].mean() if not distilled_overall['mean_icc_3k'].isna().all() else 0
-        dist_mean_alpha = distilled_overall['mean_cronbach_alpha'].mean() if not distilled_overall['mean_cronbach_alpha'].isna().all() else 0
+        score_aggregated = distilled_results.get('score_aggregated', pd.DataFrame())
+        
+        # Stability Index (from overall_section)
+        dist_mean_stability_index = distilled_overall['mean_stability_index'].mean() if not distilled_overall['mean_stability_index'].isna().all() else 0
+        
+        # Standard ICC (from score_aggregated)
+        dist_mean_icc_2k = score_aggregated['icc_2k'].mean() if not score_aggregated.empty and not score_aggregated['icc_2k'].isna().all() else 0
+        dist_mean_icc_3k = score_aggregated['icc_3k'].mean() if not score_aggregated.empty and not score_aggregated['icc_3k'].isna().all() else 0
+        
+        # Cronbach's Alpha (standard formula from aggregated score level)
+        dist_mean_alpha = score_aggregated['cronbach_alpha'].mean() if not score_aggregated.empty and not score_aggregated['cronbach_alpha'].isna().all() else 0
         
         distilled_summary_html = f"""
+            <div class="metric-box">
+                <div class="metric-value">{dist_mean_stability_index:.3f}</div>
+                <div class="metric-label">Mean Stability Index</div>
+            </div>
             <div class="metric-box">
                 <div class="metric-value">{dist_mean_icc_2k:.3f}</div>
                 <div class="metric-label">Mean ICC(2,k)</div>
@@ -1068,32 +1452,32 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
             </div>
         """
     
-    # 2. Section comparison chart
+    # 2. Section comparison chart (using Stability Index)
     fig_sections = go.Figure()
     sections = overall_section['section_id'].tolist()
     
     # Handle NaN values
-    icc_2k_vals = overall_section['mean_icc_2k'].fillna(0).tolist()
-    icc_3k_vals = overall_section['mean_icc_3k'].fillna(0).tolist()
+    stability_index_vals = overall_section['mean_stability_index'].fillna(0).tolist()
+    alpha_vals = question_aggregated['cronbach_alpha'].fillna(0).tolist()
     
     fig_sections.add_trace(go.Bar(
         x=sections,
-        y=icc_2k_vals,
-        name='ICC(2,k)',
+        y=stability_index_vals,
+        name='Stability Index',
         marker_color='#4CAF50',
-        hovertemplate='Section: %{x}<br>ICC(2,k): %{y:.3f}<extra></extra>'
+        hovertemplate='Section: %{x}<br>Stability Index: %{y:.3f}<extra></extra>'
     ))
     fig_sections.add_trace(go.Bar(
         x=sections,
-        y=icc_3k_vals,
-        name='ICC(3,k)',
+        y=alpha_vals,
+        name="Cronbach's α",
         marker_color='#45a049',
-        hovertemplate='Section: %{x}<br>ICC(3,k): %{y:.3f}<extra></extra>'
+        hovertemplate='Section: %{x}<br>Cronbach\'s α: %{y:.3f}<extra></extra>'
     ))
     fig_sections.update_layout(
-        title='Consistency by Section',
+        title='Consistency by Section (Stability Index & Cronbach\'s α)',
         xaxis_title='Section',
-        yaxis_title='ICC Value',
+        yaxis_title='Value',
         yaxis=dict(range=[0, 1]),
         barmode='group',
         height=400,
@@ -1107,11 +1491,12 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
     unique_questions = sorted(question_df['question_id'].unique(), key=extract_question_number)
     
     # Create pivot table, handling missing values
+    # Use stability_index for heatmaps (All view)
     try:
         pivot_icc = question_df.pivot_table(
             index='question_id',
             columns='agent_id',
-            values='icc_2k',
+            values='stability_index',
             aggfunc='mean'
         )
         
@@ -1135,13 +1520,13 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
         # Option A: If only 1 chunk, show only overall. If multiple chunks, show subgraphs + overall
         if num_chunks == 1:
             # Single chunk: show only overall graph
-            hovertemplate_str_all = '<b>Agent ID:</b> %{x}<br><b>Question:</b> %{y}<br><b>ICC(2,k):</b> %{z:.3f}<extra></extra>'
+            hovertemplate_str_all = '<b>Agent ID:</b> %{x}<br><b>Question:</b> %{y}<br><b>Stability Index:</b> %{z:.3f}<extra></extra>'
             fig_heatmap_all = go.Figure(data=go.Heatmap(
                 z=pivot_icc.values.tolist(),
                 x=agent_ids_list,
                 y=question_ids_list,
                 colorscale='RdYlGn',
-                colorbar=dict(title="ICC(2,k)"),
+                colorbar=dict(title="Stability Index"),
                 hovertemplate=hovertemplate_str_all,
                 showscale=True
             ))
@@ -1168,18 +1553,18 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
                 chunk_agent_ids = agent_ids_list[start_idx:end_idx]
                 chunk_pivot = pivot_icc[chunk_agent_ids]
                 
-                hovertemplate_str = '<b>Agent ID:</b> %{x}<br><b>Question:</b> %{y}<br><b>ICC(2,k):</b> %{z:.3f}<extra></extra>'
+                hovertemplate_str = '<b>Agent ID:</b> %{x}<br><b>Question:</b> %{y}<br><b>Stability Index:</b> %{z:.3f}<extra></extra>'
         
                 fig_heatmap = go.Figure(data=go.Heatmap(
                     z=chunk_pivot.values.tolist(),
                     x=chunk_agent_ids,
                     y=question_ids_list,
-                    colorscale='RdYlGn',
-                    colorbar=dict(title="ICC(2,k)"),
+            colorscale='RdYlGn',
+                    colorbar=dict(title="Stability Index"),
                     hovertemplate=hovertemplate_str,
                     showscale=True
                 ))
-                
+
                 title_suffix = f" (Agents {chunk_agent_ids[0]} to {chunk_agent_ids[-1]})"
                 fig_heatmap.update_layout(
                     title=f'All Agent-Question Pairs{title_suffix}',
@@ -1195,14 +1580,15 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
             height=600
         )
                 raw_heatmap_figs.append(fig_heatmap)
-                            # Add overall heatmap at the end
-            hovertemplate_str_all = '<b>Agent ID:</b> %{x}<br><b>Question:</b> %{y}<br><b>ICC(2,k):</b> %{z:.3f}<extra></extra>'
+            
+            # Add overall heatmap at the end
+            hovertemplate_str_all = '<b>Agent ID:</b> %{x}<br><b>Question:</b> %{y}<br><b>Stability Index:</b> %{z:.3f}<extra></extra>'
             fig_heatmap_all = go.Figure(data=go.Heatmap(
                 z=pivot_icc.values.tolist(),
                 x=agent_ids_list,
                 y=question_ids_list,
                 colorscale='RdYlGn',
-                colorbar=dict(title="ICC(2,k)"),
+                colorbar=dict(title="Stability Index"),
                 hovertemplate=hovertemplate_str_all,
                 showscale=True
             ))
@@ -1291,10 +1677,10 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
                 )
                 raw_question_agg_figs.append(fig_q_agg_all)
         
-        # View 3: Aggregated by agent
-        agent_df = raw_results['agent_level']
+        # View 3: Aggregated by agent (using Stability Index)
+            agent_df = raw_results['agent_level']
         agent_df_sorted = agent_df.sort_values('agent_id').copy()
-        agent_df_sorted['icc_2k'] = agent_df_sorted['icc_2k'].fillna(0)
+        agent_df_sorted['stability_index'] = agent_df_sorted['stability_index'].fillna(0)
         
         raw_agent_agg_figs = []
         a_chunk_size = 50
@@ -1306,10 +1692,10 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
             fig_a_agg_all = go.Figure()
             fig_a_agg_all.add_trace(go.Bar(
                 x=agent_df_sorted['agent_id'].tolist(),
-                y=agent_df_sorted['icc_2k'].tolist(),
+                y=agent_df_sorted['stability_index'].tolist(),
         marker_color='#4CAF50',
-                hovertemplate='Agent: %{x}<br>Mean ICC(2,k): %{y:.3f}<extra></extra>',
-                text=agent_df_sorted['icc_2k'].tolist(),
+                hovertemplate='Agent: %{x}<br>Mean Stability Index: %{y:.3f}<extra></extra>',
+                text=agent_df_sorted['stability_index'].tolist(),
                 texttemplate='%{{text:.3f}}',
                 textposition='outside',
                 width=0.8
@@ -1317,7 +1703,7 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
             fig_a_agg_all.update_layout(
                 title=f'Aggregated by Agent (Average Across Questions) - All {len(agent_df_sorted)} Agents',
         xaxis_title='Agent ID',
-                yaxis_title='Mean ICC(2,k)',
+                yaxis_title='Mean Stability Index',
                 yaxis=dict(range=[0, 1.1]),
                 height=max(500, len(agent_df_sorted) * 15),
                 xaxis=dict(tickangle=-45),
@@ -1332,15 +1718,15 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
                 
                 chunk_data = agent_df_sorted.iloc[start_idx:end_idx]
                 chunk_agent_ids = chunk_data['agent_id'].tolist()
-                chunk_icc_values = chunk_data['icc_2k'].tolist()
+                chunk_stability_values = chunk_data['stability_index'].tolist()
                 
                 fig_a_agg = go.Figure()
                 fig_a_agg.add_trace(go.Bar(
                     x=chunk_agent_ids,
-                    y=chunk_icc_values,
+                    y=chunk_stability_values,
                     marker_color='#4CAF50',
-                    hovertemplate='Agent: %{x}<br>Mean ICC(2,k): %{y:.3f}<extra></extra>',
-                    text=chunk_icc_values,
+                    hovertemplate='Agent: %{x}<br>Mean Stability Index: %{y:.3f}<extra></extra>',
+                    text=chunk_stability_values,
                     texttemplate='%{{text:.3f}}',
                     textposition='outside',
                     width=0.8
@@ -1350,7 +1736,7 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
                 fig_a_agg.update_layout(
                     title=f'Aggregated by Agent (Average Across Questions){title_suffix}',
                     xaxis_title='Agent ID',
-                    yaxis_title='Mean ICC(2,k)',
+                    yaxis_title='Mean Stability Index',
                     yaxis=dict(range=[0, 1.1]),
                     height=max(500, len(chunk_data) * 15),
                     xaxis=dict(tickangle=-45),
@@ -1362,10 +1748,10 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
             fig_a_agg_all = go.Figure()
             fig_a_agg_all.add_trace(go.Bar(
                 x=agent_df_sorted['agent_id'].tolist(),
-                y=agent_df_sorted['icc_2k'].tolist(),
+                y=agent_df_sorted['stability_index'].tolist(),
                 marker_color='#4CAF50',
-                hovertemplate='Agent: %{x}<br>Mean ICC(2,k): %{y:.3f}<extra></extra>',
-                text=agent_df_sorted['icc_2k'].tolist(),
+                hovertemplate='Agent: %{x}<br>Mean Stability Index: %{y:.3f}<extra></extra>',
+                text=agent_df_sorted['stability_index'].tolist(),
                 texttemplate='%{{text:.3f}}',
                 textposition='outside',
                 width=0.8
@@ -1373,7 +1759,7 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
             fig_a_agg_all.update_layout(
                 title=f'Aggregated by Agent (Average Across Questions) - All {len(agent_df_sorted)} Agents',
                 xaxis_title='Agent ID',
-                yaxis_title='Mean ICC(2,k)',
+                yaxis_title='Mean Stability Index',
                 yaxis=dict(range=[0, 1.1]),
                 height=max(500, len(agent_df_sorted) * 15),
                 xaxis=dict(tickangle=-45),
@@ -1400,11 +1786,11 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
             # Sort score names (they should already be sorted, but ensure consistency)
             unique_scores = sorted(score_df['score_name'].unique())
             
-            # Create pivot table for distilled scores
+            # Create pivot table for distilled scores (using Stability Index for heatmaps)
             pivot_score_icc = score_df.pivot_table(
                 index='score_name',
                 columns='agent_id',
-                values='icc_2k',
+                values='stability_index',
                 aggfunc='mean'
             )
             
@@ -1422,13 +1808,13 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
             # Option A: If only 1 chunk, show only overall. If multiple chunks, show subgraphs + overall
             if dist_num_chunks == 1:
                 # Single chunk: show only overall graph
-                hovertemplate_str_all = '<b>Agent ID:</b> %{x}<br><b>Score:</b> %{y}<br><b>ICC(2,k):</b> %{z:.3f}<extra></extra>'
+                hovertemplate_str_all = '<b>Agent ID:</b> %{x}<br><b>Score:</b> %{y}<br><b>Stability Index:</b> %{z:.3f}<extra></extra>'
                 fig_dist_heatmap_all = go.Figure(data=go.Heatmap(
                     z=pivot_score_icc.values.tolist(),
                     x=dist_agent_ids_list,
                     y=dist_score_names_list,
                     colorscale='Blues',
-                    colorbar=dict(title="ICC(2,k)"),
+                    colorbar=dict(title="Stability Index"),
                     hovertemplate=hovertemplate_str_all,
                     showscale=True
                 ))
@@ -1455,14 +1841,14 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
                     chunk_agent_ids = dist_agent_ids_list[start_idx:end_idx]
                     chunk_pivot = pivot_score_icc[chunk_agent_ids]
                     
-                    hovertemplate_str = '<b>Agent ID:</b> %{x}<br><b>Score:</b> %{y}<br><b>ICC(2,k):</b> %{z:.3f}<extra></extra>'
+                    hovertemplate_str = '<b>Agent ID:</b> %{x}<br><b>Score:</b> %{y}<br><b>Stability Index:</b> %{z:.3f}<extra></extra>'
                     
                     fig_dist_heatmap = go.Figure(data=go.Heatmap(
                         z=chunk_pivot.values.tolist(),
                         x=chunk_agent_ids,
                         y=dist_score_names_list,
                         colorscale='Blues',
-                        colorbar=dict(title="ICC(2,k)"),
+                        colorbar=dict(title="Stability Index"),
                         hovertemplate=hovertemplate_str,
                         showscale=True
                     ))
@@ -1484,13 +1870,13 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
                     distilled_heatmap_figs.append(fig_dist_heatmap)
                 
                 # Add overall heatmap at the end
-                hovertemplate_str_all = '<b>Agent ID:</b> %{x}<br><b>Score:</b> %{y}<br><b>ICC(2,k):</b> %{z:.3f}<extra></extra>'
+                hovertemplate_str_all = '<b>Agent ID:</b> %{x}<br><b>Score:</b> %{y}<br><b>Stability Index:</b> %{z:.3f}<extra></extra>'
                 fig_dist_heatmap_all = go.Figure(data=go.Heatmap(
                     z=pivot_score_icc.values.tolist(),
                     x=dist_agent_ids_list,
                     y=dist_score_names_list,
                     colorscale='Blues',
-                    colorbar=dict(title="ICC(2,k)"),
+                    colorbar=dict(title="Stability Index"),
                     hovertemplate=hovertemplate_str_all,
                     showscale=True
                 ))
@@ -1575,10 +1961,10 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
                     )
                     distilled_score_agg_figs.append(fig_s_agg_all)
             
-            # View 3: Aggregated by agent
+            # View 3: Aggregated by agent (using Stability Index)
             dist_agent_df = distilled_results['agent_level']
             dist_agent_df_sorted = dist_agent_df.sort_values('agent_id').copy()
-            dist_agent_df_sorted['icc_2k'] = dist_agent_df_sorted['icc_2k'].fillna(0)
+            dist_agent_df_sorted['stability_index'] = dist_agent_df_sorted['stability_index'].fillna(0)
             
             dist_a_chunk_size = 50
             dist_num_a_chunks = (len(dist_agent_df_sorted) + dist_a_chunk_size - 1) // dist_a_chunk_size
@@ -1589,10 +1975,10 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
                 fig_dist_a_agg_all = go.Figure()
                 fig_dist_a_agg_all.add_trace(go.Bar(
                     x=dist_agent_df_sorted['agent_id'].tolist(),
-                    y=dist_agent_df_sorted['icc_2k'].tolist(),
+                    y=dist_agent_df_sorted['stability_index'].tolist(),
                     marker_color='#2196F3',
-                    hovertemplate='Agent: %{x}<br>Mean ICC(2,k): %{y:.3f}<extra></extra>',
-                    text=dist_agent_df_sorted['icc_2k'].tolist(),
+                    hovertemplate='Agent: %{x}<br>Mean Stability Index: %{y:.3f}<extra></extra>',
+                    text=dist_agent_df_sorted['stability_index'].tolist(),
                     texttemplate='%{{text:.3f}}',
                     textposition='outside',
                     width=0.8
@@ -1600,7 +1986,7 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
                 fig_dist_a_agg_all.update_layout(
                     title=f'Aggregated by Agent (Average Across Scores) - All {len(dist_agent_df_sorted)} Agents',
                     xaxis_title='Agent ID',
-                    yaxis_title='Mean ICC(2,k)',
+                    yaxis_title='Mean Stability Index',
                     yaxis=dict(range=[0, 1.1]),
                     height=max(500, len(dist_agent_df_sorted) * 15),
                     xaxis=dict(tickangle=-45),
@@ -1615,15 +2001,15 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
                     
                     chunk_data = dist_agent_df_sorted.iloc[start_idx:end_idx]
                     chunk_agent_ids = chunk_data['agent_id'].tolist()
-                    chunk_icc_values = chunk_data['icc_2k'].tolist()
+                    chunk_stability_values = chunk_data['stability_index'].tolist()
                     
                     fig_dist_a_agg = go.Figure()
                     fig_dist_a_agg.add_trace(go.Bar(
                         x=chunk_agent_ids,
-                        y=chunk_icc_values,
+                        y=chunk_stability_values,
                         marker_color='#2196F3',
-                        hovertemplate='Agent: %{x}<br>Mean ICC(2,k): %{y:.3f}<extra></extra>',
-                        text=chunk_icc_values,
+                        hovertemplate='Agent: %{x}<br>Mean Stability Index: %{y:.3f}<extra></extra>',
+                        text=chunk_stability_values,
                         texttemplate='%{{text:.3f}}',
                         textposition='outside',
                         width=0.8
@@ -1633,7 +2019,7 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
                     fig_dist_a_agg.update_layout(
                         title=f'Aggregated by Agent (Average Across Scores){title_suffix}',
                         xaxis_title='Agent ID',
-                        yaxis_title='Mean ICC(2,k)',
+                        yaxis_title='Mean Stability Index',
                         yaxis=dict(range=[0, 1.1]),
                         height=max(500, len(chunk_data) * 15),
                         xaxis=dict(tickangle=-45),
@@ -1645,10 +2031,10 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
                 fig_dist_a_agg_all = go.Figure()
                 fig_dist_a_agg_all.add_trace(go.Bar(
                     x=dist_agent_df_sorted['agent_id'].tolist(),
-                    y=dist_agent_df_sorted['icc_2k'].tolist(),
+                    y=dist_agent_df_sorted['stability_index'].tolist(),
                     marker_color='#2196F3',
-                    hovertemplate='Agent: %{x}<br>Mean ICC(2,k): %{y:.3f}<extra></extra>',
-                    text=dist_agent_df_sorted['icc_2k'].tolist(),
+                    hovertemplate='Agent: %{x}<br>Mean Stability Index: %{y:.3f}<extra></extra>',
+                    text=dist_agent_df_sorted['stability_index'].tolist(),
                     texttemplate='%{{text:.3f}}',
                     textposition='outside',
                     width=0.8
@@ -1656,7 +2042,7 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
                 fig_dist_a_agg_all.update_layout(
                     title=f'Aggregated by Agent (Average Across Scores) - All {len(dist_agent_df_sorted)} Agents',
                     xaxis_title='Agent ID',
-                    yaxis_title='Mean ICC(2,k)',
+                    yaxis_title='Mean Stability Index',
                     yaxis=dict(range=[0, 1.1]),
                     height=max(500, len(dist_agent_df_sorted) * 15),
                     xaxis=dict(tickangle=-45),
@@ -1807,8 +2193,9 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
     raw_agent_agg_data = raw_results.get('agent_level', pd.DataFrame())
     
     # Convert DataFrames to JSON (only the columns we need)
+    # question_aggregated uses standard ICC(2,k), agent_aggregated uses Stability Index
     raw_question_agg_json = raw_question_agg_data[['question_id', 'section_id', 'icc_2k']].to_dict('records') if not raw_question_agg_data.empty else []
-    raw_agent_agg_json = raw_agent_agg_data[['agent_id', 'icc_2k']].to_dict('records') if not raw_agent_agg_data.empty else []
+    raw_agent_agg_json = raw_agent_agg_data[['agent_id', 'stability_index']].to_dict('records') if not raw_agent_agg_data.empty else []
     
     chart_data_js = f"""
         // Chart data for dynamic loading (stored as lightweight data, not full chart JSON)
@@ -1825,14 +2212,14 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
         distilled_score_agg_data = distilled_results.get('score_aggregated', pd.DataFrame())
         distilled_agent_agg_data = distilled_results.get('agent_level', pd.DataFrame())
         
-        # For heatmaps, we need pivot table data
+        # For heatmaps, we need pivot table data (using Stability Index)
         distilled_heatmap_data = []
         if not distilled_score_level_data.empty:
             # Create a simplified representation of the pivot table
             pivot_data = distilled_score_level_data.pivot_table(
                 index='score_name',
                 columns='agent_id',
-                values='icc_2k',
+                values='stability_index',
                 aggfunc='mean'
             ).fillna(0)
             # Convert to a more compact format
@@ -1842,8 +2229,9 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
                 'values': pivot_data.values.tolist()
             }
         
+        # score_aggregated uses standard ICC(2,k), agent_aggregated uses Stability Index
         distilled_score_agg_json = distilled_score_agg_data[['score_name', 'section_id', 'icc_2k']].to_dict('records') if not distilled_score_agg_data.empty else []
-        distilled_agent_agg_json = distilled_agent_agg_data[['agent_id', 'icc_2k']].to_dict('records') if not distilled_agent_agg_data.empty else []
+        distilled_agent_agg_json = distilled_agent_agg_data[['agent_id', 'stability_index']].to_dict('records') if not distilled_agent_agg_data.empty else []
         
         chart_data_js += f""",
             distilled: {{
@@ -1861,12 +2249,16 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
             var xValues = data.map(function(d) {{ return d[xKey]; }});
             var yValues = data.map(function(d) {{ return d[yKey] || 0; }});
             
+            // Determine y-axis label based on yKey
+            var yAxisLabel = (yKey === 'icc_2k') ? 'Mean ICC(2,k)' : 'Mean Stability Index';
+            var hoverLabel = (yKey === 'icc_2k') ? 'Mean ICC(2,k)' : 'Mean Stability Index';
+            
             var trace = {{
                 x: xValues,
                 y: yValues,
                 type: 'bar',
                 marker: {{color: color}},
-                hovertemplate: xKey + ': %{{x}}<br>Mean ICC(2,k): %{{y:.3f}}<extra></extra>',
+                hovertemplate: xKey + ': %{{x}}<br>' + hoverLabel + ': %{{y:.3f}}<extra></extra>',
                 text: yValues,
                 texttemplate: '%{{text:.3f}}',
                 textposition: 'outside',
@@ -1876,7 +2268,7 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
             var layout = {{
                 title: {{text: title}},
                 xaxis: {{title: xKey, tickangle: -45}},
-                yaxis: {{title: 'Mean ICC(2,k)', range: [0, 1.1]}},
+                yaxis: {{title: yAxisLabel, range: [0, 1.1]}},
                 height: Math.max(500, data.length * 25),
                 bargap: 0.1
             }};
@@ -1895,8 +2287,8 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
                 y: pivotData.scores,
                 type: 'heatmap',
                 colorscale: colorScale,
-                colorbar: {{title: "ICC(2,k)"}},
-                hovertemplate: '<b>Agent ID:</b> %{{x}}<br><b>Score:</b> %{{y}}<br><b>ICC(2,k):</b> %{{z:.3f}}<extra></extra>'
+                colorbar: {{title: "Stability Index"}},
+                hovertemplate: '<b>Agent ID:</b> %{{x}}<br><b>Score:</b> %{{y}}<br><b>Stability Index:</b> %{{z:.3f}}<extra></extra>'
             }};
             
             var layout = {{
@@ -1956,7 +2348,7 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
                             title = 'Aggregated by Agent (Average Across Questions) (Agents ' + chunkData[0].agent_id + ' to ' + chunkData[chunkData.length - 1].agent_id + ')';
                         }}
                         
-                        generateBarChart(divs[i].id, chunkData, 'agent_id', 'icc_2k', title, '#4CAF50');
+                        generateBarChart(divs[i].id, chunkData, 'agent_id', 'stability_index', title, '#4CAF50');
                     }}
                 }}
             }} else if (dataType === 'distilled' && typeof chartData.distilled !== 'undefined') {{
@@ -2037,7 +2429,7 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
                             title = 'Aggregated by Agent (Average Across Scores) (Agents ' + chunkData[0].agent_id + ' to ' + chunkData[chunkData.length - 1].agent_id + ')';
                         }}
                         
-                        generateBarChart(divs[i].id, chunkData, 'agent_id', 'icc_2k', title, '#2196F3');
+                        generateBarChart(divs[i].id, chunkData, 'agent_id', 'stability_index', title, '#2196F3');
                     }}
                 }}
             }}
@@ -2058,9 +2450,75 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
     # Build final HTML
     # Replace js_code placeholder (in case f-string interpolation didn't work)
     html_content = html_content.replace('{js_code}', js_code)
+    # Generate Metric Diagnostics tables
+    import json as json_module
+    
+    # Raw questions diagnostic table
+    raw_question_agg_data = raw_results.get('question_aggregated', pd.DataFrame())
+    metric_diagnostics_raw_rows = []
+    if not raw_question_agg_data.empty:
+        for _, row in raw_question_agg_data.iterrows():
+            metric_diagnostics_raw_rows.append({
+                'Question ID': row['question_id'],
+                'Section': row['section_id'],
+                'MS_R': f"{row['ms_rows']:.2f}" if not pd.isna(row['ms_rows']) else 'N/A',
+                'MS_C': f"{row['ms_cols']:.2f}" if not pd.isna(row['ms_cols']) else 'N/A',
+                'MS_E': f"{row['ms_error']:.2f}" if not pd.isna(row['ms_error']) else 'N/A',
+                'ICC(2,k)': f"{row['icc_2k']:.4f}" if not pd.isna(row['icc_2k']) else 'N/A',
+                'ICC(3,k)': f"{row['icc_3k']:.4f}" if not pd.isna(row['icc_3k']) else 'N/A',
+                'Stability Index': f"{row['mean_stability_index']:.4f}" if not pd.isna(row['mean_stability_index']) else 'N/A',
+                "Cronbach's α": f"{row['cronbach_alpha']:.4f}" if not pd.isna(row['cronbach_alpha']) else 'N/A',
+                'Min': f"{row['min_value']:.2f}" if not pd.isna(row['min_value']) else 'N/A',
+                'Max': f"{row['max_value']:.2f}" if not pd.isna(row['max_value']) else 'N/A',
+                'N Agents': int(row['n_agents']) if not pd.isna(row['n_agents']) else 'N/A'
+            })
+        metric_diagnostics_raw_df = pd.DataFrame(metric_diagnostics_raw_rows)
+        # Sort by ICC(2,k) to see lowest values first
+        metric_diagnostics_raw_df['ICC(2,k)_num'] = pd.to_numeric(metric_diagnostics_raw_df['ICC(2,k)'], errors='coerce')
+        metric_diagnostics_raw_df = metric_diagnostics_raw_df.sort_values('ICC(2,k)_num', na_position='last')
+        metric_diagnostics_raw_df = metric_diagnostics_raw_df.drop('ICC(2,k)_num', axis=1)
+        metric_diagnostics_raw_table = metric_diagnostics_raw_df.to_html(classes='data-table', index=False, escape=False)
+        metric_diagnostics_raw_table_escaped = json_module.dumps(metric_diagnostics_raw_table).replace('</script>', '<\\/script>')
+    else:
+        metric_diagnostics_raw_table_escaped = json_module.dumps('<p>No data available</p>').replace('</script>', '<\\/script>')
+    
+    # Distilled scores diagnostic table
+    metric_diagnostics_distilled_table_escaped = None
+    if distilled_results is not None:
+        distilled_score_agg_data = distilled_results.get('score_aggregated', pd.DataFrame())
+        metric_diagnostics_distilled_rows = []
+        if not distilled_score_agg_data.empty:
+            for _, row in distilled_score_agg_data.iterrows():
+                metric_diagnostics_distilled_rows.append({
+                    'Score Name': row['score_name'],
+                    'Section': row['section_id'],
+                    'MS_R': f"{row['ms_rows']:.2f}" if not pd.isna(row['ms_rows']) else 'N/A',
+                    'MS_C': f"{row['ms_cols']:.2f}" if not pd.isna(row['ms_cols']) else 'N/A',
+                    'MS_E': f"{row['ms_error']:.2f}" if not pd.isna(row['ms_error']) else 'N/A',
+                    'ICC(2,k)': f"{row['icc_2k']:.4f}" if not pd.isna(row['icc_2k']) else 'N/A',
+                    'ICC(3,k)': f"{row['icc_3k']:.4f}" if not pd.isna(row['icc_3k']) else 'N/A',
+                    'Stability Index': f"{row['mean_stability_index']:.4f}" if not pd.isna(row['mean_stability_index']) else 'N/A',
+                    "Cronbach's α": f"{row['cronbach_alpha']:.4f}" if not pd.isna(row['cronbach_alpha']) else 'N/A',
+                    'Min': f"{row['min_value']:.2f}" if not pd.isna(row['min_value']) else 'N/A',
+                    'Max': f"{row['max_value']:.2f}" if not pd.isna(row['max_value']) else 'N/A',
+                    'N Agents': int(row['n_agents']) if not pd.isna(row['n_agents']) else 'N/A'
+                })
+            metric_diagnostics_distilled_df = pd.DataFrame(metric_diagnostics_distilled_rows)
+            # Sort by ICC(2,k) to see lowest values first
+            metric_diagnostics_distilled_df['ICC(2,k)_num'] = pd.to_numeric(metric_diagnostics_distilled_df['ICC(2,k)'], errors='coerce')
+            metric_diagnostics_distilled_df = metric_diagnostics_distilled_df.sort_values('ICC(2,k)_num', na_position='last')
+            metric_diagnostics_distilled_df = metric_diagnostics_distilled_df.drop('ICC(2,k)_num', axis=1)
+            metric_diagnostics_distilled_table = metric_diagnostics_distilled_df.to_html(classes='data-table', index=False, escape=False)
+            metric_diagnostics_distilled_table_escaped = json_module.dumps(metric_diagnostics_distilled_table).replace('</script>', '<\\/script>')
+        else:
+            metric_diagnostics_distilled_table_escaped = json_module.dumps('<p>No data available</p>').replace('</script>', '<\\/script>')
+    
     html_content = html_content.replace('<div id="summary-metrics"></div>', f'<div id="summary-metrics">{summary_html}</div>')
     html_content = html_content.replace('<div id="summary-charts"></div>', summary_chart_html)
     html_content = html_content.replace('<div id="question-level-content-container"></div>', f'<div id="question-level-content-container">{question_level_content}</div>')
+    html_content = html_content.replace('<div id="metric-diagnostics-raw-container"></div>', f'<h4>Raw Questions</h4><div id="metric-diagnostics-raw-table"></div>')
+    if distilled_results is not None:
+        html_content = html_content.replace('<div id="metric-diagnostics-distilled-container"></div>', f'<h4>Distilled Scores</h4><div id="metric-diagnostics-distilled-table"></div>')
     
     # Add scripts for raw heatmaps (default view) - these scripts render the graphs
     # Also add chart data JavaScript for dynamic loading
@@ -2101,31 +2559,31 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
     
     # Add distilled visualizations if available
     if distilled_results is not None and df_distilled is not None:
-        # Distilled section comparison chart
+        # Distilled section comparison chart (using Stability Index)
         dist_overall_section = distilled_results['overall_section']
         dist_sections = dist_overall_section['section_id'].tolist()
-        dist_icc_2k_vals = dist_overall_section['mean_icc_2k'].fillna(0).tolist()
-        dist_icc_3k_vals = dist_overall_section['mean_icc_3k'].fillna(0).tolist()
+        dist_stability_index_vals = dist_overall_section['mean_stability_index'].fillna(0).tolist()
+        dist_alpha_vals = score_aggregated['cronbach_alpha'].fillna(0).tolist()
         
         fig_dist_sections = go.Figure()
         fig_dist_sections.add_trace(go.Bar(
             x=dist_sections,
-            y=dist_icc_2k_vals,
-            name='ICC(2,k)',
+            y=dist_stability_index_vals,
+            name='Stability Index',
             marker_color='#2196F3',
-            hovertemplate='Section: %{x}<br>ICC(2,k): %{y:.3f}<extra></extra>'
-        ))
+            hovertemplate='Section: %{x}<br>Stability Index: %{y:.3f}<extra></extra>'
+                ))
         fig_dist_sections.add_trace(go.Bar(
             x=dist_sections,
-            y=dist_icc_3k_vals,
-            name='ICC(3,k)',
+            y=dist_alpha_vals,
+            name="Cronbach's α",
             marker_color='#1976D2',
-            hovertemplate='Section: %{x}<br>ICC(3,k): %{y:.3f}<extra></extra>'
-        ))
+            hovertemplate='Section: %{x}<br>Cronbach\'s α: %{y:.3f}<extra></extra>'
+                ))
         fig_dist_sections.update_layout(
-            title='Distilled Scores Consistency by Section',
+            title='Distilled Scores Consistency by Section (Stability Index & Cronbach\'s α)',
             xaxis_title='Section',
-            yaxis_title='ICC Value',
+            yaxis_title='Value',
             yaxis=dict(range=[0, 1]),
             barmode='group',
             height=400,
@@ -2320,6 +2778,15 @@ def generate_html_report(raw_results: Dict, df_all: pd.DataFrame, output_path: s
     if all_scripts:
         script_section = '\n'.join(all_scripts)
         html_content = html_content.replace('</body>', f'{script_section}\n</body>')
+    
+    # Add JavaScript to populate metric diagnostics tables
+    metric_diagnostics_js = f"""
+        document.getElementById('metric-diagnostics-raw-table').innerHTML = {metric_diagnostics_raw_table_escaped};
+        """ + (f"""
+        document.getElementById('metric-diagnostics-distilled-table').innerHTML = {metric_diagnostics_distilled_table_escaped};
+        """ if metric_diagnostics_distilled_table_escaped is not None else "") + """
+    """
+    html_content = html_content.replace('</body>', f'<script>{metric_diagnostics_js}</script>\n</body>')
     
     html_content += """
     </div>

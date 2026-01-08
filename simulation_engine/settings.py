@@ -49,7 +49,7 @@ LLM_VERS = _selected_model["name"]
 
 # Local Model Configuration (only needed if MODEL_PROVIDER == "local")
 LOCAL_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"  # For embeddings
-DEVICE = "cuda:3"  # Options: "cuda", "cpu", or "mps" (for Apple Silicon) - Using CUDA for GPU acceleration
+DEVICE = "cuda:1"  # Options: "cuda", "cpu", or "mps" (for Apple Silicon) - Using CUDA for GPU acceleration
 
 # Optional: Hugging Face token (required for gated models)
 HF_TOKEN = None  # Set to your HF token if needed: "hf_your_token_here"

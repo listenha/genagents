@@ -239,19 +239,19 @@ def extract_agent_score_metrics(agent_data: Dict, attempt_ids: List[int]) -> pd.
                             score_responses[key] = []
                         score_responses[key].append(float(trait_value))
             elif section_id == "BES-A":
-                total_score = section_data.get("total_score")
-                if total_score is not None:
-                    key = (section_id, "CE_total")
+                normalized_score = section_data.get("normalized_score")
+                if normalized_score is not None:
+                    key = (section_id, "CE_normalized")
                     if key not in score_responses:
                         score_responses[key] = []
-                    score_responses[key].append(float(total_score))
+                    score_responses[key].append(float(normalized_score))
             elif section_id == "REI":
-                total_score = section_data.get("total_score")
-                if total_score is not None:
-                    key = (section_id, "RA_total")
+                normalized_score = section_data.get("normalized_score")
+                if normalized_score is not None:
+                    key = (section_id, "RA_normalized")
                     if key not in score_responses:
                         score_responses[key] = []
-                    score_responses[key].append(float(total_score))
+                    score_responses[key].append(float(normalized_score))
     
     # Compute metrics for each score
     for (section_id, score_name), responses in score_responses.items():
@@ -284,13 +284,14 @@ def compute_distribution_stats(df: pd.DataFrame, group_col: str, value_col: str 
             "mean": np.mean(group_data),
             "median": np.median(group_data),
             "std": np.std(group_data, ddof=1),
+            "cv": (np.std(group_data, ddof=1) / np.mean(group_data) * 100) if np.mean(group_data) > 0 else np.nan,
             "min": np.min(group_data),
             "max": np.max(group_data),
-            "q25": np.percentile(group_data, 25),
-            "q75": np.percentile(group_data, 75),
-            "iqr": np.percentile(group_data, 75) - np.percentile(group_data, 25),
-            "skewness": stats.skew(group_data) if len(group_data) > 2 else np.nan,
-            "kurtosis": stats.kurtosis(group_data) if len(group_data) > 2 else np.nan
+            # "q25": np.percentile(group_data, 25),
+            # "q75": np.percentile(group_data, 75),
+            # "iqr": np.percentile(group_data, 75) - np.percentile(group_data, 25),
+            # "skewness": stats.skew(group_data) if len(group_data) > 2 else np.nan,
+            # "kurtosis": stats.kurtosis(group_data) if len(group_data) > 2 else np.nan
         })
     
     return pd.DataFrame(stats_list)
@@ -553,11 +554,8 @@ def generate_html_report(raw_results: Optional[Dict], distilled_results: Optiona
     timestamp_str = pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')
     attempts_str = ', '.join(map(str, sorted(attempt_ids))) if attempt_ids else 'All available'
     
-    # Build conditional HTML parts
-    raw_tab_button = '<button class="tab-button" onclick="showTab(\'raw\')">Raw Questions</button>' if raw_results else ''
-    distilled_tab_button = '<button class="tab-button" onclick="showTab(\'distilled\')">Distilled Scores</button>' if distilled_results else ''
-    raw_tab_content = '<div id="raw" class="tab-content"><h2>Raw Question Distribution</h2><div id="raw-content"></div></div>' if raw_results else ''
-    distilled_tab_content = '<div id="distilled" class="tab-content"><h2>Distilled Score Distribution</h2><div id="distilled-content"></div></div>' if distilled_results else ''
+    # Build conditional HTML parts - merged tab structure
+    question_level_tab_button = '<button class="tab-button" onclick="showTab(\'question-level\', event)">Question Level Distribution</button>' if (raw_results or distilled_results) else ''
     
     # Start building HTML
     html_content = f"""<!DOCTYPE html>
@@ -687,9 +685,8 @@ def generate_html_report(raw_results: Optional[Dict], distilled_results: Optiona
         
         <div class="tab-container">
             <div class="tab-buttons">
-                <button class="tab-button active" onclick="showTab('summary')">Summary</button>
-                {raw_tab_button}
-                {distilled_tab_button}
+                <button class="tab-button active" onclick="showTab('summary', event)">Summary</button>
+                {question_level_tab_button}
             </div>
             
             <div id="summary" class="tab-content active">
@@ -698,13 +695,30 @@ def generate_html_report(raw_results: Optional[Dict], distilled_results: Optiona
                 <div id="summary-edge-cases"></div>
             </div>
             
-            {raw_tab_content}
-            {distilled_tab_content}
+            <div id="question-level" class="tab-content">
+                <h2>Question Level Distribution</h2>
+                <div class="filter-controls" style="margin: 20px 0; padding: 15px; background-color: #f9f9f9; border-radius: 5px;">
+                    <label for="data-type" style="font-weight: bold; margin-right: 10px;">Data Type:</label>
+                    <select id="data-type" onchange="updateQuestionLevelView()" style="padding: 5px 10px; font-size: 14px;">
+                        <option value="raw">Raw Responses</option>""" + ("""
+                        <option value="distilled">Distilled Scores</option>""" if distilled_results is not None else "") + """
+                    </select>
+                </div>
+                
+                <div id="question-view-raw" class="question-view" style="display: block;">
+                    <div id="raw-content"></div>
+                </div>
+                """ + ("""
+                <div id="question-view-distilled" class="question-view" style="display: none;">
+                    <div id="distilled-content"></div>
+                </div>
+                """ if distilled_results is not None else "") + """
+            </div>
         </div>
     </div>
     
     <script>
-        function showTab(tabName) {{
+        function showTab(tabName, event) {{
             // Hide all tabs
             const tabs = document.querySelectorAll('.tab-content');
             tabs.forEach(tab => tab.classList.remove('active'));
@@ -714,7 +728,18 @@ def generate_html_report(raw_results: Optional[Dict], distilled_results: Optiona
             
             // Show selected tab
             document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
+            if (event && event.target) {{
+                event.target.classList.add('active');
+            }}
+        }}
+        
+        function updateQuestionLevelView() {{
+            const dataType = document.getElementById('data-type').value;
+            const rawView = document.getElementById('question-view-raw');
+            const distilledView = document.getElementById('question-view-distilled');
+            
+            if (rawView) rawView.style.display = (dataType === 'raw') ? 'block' : 'none';
+            if (distilledView) distilledView.style.display = (dataType === 'distilled') ? 'block' : 'none';
         }}
     </script>
 </body>
@@ -1143,6 +1168,26 @@ def generate_raw_visualizations(raw_results: Dict, question_labels: Dict) -> str
     return combined_html
 
 
+def order_distilled_scores(scores: List[str]) -> List[str]:
+    """Order scores: BFI traits first, then REI and BES-A at the end."""
+    bfi_traits = ['Extraversion', 'Agreeableness', 'Conscientiousness', 'Neuroticism', 'Openness']
+    ordered = []
+    remaining = list(scores)
+    
+    # Add BFI traits in order
+    for trait in bfi_traits:
+        if trait in remaining:
+            ordered.append(trait)
+            remaining.remove(trait)
+    
+    # Add remaining scores (REI and BES-A) at the end
+    # Sort them so REI comes before BES-A (alphabetically)
+    remaining_sorted = sorted(remaining)
+    ordered.extend(remaining_sorted)
+    
+    return ordered
+
+
 def generate_distilled_visualizations(distilled_results: Dict) -> str:
     """Generate all visualizations for distilled scores."""
     df_metrics = distilled_results['metrics']
@@ -1150,7 +1195,9 @@ def generate_distilled_visualizations(distilled_results: Dict) -> str:
     
     html_parts = []
     
-    scores = sorted(df_metrics['score_name'].unique())
+    # Order scores: BFI traits first, then REI and BES-A
+    all_scores = list(df_metrics['score_name'].unique())
+    scores = order_distilled_scores(all_scores)
     
     # 1. Box plots per score with filtering dropdown
     # Organize scores by section (same logic as violin plots)
@@ -1458,15 +1505,16 @@ def generate_distilled_visualizations(distilled_results: Dict) -> str:
     scatter_html = fig_scatter.to_html(full_html=False, include_plotlyjs=False, div_id='distilled-scatter-plot')
     html_parts.append(f'<h3>Mean vs Standard Deviation</h3><p>Use dropdown to filter by instrument: All Scores, BFI-10, BES-A, or REI</p>{scatter_html}')
     
-    # 4. Histograms for all 7 distilled scores
+    # 4. Histograms for all 7 distilled scores (ordered: BFI traits first, then REI and BES-A)
     # Create subplots for all 7 scores (3 columns, 3 rows, last row has 1)
     fig_hist = make_subplots(
         rows=3, cols=3,
-        subplot_titles=scores,  # All 7 scores
+        subplot_titles=scores,  # All 7 scores in ordered format
         vertical_spacing=0.12,
         horizontal_spacing=0.1
     )
     
+    # Use ordered scores for histogram
     for idx, score_name in enumerate(scores):
         row = (idx // 3) + 1
         col = (idx % 3) + 1
@@ -1482,7 +1530,7 @@ def generate_distilled_visualizations(distilled_results: Dict) -> str:
             title='Histogram: Distribution of Agents\' Mean Scores (All Distilled Scores)',
             height=800
         )
-        fig_hist.update_xaxes(title_text="Mean Score")
+        fig_hist.update_xaxes(title_text="Mean Score", range=[0, 5])
         fig_hist.update_yaxes(title_text="Frequency")
     else:
         fig_hist.add_annotation(text="No data available", showarrow=False, xref="paper", yref="paper", x=0.5, y=0.5)
