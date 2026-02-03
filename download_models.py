@@ -2,7 +2,7 @@
 """
 Script to download Qwen models to the local models directory.
 
-This script downloads models to: /srv/local/common_resources/models/
+This script downloads models to: /taiga/common_resources/models/
 which matches the structure used for Qwen2.5-7B-Instruct
 """
 
@@ -15,8 +15,11 @@ from huggingface_hub import snapshot_download
 # Note: "Qwen3-32B" doesn't exist yet - using Qwen2.5-32B-Instruct instead
 # If you need a different model, update these names
 MODELS_TO_DOWNLOAD = [
-    "Qwen/Qwen3-14B",
-    "JunHowie/Qwen3-32B-GPTQ-Int4"
+    "meta-llama/Llama-3.1-8B-Instruct",
+    "google/gemma-2-9b",
+    # "mistralai/Mistral-Nemo-Instruct-2407",
+    # "Qwen/Qwen3-14B",
+    # "JunHowie/Qwen3-32B-GPTQ-Int4",
     # "Qwen/Qwen2.5-32B-Instruct",  # Standard 32B model
     # "Qwen/Qwen3-32B",
     # "Qwen/Qwen2.5-32B-Instruct-GPTQ-Int8"
@@ -26,7 +29,7 @@ MODELS_TO_DOWNLOAD = [
 ]
 
 # Base directory for models
-BASE_MODELS_DIR = Path("/srv/local/common_resources/models")
+BASE_MODELS_DIR = Path("/taiga/common_resources/models")
 
 # Optional: Hugging Face token (required for gated models)
 HF_TOKEN = os.environ.get("HF_TOKEN", None)

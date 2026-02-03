@@ -11,6 +11,20 @@ This codebase offers two main components:
 1. **Codebase for Creating and Interacting with Generative Agents**: Tools to build new agents based on your own data and interact with them. Query agents with surveys, experiments, and other stimuli to study their responses.
 2. **Demographic Agent Banks**: A bank of over 3,000 agents created using demographic information from the General Social Survey (GSS) as a starting point to explore the codebase. *Note: The names and addresses are fictional.*
 
+Apart from basic agent creation and interaction, this project serves for a specific research experiment purpose. The experiment structure is as follows:
+
+1. **Agent Creation**: Basic agent information is stored in `agent_bank/populations/gss_agents`, where each agent has its own folder. Each agent has basic demographic information described by `scratch.json`, which is given as initial data.
+
+2. **Persona Enrichment**: Agent personas are further enriched and created via a memory stream injection technique through letting the agent answer a semi-structured interview. Each question-answer pair is stored as the agent's memory, with details described in the [Interview Module](#interview-module).
+
+3. **Data Collection**: After agents with various personas are created, we record the agents' data on two main interaction tasks:
+   - **Survey**: Standardized psychological surveys (PRE-TASK SURVEY) administered to agents. See the [Surveys Module](#surveys-module) for details.
+   - **Game (Behavioral)**: Wavelength-style behavioral game where agents make choices on spectrum-based questions. See the [Wavelength Game Module](#wavelength-game-module) for details.
+
+4. **Analysis**: We run analysis over the recorded data. Currently, this includes:
+   - Consistency/distribution analysis for responses 
+   - Correlation analysis between agent's profile (we take the survey answers to represent agent's persona, aka profile) and agent's behavior (game's choice). Further analysis might be added later.
+
 ## Table of Contents
 
 - [Installation](#installation)
@@ -29,6 +43,7 @@ This codebase offers two main components:
 - [Agent Interaction Modules](#agent-interaction-modules)
   - [Interview Module](#interview-module)
   - [Surveys Module](#surveys-module)
+  - [Wavelength Game Module](#wavelength-game-module)
 - [Agent Memory System](#agent-memory-system)
 - [Sample Agent](#sample-agent)
 - [Agent Bank Access](#agent-bank-access)
@@ -144,7 +159,8 @@ genagents/
 │   └── prompt_template/                # All LLM prompts used in this project
 ├── agent_bank/                         # Directory for storing agent data
 │   └── populations/                   # Contains pre-generated agents
-│       ├── gss_agents/                 # Demographic agent data based on 
+│       ├── gss_agents/                 # Agent relevant data, including demorgraphic, memory stream, interaction result (survey/game)
+│       ├── model_name_agents/                 # Future agents created using other model family (e.g. llama, mistral) 
 ├── Interview/                          # Interview module (see Interview/README.md)
 │   ├── README.md                       # Interview module documentation
 │   ├── run_interview.py                 # CLI for running interviews
@@ -152,6 +168,10 @@ genagents/
 ├── Surveys/                             # Surveys module (see Surveys/README.md)
 │   ├── README.md                       # Surveys module documentation
 │   ├── run_survey.py                   # CLI for running surveys
+│   └── ...
+├── Wavelength_Game/                    # Wavelength Game module (see Wavelength_Game/README.md)
+│   ├── README.md                       # Wavelength Game module documentation
+│   ├── run_wavelength.py              # CLI for running Wavelength Game
 │   └── ...
 ├── README.md                           # This file
 └── requirements.txt                    # Python dependencies
@@ -625,6 +645,29 @@ python3 Surveys/analyze_distribution.py --base agent_bank/populations/gss_agents
 
 ---
 
+### Wavelength Game Module
+
+**Location**: `Wavelength_Game/`
+
+The Wavelength Game module administers Wavelength-style behavioral games to agents, where agents place markers on a spectrum (0-100) based on clues. This module collects behavioral choice data and performs statistical analysis on consistency and distribution patterns.
+
+**Documentation**: See [`Wavelength_Game/README.md`](Wavelength_Game/README.md) for complete documentation.
+
+**Quick Start:**
+# Run game on a single agent
+python3 -u Wavelength_Game/run_wavelength.py --agent agent_bank/populations/gss_agents/0000
+
+# Run on range of agents
+python3 -u Wavelength_Game/run_wavelength.py --base agent_bank/populations/gss_agents --range 0000-0049
+
+# Analyze consistency
+python3 Wavelength_Game/analyze_consistency.py --base agent_bank/populations/gss_agents --range 0000-0049 --attempts 1-10
+
+# Analyze distribution
+python3 Wavelength_Game/analyze_distribution.py --base agent_bank/populations/gss_agents --range 0000-0049 --attempts 1-10
+
+---
+
 ## Agent Memory System
 
 The agent memory system is a core component that enables agents to maintain consistency and context across interactions.
@@ -693,16 +736,6 @@ The system uses **single-turn API calls with context injection**, NOT continuous
 4. **Manage time_steps** sequentially for proper recency scoring
 
 For detailed technical documentation, see the memory system implementation in `genagents/modules/memory_stream.py`.
-
----
-
-
-## Agent Bank Access
-
-Due to participant privacy concerns, the full agent bank containing over 1,000 generative agents based on real interviews is not publicly available at the moment. However, we plan to make aggregated responses on fixed tasks accessible for general research use in the coming months. Researchers interested in accessing individual responses on open tasks can request restricted access by contacting the authors and following a review process that ensures ethical considerations are met.
-
-The codebase includes a demographic agent bank (`agent_bank/populations/gss_agents/`) with over 3,000 agents created using demographic information from the General Social Survey (GSS). *Note: The names and addresses are fictional.*
-
 
 ---
 
