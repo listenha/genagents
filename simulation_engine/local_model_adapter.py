@@ -350,7 +350,9 @@ def local_model_request(prompt: str,
     try:
         model, tokenizer = load_local_model(model_name)
         device = _device
-        
+        # Use model's actual device for inputs (fixes device mismatch when using device_map="auto" or cached models, e.g. Mistral)
+        model_device = next(model.parameters()).device
+
         # Determine actual model name for Qwen3 detection
         actual_model_name = model_name or _local_model_name
         is_qwen3 = "Qwen3" in str(actual_model_name) or "qwen3" in str(actual_model_name).lower()
@@ -375,9 +377,9 @@ def local_model_request(prompt: str,
             
             # Now tokenize the formatted prompt
             inputs = tokenizer(formatted_prompt, return_tensors="pt")
-            # Move to device
-            inputs = {k: v.to(device) for k, v in inputs.items()}
-            
+            # Move inputs to model's device (ensures consistency with device_map="auto" / multi-device)
+            inputs = {k: v.to(model_device) for k, v in inputs.items()}
+
             # Clear cache before generation to free fragmented memory
             if device.startswith("cuda"):
                 torch.cuda.empty_cache()
@@ -393,8 +395,8 @@ def local_model_request(prompt: str,
         else:
             # Fallback: simple prompt formatting
             inputs = tokenizer(prompt, return_tensors="pt")
-            inputs = {k: v.to(device) for k, v in inputs.items()}
-        
+            inputs = {k: v.to(model_device) for k, v in inputs.items()}
+
         # Adjust generation parameters based on thinking mode
         # Qwen3 recommendations:
         # - Thinking mode: Temperature=0.6, TopP=0.95, TopK=20, MinP=0
@@ -409,15 +411,15 @@ def local_model_request(prompt: str,
         # Generate with memory-efficient settings
         with torch.no_grad():
             try:
-            outputs = model.generate(
-                **inputs,
+                outputs = model.generate(
+                    **inputs,
                     max_new_tokens=min(max_tokens, 512),  # Cap at 512 to save memory
-                temperature=gen_temperature,
-                top_p=top_p,
-                top_k=20,
-                do_sample=True,
-                pad_token_id=tokenizer.eos_token_id,
-            )
+                    temperature=gen_temperature,
+                    top_p=top_p,
+                    top_k=20,
+                    do_sample=True,
+                    pad_token_id=tokenizer.eos_token_id,
+                )
             except RuntimeError as e:
                 if "out of memory" in str(e).lower():
                     # Report memory state on OOM - convert device string to index

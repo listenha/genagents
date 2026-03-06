@@ -2,7 +2,7 @@
   "survey_metadata": {
     "survey_name": "PRE-TASK SURVEY",
     "survey_version": "1.0",
-    "extraction_date": "2025-12-08T02:34:26.308359"
+    "extraction_date": "2026-03-02T04:43:55.880295"
   },
   "sections": [
     {
@@ -69,7 +69,7 @@
     },
     {
       "section_id": "BES-A",
-      "section_name": "Empathy Scale for Adults - Cognitive Subscale (BES-A)",
+      "section_name": "Empathy Scale for Adults – Cognitive Subscale (BES-A)",
       "reference": "",
       "scale": {
         "min": 1,
@@ -79,46 +79,26 @@
       "questions": [
         {
           "question_id": "BES-A_1",
-          "question_text": "I can understand my friend's happiness when she/he does well at something.",
-          "section_prefix": null
-        },
-        {
-          "question_id": "BES-A_2",
           "question_text": "I find it hard to know when my friends are frightened.",
           "section_prefix": null
         },
         {
-          "question_id": "BES-A_3",
-          "question_text": "When someone is feeling “down” I can usually understand how they feel.",
-          "section_prefix": null
-        },
-        {
-          "question_id": "BES-A_4",
+          "question_id": "BES-A_2",
           "question_text": "I can usually work out when my friends are scared.",
           "section_prefix": null
         },
         {
-          "question_id": "BES-A_5",
+          "question_id": "BES-A_3",
           "question_text": "I can often understand how people are feeling even before they tell me.",
           "section_prefix": null
         },
         {
-          "question_id": "BES-A_6",
-          "question_text": "I can usually work out when people are cheerful.",
+          "question_id": "BES-A_4",
+          "question_text": "I am not usually aware of my friends’ feelings.",
           "section_prefix": null
         },
         {
-          "question_id": "BES-A_7",
-          "question_text": "I can usually realize quickly when a friend is angry.",
-          "section_prefix": null
-        },
-        {
-          "question_id": "BES-A_8",
-          "question_text": "I am not usually aware of my friends' feelings.",
-          "section_prefix": null
-        },
-        {
-          "question_id": "BES-A_9",
+          "question_id": "BES-A_5",
           "question_text": "I have trouble figuring out when my friends are happy.",
           "section_prefix": null
         }
@@ -126,7 +106,7 @@
     },
     {
       "section_id": "REI",
-      "section_name": "Rational-Experiential Inventory - Rational Ability Subscale (REI)",
+      "section_name": "Rational-Experiential Inventory – Rational Ability Subscale (REI)",
       "reference": "",
       "scale": {
         "min": 1,
@@ -158,30 +138,84 @@
           "question_id": "REI_5",
           "question_text": "I don't reason well under pressure.",
           "section_prefix": null
-        },
+        }
+      ]
+    },
+    {
+      "section_id": "SD3_NARCISSISM_SUBPART",
+      "section_name": "SD3 Narcissism Subpart",
+      "reference": "",
+      "scale": {
+        "min": 1,
+        "max": 5,
+        "labels": {}
+      },
+      "questions": [
         {
-          "question_id": "REI_6",
-          "question_text": "I am much better at figuring things out logically than most people.",
+          "question_id": "SD3_NARCISSISM_SUBPART_1",
+          "question_text": "*People see me as a natural leader.*",
           "section_prefix": null
         },
         {
-          "question_id": "REI_7",
-          "question_text": "I have a logical mind.",
+          "question_id": "SD3_NARCISSISM_SUBPART_2",
+          "question_text": "*I hate being the center of attention. (R)*",
           "section_prefix": null
         },
         {
-          "question_id": "REI_8",
-          "question_text": "I have no problem thinking things through carefully.",
+          "question_id": "SD3_NARCISSISM_SUBPART_3",
+          "question_text": "*Many group activities tend to be dull without me.*",
           "section_prefix": null
         },
         {
-          "question_id": "REI_9",
-          "question_text": "Using logic usually works well for me in figuring out problems in my life.",
+          "question_id": "SD3_NARCISSISM_SUBPART_4",
+          "question_text": "*I know that I am special because everyone keeps telling me so.*",
           "section_prefix": null
         },
         {
-          "question_id": "REI_10",
-          "question_text": "I usually have clear, explainable reasons for my decisions.",
+          "question_id": "SD3_NARCISSISM_SUBPART_5",
+          "question_text": "*I like to get acquainted with important people.*",
+          "section_prefix": null
+        }
+      ]
+    },
+    {
+      "section_id": "GENERAL_DECISION_MAKING",
+      "section_name": "General Decision Making Style (GDMS)",
+      "reference": "",
+      "scale": {
+        "min": 1,
+        "max": 5,
+        "labels": {}
+      },
+      "questions": [
+        {
+          "question_id": "GENERAL_DECISION_MAKING_1",
+          "question_text": "I make decisions in a logical and systematic way. (Rational)",
+          "section_prefix": null
+        },
+        {
+          "question_id": "GENERAL_DECISION_MAKING_2",
+          "question_text": "I avoid making important decisions until the pressure is on. (Avoidant)",
+          "section_prefix": null
+        },
+        {
+          "question_id": "GENERAL_DECISION_MAKING_3",
+          "question_text": "I rarely make important decisions without consulting other people. (Dependent)",
+          "section_prefix": null
+        },
+        {
+          "question_id": "GENERAL_DECISION_MAKING_4",
+          "question_text": "When I make decisions, I tend to rely on my intuition. (Intuitive)",
+          "section_prefix": null
+        },
+        {
+          "question_id": "GENERAL_DECISION_MAKING_5",
+          "question_text": "I generally make snap decisions. (Spontaneous)",
+          "section_prefix": null
+        },
+        {
+          "question_id": "GENERAL_DECISION_MAKING_6",
+          "question_text": "I explore all of my options before making a decision.",
           "section_prefix": null
         }
       ]
