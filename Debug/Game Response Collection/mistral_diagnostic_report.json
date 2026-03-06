@@ -1,0 +1,6383 @@
+{
+  "base": "/taiga/common_resources/yueshen7/genagents/agent_bank/populations/Mistral-Nemo_agents",
+  "agents_analyzed": 200,
+  "agents_with_multiple_attempts": 197,
+  "attempt_count_distribution": {
+    "1": 3,
+    "2": 197
+  },
+  "average_null_rate_per_attempt": 0.567,
+  "any_negative_responses": false,
+  "total_negative_values": 0,
+  "global_min_response": 0,
+  "global_max_response": 90,
+  "per_agent_results": [
+    {
+      "agent_id": "0000",
+      "attempt_count": 1,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 0,
+      "overall_min": null,
+      "overall_max": null,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0001",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 15,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 15,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0002",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0003",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 25,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 25,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0004",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0005",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0006",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0007",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 15,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 15,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0008",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 90,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 90,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0009",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0010",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 75,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 75,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0011",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0012",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0013",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 1
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0014",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 75,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 75,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0015",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0016",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 75,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 75,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0017",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 1
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0018",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0019",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 1
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0020",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0021",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 75,
+          "negative_count": 0,
+          "error_raw_count": 2
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 75,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0022",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 1
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0023",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0024",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 90,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 90,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0025",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0026",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0027",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0028",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0029",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0030",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 2
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0031",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0032",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 25,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 25,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0033",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0034",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0035",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0036",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 75,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 75,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0037",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0038",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0039",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0040",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0041",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 1
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0042",
+      "attempt_count": 1,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 75,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 75,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0043",
+      "attempt_count": 1,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 20,
+          "max": 75,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 20,
+      "overall_max": 75,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0044",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 9,
+          "null_count": 13,
+          "null_rate": 0.5909090909090909,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 13
+        }
+      ],
+      "overall_non_null": 9,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0045",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 0,
+      "overall_min": null,
+      "overall_max": null,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0046",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 1,
+          "null_count": 21,
+          "null_rate": 0.9545454545454546,
+          "min": 30,
+          "max": 30,
+          "negative_count": 0,
+          "error_raw_count": 21
+        }
+      ],
+      "overall_non_null": 1,
+      "overall_min": 30,
+      "overall_max": 30,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0047",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 0,
+      "overall_min": null,
+      "overall_max": null,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0048",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 0,
+      "overall_min": null,
+      "overall_max": null,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0049",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 0,
+      "overall_min": null,
+      "overall_max": null,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0050",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 0,
+      "overall_min": null,
+      "overall_max": null,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0051",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        }
+      ],
+      "overall_non_null": 0,
+      "overall_min": null,
+      "overall_max": null,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0052",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 1,
+          "null_count": 21,
+          "null_rate": 0.9545454545454546,
+          "min": 80,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 21
+        }
+      ],
+      "overall_non_null": 1,
+      "overall_min": 80,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0053",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 2,
+          "null_count": 20,
+          "null_rate": 0.9090909090909091,
+          "min": 20,
+          "max": 70,
+          "negative_count": 0,
+          "error_raw_count": 20
+        }
+      ],
+      "overall_non_null": 2,
+      "overall_min": 20,
+      "overall_max": 70,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0054",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 75,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 75,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0055",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 1
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0056",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0057",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 1,
+          "null_count": 21,
+          "null_rate": 0.9545454545454546,
+          "min": 60,
+          "max": 60,
+          "negative_count": 0,
+          "error_raw_count": 21
+        }
+      ],
+      "overall_non_null": 1,
+      "overall_min": 60,
+      "overall_max": 60,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0058",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 1
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0059",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0060",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 10,
+          "null_count": 12,
+          "null_rate": 0.5454545454545454,
+          "min": 25,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 12
+        }
+      ],
+      "overall_non_null": 10,
+      "overall_min": 25,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0061",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 14,
+          "null_count": 8,
+          "null_rate": 0.36363636363636365,
+          "min": 20,
+          "max": 75,
+          "negative_count": 0,
+          "error_raw_count": 8
+        }
+      ],
+      "overall_non_null": 14,
+      "overall_min": 20,
+      "overall_max": 75,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0062",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0063",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 75,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 75,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0064",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0065",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0066",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0067",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0068",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 75,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 75,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0069",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0070",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 75,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 75,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0071",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0072",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0073",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0074",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0075",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 20,
+          "max": 75,
+          "negative_count": 0,
+          "error_raw_count": 1
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 20,
+      "overall_max": 75,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0076",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0077",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0078",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0079",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0080",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 75,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 75,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0081",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0082",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0083",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0084",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0085",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0086",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 1
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0087",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0088",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0089",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 75,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 75,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0090",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0091",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 1
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0092",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0093",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0094",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0095",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 20,
+          "max": 75,
+          "negative_count": 0,
+          "error_raw_count": 1
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 20,
+      "overall_max": 75,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0096",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0097",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0098",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0099",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 1
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0100",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0101",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0102",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0103",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0104",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0105",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0106",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0107",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0108",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0109",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 1
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0110",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 17,
+          "null_count": 5,
+          "null_rate": 0.22727272727272727,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 5
+        }
+      ],
+      "overall_non_null": 17,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0111",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0112",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0113",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 17,
+          "null_count": 5,
+          "null_rate": 0.22727272727272727,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 5
+        }
+      ],
+      "overall_non_null": 17,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0114",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 20,
+          "max": 90,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 20,
+      "overall_max": 90,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0115",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0116",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 0,
+          "max": 90,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 0,
+      "overall_max": 90,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0117",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0118",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0119",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0120",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0121",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 17,
+          "null_count": 5,
+          "null_rate": 0.22727272727272727,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 5
+        }
+      ],
+      "overall_non_null": 17,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0122",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0123",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0124",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0125",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0126",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0127",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 17,
+          "null_count": 5,
+          "null_rate": 0.22727272727272727,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 5
+        }
+      ],
+      "overall_non_null": 17,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0128",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 1
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0129",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0130",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0131",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 17,
+          "null_count": 5,
+          "null_rate": 0.22727272727272727,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 5
+        }
+      ],
+      "overall_non_null": 17,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0132",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0133",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0134",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 17,
+          "null_count": 5,
+          "null_rate": 0.22727272727272727,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 5
+        }
+      ],
+      "overall_non_null": 17,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0135",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0136",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0137",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 15,
+          "null_count": 7,
+          "null_rate": 0.3181818181818182,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 7
+        }
+      ],
+      "overall_non_null": 15,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0138",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0139",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0140",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 17,
+          "null_count": 5,
+          "null_rate": 0.22727272727272727,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 5
+        }
+      ],
+      "overall_non_null": 17,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0141",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0142",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0143",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0144",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 1
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0145",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 90,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 90,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0146",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0147",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0148",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0149",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 16,
+          "null_count": 6,
+          "null_rate": 0.2727272727272727,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 6
+        }
+      ],
+      "overall_non_null": 16,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0150",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 0,
+          "max": 90,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 0,
+      "overall_max": 90,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0151",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0152",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0153",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0154",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0155",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0156",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0157",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0158",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0159",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 1
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0160",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 17,
+          "null_count": 5,
+          "null_rate": 0.22727272727272727,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 5
+        }
+      ],
+      "overall_non_null": 17,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0161",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 1
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0162",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0163",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 16,
+          "null_count": 6,
+          "null_rate": 0.2727272727272727,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 6
+        }
+      ],
+      "overall_non_null": 16,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0164",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 21,
+          "null_count": 1,
+          "null_rate": 0.045454545454545456,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 1
+        }
+      ],
+      "overall_non_null": 21,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0165",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0166",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0167",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0168",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 22,
+          "null_count": 0,
+          "null_rate": 0.0,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 0
+        }
+      ],
+      "overall_non_null": 22,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0169",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 17,
+          "null_count": 5,
+          "null_rate": 0.22727272727272727,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 5
+        }
+      ],
+      "overall_non_null": 17,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0170",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0171",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0172",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0173",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 17,
+          "null_count": 5,
+          "null_rate": 0.22727272727272727,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 5
+        }
+      ],
+      "overall_non_null": 17,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0174",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0175",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0176",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0177",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0178",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0179",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0180",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 17,
+          "null_count": 5,
+          "null_rate": 0.22727272727272727,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 5
+        }
+      ],
+      "overall_non_null": 17,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0181",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0182",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0183",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0184",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0185",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0186",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0187",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0188",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0189",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 17,
+          "null_count": 5,
+          "null_rate": 0.22727272727272727,
+          "min": 0,
+          "max": 75,
+          "negative_count": 0,
+          "error_raw_count": 5
+        }
+      ],
+      "overall_non_null": 17,
+      "overall_min": 0,
+      "overall_max": 75,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0190",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 17,
+          "null_count": 5,
+          "null_rate": 0.22727272727272727,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 5
+        }
+      ],
+      "overall_non_null": 17,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0191",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 0,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 0,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0192",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 18,
+          "null_count": 4,
+          "null_rate": 0.18181818181818182,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 4
+        }
+      ],
+      "overall_non_null": 18,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0193",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0194",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 17,
+          "null_count": 5,
+          "null_rate": 0.22727272727272727,
+          "min": 20,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 5
+        }
+      ],
+      "overall_non_null": 17,
+      "overall_min": 20,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0195",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 0,
+          "max": 80,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 0,
+      "overall_max": 80,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0196",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 17,
+          "null_count": 5,
+          "null_rate": 0.22727272727272727,
+          "min": 0,
+          "max": 90,
+          "negative_count": 0,
+          "error_raw_count": 5
+        }
+      ],
+      "overall_non_null": 17,
+      "overall_min": 0,
+      "overall_max": 90,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0197",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0198",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 20,
+          "null_count": 2,
+          "null_rate": 0.09090909090909091,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 2
+        }
+      ],
+      "overall_non_null": 20,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    },
+    {
+      "agent_id": "0199",
+      "attempt_count": 2,
+      "attempts": [
+        {
+          "attempt_id": 1,
+          "total_headers": 22,
+          "non_null_count": 0,
+          "null_count": 22,
+          "null_rate": 1.0,
+          "min": null,
+          "max": null,
+          "negative_count": 0,
+          "error_raw_count": 22
+        },
+        {
+          "attempt_id": 2,
+          "total_headers": 22,
+          "non_null_count": 19,
+          "null_count": 3,
+          "null_rate": 0.13636363636363635,
+          "min": 20,
+          "max": 85,
+          "negative_count": 0,
+          "error_raw_count": 3
+        }
+      ],
+      "overall_non_null": 19,
+      "overall_min": 20,
+      "overall_max": 85,
+      "overall_negative_count": 0
+    }
+  ]
+}

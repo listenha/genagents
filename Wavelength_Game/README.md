@@ -35,6 +35,7 @@ The Wavelength Game is a spectrum-based game where:
 - [Data Analysis](#data-analysis)
   - [Consistency Analysis](#consistency-analysis)
   - [Distribution Analysis](#distribution-analysis)
+- [Game Headers (Source of Truth)](#game-headers-source-of-truth)
 - [File Structure](#file-structure)
 - [Output Format](#output-format)
 - [Design Decisions](#design-decisions)
@@ -43,13 +44,23 @@ The Wavelength Game is a spectrum-based game where:
 
 ## Quick Start
 
-### 1. Run Game on Single Agent
+### 1. Extract Game Headers (if needed)
+
+If you have edited `Game Headers.csv` or do not yet have `game_headers.json`, run:
+
+```bash
+python3 Wavelength_Game/extract_game_headers.py
+```
+
+See [Game Headers (Source of Truth)](#game-headers-source-of-truth) for details.
+
+### 2. Run Game on Single Agent
 
 ```bash
 python3 -u Wavelength_Game/run_wavelength.py --agent agent_bank/populations/gss_agents/0000
 ```
 
-### 2. Run Game on Multiple Agents
+### 3. Run Game on Multiple Agents
 
 ```bash
 # Range of agents
@@ -62,7 +73,7 @@ python3 -u Wavelength_Game/run_wavelength.py --base agent_bank/populations/gss_a
 python3 -u Wavelength_Game/run_wavelength.py --base agent_bank/populations/gss_agents --all
 ```
 
-### 3. Analyze Results
+### 4. Analyze Results
 
 ```bash
 # Consistency analysis
@@ -71,6 +82,25 @@ python3 Wavelength_Game/analyze_consistency.py --base agent_bank/populations/gss
 # Distribution analysis
 python3 Wavelength_Game/analyze_distribution.py --base agent_bank/populations/gss_agents --range 0000-0049 --attempts 1-10
 ```
+
+---
+
+## Game Headers (Source of Truth)
+
+The set of game headers (spectrum + clue pairs) that agents answer is defined in **`Wavelength_Game/Game Headers.csv`**. That CSV is the **source of truth** for the game.
+
+- **CSV columns**: `Cue`, `Spectrum Left`, `Spectrum Right`
+- **Derived file**: `game_headers.json` is generated from the CSV and is what `run_wavelength.py` and `WavelengthResponseBuilder` load at runtime.
+
+### Extracting game_headers.json
+
+After editing `Game Headers.csv`, regenerate the JSON:
+
+```bash
+python3 Wavelength_Game/extract_game_headers.py
+```
+
+This reads `Wavelength_Game/Game Headers.csv` and writes `Wavelength_Game/game_headers.json`. You must run this step before running the game if you changed the CSV.
 
 ---
 
@@ -316,10 +346,12 @@ The HTML report includes:
 ```
 Wavelength_Game/
 ├── README.md                          # This file
-├── game_headers.json                  # Game data (spectrum + clue pairs)
+├── Game Headers.csv                   # Source of truth for game headers (Cue, Spectrum Left, Spectrum Right)
+├── extract_game_headers.py            # Converts Game Headers.csv → game_headers.json
+├── game_headers.json                  # Game data used at runtime (generated from CSV)
 ├── wavelength_response_builder.py     # Main workflow class
-├── run_wavelength.py                  # CLI script to run game
-├── analyze_consistency.py            # Consistency analysis script
+├── run_wavelength.py                 # CLI script to run game
+├── analyze_consistency.py             # Consistency analysis script
 └── analyze_distribution.py           # Distribution analysis script
 ```
 
@@ -483,7 +515,7 @@ df = pd.DataFrame(rows)
 
 **Problem**: `game_headers.json` not found.
 
-**Solution**: Ensure `game_headers.json` exists in `Wavelength_Game/` directory.
+**Solution**: Run `python3 Wavelength_Game/extract_game_headers.py` to generate it from `Game Headers.csv`. Ensure `Game Headers.csv` exists in `Wavelength_Game/`.
 
 ### Issue: No Responses Found
 

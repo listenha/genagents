@@ -1,10 +1,6 @@
 # PRE-TASK SURVEY
 
-This survey collects background and personality information that helps us understand how personal traits may relate to coordination behavior in our Tacit Understanding Game (TUG).
-
-Your responses are confidential and will be used for research purposes only.
-
-Please answer each question honestly. There are no right or wrong answers.
+This survey collects background and personality information from agents that helps us understand how personal traits may relate to coordination behavior in our Tacit Understanding Game (TUG).
 
 ---
 
@@ -38,47 +34,25 @@ I see myself as someone who…
 
 ---
 
+### 
+
 ### [**Section 2: Empathy Scale for Adults – Cognitive Subscale (BES-A)**](https://psycnet.apa.org/fulltext/2013-22745-001.pdf?auth_token=7605c4ddf6d59886f11cd5b56f9c1f4acfb4daea)
 
 *Carré et al., 2013*
 
 **Scale:** 1 \= Disagree Strongly   2 \= Disagree a Little   3 \= Neither   4 \= Agree a Little   5 \= Agree Strongly
 
-1. I can understand my friend’s happiness when she/he does well at something.
+1. I find it hard to know when my friends are frightened.
 
-2. I find it hard to know when my friends are frightened.
+2. I can usually work out when my friends are scared.
 
-3. When someone is feeling “down” I can usually understand how they feel.
+3. I can often understand how people are feeling even before they tell me.
 
-4. I can usually work out when my friends are scared.
+4. I am not usually aware of my friends’ feelings.
 
-5. I can often understand how people are feeling even before they tell me.
-
-6. I can usually work out when people are cheerful.
-
-7. I can usually realize quickly when a friend is angry.
-
-8. I am not usually aware of my friends’ feelings.
-
-9. I have trouble figuring out when my friends are happy.
+5. I have trouble figuring out when my friends are happy.
 
 ---
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
-
-### 
 
 ### [**Section 3: Rational-Experiential Inventory – Rational Ability Subscale (REI)**](https://sjdm.org/dmidi/Rational-Experiential_Inventory_-_10_item.html#Description)
 
@@ -96,12 +70,27 @@ I see myself as someone who…
 
 5. I don’t reason well under pressure.
 
-6. I am much better at figuring things out logically than most people.
+### 
 
-7. I have a logical mind.
+### [**Section 4: SD3 Narcissism Subpart**](https://www.researchgate.net/publication/259252435_Introducing_the_Short_Dark_Triad_SD3)
 
-8. I have no problem thinking things through carefully.
+**Scale:** 1 \= Disagree Strongly   2 \= Disagree a Little   3 \= Neither   4 \= Agree a Little   5 \= Agree Strongly
 
-9. Using logic usually works well for me in figuring out problems in my life.
+1. *People see me as a natural leader.*  
+2. *I hate being the center of attention. (R)*  
+3. *Many group activities tend to be dull without me.*  
+4. *I know that I am special because everyone keeps telling me so.*  
+5. *I like to get acquainted with important people.*  
+   
 
-10. I usually have clear, explainable reasons for my decisions.  
+### [**Section 5: General Decision Making Style (GDMS)**](https://sjdm.org/dmidi/General_Decision_Making_Style.html)
+
+**Scale:** 1 \= Disagree Strongly   2 \= Disagree a Little   3 \= Neither   4 \= Agree a Little   5 \= Agree Strongly
+
+1. I make decisions in a logical and systematic way. (Rational)  
+2. I avoid making important decisions until the pressure is on. (Avoidant)  
+3. I rarely make important decisions without consulting other people. (Dependent)  
+4. When I make decisions, I tend to rely on my intuition. (Intuitive)  
+5. I generally make snap decisions. (Spontaneous)  
+6. I explore all of my options before making a decision.
+

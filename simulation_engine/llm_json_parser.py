@@ -49,9 +49,12 @@ def extract_first_json_dict_categorical(input_str):
 
 def extract_first_json_dict_numerical(input_str): 
   reasoning_pattern = re.compile(r'"Reasoning":\s*"([^"]+)"')
-  response_pattern = re.compile(r'"Response":\s*(\d+\.?\d*)')
+  # Match both "Response": 50 and "Response": "50" (some models output quoted numbers)
+  response_pattern = re.compile(r'"Response":\s*(?:"(\d+\.?\d*)"|(\d+\.?\d*))')
 
   reasonings = reasoning_pattern.findall(input_str)
-  responses = response_pattern.findall(input_str)
+  raw_responses = response_pattern.findall(input_str)
+  # Each match is either (quoted_str, '') or ('', unquoted_str)
+  responses = [q or u for q, u in raw_responses]
   return responses, reasonings
 

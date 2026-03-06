@@ -16,13 +16,25 @@ KEY_OWNER = "NAME"
 # ============================================================================
 # Simply change MODEL_CHOICE to switch between available models
 
-MODEL_CHOICE = "14b"  # Options: "7b", "14b", "32b", "32b-gptq", "32b-gptq-int4"
+MODEL_CHOICE = "mistral-nemo-2407"
 
 # Model paths configuration
 MODEL_PATHS = {
     "7b": {
         "path": "/taiga/common_resources/models/Qwen2.5-7B-Instruct/snapshots/a09a35458c702b33eeacc393d103063234e8bc28",
         "name": "Qwen2.5-7B-Instruct"
+    },
+    "llama3.1-8b": {
+        "path": "/taiga/common_resources/models/Llama-3.1-8B-Instruct",
+        "name": "Llama-3.1-8B-Instruct"
+    },
+    "gemma2-9b": {
+        "path": "/taiga/common_resources/models/gemma-2-9b",
+        "name": "gemma-2-9b"
+    },
+    "mistral-nemo-2407": {
+        "path": "/taiga/common_resources/models/Mistral-Nemo-Instruct-2407",
+        "name": "Mistral-Nemo-Instruct-2407"
     },
     "14b": {
         "path": "/taiga/common_resources/models/Qwen3-14B",
@@ -49,7 +61,7 @@ LLM_VERS = _selected_model["name"]
 
 # Local Model Configuration (only needed if MODEL_PROVIDER == "local")
 LOCAL_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"  # For embeddings
-DEVICE = "cuda:1"  # Options: "cuda", "cpu", or "mps" (for Apple Silicon) - Using CUDA for GPU acceleration
+DEVICE = "cuda:0"  # Options: "cuda", "cpu", or "mps" (for Apple Silicon) - Using CUDA for GPU acceleration
 
 # Optional: Hugging Face token (required for gated models)
 HF_TOKEN = None  # Set to your HF token if needed: "hf_your_token_here"
