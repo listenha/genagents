@@ -1,0 +1,3454 @@
+Population base: agent_bank/populations/Qwen2.5-7B_agents
+Target attempts per agent: 3
+Agents: 200
+Mode: one question per inference (no batch)
+
+  0000: running 1 new attempt(s)...
+Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+Embedding model loaded!
+Administering survey to agent: Gabriela Johnson (0000)
+Started at: 2026-03-07 12:41:17
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... Using local tokenizer files from: /projects/bdks/yueshen7/models/Qwen2.5-7B-Instruct
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:04<00:13,  4.61s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:09<00:09,  4.68s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:13<00:04,  4.56s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:17<00:00,  4.33s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:17<00:00,  4.43s/it]
+Model loaded successfully!
+✓ (33.55s)
+      Question 2/10 (BFI-10_2)... ✓ (2.96s)
+      Question 3/10 (BFI-10_3)... ✓ (2.68s)
+      Question 4/10 (BFI-10_4)... ✓ (2.76s)
+      Question 5/10 (BFI-10_5)... ✓ (2.67s)
+      Question 6/10 (BFI-10_6)... ✓ (2.76s)
+      Question 7/10 (BFI-10_7)... ✓ (3.16s)
+      Question 8/10 (BFI-10_8)... ✓ (3.13s)
+      Question 9/10 (BFI-10_9)... ✓ (3.45s)
+      Question 10/10 (BFI-10_10)... ✓ (3.33s)
+    BFI-10 completed: 60.46s total (avg 6.05s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.21s)
+      Question 2/5 (BES-A_2)... ✓ (3.36s)
+      Question 3/5 (BES-A_3)... ✓ (3.13s)
+      Question 4/5 (BES-A_4)... ✓ (3.12s)
+      Question 5/5 (BES-A_5)... ✓ (3.37s)
+    BES-A completed: 16.18s total (avg 3.24s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.03s)
+      Question 2/5 (REI_2)... ✓ (3.34s)
+      Question 3/5 (REI_3)... ✓ (3.20s)
+      Question 4/5 (REI_4)... ✓ (3.35s)
+      Question 5/5 (REI_5)... ✓ (2.95s)
+    REI completed: 15.88s total (avg 3.18s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.23s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.41s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.19s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (4.64s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.02s)
+    SD3_NARCISSISM_SUBPART completed: 17.50s total (avg 3.50s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.97s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.01s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.66s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.21s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.71s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.31s)
+    GENERAL_DECISION_MAKING completed: 19.88s total (avg 3.31s per question)
+
+Survey completed in 129.90s (2.17 minutes)
+Completed at: 2026-03-07 12:43:27
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0000/survey_responses.json
+  0001: running 2 new attempt(s)...
+Administering survey to agent: Juan Rodriguez (0001)
+Started at: 2026-03-07 12:43:27
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.53s)
+      Question 2/10 (BFI-10_2)... ✓ (2.99s)
+      Question 3/10 (BFI-10_3)... ✓ (3.32s)
+      Question 4/10 (BFI-10_4)... ✓ (3.08s)
+      Question 5/10 (BFI-10_5)... ✓ (3.07s)
+      Question 6/10 (BFI-10_6)... ✓ (3.00s)
+      Question 7/10 (BFI-10_7)... ✓ (3.83s)
+      Question 8/10 (BFI-10_8)... ✓ (3.48s)
+      Question 9/10 (BFI-10_9)... ✓ (3.61s)
+      Question 10/10 (BFI-10_10)... ✓ (3.16s)
+    BFI-10 completed: 33.07s total (avg 3.31s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.78s)
+      Question 2/5 (BES-A_2)... ✓ (3.28s)
+      Question 3/5 (BES-A_3)... ✓ (3.15s)
+      Question 4/5 (BES-A_4)... ✓ (2.78s)
+      Question 5/5 (BES-A_5)... ✓ (2.91s)
+    BES-A completed: 15.91s total (avg 3.18s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.91s)
+      Question 2/5 (REI_2)... ✓ (2.67s)
+      Question 3/5 (REI_3)... ✓ (3.41s)
+      Question 4/5 (REI_4)... ✓ (3.07s)
+      Question 5/5 (REI_5)... ✓ (2.69s)
+    REI completed: 14.75s total (avg 2.95s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (2.78s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (2.67s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.47s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.88s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.30s)
+    SD3_NARCISSISM_SUBPART completed: 14.09s total (avg 2.82s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.24s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.63s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.81s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.31s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.15s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.52s)
+    GENERAL_DECISION_MAKING completed: 20.66s total (avg 3.44s per question)
+
+Survey completed in 98.48s (1.64 minutes)
+Completed at: 2026-03-07 12:45:05
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0001/survey_responses.json
+Administering survey to agent: Juan Rodriguez (0001)
+Started at: 2026-03-07 12:45:05
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.45s)
+      Question 2/10 (BFI-10_2)... ✓ (2.89s)
+      Question 3/10 (BFI-10_3)... ✓ (3.27s)
+      Question 4/10 (BFI-10_4)... ✓ (3.12s)
+      Question 5/10 (BFI-10_5)... ✓ (2.97s)
+      Question 6/10 (BFI-10_6)... ✓ (2.97s)
+      Question 7/10 (BFI-10_7)... ✓ (2.81s)
+      Question 8/10 (BFI-10_8)... ✓ (3.14s)
+      Question 9/10 (BFI-10_9)... ✓ (2.95s)
+      Question 10/10 (BFI-10_10)... ✓ (2.90s)
+    BFI-10 completed: 30.48s total (avg 3.05s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.55s)
+      Question 2/5 (BES-A_2)... ✓ (2.84s)
+      Question 3/5 (BES-A_3)... ✓ (3.09s)
+      Question 4/5 (BES-A_4)... ✓ (3.38s)
+      Question 5/5 (BES-A_5)... ✓ (3.05s)
+    BES-A completed: 15.91s total (avg 3.18s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.03s)
+      Question 2/5 (REI_2)... ✓ (3.06s)
+      Question 3/5 (REI_3)... ✓ (2.85s)
+      Question 4/5 (REI_4)... ✓ (3.01s)
+      Question 5/5 (REI_5)... ✓ (3.26s)
+    REI completed: 15.22s total (avg 3.04s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (2.75s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.41s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.49s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.13s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (2.97s)
+    SD3_NARCISSISM_SUBPART completed: 15.76s total (avg 3.15s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.26s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (2.99s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.88s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.09s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.93s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.30s)
+    GENERAL_DECISION_MAKING completed: 18.45s total (avg 3.07s per question)
+
+Survey completed in 95.82s (1.60 minutes)
+Completed at: 2026-03-07 12:46:41
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0001/survey_responses.json
+  0002: running 2 new attempt(s)...
+Administering survey to agent: Tyrell Jenkins (0002)
+Started at: 2026-03-07 12:46:41
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.04s)
+      Question 2/10 (BFI-10_2)... ✓ (2.42s)
+      Question 3/10 (BFI-10_3)... ✓ (2.37s)
+      Question 4/10 (BFI-10_4)... ✓ (2.76s)
+      Question 5/10 (BFI-10_5)... ✓ (3.11s)
+      Question 6/10 (BFI-10_6)... ✓ (3.01s)
+      Question 7/10 (BFI-10_7)... ✓ (3.29s)
+      Question 8/10 (BFI-10_8)... ✓ (3.16s)
+      Question 9/10 (BFI-10_9)... ✓ (3.36s)
+      Question 10/10 (BFI-10_10)... ✓ (2.94s)
+    BFI-10 completed: 29.46s total (avg 2.95s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.98s)
+      Question 2/5 (BES-A_2)... ✓ (3.31s)
+      Question 3/5 (BES-A_3)... ✓ (3.08s)
+      Question 4/5 (BES-A_4)... ✓ (3.05s)
+      Question 5/5 (BES-A_5)... ✓ (3.22s)
+    BES-A completed: 16.64s total (avg 3.33s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.14s)
+      Question 2/5 (REI_2)... ✓ (3.14s)
+      Question 3/5 (REI_3)... ✓ (2.99s)
+      Question 4/5 (REI_4)... ✓ (2.75s)
+      Question 5/5 (REI_5)... ✓ (3.36s)
+    REI completed: 15.38s total (avg 3.08s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.23s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.22s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.85s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.63s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.19s)
+    SD3_NARCISSISM_SUBPART completed: 15.12s total (avg 3.02s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.26s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.18s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.73s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.59s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.76s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.90s)
+    GENERAL_DECISION_MAKING completed: 18.42s total (avg 3.07s per question)
+
+Survey completed in 95.03s (1.58 minutes)
+Completed at: 2026-03-07 12:48:16
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0002/survey_responses.json
+Administering survey to agent: Tyrell Jenkins (0002)
+Started at: 2026-03-07 12:48:16
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.34s)
+      Question 2/10 (BFI-10_2)... ✓ (3.05s)
+      Question 3/10 (BFI-10_3)... ✓ (3.63s)
+      Question 4/10 (BFI-10_4)... ✓ (3.31s)
+      Question 5/10 (BFI-10_5)... ✓ (3.59s)
+      Question 6/10 (BFI-10_6)... ✓ (2.99s)
+      Question 7/10 (BFI-10_7)... ✓ (2.94s)
+      Question 8/10 (BFI-10_8)... ✓ (3.09s)
+      Question 9/10 (BFI-10_9)... ✓ (3.06s)
+      Question 10/10 (BFI-10_10)... ✓ (2.87s)
+    BFI-10 completed: 31.88s total (avg 3.19s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.60s)
+      Question 2/5 (BES-A_2)... ✓ (2.94s)
+      Question 3/5 (BES-A_3)... ✓ (2.94s)
+      Question 4/5 (BES-A_4)... ✓ (2.98s)
+      Question 5/5 (BES-A_5)... ✓ (2.92s)
+    BES-A completed: 15.38s total (avg 3.07s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.84s)
+      Question 2/5 (REI_2)... ✓ (2.81s)
+      Question 3/5 (REI_3)... ✓ (3.19s)
+      Question 4/5 (REI_4)... ✓ (3.06s)
+      Question 5/5 (REI_5)... ✓ (2.68s)
+    REI completed: 14.58s total (avg 2.91s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.20s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.50s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.22s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.86s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.57s)
+    SD3_NARCISSISM_SUBPART completed: 16.35s total (avg 3.27s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.39s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.74s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.72s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.07s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.66s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.35s)
+    GENERAL_DECISION_MAKING completed: 19.94s total (avg 3.32s per question)
+
+Survey completed in 98.13s (1.64 minutes)
+Completed at: 2026-03-07 12:49:54
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0002/survey_responses.json
+  0003: running 2 new attempt(s)...
+Administering survey to agent: Molly O'Connor (0003)
+Started at: 2026-03-07 12:49:54
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.18s)
+      Question 2/10 (BFI-10_2)... ✓ (2.81s)
+      Question 3/10 (BFI-10_3)... ✓ (2.91s)
+      Question 4/10 (BFI-10_4)... ✓ (3.09s)
+      Question 5/10 (BFI-10_5)... ✓ (3.10s)
+      Question 6/10 (BFI-10_6)... ✓ (2.80s)
+      Question 7/10 (BFI-10_7)... ✓ (3.08s)
+      Question 8/10 (BFI-10_8)... ✓ (3.08s)
+      Question 9/10 (BFI-10_9)... ✓ (2.93s)
+      Question 10/10 (BFI-10_10)... ✓ (3.15s)
+    BFI-10 completed: 30.12s total (avg 3.01s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.17s)
+      Question 2/5 (BES-A_2)... ✓ (3.65s)
+      Question 3/5 (BES-A_3)... ✓ (3.37s)
+      Question 4/5 (BES-A_4)... ✓ (3.26s)
+      Question 5/5 (BES-A_5)... ✓ (2.75s)
+    BES-A completed: 16.21s total (avg 3.24s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.77s)
+      Question 2/5 (REI_2)... ✓ (3.02s)
+      Question 3/5 (REI_3)... ✓ (3.00s)
+      Question 4/5 (REI_4)... ✓ (2.68s)
+      Question 5/5 (REI_5)... ✓ (2.88s)
+    REI completed: 14.36s total (avg 2.87s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (2.94s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (5.72s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.49s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.94s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.65s)
+    SD3_NARCISSISM_SUBPART completed: 18.74s total (avg 3.75s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.49s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.07s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.77s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.07s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.95s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.25s)
+    GENERAL_DECISION_MAKING completed: 17.69s total (avg 2.93s per question)
+
+Survey completed in 97.18s (1.62 minutes)
+Completed at: 2026-03-07 12:51:32
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0003/survey_responses.json
+Administering survey to agent: Molly O'Connor (0003)
+Started at: 2026-03-07 12:51:32
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.71s)
+      Question 2/10 (BFI-10_2)... ✓ (2.81s)
+      Question 3/10 (BFI-10_3)... ✓ (2.71s)
+      Question 4/10 (BFI-10_4)... ✓ (3.31s)
+      Question 5/10 (BFI-10_5)... ✓ (3.74s)
+      Question 6/10 (BFI-10_6)... ✓ (2.83s)
+      Question 7/10 (BFI-10_7)... ✓ (2.85s)
+      Question 8/10 (BFI-10_8)... ✓ (3.05s)
+      Question 9/10 (BFI-10_9)... ✓ (3.51s)
+      Question 10/10 (BFI-10_10)... ✓ (2.86s)
+    BFI-10 completed: 31.39s total (avg 3.14s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.52s)
+      Question 2/5 (BES-A_2)... ✓ (3.31s)
+      Question 3/5 (BES-A_3)... ✓ (3.36s)
+      Question 4/5 (BES-A_4)... ✓ (3.01s)
+      Question 5/5 (BES-A_5)... ✓ (3.38s)
+    BES-A completed: 16.59s total (avg 3.32s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.86s)
+      Question 2/5 (REI_2)... ✓ (3.34s)
+      Question 3/5 (REI_3)... ✓ (3.10s)
+      Question 4/5 (REI_4)... ✓ (3.00s)
+      Question 5/5 (REI_5)... ✓ (3.04s)
+    REI completed: 15.34s total (avg 3.07s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.04s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.31s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.20s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.03s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (2.79s)
+    SD3_NARCISSISM_SUBPART completed: 15.39s total (avg 3.08s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.13s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.35s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.71s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.10s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.84s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.69s)
+    GENERAL_DECISION_MAKING completed: 17.82s total (avg 2.97s per question)
+
+Survey completed in 96.53s (1.61 minutes)
+Completed at: 2026-03-07 12:53:08
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0003/survey_responses.json
+  0004: running 2 new attempt(s)...
+Administering survey to agent: Hannah Zimmerman (0004)
+Started at: 2026-03-07 12:53:08
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.40s)
+      Question 2/10 (BFI-10_2)... ✓ (3.41s)
+      Question 3/10 (BFI-10_3)... ✓ (3.17s)
+      Question 4/10 (BFI-10_4)... ✓ (2.61s)
+      Question 5/10 (BFI-10_5)... ✓ (2.75s)
+      Question 6/10 (BFI-10_6)... ✓ (3.24s)
+      Question 7/10 (BFI-10_7)... ✓ (3.08s)
+      Question 8/10 (BFI-10_8)... ✓ (3.62s)
+      Question 9/10 (BFI-10_9)... ✓ (3.01s)
+      Question 10/10 (BFI-10_10)... ✓ (2.49s)
+    BFI-10 completed: 30.79s total (avg 3.08s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.08s)
+      Question 2/5 (BES-A_2)... ✓ (2.72s)
+      Question 3/5 (BES-A_3)... ✓ (2.93s)
+      Question 4/5 (BES-A_4)... ✓ (3.74s)
+      Question 5/5 (BES-A_5)... ✓ (2.88s)
+    BES-A completed: 15.36s total (avg 3.07s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.53s)
+      Question 2/5 (REI_2)... ✓ (3.03s)
+      Question 3/5 (REI_3)... ✓ (3.14s)
+      Question 4/5 (REI_4)... ✓ (3.34s)
+      Question 5/5 (REI_5)... ✓ (3.07s)
+    REI completed: 16.10s total (avg 3.22s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.15s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.13s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.16s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.05s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.58s)
+    SD3_NARCISSISM_SUBPART completed: 16.07s total (avg 3.21s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.14s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.09s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.07s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (2.85s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.99s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.57s)
+    GENERAL_DECISION_MAKING completed: 17.72s total (avg 2.95s per question)
+
+Survey completed in 96.06s (1.60 minutes)
+Completed at: 2026-03-07 12:54:44
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0004/survey_responses.json
+Administering survey to agent: Hannah Zimmerman (0004)
+Started at: 2026-03-07 12:54:44
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.71s)
+      Question 2/10 (BFI-10_2)... ✓ (3.05s)
+      Question 3/10 (BFI-10_3)... ✓ (3.29s)
+      Question 4/10 (BFI-10_4)... ✓ (2.88s)
+      Question 5/10 (BFI-10_5)... ✓ (2.82s)
+      Question 6/10 (BFI-10_6)... ✓ (3.00s)
+      Question 7/10 (BFI-10_7)... ✓ (3.24s)
+      Question 8/10 (BFI-10_8)... ✓ (3.07s)
+      Question 9/10 (BFI-10_9)... ✓ (3.35s)
+      Question 10/10 (BFI-10_10)... ✓ (2.82s)
+    BFI-10 completed: 30.25s total (avg 3.02s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (2.97s)
+      Question 2/5 (BES-A_2)... ✓ (3.39s)
+      Question 3/5 (BES-A_3)... ✓ (3.07s)
+      Question 4/5 (BES-A_4)... ✓ (2.72s)
+      Question 5/5 (BES-A_5)... ✓ (3.17s)
+    BES-A completed: 15.32s total (avg 3.06s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.58s)
+      Question 2/5 (REI_2)... ✓ (3.17s)
+      Question 3/5 (REI_3)... ✓ (2.86s)
+      Question 4/5 (REI_4)... ✓ (3.50s)
+      Question 5/5 (REI_5)... ✓ (3.70s)
+    REI completed: 16.81s total (avg 3.36s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.02s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.70s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.13s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.44s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (2.79s)
+    SD3_NARCISSISM_SUBPART completed: 16.08s total (avg 3.22s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.14s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (2.78s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.32s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (2.94s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.67s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.65s)
+    GENERAL_DECISION_MAKING completed: 17.52s total (avg 2.92s per question)
+
+Survey completed in 95.98s (1.60 minutes)
+Completed at: 2026-03-07 12:56:20
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0004/survey_responses.json
+  0005: running 2 new attempt(s)...
+Administering survey to agent: Katherine Taylor (0005)
+Started at: 2026-03-07 12:56:20
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.88s)
+      Question 2/10 (BFI-10_2)... ✓ (2.31s)
+      Question 3/10 (BFI-10_3)... ✓ (2.89s)
+      Question 4/10 (BFI-10_4)... ✓ (3.01s)
+      Question 5/10 (BFI-10_5)... ✓ (2.60s)
+      Question 6/10 (BFI-10_6)... ✓ (2.91s)
+      Question 7/10 (BFI-10_7)... ✓ (2.91s)
+      Question 8/10 (BFI-10_8)... ✓ (3.53s)
+      Question 9/10 (BFI-10_9)... ✓ (3.01s)
+      Question 10/10 (BFI-10_10)... ✓ (2.91s)
+    BFI-10 completed: 28.96s total (avg 2.90s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (2.93s)
+      Question 2/5 (BES-A_2)... ✓ (2.66s)
+      Question 3/5 (BES-A_3)... ✓ (3.55s)
+      Question 4/5 (BES-A_4)... ✓ (3.46s)
+      Question 5/5 (BES-A_5)... ✓ (3.73s)
+    BES-A completed: 16.33s total (avg 3.27s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.15s)
+      Question 2/5 (REI_2)... ✓ (3.22s)
+      Question 3/5 (REI_3)... ✓ (3.46s)
+      Question 4/5 (REI_4)... ✓ (3.15s)
+      Question 5/5 (REI_5)... ✓ (2.76s)
+    REI completed: 15.74s total (avg 3.15s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.53s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.08s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.18s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.24s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (2.95s)
+    SD3_NARCISSISM_SUBPART completed: 15.98s total (avg 3.20s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.09s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.39s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.95s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.40s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.01s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.44s)
+    GENERAL_DECISION_MAKING completed: 19.28s total (avg 3.21s per question)
+
+Survey completed in 96.31s (1.61 minutes)
+Completed at: 2026-03-07 12:57:57
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0005/survey_responses.json
+Administering survey to agent: Katherine Taylor (0005)
+Started at: 2026-03-07 12:57:57
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.85s)
+      Question 2/10 (BFI-10_2)... ✓ (2.96s)
+      Question 3/10 (BFI-10_3)... ✓ (3.79s)
+      Question 4/10 (BFI-10_4)... ✓ (2.97s)
+      Question 5/10 (BFI-10_5)... ✓ (3.01s)
+      Question 6/10 (BFI-10_6)... ✓ (3.01s)
+      Question 7/10 (BFI-10_7)... ✓ (3.15s)
+      Question 8/10 (BFI-10_8)... ✓ (2.66s)
+      Question 9/10 (BFI-10_9)... ✓ (3.20s)
+      Question 10/10 (BFI-10_10)... ✓ (3.10s)
+    BFI-10 completed: 30.70s total (avg 3.07s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.12s)
+      Question 2/5 (BES-A_2)... ✓ (3.45s)
+      Question 3/5 (BES-A_3)... ✓ (2.81s)
+      Question 4/5 (BES-A_4)... ✓ (2.93s)
+      Question 5/5 (BES-A_5)... ✓ (2.93s)
+    BES-A completed: 15.24s total (avg 3.05s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.08s)
+      Question 2/5 (REI_2)... ✓ (2.86s)
+      Question 3/5 (REI_3)... ✓ (2.65s)
+      Question 4/5 (REI_4)... ✓ (2.99s)
+      Question 5/5 (REI_5)... ✓ (3.17s)
+    REI completed: 14.75s total (avg 2.95s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.03s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.88s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.91s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.71s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.08s)
+    SD3_NARCISSISM_SUBPART completed: 15.62s total (avg 3.12s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.43s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.05s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (4.07s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.84s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.92s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.68s)
+    GENERAL_DECISION_MAKING completed: 21.00s total (avg 3.50s per question)
+
+Survey completed in 97.32s (1.62 minutes)
+Completed at: 2026-03-07 12:59:34
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0005/survey_responses.json
+  0006: running 2 new attempt(s)...
+Administering survey to agent: Francisco Garcia (0006)
+Started at: 2026-03-07 12:59:34
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.13s)
+      Question 2/10 (BFI-10_2)... ✓ (3.20s)
+      Question 3/10 (BFI-10_3)... ✓ (3.05s)
+      Question 4/10 (BFI-10_4)... ✓ (2.91s)
+      Question 5/10 (BFI-10_5)... ✓ (3.95s)
+      Question 6/10 (BFI-10_6)... ✓ (2.89s)
+      Question 7/10 (BFI-10_7)... ✓ (2.64s)
+      Question 8/10 (BFI-10_8)... ✓ (3.35s)
+      Question 9/10 (BFI-10_9)... ✓ (3.01s)
+      Question 10/10 (BFI-10_10)... ✓ (3.54s)
+    BFI-10 completed: 31.67s total (avg 3.17s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.17s)
+      Question 2/5 (BES-A_2)... ✓ (2.90s)
+      Question 3/5 (BES-A_3)... ✓ (3.36s)
+      Question 4/5 (BES-A_4)... ✓ (3.41s)
+      Question 5/5 (BES-A_5)... ✓ (3.04s)
+    BES-A completed: 16.13s total (avg 3.18s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.40s)
+      Question 2/5 (REI_2)... ✓ (3.58s)
+      Question 3/5 (REI_3)... ✓ (2.84s)
+      Question 4/5 (REI_4)... ✓ (3.18s)
+      Question 5/5 (REI_5)... ✓ (3.14s)
+    REI completed: 16.14s total (avg 3.23s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.04s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.41s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.99s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.58s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (2.80s)
+    SD3_NARCISSISM_SUBPART completed: 15.82s total (avg 3.16s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.94s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.15s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.90s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (2.68s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (5.20s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.64s)
+    GENERAL_DECISION_MAKING completed: 20.52s total (avg 3.42s per question)
+
+Survey completed in 100.29s (1.67 minutes)
+Completed at: 2026-03-07 13:01:14
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0006/survey_responses.json
+Administering survey to agent: Francisco Garcia (0006)
+Started at: 2026-03-07 13:01:15
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.46s)
+      Question 2/10 (BFI-10_2)... ✓ (2.89s)
+      Question 3/10 (BFI-10_3)... ✓ (3.25s)
+      Question 4/10 (BFI-10_4)... ✓ (3.46s)
+      Question 5/10 (BFI-10_5)... ✓ (3.48s)
+      Question 6/10 (BFI-10_6)... ✓ (2.79s)
+      Question 7/10 (BFI-10_7)... ✓ (3.12s)
+      Question 8/10 (BFI-10_8)... ✓ (3.38s)
+      Question 9/10 (BFI-10_9)... ✓ (3.66s)
+      Question 10/10 (BFI-10_10)... ✓ (2.72s)
+    BFI-10 completed: 32.21s total (avg 3.22s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.27s)
+      Question 2/5 (BES-A_2)... ✓ (3.24s)
+      Question 3/5 (BES-A_3)... ✓ (3.46s)
+      Question 4/5 (BES-A_4)... ✓ (2.87s)
+      Question 5/5 (BES-A_5)... ✓ (2.99s)
+    BES-A completed: 15.83s total (avg 3.17s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.03s)
+      Question 2/5 (REI_2)... ✓ (3.17s)
+      Question 3/5 (REI_3)... ✓ (2.63s)
+      Question 4/5 (REI_4)... ✓ (3.03s)
+      Question 5/5 (REI_5)... ✓ (3.19s)
+    REI completed: 15.05s total (avg 3.01s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.36s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (2.95s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.98s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.14s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.55s)
+    SD3_NARCISSISM_SUBPART completed: 15.99s total (avg 3.20s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.25s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.26s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.29s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.16s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.08s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.20s)
+    GENERAL_DECISION_MAKING completed: 19.24s total (avg 3.21s per question)
+
+Survey completed in 98.33s (1.64 minutes)
+Completed at: 2026-03-07 13:02:53
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0006/survey_responses.json
+  0007: running 2 new attempt(s)...
+Administering survey to agent: Alyssa Coleman (0007)
+Started at: 2026-03-07 13:02:53
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.93s)
+      Question 2/10 (BFI-10_2)... ✓ (2.76s)
+      Question 3/10 (BFI-10_3)... ✓ (3.44s)
+      Question 4/10 (BFI-10_4)... ✓ (3.05s)
+      Question 5/10 (BFI-10_5)... ✓ (2.67s)
+      Question 6/10 (BFI-10_6)... ✓ (2.70s)
+      Question 7/10 (BFI-10_7)... ✓ (2.65s)
+      Question 8/10 (BFI-10_8)... ✓ (2.89s)
+      Question 9/10 (BFI-10_9)... ✓ (2.66s)
+      Question 10/10 (BFI-10_10)... ✓ (3.26s)
+    BFI-10 completed: 29.00s total (avg 2.90s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.40s)
+      Question 2/5 (BES-A_2)... ✓ (2.88s)
+      Question 3/5 (BES-A_3)... ✓ (3.49s)
+      Question 4/5 (BES-A_4)... ✓ (3.09s)
+      Question 5/5 (BES-A_5)... ✓ (2.86s)
+    BES-A completed: 15.72s total (avg 3.14s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.88s)
+      Question 2/5 (REI_2)... ✓ (3.05s)
+      Question 3/5 (REI_3)... ✓ (2.84s)
+      Question 4/5 (REI_4)... ✓ (2.79s)
+      Question 5/5 (REI_5)... ✓ (3.18s)
+    REI completed: 15.74s total (avg 3.15s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.32s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.71s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.36s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.01s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.03s)
+    SD3_NARCISSISM_SUBPART completed: 16.44s total (avg 3.29s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.04s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.22s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.98s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.38s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.00s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.78s)
+    GENERAL_DECISION_MAKING completed: 18.41s total (avg 3.07s per question)
+
+Survey completed in 95.32s (1.59 minutes)
+Completed at: 2026-03-07 13:04:28
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0007/survey_responses.json
+Administering survey to agent: Alyssa Coleman (0007)
+Started at: 2026-03-07 13:04:28
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.42s)
+      Question 2/10 (BFI-10_2)... ✓ (3.21s)
+      Question 3/10 (BFI-10_3)... ✓ (3.05s)
+      Question 4/10 (BFI-10_4)... ✓ (3.37s)
+      Question 5/10 (BFI-10_5)... ✓ (2.87s)
+      Question 6/10 (BFI-10_6)... ✓ (2.97s)
+      Question 7/10 (BFI-10_7)... ✓ (3.04s)
+      Question 8/10 (BFI-10_8)... ✓ (3.12s)
+      Question 9/10 (BFI-10_9)... ✓ (3.33s)
+      Question 10/10 (BFI-10_10)... ✓ (3.24s)
+    BFI-10 completed: 31.60s total (avg 3.16s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.63s)
+      Question 2/5 (BES-A_2)... ✓ (3.18s)
+      Question 3/5 (BES-A_3)... ✓ (3.11s)
+      Question 4/5 (BES-A_4)... ✓ (3.19s)
+      Question 5/5 (BES-A_5)... ✓ (3.37s)
+    BES-A completed: 16.48s total (avg 3.30s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.47s)
+      Question 2/5 (REI_2)... ✓ (2.94s)
+      Question 3/5 (REI_3)... ✓ (2.61s)
+      Question 4/5 (REI_4)... ✓ (3.09s)
+      Question 5/5 (REI_5)... ✓ (2.54s)
+    REI completed: 14.66s total (avg 2.93s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.08s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.25s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.35s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.96s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.16s)
+    SD3_NARCISSISM_SUBPART completed: 15.79s total (avg 3.16s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.32s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.65s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.30s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.60s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.00s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.25s)
+    GENERAL_DECISION_MAKING completed: 20.12s total (avg 3.35s per question)
+
+Survey completed in 98.66s (1.64 minutes)
+Completed at: 2026-03-07 13:06:07
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0007/survey_responses.json
+  0008: running 2 new attempt(s)...
+Administering survey to agent: Rachel Bennett (0008)
+Started at: 2026-03-07 13:06:07
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.82s)
+      Question 2/10 (BFI-10_2)... ✓ (3.06s)
+      Question 3/10 (BFI-10_3)... ✓ (2.90s)
+      Question 4/10 (BFI-10_4)... ✓ (3.63s)
+      Question 5/10 (BFI-10_5)... ✓ (3.15s)
+      Question 6/10 (BFI-10_6)... ✓ (3.40s)
+      Question 7/10 (BFI-10_7)... ✓ (2.85s)
+      Question 8/10 (BFI-10_8)... ✓ (2.98s)
+      Question 9/10 (BFI-10_9)... ✓ (2.95s)
+      Question 10/10 (BFI-10_10)... ✓ (3.28s)
+    BFI-10 completed: 31.04s total (avg 3.10s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.20s)
+      Question 2/5 (BES-A_2)... ✓ (3.44s)
+      Question 3/5 (BES-A_3)... ✓ (3.36s)
+      Question 4/5 (BES-A_4)... ✓ (3.10s)
+      Question 5/5 (BES-A_5)... ✓ (3.32s)
+    BES-A completed: 16.43s total (avg 3.29s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.14s)
+      Question 2/5 (REI_2)... ✓ (3.33s)
+      Question 3/5 (REI_3)... ✓ (2.97s)
+      Question 4/5 (REI_4)... ✓ (2.99s)
+      Question 5/5 (REI_5)... ✓ (2.96s)
+    REI completed: 15.39s total (avg 3.08s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.61s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.37s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.87s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.29s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.15s)
+    SD3_NARCISSISM_SUBPART completed: 16.29s total (avg 3.26s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.14s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.52s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.81s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.27s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.61s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.67s)
+    GENERAL_DECISION_MAKING completed: 18.02s total (avg 3.00s per question)
+
+Survey completed in 97.18s (1.62 minutes)
+Completed at: 2026-03-07 13:07:44
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0008/survey_responses.json
+Administering survey to agent: Rachel Bennett (0008)
+Started at: 2026-03-07 13:07:44
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.83s)
+      Question 2/10 (BFI-10_2)... ✓ (2.74s)
+      Question 3/10 (BFI-10_3)... ✓ (2.91s)
+      Question 4/10 (BFI-10_4)... ✓ (2.57s)
+      Question 5/10 (BFI-10_5)... ✓ (2.91s)
+      Question 6/10 (BFI-10_6)... ✓ (2.41s)
+      Question 7/10 (BFI-10_7)... ✓ (3.12s)
+      Question 8/10 (BFI-10_8)... ✓ (3.04s)
+      Question 9/10 (BFI-10_9)... ✓ (2.91s)
+      Question 10/10 (BFI-10_10)... ✓ (2.87s)
+    BFI-10 completed: 28.31s total (avg 2.83s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.28s)
+      Question 2/5 (BES-A_2)... ✓ (2.78s)
+      Question 3/5 (BES-A_3)... ✓ (3.09s)
+      Question 4/5 (BES-A_4)... ✓ (3.17s)
+      Question 5/5 (BES-A_5)... ✓ (3.11s)
+    BES-A completed: 15.43s total (avg 3.09s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.26s)
+      Question 2/5 (REI_2)... ✓ (2.89s)
+      Question 3/5 (REI_3)... ✓ (3.03s)
+      Question 4/5 (REI_4)... ✓ (3.41s)
+      Question 5/5 (REI_5)... ✓ (3.17s)
+    REI completed: 15.76s total (avg 3.15s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.01s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.44s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.08s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.41s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.48s)
+    SD3_NARCISSISM_SUBPART completed: 16.42s total (avg 3.28s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.12s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.29s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.62s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.30s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.70s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.03s)
+    GENERAL_DECISION_MAKING completed: 18.07s total (avg 3.01s per question)
+
+Survey completed in 94.00s (1.57 minutes)
+Completed at: 2026-03-07 13:09:18
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0008/survey_responses.json
+  0009: running 2 new attempt(s)...
+Administering survey to agent: James Martin (0009)
+Started at: 2026-03-07 13:09:18
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.54s)
+      Question 2/10 (BFI-10_2)... ✓ (3.07s)
+      Question 3/10 (BFI-10_3)... ✓ (3.70s)
+      Question 4/10 (BFI-10_4)... ✓ (3.29s)
+      Question 5/10 (BFI-10_5)... ✓ (3.48s)
+      Question 6/10 (BFI-10_6)... ✓ (5.18s)
+      Question 7/10 (BFI-10_7)... ✓ (2.62s)
+      Question 8/10 (BFI-10_8)... ✓ (3.12s)
+      Question 9/10 (BFI-10_9)... ✓ (3.10s)
+      Question 10/10 (BFI-10_10)... ✓ (3.36s)
+    BFI-10 completed: 34.47s total (avg 3.45s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.23s)
+      Question 2/5 (BES-A_2)... ✓ (2.92s)
+      Question 3/5 (BES-A_3)... ✓ (3.07s)
+      Question 4/5 (BES-A_4)... ✓ (3.12s)
+      Question 5/5 (BES-A_5)... ✓ (3.12s)
+    BES-A completed: 15.44s total (avg 3.09s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.88s)
+      Question 2/5 (REI_2)... ✓ (3.04s)
+      Question 3/5 (REI_3)... ✓ (2.80s)
+      Question 4/5 (REI_4)... ✓ (3.20s)
+      Question 5/5 (REI_5)... ✓ (3.10s)
+    REI completed: 15.03s total (avg 3.00s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.22s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.04s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.78s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.28s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.24s)
+    SD3_NARCISSISM_SUBPART completed: 15.56s total (avg 3.11s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.26s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.23s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.42s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.40s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.47s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.57s)
+    GENERAL_DECISION_MAKING completed: 20.36s total (avg 3.39s per question)
+
+Survey completed in 100.88s (1.68 minutes)
+Completed at: 2026-03-07 13:10:59
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0009/survey_responses.json
+Administering survey to agent: James Martin (0009)
+Started at: 2026-03-07 13:10:59
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.43s)
+      Question 2/10 (BFI-10_2)... ✓ (3.49s)
+      Question 3/10 (BFI-10_3)... ✓ (2.83s)
+      Question 4/10 (BFI-10_4)... ✓ (4.07s)
+      Question 5/10 (BFI-10_5)... ✓ (4.21s)
+      Question 6/10 (BFI-10_6)... ✓ (4.05s)
+      Question 7/10 (BFI-10_7)... ✓ (3.15s)
+      Question 8/10 (BFI-10_8)... ✓ (3.37s)
+      Question 9/10 (BFI-10_9)... ✓ (3.15s)
+      Question 10/10 (BFI-10_10)... ✓ (3.12s)
+    BFI-10 completed: 34.87s total (avg 3.49s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.20s)
+      Question 2/5 (BES-A_2)... ✓ (2.74s)
+      Question 3/5 (BES-A_3)... ✓ (3.44s)
+      Question 4/5 (BES-A_4)... ✓ (3.66s)
+      Question 5/5 (BES-A_5)... ✓ (3.26s)
+    BES-A completed: 16.30s total (avg 3.26s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.80s)
+      Question 2/5 (REI_2)... ✓ (3.48s)
+      Question 3/5 (REI_3)... ✓ (3.38s)
+      Question 4/5 (REI_4)... ✓ (3.36s)
+      Question 5/5 (REI_5)... ✓ (3.66s)
+    REI completed: 17.68s total (avg 3.54s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.40s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.33s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.64s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.21s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.12s)
+    SD3_NARCISSISM_SUBPART completed: 15.70s total (avg 3.14s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.26s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.09s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.04s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.43s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.89s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.03s)
+    GENERAL_DECISION_MAKING completed: 18.73s total (avg 3.12s per question)
+
+Survey completed in 103.29s (1.72 minutes)
+Completed at: 2026-03-07 13:12:42
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0009/survey_responses.json
+  0010: running 2 new attempt(s)...
+Administering survey to agent: Grace Ervin (0010)
+Started at: 2026-03-07 13:12:42
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.18s)
+      Question 2/10 (BFI-10_2)... ✓ (3.22s)
+      Question 3/10 (BFI-10_3)... ✓ (3.17s)
+      Question 4/10 (BFI-10_4)... ✓ (3.74s)
+      Question 5/10 (BFI-10_5)... ✓ (2.98s)
+      Question 6/10 (BFI-10_6)... ✓ (2.79s)
+      Question 7/10 (BFI-10_7)... ✓ (2.61s)
+      Question 8/10 (BFI-10_8)... ✓ (2.99s)
+      Question 9/10 (BFI-10_9)... ✓ (3.55s)
+      Question 10/10 (BFI-10_10)... ✓ (3.12s)
+    BFI-10 completed: 31.36s total (avg 3.14s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.06s)
+      Question 2/5 (BES-A_2)... ✓ (3.11s)
+      Question 3/5 (BES-A_3)... ✓ (3.20s)
+      Question 4/5 (BES-A_4)... ✓ (3.45s)
+      Question 5/5 (BES-A_5)... ✓ (3.29s)
+    BES-A completed: 16.10s total (avg 3.22s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.98s)
+      Question 2/5 (REI_2)... ✓ (3.14s)
+      Question 3/5 (REI_3)... ✓ (3.30s)
+      Question 4/5 (REI_4)... ✓ (2.79s)
+      Question 5/5 (REI_5)... ✓ (2.88s)
+    REI completed: 15.10s total (avg 3.02s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.28s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.47s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.35s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.05s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.18s)
+    SD3_NARCISSISM_SUBPART completed: 16.34s total (avg 3.27s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.38s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (4.14s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.84s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.86s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.72s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.10s)
+    GENERAL_DECISION_MAKING completed: 21.04s total (avg 3.51s per question)
+
+Survey completed in 99.95s (1.67 minutes)
+Completed at: 2026-03-07 13:14:22
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0010/survey_responses.json
+Administering survey to agent: Grace Ervin (0010)
+Started at: 2026-03-07 13:14:22
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.68s)
+      Question 2/10 (BFI-10_2)... ✓ (2.95s)
+      Question 3/10 (BFI-10_3)... ✓ (3.23s)
+      Question 4/10 (BFI-10_4)... ✓ (2.36s)
+      Question 5/10 (BFI-10_5)... ✓ (2.76s)
+      Question 6/10 (BFI-10_6)... ✓ (2.64s)
+      Question 7/10 (BFI-10_7)... ✓ (2.63s)
+      Question 8/10 (BFI-10_8)... ✓ (2.96s)
+      Question 9/10 (BFI-10_9)... ✓ (2.76s)
+      Question 10/10 (BFI-10_10)... ✓ (3.23s)
+    BFI-10 completed: 29.22s total (avg 2.92s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.04s)
+      Question 2/5 (BES-A_2)... ✓ (3.03s)
+      Question 3/5 (BES-A_3)... ✓ (3.12s)
+      Question 4/5 (BES-A_4)... ✓ (3.09s)
+      Question 5/5 (BES-A_5)... ✓ (3.24s)
+    BES-A completed: 15.52s total (avg 3.10s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.30s)
+      Question 2/5 (REI_2)... ✓ (2.95s)
+      Question 3/5 (REI_3)... ✓ (2.83s)
+      Question 4/5 (REI_4)... ✓ (2.87s)
+      Question 5/5 (REI_5)... ✓ (2.78s)
+    REI completed: 14.74s total (avg 2.95s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (2.70s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.34s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.69s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.94s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (2.76s)
+    SD3_NARCISSISM_SUBPART completed: 14.43s total (avg 2.88s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.30s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.47s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.45s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.21s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.17s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.78s)
+    GENERAL_DECISION_MAKING completed: 20.38s total (avg 3.40s per question)
+
+Survey completed in 94.41s (1.57 minutes)
+Completed at: 2026-03-07 13:15:57
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0010/survey_responses.json
+  0011: running 2 new attempt(s)...
+Administering survey to agent: Laura Wright (0011)
+Started at: 2026-03-07 13:15:57
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.04s)
+      Question 2/10 (BFI-10_2)... ✓ (3.17s)
+      Question 3/10 (BFI-10_3)... ✓ (2.89s)
+      Question 4/10 (BFI-10_4)... ✓ (3.11s)
+      Question 5/10 (BFI-10_5)... ✓ (3.12s)
+      Question 6/10 (BFI-10_6)... ✓ (3.42s)
+      Question 7/10 (BFI-10_7)... ✓ (3.01s)
+      Question 8/10 (BFI-10_8)... ✓ (3.48s)
+      Question 9/10 (BFI-10_9)... ✓ (3.20s)
+      Question 10/10 (BFI-10_10)... ✓ (3.10s)
+    BFI-10 completed: 31.55s total (avg 3.15s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.08s)
+      Question 2/5 (BES-A_2)... ✓ (3.57s)
+      Question 3/5 (BES-A_3)... ✓ (3.21s)
+      Question 4/5 (BES-A_4)... ✓ (3.37s)
+      Question 5/5 (BES-A_5)... ✓ (2.95s)
+    BES-A completed: 16.18s total (avg 3.23s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.72s)
+      Question 2/5 (REI_2)... ✓ (2.83s)
+      Question 3/5 (REI_3)... ✓ (2.44s)
+      Question 4/5 (REI_4)... ✓ (2.63s)
+      Question 5/5 (REI_5)... ✓ (3.12s)
+    REI completed: 13.73s total (avg 2.75s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (2.86s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.05s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.13s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.44s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (2.94s)
+    SD3_NARCISSISM_SUBPART completed: 15.42s total (avg 3.08s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.22s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.21s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.15s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.02s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.14s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.47s)
+    GENERAL_DECISION_MAKING completed: 19.21s total (avg 3.20s per question)
+
+Survey completed in 96.10s (1.60 minutes)
+Completed at: 2026-03-07 13:17:33
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0011/survey_responses.json
+Administering survey to agent: Laura Wright (0011)
+Started at: 2026-03-07 13:17:33
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.55s)
+      Question 2/10 (BFI-10_2)... ✓ (2.77s)
+      Question 3/10 (BFI-10_3)... ✓ (2.90s)
+      Question 4/10 (BFI-10_4)... ✓ (2.66s)
+      Question 5/10 (BFI-10_5)... ✓ (3.01s)
+      Question 6/10 (BFI-10_6)... ✓ (2.87s)
+      Question 7/10 (BFI-10_7)... ✓ (2.98s)
+      Question 8/10 (BFI-10_8)... ✓ (3.26s)
+      Question 9/10 (BFI-10_9)... ✓ (3.11s)
+      Question 10/10 (BFI-10_10)... ✓ (2.95s)
+    BFI-10 completed: 30.07s total (avg 3.01s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.23s)
+      Question 2/5 (BES-A_2)... ✓ (3.20s)
+      Question 3/5 (BES-A_3)... ✓ (3.23s)
+      Question 4/5 (BES-A_4)... ✓ (3.37s)
+      Question 5/5 (BES-A_5)... ✓ (3.21s)
+    BES-A completed: 16.25s total (avg 3.25s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.74s)
+      Question 2/5 (REI_2)... ✓ (3.02s)
+      Question 3/5 (REI_3)... ✓ (3.31s)
+      Question 4/5 (REI_4)... ✓ (2.92s)
+      Question 5/5 (REI_5)... ✓ (3.15s)
+    REI completed: 16.15s total (avg 3.23s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (2.87s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (2.84s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.27s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.52s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (2.89s)
+    SD3_NARCISSISM_SUBPART completed: 14.39s total (avg 2.88s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.80s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.54s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.67s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.91s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.58s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.88s)
+    GENERAL_DECISION_MAKING completed: 18.38s total (avg 3.06s per question)
+
+Survey completed in 95.25s (1.59 minutes)
+Completed at: 2026-03-07 13:19:08
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0011/survey_responses.json
+  0012: running 2 new attempt(s)...
+Administering survey to agent: Lauren Williams (0012)
+Started at: 2026-03-07 13:19:08
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.06s)
+      Question 2/10 (BFI-10_2)... ✓ (3.67s)
+      Question 3/10 (BFI-10_3)... ✓ (2.87s)
+      Question 4/10 (BFI-10_4)... ✓ (2.57s)
+      Question 5/10 (BFI-10_5)... ✓ (2.92s)
+      Question 6/10 (BFI-10_6)... ✓ (2.56s)
+      Question 7/10 (BFI-10_7)... ✓ (2.72s)
+      Question 8/10 (BFI-10_8)... ✓ (2.94s)
+      Question 9/10 (BFI-10_9)... ✓ (3.05s)
+      Question 10/10 (BFI-10_10)... ✓ (3.13s)
+    BFI-10 completed: 29.51s total (avg 2.95s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.47s)
+      Question 2/5 (BES-A_2)... ✓ (3.11s)
+      Question 3/5 (BES-A_3)... ✓ (3.70s)
+      Question 4/5 (BES-A_4)... ✓ (3.59s)
+      Question 5/5 (BES-A_5)... ✓ (2.95s)
+    BES-A completed: 16.83s total (avg 3.37s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.74s)
+      Question 2/5 (REI_2)... ✓ (3.40s)
+      Question 3/5 (REI_3)... ✓ (3.31s)
+      Question 4/5 (REI_4)... ✓ (3.07s)
+      Question 5/5 (REI_5)... ✓ (3.70s)
+    REI completed: 16.21s total (avg 3.24s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.51s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (2.85s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.29s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.15s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (2.94s)
+    SD3_NARCISSISM_SUBPART completed: 15.76s total (avg 3.15s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.30s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.72s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.19s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.46s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.34s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.06s)
+    GENERAL_DECISION_MAKING completed: 20.07s total (avg 3.34s per question)
+
+Survey completed in 98.39s (1.64 minutes)
+Completed at: 2026-03-07 13:20:47
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0012/survey_responses.json
+Administering survey to agent: Lauren Williams (0012)
+Started at: 2026-03-07 13:20:47
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.36s)
+      Question 2/10 (BFI-10_2)... ✓ (2.80s)
+      Question 3/10 (BFI-10_3)... ✓ (3.18s)
+      Question 4/10 (BFI-10_4)... ✓ (3.03s)
+      Question 5/10 (BFI-10_5)... ✓ (3.65s)
+      Question 6/10 (BFI-10_6)... ✓ (3.24s)
+      Question 7/10 (BFI-10_7)... ✓ (2.89s)
+      Question 8/10 (BFI-10_8)... ✓ (3.29s)
+      Question 9/10 (BFI-10_9)... ✓ (3.20s)
+      Question 10/10 (BFI-10_10)... ✓ (3.21s)
+    BFI-10 completed: 31.86s total (avg 3.19s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.32s)
+      Question 2/5 (BES-A_2)... ✓ (3.05s)
+      Question 3/5 (BES-A_3)... ✓ (4.83s)
+      Question 4/5 (BES-A_4)... ✓ (2.87s)
+      Question 5/5 (BES-A_5)... ✓ (3.17s)
+    BES-A completed: 17.24s total (avg 3.45s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.73s)
+      Question 2/5 (REI_2)... ✓ (3.12s)
+      Question 3/5 (REI_3)... ✓ (2.96s)
+      Question 4/5 (REI_4)... ✓ (3.13s)
+      Question 5/5 (REI_5)... ✓ (3.29s)
+    REI completed: 15.24s total (avg 3.05s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.18s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.08s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.13s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.79s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.42s)
+    SD3_NARCISSISM_SUBPART completed: 15.61s total (avg 3.12s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.16s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (4.25s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.09s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.47s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.07s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.78s)
+    GENERAL_DECISION_MAKING completed: 19.82s total (avg 3.30s per question)
+
+Survey completed in 99.77s (1.66 minutes)
+Completed at: 2026-03-07 13:22:26
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0012/survey_responses.json
+  0013: running 2 new attempt(s)...
+Administering survey to agent: Hassan Nguyen (0013)
+Started at: 2026-03-07 13:22:26
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.32s)
+      Question 2/10 (BFI-10_2)... ✓ (3.17s)
+      Question 3/10 (BFI-10_3)... ✓ (3.45s)
+      Question 4/10 (BFI-10_4)... ✓ (3.28s)
+      Question 5/10 (BFI-10_5)... ✓ (3.56s)
+      Question 6/10 (BFI-10_6)... ✓ (3.23s)
+      Question 7/10 (BFI-10_7)... ✓ (2.95s)
+      Question 8/10 (BFI-10_8)... ✓ (3.36s)
+      Question 9/10 (BFI-10_9)... ✓ (3.71s)
+      Question 10/10 (BFI-10_10)... ✓ (3.17s)
+    BFI-10 completed: 33.20s total (avg 3.32s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.39s)
+      Question 2/5 (BES-A_2)... ✓ (3.30s)
+      Question 3/5 (BES-A_3)... ✓ (3.14s)
+      Question 4/5 (BES-A_4)... ✓ (3.47s)
+      Question 5/5 (BES-A_5)... ✓ (3.47s)
+    BES-A completed: 16.77s total (avg 3.35s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.00s)
+      Question 2/5 (REI_2)... ✓ (2.70s)
+      Question 3/5 (REI_3)... ✓ (3.09s)
+      Question 4/5 (REI_4)... ✓ (3.20s)
+      Question 5/5 (REI_5)... ✓ (3.10s)
+    REI completed: 15.09s total (avg 3.02s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.53s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.33s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.94s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.09s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.13s)
+    SD3_NARCISSISM_SUBPART completed: 16.03s total (avg 3.20s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.89s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (2.78s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.45s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.39s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.41s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.37s)
+    GENERAL_DECISION_MAKING completed: 18.28s total (avg 3.05s per question)
+
+Survey completed in 99.38s (1.66 minutes)
+Completed at: 2026-03-07 13:24:06
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0013/survey_responses.json
+Administering survey to agent: Hassan Nguyen (0013)
+Started at: 2026-03-07 13:24:06
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.36s)
+      Question 2/10 (BFI-10_2)... ✓ (3.01s)
+      Question 3/10 (BFI-10_3)... ✓ (3.19s)
+      Question 4/10 (BFI-10_4)... ✓ (3.78s)
+      Question 5/10 (BFI-10_5)... ✓ (3.83s)
+      Question 6/10 (BFI-10_6)... ✓ (3.03s)
+      Question 7/10 (BFI-10_7)... ✓ (3.23s)
+      Question 8/10 (BFI-10_8)... ✓ (3.47s)
+      Question 9/10 (BFI-10_9)... ✓ (3.23s)
+      Question 10/10 (BFI-10_10)... ✓ (3.09s)
+    BFI-10 completed: 33.22s total (avg 3.32s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.19s)
+      Question 2/5 (BES-A_2)... ✓ (3.29s)
+      Question 3/5 (BES-A_3)... ✓ (3.19s)
+      Question 4/5 (BES-A_4)... ✓ (3.19s)
+      Question 5/5 (BES-A_5)... ✓ (3.01s)
+    BES-A completed: 15.88s total (avg 3.18s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.89s)
+      Question 2/5 (REI_2)... ✓ (2.67s)
+      Question 3/5 (REI_3)... ✓ (2.89s)
+      Question 4/5 (REI_4)... ✓ (2.91s)
+      Question 5/5 (REI_5)... ✓ (3.38s)
+    REI completed: 14.73s total (avg 2.95s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.27s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.12s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.29s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.50s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.09s)
+    SD3_NARCISSISM_SUBPART completed: 16.27s total (avg 3.25s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.06s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (2.85s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.05s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.56s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.25s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.19s)
+    GENERAL_DECISION_MAKING completed: 18.96s total (avg 3.16s per question)
+
+Survey completed in 99.06s (1.65 minutes)
+Completed at: 2026-03-07 13:25:45
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0013/survey_responses.json
+  0014: running 2 new attempt(s)...
+Administering survey to agent: Brian Schneider (0014)
+Started at: 2026-03-07 13:25:45
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.08s)
+      Question 2/10 (BFI-10_2)... ✓ (2.63s)
+      Question 3/10 (BFI-10_3)... ✓ (3.13s)
+      Question 4/10 (BFI-10_4)... ✓ (2.74s)
+      Question 5/10 (BFI-10_5)... ✓ (2.49s)
+      Question 6/10 (BFI-10_6)... ✓ (2.59s)
+      Question 7/10 (BFI-10_7)... ✓ (2.61s)
+      Question 8/10 (BFI-10_8)... ✓ (2.65s)
+      Question 9/10 (BFI-10_9)... ✓ (2.61s)
+      Question 10/10 (BFI-10_10)... ✓ (3.09s)
+    BFI-10 completed: 27.63s total (avg 2.76s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.85s)
+      Question 2/5 (BES-A_2)... ✓ (3.41s)
+      Question 3/5 (BES-A_3)... ✓ (3.09s)
+      Question 4/5 (BES-A_4)... ✓ (3.52s)
+      Question 5/5 (BES-A_5)... ✓ (3.55s)
+    BES-A completed: 17.42s total (avg 3.48s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.05s)
+      Question 2/5 (REI_2)... ✓ (2.84s)
+      Question 3/5 (REI_3)... ✓ (3.12s)
+      Question 4/5 (REI_4)... ✓ (3.13s)
+      Question 5/5 (REI_5)... ✓ (3.42s)
+    REI completed: 15.56s total (avg 3.11s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.47s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (2.75s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.05s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.77s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.06s)
+    SD3_NARCISSISM_SUBPART completed: 15.15s total (avg 3.02s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.98s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.21s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.35s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.34s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.85s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.77s)
+    GENERAL_DECISION_MAKING completed: 18.51s total (avg 3.08s per question)
+
+Survey completed in 94.27s (1.57 minutes)
+Completed at: 2026-03-07 13:27:19
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0014/survey_responses.json
+Administering survey to agent: Brian Schneider (0014)
+Started at: 2026-03-07 13:27:19
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.24s)
+      Question 2/10 (BFI-10_2)... ✓ (2.80s)
+      Question 3/10 (BFI-10_3)... ✓ (3.08s)
+      Question 4/10 (BFI-10_4)... ✓ (2.71s)
+      Question 5/10 (BFI-10_5)... ✓ (3.41s)
+      Question 6/10 (BFI-10_6)... ✓ (3.37s)
+      Question 7/10 (BFI-10_7)... ✓ (2.78s)
+      Question 8/10 (BFI-10_8)... ✓ (3.30s)
+      Question 9/10 (BFI-10_9)... ✓ (2.77s)
+      Question 10/10 (BFI-10_10)... ✓ (3.00s)
+    BFI-10 completed: 30.47s total (avg 3.05s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.17s)
+      Question 2/5 (BES-A_2)... ✓ (3.47s)
+      Question 3/5 (BES-A_3)... ✓ (3.22s)
+      Question 4/5 (BES-A_4)... ✓ (2.93s)
+      Question 5/5 (BES-A_5)... ✓ (3.62s)
+    BES-A completed: 16.42s total (avg 3.28s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.72s)
+      Question 2/5 (REI_2)... ✓ (2.34s)
+      Question 3/5 (REI_3)... ✓ (2.83s)
+      Question 4/5 (REI_4)... ✓ (2.69s)
+      Question 5/5 (REI_5)... ✓ (2.44s)
+    REI completed: 13.03s total (avg 2.60s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (2.94s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (2.76s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.16s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.68s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.14s)
+    SD3_NARCISSISM_SUBPART completed: 14.68s total (avg 2.94s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.89s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.44s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.89s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.45s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.36s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.34s)
+    GENERAL_DECISION_MAKING completed: 19.37s total (avg 3.23s per question)
+
+Survey completed in 93.98s (1.57 minutes)
+Completed at: 2026-03-07 13:28:53
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0014/survey_responses.json
+  0015: running 2 new attempt(s)...
+Administering survey to agent: Sari Putri (0015)
+Started at: 2026-03-07 13:28:53
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.77s)
+      Question 2/10 (BFI-10_2)... ✓ (2.73s)
+      Question 3/10 (BFI-10_3)... ✓ (2.99s)
+      Question 4/10 (BFI-10_4)... ✓ (3.30s)
+      Question 5/10 (BFI-10_5)... ✓ (3.17s)
+      Question 6/10 (BFI-10_6)... ✓ (2.92s)
+      Question 7/10 (BFI-10_7)... ✓ (2.89s)
+      Question 8/10 (BFI-10_8)... ✓ (3.24s)
+      Question 9/10 (BFI-10_9)... ✓ (3.29s)
+      Question 10/10 (BFI-10_10)... ✓ (3.15s)
+    BFI-10 completed: 30.45s total (avg 3.05s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.09s)
+      Question 2/5 (BES-A_2)... ✓ (3.09s)
+      Question 3/5 (BES-A_3)... ✓ (3.27s)
+      Question 4/5 (BES-A_4)... ✓ (3.22s)
+      Question 5/5 (BES-A_5)... ✓ (2.93s)
+    BES-A completed: 15.60s total (avg 3.12s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.07s)
+      Question 2/5 (REI_2)... ✓ (3.19s)
+      Question 3/5 (REI_3)... ✓ (3.01s)
+      Question 4/5 (REI_4)... ✓ (3.75s)
+      Question 5/5 (REI_5)... ✓ (3.08s)
+    REI completed: 16.11s total (avg 3.22s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.46s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.37s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.02s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.89s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.12s)
+    SD3_NARCISSISM_SUBPART completed: 15.87s total (avg 3.17s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.52s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.22s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.01s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (2.90s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.11s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.94s)
+    GENERAL_DECISION_MAKING completed: 18.71s total (avg 3.12s per question)
+
+Survey completed in 96.75s (1.61 minutes)
+Completed at: 2026-03-07 13:30:30
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0015/survey_responses.json
+Administering survey to agent: Sari Putri (0015)
+Started at: 2026-03-07 13:30:30
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.43s)
+      Question 2/10 (BFI-10_2)... ✓ (3.00s)
+      Question 3/10 (BFI-10_3)... ✓ (3.44s)
+      Question 4/10 (BFI-10_4)... ✓ (3.43s)
+      Question 5/10 (BFI-10_5)... ✓ (2.80s)
+      Question 6/10 (BFI-10_6)... ✓ (2.74s)
+      Question 7/10 (BFI-10_7)... ✓ (2.87s)
+      Question 8/10 (BFI-10_8)... ✓ (2.76s)
+      Question 9/10 (BFI-10_9)... ✓ (2.44s)
+      Question 10/10 (BFI-10_10)... ✓ (3.32s)
+    BFI-10 completed: 29.23s total (avg 2.92s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.40s)
+      Question 2/5 (BES-A_2)... ✓ (3.20s)
+      Question 3/5 (BES-A_3)... ✓ (3.10s)
+      Question 4/5 (BES-A_4)... ✓ (3.07s)
+      Question 5/5 (BES-A_5)... ✓ (3.14s)
+    BES-A completed: 15.91s total (avg 3.18s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.95s)
+      Question 2/5 (REI_2)... ✓ (3.05s)
+      Question 3/5 (REI_3)... ✓ (3.18s)
+      Question 4/5 (REI_4)... ✓ (3.00s)
+      Question 5/5 (REI_5)... ✓ (2.99s)
+    REI completed: 15.17s total (avg 3.03s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (4.56s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.16s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.72s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.38s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.10s)
+    SD3_NARCISSISM_SUBPART completed: 16.91s total (avg 3.38s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.34s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.29s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.16s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.17s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.16s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.24s)
+    GENERAL_DECISION_MAKING completed: 19.37s total (avg 3.23s per question)
+
+Survey completed in 96.61s (1.61 minutes)
+Completed at: 2026-03-07 13:32:07
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0015/survey_responses.json
+  0016: running 2 new attempt(s)...
+Administering survey to agent: Shane O'Donnell (0016)
+Started at: 2026-03-07 13:32:07
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.48s)
+      Question 2/10 (BFI-10_2)... ✓ (3.05s)
+      Question 3/10 (BFI-10_3)... ✓ (2.77s)
+      Question 4/10 (BFI-10_4)... ✓ (3.52s)
+      Question 5/10 (BFI-10_5)... ✓ (3.33s)
+      Question 6/10 (BFI-10_6)... ✓ (3.06s)
+      Question 7/10 (BFI-10_7)... ✓ (3.11s)
+      Question 8/10 (BFI-10_8)... ✓ (3.97s)
+      Question 9/10 (BFI-10_9)... ✓ (3.09s)
+      Question 10/10 (BFI-10_10)... ✓ (3.34s)
+    BFI-10 completed: 32.74s total (avg 3.27s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.04s)
+      Question 2/5 (BES-A_2)... ✓ (3.44s)
+      Question 3/5 (BES-A_3)... ✓ (3.61s)
+      Question 4/5 (BES-A_4)... ✓ (3.67s)
+      Question 5/5 (BES-A_5)... ✓ (2.98s)
+    BES-A completed: 16.73s total (avg 3.35s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.50s)
+      Question 2/5 (REI_2)... ✓ (2.42s)
+      Question 3/5 (REI_3)... ✓ (2.75s)
+      Question 4/5 (REI_4)... ✓ (2.90s)
+      Question 5/5 (REI_5)... ✓ (3.17s)
+    REI completed: 14.74s total (avg 2.95s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.16s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.83s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.19s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.32s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.56s)
+    SD3_NARCISSISM_SUBPART completed: 17.05s total (avg 3.41s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (4.07s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.27s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.67s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.60s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.10s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.35s)
+    GENERAL_DECISION_MAKING completed: 20.06s total (avg 3.34s per question)
+
+Survey completed in 101.34s (1.69 minutes)
+Completed at: 2026-03-07 13:33:48
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0016/survey_responses.json
+Administering survey to agent: Shane O'Donnell (0016)
+Started at: 2026-03-07 13:33:48
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.47s)
+      Question 2/10 (BFI-10_2)... ✓ (2.94s)
+      Question 3/10 (BFI-10_3)... ✓ (3.19s)
+      Question 4/10 (BFI-10_4)... ✓ (3.18s)
+      Question 5/10 (BFI-10_5)... ✓ (2.67s)
+      Question 6/10 (BFI-10_6)... ✓ (3.95s)
+      Question 7/10 (BFI-10_7)... ✓ (3.19s)
+      Question 8/10 (BFI-10_8)... ✓ (3.56s)
+      Question 9/10 (BFI-10_9)... ✓ (3.37s)
+      Question 10/10 (BFI-10_10)... ✓ (3.43s)
+    BFI-10 completed: 32.01s total (avg 3.19s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.41s)
+      Question 2/5 (BES-A_2)... ✓ (3.25s)
+      Question 3/5 (BES-A_3)... ✓ (2.69s)
+      Question 4/5 (BES-A_4)... ✓ (3.07s)
+      Question 5/5 (BES-A_5)... ✓ (3.03s)
+    BES-A completed: 15.44s total (avg 3.09s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.27s)
+      Question 2/5 (REI_2)... ✓ (3.47s)
+      Question 3/5 (REI_3)... ✓ (3.10s)
+      Question 4/5 (REI_4)... ✓ (2.91s)
+      Question 5/5 (REI_5)... ✓ (3.04s)
+    REI completed: 15.79s total (avg 3.16s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.04s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.55s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.25s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.08s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.02s)
+    SD3_NARCISSISM_SUBPART completed: 15.94s total (avg 3.19s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.60s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.10s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.52s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (2.70s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.73s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.99s)
+    GENERAL_DECISION_MAKING completed: 17.64s total (avg 2.94s per question)
+
+Survey completed in 96.84s (1.61 minutes)
+Completed at: 2026-03-07 13:35:25
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0016/survey_responses.json
+  0017: running 2 new attempt(s)...
+Administering survey to agent: Angela Lewis (0017)
+Started at: 2026-03-07 13:35:25
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.85s)
+      Question 2/10 (BFI-10_2)... ✓ (2.89s)
+      Question 3/10 (BFI-10_3)... ✓ (3.16s)
+      Question 4/10 (BFI-10_4)... ✓ (3.36s)
+      Question 5/10 (BFI-10_5)... ✓ (2.88s)
+      Question 6/10 (BFI-10_6)... ✓ (2.78s)
+      Question 7/10 (BFI-10_7)... ✓ (3.01s)
+      Question 8/10 (BFI-10_8)... ✓ (3.39s)
+      Question 9/10 (BFI-10_9)... ✓ (2.86s)
+      Question 10/10 (BFI-10_10)... ✓ (3.13s)
+    BFI-10 completed: 30.33s total (avg 3.03s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (2.89s)
+      Question 2/5 (BES-A_2)... ✓ (3.00s)
+      Question 3/5 (BES-A_3)... ✓ (2.99s)
+      Question 4/5 (BES-A_4)... ✓ (3.35s)
+      Question 5/5 (BES-A_5)... ✓ (3.38s)
+    BES-A completed: 15.61s total (avg 3.12s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.73s)
+      Question 2/5 (REI_2)... ✓ (3.34s)
+      Question 3/5 (REI_3)... ✓ (2.85s)
+      Question 4/5 (REI_4)... ✓ (2.94s)
+      Question 5/5 (REI_5)... ✓ (3.12s)
+    REI completed: 14.99s total (avg 3.00s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.23s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (2.71s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.25s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.87s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.15s)
+    SD3_NARCISSISM_SUBPART completed: 15.20s total (avg 3.04s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.53s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.53s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.59s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.53s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.98s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.27s)
+    GENERAL_DECISION_MAKING completed: 19.43s total (avg 3.24s per question)
+
+Survey completed in 95.57s (1.59 minutes)
+Completed at: 2026-03-07 13:37:01
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0017/survey_responses.json
+Administering survey to agent: Angela Lewis (0017)
+Started at: 2026-03-07 13:37:01
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.32s)
+      Question 2/10 (BFI-10_2)... ✓ (3.10s)
+      Question 3/10 (BFI-10_3)... ✓ (3.50s)
+      Question 4/10 (BFI-10_4)... ✓ (3.07s)
+      Question 5/10 (BFI-10_5)... ✓ (3.32s)
+      Question 6/10 (BFI-10_6)... ✓ (3.11s)
+      Question 7/10 (BFI-10_7)... ✓ (3.02s)
+      Question 8/10 (BFI-10_8)... ✓ (2.67s)
+      Question 9/10 (BFI-10_9)... ✓ (2.84s)
+      Question 10/10 (BFI-10_10)... ✓ (2.32s)
+    BFI-10 completed: 30.26s total (avg 3.03s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (2.79s)
+      Question 2/5 (BES-A_2)... ✓ (2.78s)
+      Question 3/5 (BES-A_3)... ✓ (2.94s)
+      Question 4/5 (BES-A_4)... ✓ (3.19s)
+      Question 5/5 (BES-A_5)... ✓ (3.25s)
+    BES-A completed: 14.95s total (avg 2.99s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.68s)
+      Question 2/5 (REI_2)... ✓ (3.64s)
+      Question 3/5 (REI_3)... ✓ (3.06s)
+      Question 4/5 (REI_4)... ✓ (3.39s)
+      Question 5/5 (REI_5)... ✓ (3.34s)
+    REI completed: 16.12s total (avg 3.22s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.23s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.25s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.13s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.71s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.12s)
+    SD3_NARCISSISM_SUBPART completed: 15.45s total (avg 3.09s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.00s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.38s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.94s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.52s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.85s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.84s)
+    GENERAL_DECISION_MAKING completed: 20.54s total (avg 3.42s per question)
+
+Survey completed in 97.32s (1.62 minutes)
+Completed at: 2026-03-07 13:38:38
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0017/survey_responses.json
+  0018: running 2 new attempt(s)...
+Administering survey to agent: Carlos Martinez (0018)
+Started at: 2026-03-07 13:38:38
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.93s)
+      Question 2/10 (BFI-10_2)... ✓ (2.62s)
+      Question 3/10 (BFI-10_3)... ✓ (2.72s)
+      Question 4/10 (BFI-10_4)... ✓ (3.10s)
+      Question 5/10 (BFI-10_5)... ✓ (3.22s)
+      Question 6/10 (BFI-10_6)... ✓ (2.82s)
+      Question 7/10 (BFI-10_7)... ✓ (2.94s)
+      Question 8/10 (BFI-10_8)... ✓ (3.18s)
+      Question 9/10 (BFI-10_9)... ✓ (3.77s)
+      Question 10/10 (BFI-10_10)... ✓ (2.97s)
+    BFI-10 completed: 30.27s total (avg 3.03s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.65s)
+      Question 2/5 (BES-A_2)... ✓ (3.01s)
+      Question 3/5 (BES-A_3)... ✓ (2.95s)
+      Question 4/5 (BES-A_4)... ✓ (3.29s)
+      Question 5/5 (BES-A_5)... ✓ (3.07s)
+    BES-A completed: 15.96s total (avg 3.19s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.09s)
+      Question 2/5 (REI_2)... ✓ (2.73s)
+      Question 3/5 (REI_3)... ✓ (2.73s)
+      Question 4/5 (REI_4)... ✓ (3.19s)
+      Question 5/5 (REI_5)... ✓ (2.90s)
+    REI completed: 14.64s total (avg 2.93s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.32s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (2.95s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.47s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.97s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.54s)
+    SD3_NARCISSISM_SUBPART completed: 15.25s total (avg 3.05s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.26s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.26s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.10s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.46s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.03s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.84s)
+    GENERAL_DECISION_MAKING completed: 18.96s total (avg 3.16s per question)
+
+Survey completed in 95.10s (1.58 minutes)
+Completed at: 2026-03-07 13:40:13
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0018/survey_responses.json
+Administering survey to agent: Carlos Martinez (0018)
+Started at: 2026-03-07 13:40:13
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.43s)
+      Question 2/10 (BFI-10_2)... ✓ (2.96s)
+      Question 3/10 (BFI-10_3)... ✓ (3.19s)
+      Question 4/10 (BFI-10_4)... ✓ (2.90s)
+      Question 5/10 (BFI-10_5)... ✓ (3.41s)
+      Question 6/10 (BFI-10_6)... ✓ (2.78s)
+      Question 7/10 (BFI-10_7)... ✓ (3.10s)
+      Question 8/10 (BFI-10_8)... ✓ (2.79s)
+      Question 9/10 (BFI-10_9)... ✓ (2.68s)
+      Question 10/10 (BFI-10_10)... ✓ (2.77s)
+    BFI-10 completed: 30.02s total (avg 3.00s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.62s)
+      Question 2/5 (BES-A_2)... ✓ (3.15s)
+      Question 3/5 (BES-A_3)... ✓ (3.35s)
+      Question 4/5 (BES-A_4)... ✓ (3.49s)
+      Question 5/5 (BES-A_5)... ✓ (3.40s)
+    BES-A completed: 17.01s total (avg 3.40s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.27s)
+      Question 2/5 (REI_2)... ✓ (2.82s)
+      Question 3/5 (REI_3)... ✓ (3.00s)
+      Question 4/5 (REI_4)... ✓ (3.19s)
+      Question 5/5 (REI_5)... ✓ (3.00s)
+    REI completed: 15.28s total (avg 3.06s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.13s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.13s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (4.08s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.68s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.21s)
+    SD3_NARCISSISM_SUBPART completed: 17.23s total (avg 3.45s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.98s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (4.86s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.93s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.35s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.02s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.37s)
+    GENERAL_DECISION_MAKING completed: 20.51s total (avg 3.42s per question)
+
+Survey completed in 100.06s (1.67 minutes)
+Completed at: 2026-03-07 13:41:53
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0018/survey_responses.json
+  0019: running 2 new attempt(s)...
+Administering survey to agent: Luis Hernandez (0019)
+Started at: 2026-03-07 13:41:53
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.90s)
+      Question 2/10 (BFI-10_2)... ✓ (2.77s)
+      Question 3/10 (BFI-10_3)... ✓ (3.37s)
+      Question 4/10 (BFI-10_4)... ✓ (2.93s)
+      Question 5/10 (BFI-10_5)... ✓ (2.23s)
+      Question 6/10 (BFI-10_6)... ✓ (3.38s)
+      Question 7/10 (BFI-10_7)... ✓ (2.75s)
+      Question 8/10 (BFI-10_8)... ✓ (2.92s)
+      Question 9/10 (BFI-10_9)... ✓ (2.63s)
+      Question 10/10 (BFI-10_10)... ✓ (3.32s)
+    BFI-10 completed: 29.21s total (avg 2.92s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (2.94s)
+      Question 2/5 (BES-A_2)... ✓ (2.71s)
+      Question 3/5 (BES-A_3)... ✓ (3.38s)
+      Question 4/5 (BES-A_4)... ✓ (3.45s)
+      Question 5/5 (BES-A_5)... ✓ (3.29s)
+    BES-A completed: 15.90s total (avg 3.15s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.49s)
+      Question 2/5 (REI_2)... ✓ (3.44s)
+      Question 3/5 (REI_3)... ✓ (3.12s)
+      Question 4/5 (REI_4)... ✓ (2.89s)
+      Question 5/5 (REI_5)... ✓ (3.03s)
+    REI completed: 15.97s total (avg 3.19s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.50s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.07s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.27s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.38s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.22s)
+    SD3_NARCISSISM_SUBPART completed: 16.45s total (avg 3.29s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.54s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (2.72s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.77s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.20s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.30s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.15s)
+    GENERAL_DECISION_MAKING completed: 18.69s total (avg 3.11s per question)
+
+Survey completed in 96.22s (1.60 minutes)
+Completed at: 2026-03-07 13:43:29
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0019/survey_responses.json
+Administering survey to agent: Luis Hernandez (0019)
+Started at: 2026-03-07 13:43:29
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.02s)
+      Question 2/10 (BFI-10_2)... ✓ (2.76s)
+      Question 3/10 (BFI-10_3)... ✓ (3.25s)
+      Question 4/10 (BFI-10_4)... ✓ (3.27s)
+      Question 5/10 (BFI-10_5)... ✓ (3.19s)
+      Question 6/10 (BFI-10_6)... ✓ (2.44s)
+      Question 7/10 (BFI-10_7)... ✓ (3.14s)
+      Question 8/10 (BFI-10_8)... ✓ (3.75s)
+      Question 9/10 (BFI-10_9)... ✓ (2.72s)
+      Question 10/10 (BFI-10_10)... ✓ (3.20s)
+    BFI-10 completed: 30.76s total (avg 3.08s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.55s)
+      Question 2/5 (BES-A_2)... ✓ (3.16s)
+      Question 3/5 (BES-A_3)... ✓ (3.38s)
+      Question 4/5 (BES-A_4)... ✓ (3.27s)
+      Question 5/5 (BES-A_5)... ✓ (3.18s)
+    BES-A completed: 16.55s total (avg 3.31s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.84s)
+      Question 2/5 (REI_2)... ✓ (2.96s)
+      Question 3/5 (REI_3)... ✓ (2.62s)
+      Question 4/5 (REI_4)... ✓ (3.10s)
+      Question 5/5 (REI_5)... ✓ (2.80s)
+    REI completed: 14.32s total (avg 2.86s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (2.97s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.01s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.03s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.70s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.19s)
+    SD3_NARCISSISM_SUBPART completed: 14.90s total (avg 2.98s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.28s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.65s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.74s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.04s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.64s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.16s)
+    GENERAL_DECISION_MAKING completed: 19.51s total (avg 3.25s per question)
+
+Survey completed in 96.05s (1.60 minutes)
+Completed at: 2026-03-07 13:45:05
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0019/survey_responses.json
+  0020: running 2 new attempt(s)...
+Administering survey to agent: Leticia Johnson (0020)
+Started at: 2026-03-07 13:45:06
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.08s)
+      Question 2/10 (BFI-10_2)... ✓ (3.30s)
+      Question 3/10 (BFI-10_3)... ✓ (3.39s)
+      Question 4/10 (BFI-10_4)... ✓ (3.34s)
+      Question 5/10 (BFI-10_5)... ✓ (3.44s)
+      Question 6/10 (BFI-10_6)... ✓ (2.90s)
+      Question 7/10 (BFI-10_7)... ✓ (3.16s)
+      Question 8/10 (BFI-10_8)... ✓ (3.54s)
+      Question 9/10 (BFI-10_9)... ✓ (2.91s)
+      Question 10/10 (BFI-10_10)... ✓ (2.88s)
+    BFI-10 completed: 31.94s total (avg 3.19s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.50s)
+      Question 2/5 (BES-A_2)... ✓ (3.31s)
+      Question 3/5 (BES-A_3)... ✓ (3.13s)
+      Question 4/5 (BES-A_4)... ✓ (3.00s)
+      Question 5/5 (BES-A_5)... ✓ (3.32s)
+    BES-A completed: 16.26s total (avg 3.25s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.89s)
+      Question 2/5 (REI_2)... ✓ (3.05s)
+      Question 3/5 (REI_3)... ✓ (3.09s)
+      Question 4/5 (REI_4)... ✓ (2.90s)
+      Question 5/5 (REI_5)... ✓ (2.90s)
+    REI completed: 14.83s total (avg 2.97s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (2.79s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.22s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.96s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.24s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.42s)
+    SD3_NARCISSISM_SUBPART completed: 15.63s total (avg 3.12s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.29s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (4.28s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.69s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (2.76s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.15s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.17s)
+    GENERAL_DECISION_MAKING completed: 19.46s total (avg 3.22s per question)
+
+Survey completed in 98.13s (1.64 minutes)
+Completed at: 2026-03-07 13:46:44
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0020/survey_responses.json
+Administering survey to agent: Leticia Johnson (0020)
+Started at: 2026-03-07 13:46:44
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.95s)
+      Question 2/10 (BFI-10_2)... ✓ (3.05s)
+      Question 3/10 (BFI-10_3)... ✓ (3.14s)
+      Question 4/10 (BFI-10_4)... ✓ (3.16s)
+      Question 5/10 (BFI-10_5)... ✓ (3.13s)
+      Question 6/10 (BFI-10_6)... ✓ (2.78s)
+      Question 7/10 (BFI-10_7)... ✓ (2.88s)
+      Question 8/10 (BFI-10_8)... ✓ (3.23s)
+      Question 9/10 (BFI-10_9)... ✓ (3.21s)
+      Question 10/10 (BFI-10_10)... ✓ (2.90s)
+    BFI-10 completed: 30.44s total (avg 3.04s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (2.71s)
+      Question 2/5 (BES-A_2)... ✓ (2.74s)
+      Question 3/5 (BES-A_3)... ✓ (3.39s)
+      Question 4/5 (BES-A_4)... ✓ (2.98s)
+      Question 5/5 (BES-A_5)... ✓ (3.14s)
+    BES-A completed: 14.96s total (avg 2.99s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.90s)
+      Question 2/5 (REI_2)... ✓ (3.31s)
+      Question 3/5 (REI_3)... ✓ (2.67s)
+      Question 4/5 (REI_4)... ✓ (3.19s)
+      Question 5/5 (REI_5)... ✓ (3.04s)
+    REI completed: 15.12s total (avg 3.02s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.04s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.28s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.77s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.77s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.39s)
+    SD3_NARCISSISM_SUBPART completed: 15.24s total (avg 3.05s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.01s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.16s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.73s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.30s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.94s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.23s)
+    GENERAL_DECISION_MAKING completed: 18.37s total (avg 3.06s per question)
+
+Survey completed in 94.14s (1.57 minutes)
+Completed at: 2026-03-07 13:48:18
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0020/survey_responses.json
+  0021: running 2 new attempt(s)...
+Administering survey to agent: Jessica Romig (0021)
+Started at: 2026-03-07 13:48:18
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.40s)
+      Question 2/10 (BFI-10_2)... ✓ (3.01s)
+      Question 3/10 (BFI-10_3)... ✓ (2.62s)
+      Question 4/10 (BFI-10_4)... ✓ (3.53s)
+      Question 5/10 (BFI-10_5)... ✓ (2.82s)
+      Question 6/10 (BFI-10_6)... ✓ (3.32s)
+      Question 7/10 (BFI-10_7)... ✓ (2.87s)
+      Question 8/10 (BFI-10_8)... ✓ (3.46s)
+      Question 9/10 (BFI-10_9)... ✓ (2.79s)
+      Question 10/10 (BFI-10_10)... ✓ (2.68s)
+    BFI-10 completed: 30.51s total (avg 3.05s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (2.70s)
+      Question 2/5 (BES-A_2)... ✓ (2.51s)
+      Question 3/5 (BES-A_3)... ✓ (2.73s)
+      Question 4/5 (BES-A_4)... ✓ (3.16s)
+      Question 5/5 (BES-A_5)... ✓ (3.52s)
+    BES-A completed: 14.62s total (avg 2.92s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.13s)
+      Question 2/5 (REI_2)... ✓ (3.55s)
+      Question 3/5 (REI_3)... ✓ (3.21s)
+      Question 4/5 (REI_4)... ✓ (3.07s)
+      Question 5/5 (REI_5)... ✓ (3.38s)
+    REI completed: 16.34s total (avg 3.27s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.07s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.33s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.89s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.88s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.28s)
+    SD3_NARCISSISM_SUBPART completed: 15.45s total (avg 3.09s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.81s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.71s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.66s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.40s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.14s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.05s)
+    GENERAL_DECISION_MAKING completed: 18.77s total (avg 3.13s per question)
+
+Survey completed in 95.70s (1.60 minutes)
+Completed at: 2026-03-07 13:49:54
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0021/survey_responses.json
+Administering survey to agent: Jessica Romig (0021)
+Started at: 2026-03-07 13:49:54
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.89s)
+      Question 2/10 (BFI-10_2)... ✓ (2.67s)
+      Question 3/10 (BFI-10_3)... ✓ (3.18s)
+      Question 4/10 (BFI-10_4)... ✓ (2.89s)
+      Question 5/10 (BFI-10_5)... ✓ (3.32s)
+      Question 6/10 (BFI-10_6)... ✓ (3.10s)
+      Question 7/10 (BFI-10_7)... ✓ (3.59s)
+      Question 8/10 (BFI-10_8)... ✓ (3.04s)
+      Question 9/10 (BFI-10_9)... ✓ (2.66s)
+      Question 10/10 (BFI-10_10)... ✓ (2.79s)
+    BFI-10 completed: 30.15s total (avg 3.01s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.05s)
+      Question 2/5 (BES-A_2)... ✓ (3.44s)
+      Question 3/5 (BES-A_3)... ✓ (3.04s)
+      Question 4/5 (BES-A_4)... ✓ (2.74s)
+      Question 5/5 (BES-A_5)... ✓ (3.14s)
+    BES-A completed: 15.40s total (avg 3.08s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.35s)
+      Question 2/5 (REI_2)... ✓ (2.92s)
+      Question 3/5 (REI_3)... ✓ (3.11s)
+      Question 4/5 (REI_4)... ✓ (2.75s)
+      Question 5/5 (REI_5)... ✓ (3.42s)
+    REI completed: 15.55s total (avg 3.11s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.11s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.01s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.61s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.66s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.00s)
+    SD3_NARCISSISM_SUBPART completed: 14.40s total (avg 2.88s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.73s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.11s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.44s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.70s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.33s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.77s)
+    GENERAL_DECISION_MAKING completed: 19.08s total (avg 3.18s per question)
+
+Survey completed in 94.59s (1.58 minutes)
+Completed at: 2026-03-07 13:51:28
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0021/survey_responses.json
+  0022: running 2 new attempt(s)...
+Administering survey to agent: Elizabeth Winters (0022)
+Started at: 2026-03-07 13:51:28
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.28s)
+      Question 2/10 (BFI-10_2)... ✓ (3.14s)
+      Question 3/10 (BFI-10_3)... ✓ (3.21s)
+      Question 4/10 (BFI-10_4)... ✓ (4.23s)
+      Question 5/10 (BFI-10_5)... ✓ (2.81s)
+      Question 6/10 (BFI-10_6)... ✓ (3.17s)
+      Question 7/10 (BFI-10_7)... ✓ (2.99s)
+      Question 8/10 (BFI-10_8)... ✓ (2.86s)
+      Question 9/10 (BFI-10_9)... ✓ (2.86s)
+      Question 10/10 (BFI-10_10)... ✓ (3.11s)
+    BFI-10 completed: 31.66s total (avg 3.17s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.08s)
+      Question 2/5 (BES-A_2)... ✓ (3.28s)
+      Question 3/5 (BES-A_3)... ✓ (2.78s)
+      Question 4/5 (BES-A_4)... ✓ (3.38s)
+      Question 5/5 (BES-A_5)... ✓ (2.91s)
+    BES-A completed: 15.42s total (avg 3.08s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.07s)
+      Question 2/5 (REI_2)... ✓ (3.08s)
+      Question 3/5 (REI_3)... ✓ (3.02s)
+      Question 4/5 (REI_4)... ✓ (3.30s)
+      Question 5/5 (REI_5)... ✓ (3.08s)
+    REI completed: 15.55s total (avg 3.11s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.50s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.34s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.91s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.41s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.11s)
+    SD3_NARCISSISM_SUBPART completed: 16.28s total (avg 3.26s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.21s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.19s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.06s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.17s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.18s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.06s)
+    GENERAL_DECISION_MAKING completed: 18.88s total (avg 3.15s per question)
+
+Survey completed in 97.79s (1.63 minutes)
+Completed at: 2026-03-07 13:53:06
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0022/survey_responses.json
+Administering survey to agent: Elizabeth Winters (0022)
+Started at: 2026-03-07 13:53:06
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.54s)
+      Question 2/10 (BFI-10_2)... ✓ (3.09s)
+      Question 3/10 (BFI-10_3)... ✓ (3.12s)
+      Question 4/10 (BFI-10_4)... ✓ (2.86s)
+      Question 5/10 (BFI-10_5)... ✓ (2.97s)
+      Question 6/10 (BFI-10_6)... ✓ (3.27s)
+      Question 7/10 (BFI-10_7)... ✓ (2.82s)
+      Question 8/10 (BFI-10_8)... ✓ (2.59s)
+      Question 9/10 (BFI-10_9)... ✓ (3.14s)
+      Question 10/10 (BFI-10_10)... ✓ (2.55s)
+    BFI-10 completed: 29.95s total (avg 2.99s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (2.87s)
+      Question 2/5 (BES-A_2)... ✓ (2.68s)
+      Question 3/5 (BES-A_3)... ✓ (3.05s)
+      Question 4/5 (BES-A_4)... ✓ (3.02s)
+      Question 5/5 (BES-A_5)... ✓ (3.06s)
+    BES-A completed: 14.68s total (avg 2.94s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.87s)
+      Question 2/5 (REI_2)... ✓ (3.21s)
+      Question 3/5 (REI_3)... ✓ (2.85s)
+      Question 4/5 (REI_4)... ✓ (3.89s)
+      Question 5/5 (REI_5)... ✓ (2.90s)
+    REI completed: 15.72s total (avg 3.14s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.54s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.03s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.21s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.46s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.01s)
+    SD3_NARCISSISM_SUBPART completed: 16.26s total (avg 3.25s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.24s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.08s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.49s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.49s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.72s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.90s)
+    GENERAL_DECISION_MAKING completed: 18.92s total (avg 3.15s per question)
+
+Survey completed in 95.53s (1.59 minutes)
+Completed at: 2026-03-07 13:54:42
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0022/survey_responses.json
+  0023: running 2 new attempt(s)...
+Administering survey to agent: Erin Mcdonald (0023)
+Started at: 2026-03-07 13:54:42
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.18s)
+      Question 2/10 (BFI-10_2)... ✓ (3.33s)
+      Question 3/10 (BFI-10_3)... ✓ (2.96s)
+      Question 4/10 (BFI-10_4)... ✓ (3.20s)
+      Question 5/10 (BFI-10_5)... ✓ (3.11s)
+      Question 6/10 (BFI-10_6)... ✓ (2.55s)
+      Question 7/10 (BFI-10_7)... ✓ (3.17s)
+      Question 8/10 (BFI-10_8)... ✓ (3.23s)
+      Question 9/10 (BFI-10_9)... ✓ (3.32s)
+      Question 10/10 (BFI-10_10)... ✓ (2.79s)
+    BFI-10 completed: 30.85s total (avg 3.08s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.09s)
+      Question 2/5 (BES-A_2)... ✓ (3.31s)
+      Question 3/5 (BES-A_3)... ✓ (3.62s)
+      Question 4/5 (BES-A_4)... ✓ (3.05s)
+      Question 5/5 (BES-A_5)... ✓ (3.00s)
+    BES-A completed: 16.07s total (avg 3.21s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.40s)
+      Question 2/5 (REI_2)... ✓ (3.12s)
+      Question 3/5 (REI_3)... ✓ (3.12s)
+      Question 4/5 (REI_4)... ✓ (3.21s)
+      Question 5/5 (REI_5)... ✓ (2.82s)
+    REI completed: 15.68s total (avg 3.14s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (2.57s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (2.52s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.93s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.89s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.43s)
+    SD3_NARCISSISM_SUBPART completed: 14.36s total (avg 2.87s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.12s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.16s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.68s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (2.89s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.32s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.94s)
+    GENERAL_DECISION_MAKING completed: 18.11s total (avg 3.02s per question)
+
+Survey completed in 95.07s (1.58 minutes)
+Completed at: 2026-03-07 13:56:17
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0023/survey_responses.json
+Administering survey to agent: Erin Mcdonald (0023)
+Started at: 2026-03-07 13:56:17
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.76s)
+      Question 2/10 (BFI-10_2)... ✓ (2.84s)
+      Question 3/10 (BFI-10_3)... ✓ (3.03s)
+      Question 4/10 (BFI-10_4)... ✓ (2.87s)
+      Question 5/10 (BFI-10_5)... ✓ (3.80s)
+      Question 6/10 (BFI-10_6)... ✓ (3.02s)
+      Question 7/10 (BFI-10_7)... ✓ (3.38s)
+      Question 8/10 (BFI-10_8)... ✓ (3.34s)
+      Question 9/10 (BFI-10_9)... ✓ (2.90s)
+      Question 10/10 (BFI-10_10)... ✓ (3.12s)
+    BFI-10 completed: 31.27s total (avg 3.11s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.10s)
+      Question 2/5 (BES-A_2)... ✓ (3.15s)
+      Question 3/5 (BES-A_3)... ✓ (3.23s)
+      Question 4/5 (BES-A_4)... ✓ (3.01s)
+      Question 5/5 (BES-A_5)... ✓ (3.32s)
+    BES-A completed: 15.82s total (avg 3.16s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.68s)
+      Question 2/5 (REI_2)... ✓ (3.13s)
+      Question 3/5 (REI_3)... ✓ (3.28s)
+      Question 4/5 (REI_4)... ✓ (3.56s)
+      Question 5/5 (REI_5)... ✓ (3.02s)
+    REI completed: 16.67s total (avg 3.33s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.08s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.66s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.67s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.21s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.39s)
+    SD3_NARCISSISM_SUBPART completed: 16.01s total (avg 3.20s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.82s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (2.95s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.72s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.18s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.75s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.80s)
+    GENERAL_DECISION_MAKING completed: 17.33s total (avg 2.87s per question)
+
+Survey completed in 97.11s (1.62 minutes)
+Completed at: 2026-03-07 13:57:54
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0023/survey_responses.json
+  0024: running 2 new attempt(s)...
+Administering survey to agent: Andrea Martinez (0024)
+Started at: 2026-03-07 13:57:54
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.85s)
+      Question 2/10 (BFI-10_2)... ✓ (2.53s)
+      Question 3/10 (BFI-10_3)... ✓ (2.58s)
+      Question 4/10 (BFI-10_4)... ✓ (3.18s)
+      Question 5/10 (BFI-10_5)... ✓ (3.06s)
+      Question 6/10 (BFI-10_6)... ✓ (3.15s)
+      Question 7/10 (BFI-10_7)... ✓ (3.00s)
+      Question 8/10 (BFI-10_8)... ✓ (3.18s)
+      Question 9/10 (BFI-10_9)... ✓ (2.82s)
+      Question 10/10 (BFI-10_10)... ✓ (2.89s)
+    BFI-10 completed: 29.26s total (avg 2.93s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (2.90s)
+      Question 2/5 (BES-A_2)... ✓ (3.11s)
+      Question 3/5 (BES-A_3)... ✓ (3.12s)
+      Question 4/5 (BES-A_4)... ✓ (2.71s)
+      Question 5/5 (BES-A_5)... ✓ (3.06s)
+    BES-A completed: 14.89s total (avg 2.98s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.85s)
+      Question 2/5 (REI_2)... ✓ (3.02s)
+      Question 3/5 (REI_3)... ✓ (2.78s)
+      Question 4/5 (REI_4)... ✓ (3.33s)
+      Question 5/5 (REI_5)... ✓ (3.40s)
+    REI completed: 15.39s total (avg 3.08s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.53s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (2.86s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.30s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.83s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (2.84s)
+    SD3_NARCISSISM_SUBPART completed: 15.35s total (avg 3.07s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.92s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.00s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.05s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.11s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.52s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.02s)
+    GENERAL_DECISION_MAKING completed: 17.63s total (avg 2.94s per question)
+
+Survey completed in 92.53s (1.54 minutes)
+Completed at: 2026-03-07 13:59:27
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0024/survey_responses.json
+Administering survey to agent: Andrea Martinez (0024)
+Started at: 2026-03-07 13:59:27
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.23s)
+      Question 2/10 (BFI-10_2)... ✓ (3.17s)
+      Question 3/10 (BFI-10_3)... ✓ (3.28s)
+      Question 4/10 (BFI-10_4)... ✓ (3.11s)
+      Question 5/10 (BFI-10_5)... ✓ (3.17s)
+      Question 6/10 (BFI-10_6)... ✓ (2.86s)
+      Question 7/10 (BFI-10_7)... ✓ (3.05s)
+      Question 8/10 (BFI-10_8)... ✓ (3.33s)
+      Question 9/10 (BFI-10_9)... ✓ (2.79s)
+      Question 10/10 (BFI-10_10)... ✓ (3.02s)
+    BFI-10 completed: 31.03s total (avg 3.10s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (2.92s)
+      Question 2/5 (BES-A_2)... ✓ (3.06s)
+      Question 3/5 (BES-A_3)... ✓ (2.64s)
+      Question 4/5 (BES-A_4)... ✓ (2.55s)
+      Question 5/5 (BES-A_5)... ✓ (2.71s)
+    BES-A completed: 13.87s total (avg 2.77s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.17s)
+      Question 2/5 (REI_2)... ✓ (2.82s)
+      Question 3/5 (REI_3)... ✓ (2.66s)
+      Question 4/5 (REI_4)... ✓ (3.63s)
+      Question 5/5 (REI_5)... ✓ (3.15s)
+    REI completed: 15.43s total (avg 3.09s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.50s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.07s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.00s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.39s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.31s)
+    SD3_NARCISSISM_SUBPART completed: 16.45s total (avg 3.25s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.97s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.57s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.26s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.29s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.04s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.07s)
+    GENERAL_DECISION_MAKING completed: 19.20s total (avg 3.20s per question)
+
+Survey completed in 95.99s (1.60 minutes)
+Completed at: 2026-03-07 14:01:03
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0024/survey_responses.json
+  0025: running 2 new attempt(s)...
+Administering survey to agent: Claire Mcmahon (0025)
+Started at: 2026-03-07 14:01:03
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.55s)
+      Question 2/10 (BFI-10_2)... ✓ (2.99s)
+      Question 3/10 (BFI-10_3)... ✓ (3.56s)
+      Question 4/10 (BFI-10_4)... ✓ (3.42s)
+      Question 5/10 (BFI-10_5)... ✓ (3.17s)
+      Question 6/10 (BFI-10_6)... ✓ (3.39s)
+      Question 7/10 (BFI-10_7)... ✓ (2.84s)
+      Question 8/10 (BFI-10_8)... ✓ (3.13s)
+      Question 9/10 (BFI-10_9)... ✓ (2.86s)
+      Question 10/10 (BFI-10_10)... ✓ (3.85s)
+    BFI-10 completed: 31.77s total (avg 3.18s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.74s)
+      Question 2/5 (BES-A_2)... ✓ (3.45s)
+      Question 3/5 (BES-A_3)... ✓ (3.02s)
+      Question 4/5 (BES-A_4)... ✓ (4.43s)
+      Question 5/5 (BES-A_5)... ✓ (3.73s)
+    BES-A completed: 18.37s total (avg 3.67s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.21s)
+      Question 2/5 (REI_2)... ✓ (3.50s)
+      Question 3/5 (REI_3)... ✓ (3.09s)
+      Question 4/5 (REI_4)... ✓ (3.25s)
+      Question 5/5 (REI_5)... ✓ (2.93s)
+    REI completed: 15.98s total (avg 3.20s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (2.85s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.21s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.04s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.61s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (2.88s)
+    SD3_NARCISSISM_SUBPART completed: 14.59s total (avg 2.92s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.24s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.36s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.79s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.44s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.04s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.05s)
+    GENERAL_DECISION_MAKING completed: 18.93s total (avg 3.15s per question)
+
+Survey completed in 99.65s (1.66 minutes)
+Completed at: 2026-03-07 14:02:43
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0025/survey_responses.json
+Administering survey to agent: Claire Mcmahon (0025)
+Started at: 2026-03-07 14:02:43
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.04s)
+      Question 2/10 (BFI-10_2)... ✓ (2.99s)
+      Question 3/10 (BFI-10_3)... ✓ (3.21s)
+      Question 4/10 (BFI-10_4)... ✓ (2.90s)
+      Question 5/10 (BFI-10_5)... ✓ (3.43s)
+      Question 6/10 (BFI-10_6)... ✓ (3.58s)
+      Question 7/10 (BFI-10_7)... ✓ (3.20s)
+      Question 8/10 (BFI-10_8)... ✓ (3.54s)
+      Question 9/10 (BFI-10_9)... ✓ (3.45s)
+      Question 10/10 (BFI-10_10)... ✓ (2.95s)
+    BFI-10 completed: 32.29s total (avg 3.23s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.03s)
+      Question 2/5 (BES-A_2)... ✓ (3.21s)
+      Question 3/5 (BES-A_3)... ✓ (3.05s)
+      Question 4/5 (BES-A_4)... ✓ (3.38s)
+      Question 5/5 (BES-A_5)... ✓ (3.63s)
+    BES-A completed: 16.31s total (avg 3.26s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.12s)
+      Question 2/5 (REI_2)... ✓ (3.28s)
+      Question 3/5 (REI_3)... ✓ (3.33s)
+      Question 4/5 (REI_4)... ✓ (3.07s)
+      Question 5/5 (REI_5)... ✓ (2.82s)
+    REI completed: 15.64s total (avg 3.13s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.12s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.22s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.22s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.83s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.67s)
+    SD3_NARCISSISM_SUBPART completed: 16.07s total (avg 3.21s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.15s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.35s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.23s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.60s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.78s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.00s)
+    GENERAL_DECISION_MAKING completed: 19.11s total (avg 3.18s per question)
+
+Survey completed in 99.43s (1.66 minutes)
+Completed at: 2026-03-07 14:04:22
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0025/survey_responses.json
+  0026: running 2 new attempt(s)...
+Administering survey to agent: Gabriel Velazquez (0026)
+Started at: 2026-03-07 14:04:22
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.84s)
+      Question 2/10 (BFI-10_2)... ✓ (2.82s)
+      Question 3/10 (BFI-10_3)... ✓ (3.57s)
+      Question 4/10 (BFI-10_4)... ✓ (3.21s)
+      Question 5/10 (BFI-10_5)... ✓ (3.19s)
+      Question 6/10 (BFI-10_6)... ✓ (2.57s)
+      Question 7/10 (BFI-10_7)... ✓ (2.95s)
+      Question 8/10 (BFI-10_8)... ✓ (3.40s)
+      Question 9/10 (BFI-10_9)... ✓ (3.10s)
+      Question 10/10 (BFI-10_10)... ✓ (2.75s)
+    BFI-10 completed: 30.41s total (avg 3.04s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.00s)
+      Question 2/5 (BES-A_2)... ✓ (2.81s)
+      Question 3/5 (BES-A_3)... ✓ (2.82s)
+      Question 4/5 (BES-A_4)... ✓ (3.01s)
+      Question 5/5 (BES-A_5)... ✓ (3.26s)
+    BES-A completed: 14.90s total (avg 2.98s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.44s)
+      Question 2/5 (REI_2)... ✓ (3.64s)
+      Question 3/5 (REI_3)... ✓ (3.25s)
+      Question 4/5 (REI_4)... ✓ (3.10s)
+      Question 5/5 (REI_5)... ✓ (3.22s)
+    REI completed: 16.66s total (avg 3.33s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.21s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.51s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.17s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.32s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.41s)
+    SD3_NARCISSISM_SUBPART completed: 16.65s total (avg 3.32s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.28s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.05s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.99s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.09s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.55s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.59s)
+    GENERAL_DECISION_MAKING completed: 19.55s total (avg 3.26s per question)
+
+Survey completed in 98.17s (1.64 minutes)
+Completed at: 2026-03-07 14:06:00
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0026/survey_responses.json
+Administering survey to agent: Gabriel Velazquez (0026)
+Started at: 2026-03-07 14:06:00
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.19s)
+      Question 2/10 (BFI-10_2)... ✓ (3.19s)
+      Question 3/10 (BFI-10_3)... ✓ (2.83s)
+      Question 4/10 (BFI-10_4)... ✓ (3.71s)
+      Question 5/10 (BFI-10_5)... ✓ (3.29s)
+      Question 6/10 (BFI-10_6)... ✓ (3.50s)
+      Question 7/10 (BFI-10_7)... ✓ (3.38s)
+      Question 8/10 (BFI-10_8)... ✓ (3.55s)
+      Question 9/10 (BFI-10_9)... ✓ (2.78s)
+      Question 10/10 (BFI-10_10)... ✓ (2.99s)
+    BFI-10 completed: 32.41s total (avg 3.24s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.18s)
+      Question 2/5 (BES-A_2)... ✓ (3.08s)
+      Question 3/5 (BES-A_3)... ✓ (3.17s)
+      Question 4/5 (BES-A_4)... ✓ (3.14s)
+      Question 5/5 (BES-A_5)... ✓ (3.32s)
+    BES-A completed: 15.89s total (avg 3.18s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.34s)
+      Question 2/5 (REI_2)... ✓ (3.61s)
+      Question 3/5 (REI_3)... ✓ (3.14s)
+      Question 4/5 (REI_4)... ✓ (3.25s)
+      Question 5/5 (REI_5)... ✓ (2.94s)
+    REI completed: 16.28s total (avg 3.26s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (2.96s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (2.75s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.14s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.96s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.47s)
+    SD3_NARCISSISM_SUBPART completed: 15.27s total (avg 3.05s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.51s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.38s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.79s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.47s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.30s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.87s)
+    GENERAL_DECISION_MAKING completed: 19.32s total (avg 3.22s per question)
+
+Survey completed in 99.19s (1.65 minutes)
+Completed at: 2026-03-07 14:07:40
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0026/survey_responses.json
+  0027: running 2 new attempt(s)...
+Administering survey to agent: Amin Hassan (0027)
+Started at: 2026-03-07 14:07:40
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.33s)
+      Question 2/10 (BFI-10_2)... ✓ (3.47s)
+      Question 3/10 (BFI-10_3)... ✓ (3.05s)
+      Question 4/10 (BFI-10_4)... ✓ (2.86s)
+      Question 5/10 (BFI-10_5)... ✓ (3.50s)
+      Question 6/10 (BFI-10_6)... ✓ (2.60s)
+      Question 7/10 (BFI-10_7)... ✓ (2.91s)
+      Question 8/10 (BFI-10_8)... ✓ (3.39s)
+      Question 9/10 (BFI-10_9)... ✓ (3.04s)
+      Question 10/10 (BFI-10_10)... ✓ (2.98s)
+    BFI-10 completed: 31.15s total (avg 3.11s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.48s)
+      Question 2/5 (BES-A_2)... ✓ (3.32s)
+      Question 3/5 (BES-A_3)... ✓ (2.90s)
+      Question 4/5 (BES-A_4)... ✓ (3.29s)
+      Question 5/5 (BES-A_5)... ✓ (3.63s)
+    BES-A completed: 16.63s total (avg 3.33s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.36s)
+      Question 2/5 (REI_2)... ✓ (3.23s)
+      Question 3/5 (REI_3)... ✓ (3.40s)
+      Question 4/5 (REI_4)... ✓ (3.60s)
+      Question 5/5 (REI_5)... ✓ (2.92s)
+    REI completed: 16.51s total (avg 3.30s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.34s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.31s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.04s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.69s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.11s)
+    SD3_NARCISSISM_SUBPART completed: 15.64s total (avg 3.10s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.73s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.28s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.90s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.87s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.07s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.01s)
+    GENERAL_DECISION_MAKING completed: 20.11s total (avg 3.31s per question)
+
+Survey completed in 100.06s (1.67 minutes)
+Completed at: 2026-03-07 14:09:20
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0027/survey_responses.json
+Administering survey to agent: Amin Hassan (0027)
+Started at: 2026-03-07 14:09:20
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.07s)
+      Question 2/10 (BFI-10_2)... ✓ (2.80s)
+      Question 3/10 (BFI-10_3)... ✓ (2.75s)
+      Question 4/10 (BFI-10_4)... ✓ (3.65s)
+      Question 5/10 (BFI-10_5)... ✓ (2.88s)
+      Question 6/10 (BFI-10_6)... ✓ (3.72s)
+      Question 7/10 (BFI-10_7)... ✓ (3.29s)
+      Question 8/10 (BFI-10_8)... ✓ (3.40s)
+      Question 9/10 (BFI-10_9)... ✓ (3.09s)
+      Question 10/10 (BFI-10_10)... ✓ (3.24s)
+    BFI-10 completed: 32.18s total (avg 3.19s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.59s)
+      Question 2/5 (BES-A_2)... ✓ (3.23s)
+      Question 3/5 (BES-A_3)... ✓ (3.15s)
+      Question 4/5 (BES-A_4)... ✓ (3.43s)
+      Question 5/5 (BES-A_5)... ✓ (3.14s)
+    BES-A completed: 16.55s total (avg 3.31s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.53s)
+      Question 2/5 (REI_2)... ✓ (3.56s)
+      Question 3/5 (REI_3)... ✓ (2.81s)
+      Question 4/5 (REI_4)... ✓ (3.27s)
+      Question 5/5 (REI_5)... ✓ (2.90s)
+    REI completed: 16.06s total (avg 3.21s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.55s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.32s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.53s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.76s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.57s)
+    SD3_NARCISSISM_SUBPART completed: 16.72s total (avg 3.34s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.29s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (2.86s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.19s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.49s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.31s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.78s)
+    GENERAL_DECISION_MAKING completed: 18.92s total (avg 3.15s per question)
+
+Survey completed in 100.43s (1.67 minutes)
+Completed at: 2026-03-07 14:11:00
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0027/survey_responses.json
+  0028: running 2 new attempt(s)...
+Administering survey to agent: Elizabeth Anderson (0028)
+Started at: 2026-03-07 14:11:00
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.64s)
+      Question 2/10 (BFI-10_2)... ✓ (3.27s)
+      Question 3/10 (BFI-10_3)... ✓ (3.01s)
+      Question 4/10 (BFI-10_4)... ✓ (2.77s)
+      Question 5/10 (BFI-10_5)... ✓ (2.94s)
+      Question 6/10 (BFI-10_6)... ✓ (2.85s)
+      Question 7/10 (BFI-10_7)... ✓ (3.21s)
+      Question 8/10 (BFI-10_8)... ✓ (2.96s)
+      Question 9/10 (BFI-10_9)... ✓ (2.58s)
+      Question 10/10 (BFI-10_10)... ✓ (2.58s)
+    BFI-10 completed: 28.81s total (avg 2.88s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.09s)
+      Question 2/5 (BES-A_2)... ✓ (3.17s)
+      Question 3/5 (BES-A_3)... ✓ (3.40s)
+      Question 4/5 (BES-A_4)... ✓ (3.21s)
+      Question 5/5 (BES-A_5)... ✓ (3.43s)
+    BES-A completed: 16.30s total (avg 3.26s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.79s)
+      Question 2/5 (REI_2)... ✓ (3.55s)
+      Question 3/5 (REI_3)... ✓ (4.55s)
+      Question 4/5 (REI_4)... ✓ (3.53s)
+      Question 5/5 (REI_5)... ✓ (3.14s)
+    REI completed: 18.56s total (avg 3.71s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.20s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.28s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.66s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.19s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.08s)
+    SD3_NARCISSISM_SUBPART completed: 15.41s total (avg 3.08s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.14s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.60s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.68s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (2.89s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.20s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.13s)
+    GENERAL_DECISION_MAKING completed: 18.64s total (avg 3.11s per question)
+
+Survey completed in 97.73s (1.63 minutes)
+Completed at: 2026-03-07 14:12:38
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0028/survey_responses.json
+Administering survey to agent: Elizabeth Anderson (0028)
+Started at: 2026-03-07 14:12:38
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.41s)
+      Question 2/10 (BFI-10_2)... ✓ (3.25s)
+      Question 3/10 (BFI-10_3)... ✓ (3.33s)
+      Question 4/10 (BFI-10_4)... ✓ (3.06s)
+      Question 5/10 (BFI-10_5)... ✓ (2.92s)
+      Question 6/10 (BFI-10_6)... ✓ (2.58s)
+      Question 7/10 (BFI-10_7)... ✓ (3.07s)
+      Question 8/10 (BFI-10_8)... ✓ (3.25s)
+      Question 9/10 (BFI-10_9)... ✓ (2.95s)
+      Question 10/10 (BFI-10_10)... ✓ (3.45s)
+    BFI-10 completed: 31.27s total (avg 3.13s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.16s)
+      Question 2/5 (BES-A_2)... ✓ (3.02s)
+      Question 3/5 (BES-A_3)... ✓ (3.32s)
+      Question 4/5 (BES-A_4)... ✓ (2.76s)
+      Question 5/5 (BES-A_5)... ✓ (3.12s)
+    BES-A completed: 15.40s total (avg 3.08s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.92s)
+      Question 2/5 (REI_2)... ✓ (3.36s)
+      Question 3/5 (REI_3)... ✓ (2.96s)
+      Question 4/5 (REI_4)... ✓ (2.94s)
+      Question 5/5 (REI_5)... ✓ (2.89s)
+    REI completed: 15.07s total (avg 3.01s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (2.67s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.18s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.72s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.55s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.12s)
+    SD3_NARCISSISM_SUBPART completed: 15.25s total (avg 3.05s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.20s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.57s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.67s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.17s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.73s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.42s)
+    GENERAL_DECISION_MAKING completed: 18.76s total (avg 3.13s per question)
+
+Survey completed in 95.76s (1.60 minutes)
+Completed at: 2026-03-07 14:14:14
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0028/survey_responses.json
+  0029: running 2 new attempt(s)...
+Administering survey to agent: Angela Hoffman (0029)
+Started at: 2026-03-07 14:14:14
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.43s)
+      Question 2/10 (BFI-10_2)... ✓ (3.30s)
+      Question 3/10 (BFI-10_3)... ✓ (3.09s)
+      Question 4/10 (BFI-10_4)... ✓ (3.86s)
+      Question 5/10 (BFI-10_5)... ✓ (2.86s)
+      Question 6/10 (BFI-10_6)... ✓ (2.84s)
+      Question 7/10 (BFI-10_7)... ✓ (2.86s)
+      Question 8/10 (BFI-10_8)... ✓ (3.49s)
+      Question 9/10 (BFI-10_9)... ✓ (3.09s)
+      Question 10/10 (BFI-10_10)... ✓ (2.86s)
+    BFI-10 completed: 31.69s total (avg 3.17s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.12s)
+      Question 2/5 (BES-A_2)... ✓ (3.25s)
+      Question 3/5 (BES-A_3)... ✓ (3.42s)
+      Question 4/5 (BES-A_4)... ✓ (3.33s)
+      Question 5/5 (BES-A_5)... ✓ (2.89s)
+    BES-A completed: 16.02s total (avg 3.20s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.02s)
+      Question 2/5 (REI_2)... ✓ (3.07s)
+      Question 3/5 (REI_3)... ✓ (2.78s)
+      Question 4/5 (REI_4)... ✓ (3.19s)
+      Question 5/5 (REI_5)... ✓ (3.11s)
+    REI completed: 15.20s total (avg 3.03s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.50s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.51s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.98s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.77s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.12s)
+    SD3_NARCISSISM_SUBPART completed: 15.88s total (avg 3.18s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.99s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.18s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.78s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.42s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.93s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.93s)
+    GENERAL_DECISION_MAKING completed: 18.24s total (avg 3.04s per question)
+
+Survey completed in 97.03s (1.62 minutes)
+Completed at: 2026-03-07 14:15:51
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0029/survey_responses.json
+Administering survey to agent: Angela Hoffman (0029)
+Started at: 2026-03-07 14:15:51
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.70s)
+      Question 2/10 (BFI-10_2)... ✓ (2.77s)
+      Question 3/10 (BFI-10_3)... ✓ (2.92s)
+      Question 4/10 (BFI-10_4)... ✓ (2.78s)
+      Question 5/10 (BFI-10_5)... ✓ (2.75s)
+      Question 6/10 (BFI-10_6)... ✓ (2.59s)
+      Question 7/10 (BFI-10_7)... ✓ (3.05s)
+      Question 8/10 (BFI-10_8)... ✓ (2.79s)
+      Question 9/10 (BFI-10_9)... ✓ (2.86s)
+      Question 10/10 (BFI-10_10)... ✓ (2.60s)
+    BFI-10 completed: 27.81s total (avg 2.78s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (2.74s)
+      Question 2/5 (BES-A_2)... ✓ (3.09s)
+      Question 3/5 (BES-A_3)... ✓ (2.79s)
+      Question 4/5 (BES-A_4)... ✓ (2.89s)
+      Question 5/5 (BES-A_5)... ✓ (3.41s)
+    BES-A completed: 14.93s total (avg 2.98s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.02s)
+      Question 2/5 (REI_2)... ✓ (2.94s)
+      Question 3/5 (REI_3)... ✓ (3.25s)
+      Question 4/5 (REI_4)... ✓ (3.31s)
+      Question 5/5 (REI_5)... ✓ (3.05s)
+    REI completed: 15.58s total (avg 3.12s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (2.74s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.14s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.44s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.01s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (2.79s)
+    SD3_NARCISSISM_SUBPART completed: 15.12s total (avg 3.02s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.09s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.19s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.34s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.36s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.82s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.01s)
+    GENERAL_DECISION_MAKING completed: 18.93s total (avg 3.13s per question)
+
+Survey completed in 92.36s (1.54 minutes)
+Completed at: 2026-03-07 14:17:24
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0029/survey_responses.json
+  0030: running 2 new attempt(s)...
+Administering survey to agent: Mei Chen (0030)
+Started at: 2026-03-07 14:17:24
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.48s)
+      Question 2/10 (BFI-10_2)... ✓ (3.01s)
+      Question 3/10 (BFI-10_3)... ✓ (2.81s)
+      Question 4/10 (BFI-10_4)... ✓ (3.33s)
+      Question 5/10 (BFI-10_5)... ✓ (3.07s)
+      Question 6/10 (BFI-10_6)... ✓ (2.96s)
+      Question 7/10 (BFI-10_7)... ✓ (2.74s)
+      Question 8/10 (BFI-10_8)... ✓ (3.42s)
+      Question 9/10 (BFI-10_9)... ✓ (2.94s)
+      Question 10/10 (BFI-10_10)... ✓ (3.15s)
+    BFI-10 completed: 29.92s total (avg 2.99s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.43s)
+      Question 2/5 (BES-A_2)... ✓ (3.04s)
+      Question 3/5 (BES-A_3)... ✓ (3.15s)
+      Question 4/5 (BES-A_4)... ✓ (2.87s)
+      Question 5/5 (BES-A_5)... ✓ (3.27s)
+    BES-A completed: 15.75s total (avg 3.15s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.11s)
+      Question 2/5 (REI_2)... ✓ (3.32s)
+      Question 3/5 (REI_3)... ✓ (2.65s)
+      Question 4/5 (REI_4)... ✓ (3.15s)
+      Question 5/5 (REI_5)... ✓ (2.91s)
+    REI completed: 15.14s total (avg 3.03s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.26s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.16s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.65s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.90s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (2.74s)
+    SD3_NARCISSISM_SUBPART completed: 14.72s total (avg 2.94s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.82s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.09s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.20s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.14s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.99s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.12s)
+    GENERAL_DECISION_MAKING completed: 18.37s total (avg 3.06s per question)
+
+Survey completed in 93.90s (1.56 minutes)
+Completed at: 2026-03-07 14:18:57
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0030/survey_responses.json
+Administering survey to agent: Mei Chen (0030)
+Started at: 2026-03-07 14:18:58
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.59s)
+      Question 2/10 (BFI-10_2)... ✓ (2.95s)
+      Question 3/10 (BFI-10_3)... ✓ (3.16s)
+      Question 4/10 (BFI-10_4)... ✓ (3.31s)
+      Question 5/10 (BFI-10_5)... ✓ (3.04s)
+      Question 6/10 (BFI-10_6)... ✓ (2.79s)
+      Question 7/10 (BFI-10_7)... ✓ (2.99s)
+      Question 8/10 (BFI-10_8)... ✓ (3.08s)
+      Question 9/10 (BFI-10_9)... ✓ (2.83s)
+      Question 10/10 (BFI-10_10)... ✓ (2.72s)
+    BFI-10 completed: 29.48s total (avg 2.95s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (2.92s)
+      Question 2/5 (BES-A_2)... ✓ (2.92s)
+      Question 3/5 (BES-A_3)... ✓ (2.95s)
+      Question 4/5 (BES-A_4)... ✓ (3.05s)
+      Question 5/5 (BES-A_5)... ✓ (2.85s)
+    BES-A completed: 14.69s total (avg 2.94s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.00s)
+      Question 2/5 (REI_2)... ✓ (2.93s)
+      Question 3/5 (REI_3)... ✓ (3.10s)
+      Question 4/5 (REI_4)... ✓ (3.24s)
+      Question 5/5 (REI_5)... ✓ (3.54s)
+    REI completed: 15.81s total (avg 3.16s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.60s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.10s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.10s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.32s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.25s)
+    SD3_NARCISSISM_SUBPART completed: 16.37s total (avg 3.27s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.29s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.28s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.26s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (5.84s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.01s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.29s)
+    GENERAL_DECISION_MAKING completed: 21.98s total (avg 3.66s per question)
+
+Survey completed in 98.34s (1.64 minutes)
+Completed at: 2026-03-07 14:20:36
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0030/survey_responses.json
+  0031: running 2 new attempt(s)...
+Administering survey to agent: Michael Perry (0031)
+Started at: 2026-03-07 14:20:36
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.80s)
+      Question 2/10 (BFI-10_2)... ✓ (2.85s)
+      Question 3/10 (BFI-10_3)... ✓ (2.79s)
+      Question 4/10 (BFI-10_4)... ✓ (3.26s)
+      Question 5/10 (BFI-10_5)... ✓ (2.44s)
+      Question 6/10 (BFI-10_6)... ✓ (2.82s)
+      Question 7/10 (BFI-10_7)... ✓ (3.52s)
+      Question 8/10 (BFI-10_8)... ✓ (2.92s)
+      Question 9/10 (BFI-10_9)... ✓ (3.17s)
+      Question 10/10 (BFI-10_10)... ✓ (3.50s)
+    BFI-10 completed: 30.08s total (avg 3.01s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.09s)
+      Question 2/5 (BES-A_2)... ✓ (3.26s)
+      Question 3/5 (BES-A_3)... ✓ (3.08s)
+      Question 4/5 (BES-A_4)... ✓ (3.26s)
+      Question 5/5 (BES-A_5)... ✓ (2.65s)
+    BES-A completed: 15.35s total (avg 3.07s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.19s)
+      Question 2/5 (REI_2)... ✓ (2.72s)
+      Question 3/5 (REI_3)... ✓ (2.51s)
+      Question 4/5 (REI_4)... ✓ (2.74s)
+      Question 5/5 (REI_5)... ✓ (3.10s)
+    REI completed: 14.27s total (avg 2.85s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.27s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.24s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.83s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.51s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.08s)
+    SD3_NARCISSISM_SUBPART completed: 15.95s total (avg 3.19s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (4.27s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (5.28s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.00s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.87s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.21s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.88s)
+    GENERAL_DECISION_MAKING completed: 22.51s total (avg 3.75s per question)
+
+Survey completed in 98.17s (1.64 minutes)
+Completed at: 2026-03-07 14:22:14
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0031/survey_responses.json
+Administering survey to agent: Michael Perry (0031)
+Started at: 2026-03-07 14:22:14
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.18s)
+      Question 2/10 (BFI-10_2)... ✓ (2.91s)
+      Question 3/10 (BFI-10_3)... ✓ (2.66s)
+      Question 4/10 (BFI-10_4)... ✓ (3.17s)
+      Question 5/10 (BFI-10_5)... ✓ (3.07s)
+      Question 6/10 (BFI-10_6)... ✓ (3.07s)
+      Question 7/10 (BFI-10_7)... ✓ (2.87s)
+      Question 8/10 (BFI-10_8)... ✓ (2.94s)
+      Question 9/10 (BFI-10_9)... ✓ (3.21s)
+      Question 10/10 (BFI-10_10)... ✓ (3.10s)
+    BFI-10 completed: 30.19s total (avg 3.02s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.64s)
+      Question 2/5 (BES-A_2)... ✓ (3.30s)
+      Question 3/5 (BES-A_3)... ✓ (3.20s)
+      Question 4/5 (BES-A_4)... ✓ (2.85s)
+      Question 5/5 (BES-A_5)... ✓ (3.36s)
+    BES-A completed: 16.36s total (avg 3.27s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.61s)
+      Question 2/5 (REI_2)... ✓ (2.95s)
+      Question 3/5 (REI_3)... ✓ (3.04s)
+      Question 4/5 (REI_4)... ✓ (2.92s)
+      Question 5/5 (REI_5)... ✓ (3.44s)
+    REI completed: 14.95s total (avg 2.99s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (2.96s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.21s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.88s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.62s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.05s)
+    SD3_NARCISSISM_SUBPART completed: 15.92s total (avg 3.14s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.91s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (2.98s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.19s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.66s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.94s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.03s)
+    GENERAL_DECISION_MAKING completed: 18.70s total (avg 3.12s per question)
+
+Survey completed in 96.14s (1.60 minutes)
+Completed at: 2026-03-07 14:23:50
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0031/survey_responses.json
+  0032: running 2 new attempt(s)...
+Administering survey to agent: Juan Ramirez (0032)
+Started at: 2026-03-07 14:23:50
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.16s)
+      Question 2/10 (BFI-10_2)... ✓ (3.17s)
+      Question 3/10 (BFI-10_3)... ✓ (3.04s)
+      Question 4/10 (BFI-10_4)... ✓ (3.67s)
+      Question 5/10 (BFI-10_5)... ✓ (3.07s)
+      Question 6/10 (BFI-10_6)... ✓ (3.29s)
+      Question 7/10 (BFI-10_7)... ✓ (3.09s)
+      Question 8/10 (BFI-10_8)... ✓ (3.09s)
+      Question 9/10 (BFI-10_9)... ✓ (3.05s)
+      Question 10/10 (BFI-10_10)... ✓ (3.09s)
+    BFI-10 completed: 31.74s total (avg 3.17s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.01s)
+      Question 2/5 (BES-A_2)... ✓ (3.04s)
+      Question 3/5 (BES-A_3)... ✓ (3.84s)
+      Question 4/5 (BES-A_4)... ✓ (3.03s)
+      Question 5/5 (BES-A_5)... ✓ (3.24s)
+    BES-A completed: 16.16s total (avg 3.23s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.16s)
+      Question 2/5 (REI_2)... ✓ (3.55s)
+      Question 3/5 (REI_3)... ✓ (3.16s)
+      Question 4/5 (REI_4)... ✓ (3.70s)
+      Question 5/5 (REI_5)... ✓ (3.03s)
+    REI completed: 16.60s total (avg 3.32s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.44s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.29s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.32s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.91s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (2.40s)
+    SD3_NARCISSISM_SUBPART completed: 15.37s total (avg 3.07s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.72s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (2.87s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.23s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (2.85s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.81s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.21s)
+    GENERAL_DECISION_MAKING completed: 16.69s total (avg 2.78s per question)
+
+Survey completed in 96.56s (1.61 minutes)
+Completed at: 2026-03-07 14:25:27
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0032/survey_responses.json
+Administering survey to agent: Juan Ramirez (0032)
+Started at: 2026-03-07 14:25:27
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.31s)
+      Question 2/10 (BFI-10_2)... ✓ (3.23s)
+      Question 3/10 (BFI-10_3)... ✓ (2.82s)
+      Question 4/10 (BFI-10_4)... ✓ (2.94s)
+      Question 5/10 (BFI-10_5)... ✓ (3.21s)
+      Question 6/10 (BFI-10_6)... ✓ (2.86s)
+      Question 7/10 (BFI-10_7)... ✓ (3.25s)
+      Question 8/10 (BFI-10_8)... ✓ (2.97s)
+      Question 9/10 (BFI-10_9)... ✓ (3.10s)
+      Question 10/10 (BFI-10_10)... ✓ (3.38s)
+    BFI-10 completed: 31.06s total (avg 3.11s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.88s)
+      Question 2/5 (BES-A_2)... ✓ (3.06s)
+      Question 3/5 (BES-A_3)... ✓ (3.09s)
+      Question 4/5 (BES-A_4)... ✓ (2.86s)
+      Question 5/5 (BES-A_5)... ✓ (4.16s)
+    BES-A completed: 17.04s total (avg 3.41s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.08s)
+      Question 2/5 (REI_2)... ✓ (3.07s)
+      Question 3/5 (REI_3)... ✓ (2.73s)
+      Question 4/5 (REI_4)... ✓ (3.16s)
+      Question 5/5 (REI_5)... ✓ (2.97s)
+    REI completed: 15.00s total (avg 3.00s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.26s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.18s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.01s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.99s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.13s)
+    SD3_NARCISSISM_SUBPART completed: 15.58s total (avg 3.12s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.12s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.21s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.81s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (2.97s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.93s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.86s)
+    GENERAL_DECISION_MAKING completed: 18.91s total (avg 3.15s per question)
+
+Survey completed in 97.59s (1.63 minutes)
+Completed at: 2026-03-07 14:27:04
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0032/survey_responses.json
+  0033: running 2 new attempt(s)...
+Administering survey to agent: Kira Mason (0033)
+Started at: 2026-03-07 14:27:05
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.96s)
+      Question 2/10 (BFI-10_2)... ✓ (3.01s)
+      Question 3/10 (BFI-10_3)... ✓ (2.73s)
+      Question 4/10 (BFI-10_4)... ✓ (2.74s)
+      Question 5/10 (BFI-10_5)... ✓ (2.65s)
+      Question 6/10 (BFI-10_6)... ✓ (2.48s)
+      Question 7/10 (BFI-10_7)... ✓ (2.82s)
+      Question 8/10 (BFI-10_8)... ✓ (2.68s)
+      Question 9/10 (BFI-10_9)... ✓ (2.78s)
+      Question 10/10 (BFI-10_10)... ✓ (2.98s)
+    BFI-10 completed: 27.94s total (avg 2.78s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.30s)
+      Question 2/5 (BES-A_2)... ✓ (2.89s)
+      Question 3/5 (BES-A_3)... ✓ (3.06s)
+      Question 4/5 (BES-A_4)... ✓ (2.62s)
+      Question 5/5 (BES-A_5)... ✓ (2.75s)
+    BES-A completed: 14.63s total (avg 2.92s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.35s)
+      Question 2/5 (REI_2)... ✓ (3.14s)
+      Question 3/5 (REI_3)... ✓ (3.23s)
+      Question 4/5 (REI_4)... ✓ (3.51s)
+      Question 5/5 (REI_5)... ✓ (2.74s)
+    REI completed: 14.98s total (avg 3.00s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.12s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.20s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.23s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.01s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.24s)
+    SD3_NARCISSISM_SUBPART completed: 15.82s total (avg 3.16s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.28s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.67s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.08s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.19s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.01s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.98s)
+    GENERAL_DECISION_MAKING completed: 19.21s total (avg 3.20s per question)
+
+Survey completed in 92.59s (1.54 minutes)
+Completed at: 2026-03-07 14:28:37
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0033/survey_responses.json
+Administering survey to agent: Kira Mason (0033)
+Started at: 2026-03-07 14:28:37
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.09s)
+      Question 2/10 (BFI-10_2)... ✓ (3.45s)
+      Question 3/10 (BFI-10_3)... ✓ (3.18s)
+      Question 4/10 (BFI-10_4)... ✓ (3.10s)
+      Question 5/10 (BFI-10_5)... ✓ (3.02s)
+      Question 6/10 (BFI-10_6)... ✓ (2.91s)
+      Question 7/10 (BFI-10_7)... ✓ (2.76s)
+      Question 8/10 (BFI-10_8)... ✓ (3.37s)
+      Question 9/10 (BFI-10_9)... ✓ (3.36s)
+      Question 10/10 (BFI-10_10)... ✓ (3.17s)
+    BFI-10 completed: 31.40s total (avg 3.14s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.05s)
+      Question 2/5 (BES-A_2)... ✓ (2.70s)
+      Question 3/5 (BES-A_3)... ✓ (2.97s)
+      Question 4/5 (BES-A_4)... ✓ (3.50s)
+      Question 5/5 (BES-A_5)... ✓ (2.90s)
+    BES-A completed: 15.12s total (avg 3.02s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.99s)
+      Question 2/5 (REI_2)... ✓ (2.95s)
+      Question 3/5 (REI_3)... ✓ (2.83s)
+      Question 4/5 (REI_4)... ✓ (3.07s)
+      Question 5/5 (REI_5)... ✓ (2.81s)
+    REI completed: 14.66s total (avg 2.93s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.54s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.25s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.42s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.88s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.67s)
+    SD3_NARCISSISM_SUBPART completed: 16.75s total (avg 3.35s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.91s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.06s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.69s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.00s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.49s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.09s)
+    GENERAL_DECISION_MAKING completed: 17.25s total (avg 2.87s per question)
+
+Survey completed in 95.19s (1.59 minutes)
+Completed at: 2026-03-07 14:30:12
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0033/survey_responses.json
+  0034: running 2 new attempt(s)...
+Administering survey to agent: Isabella Rodriguez (0034)
+Started at: 2026-03-07 14:30:12
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (3.24s)
+      Question 2/10 (BFI-10_2)... ✓ (3.13s)
+      Question 3/10 (BFI-10_3)... ✓ (3.16s)
+      Question 4/10 (BFI-10_4)... ✓ (3.10s)
+      Question 5/10 (BFI-10_5)... ✓ (3.23s)
+      Question 6/10 (BFI-10_6)... ✓ (2.78s)
+      Question 7/10 (BFI-10_7)... ✓ (3.47s)
+      Question 8/10 (BFI-10_8)... ✓ (3.19s)
+      Question 9/10 (BFI-10_9)... ✓ (2.67s)
+      Question 10/10 (BFI-10_10)... ✓ (3.02s)
+    BFI-10 completed: 31.00s total (avg 3.10s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.81s)
+      Question 2/5 (BES-A_2)... ✓ (3.24s)
+      Question 3/5 (BES-A_3)... ✓ (3.44s)
+      Question 4/5 (BES-A_4)... ✓ (2.94s)
+      Question 5/5 (BES-A_5)... ✓ (3.51s)
+    BES-A completed: 16.96s total (avg 3.39s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.13s)
+      Question 2/5 (REI_2)... ✓ (3.32s)
+      Question 3/5 (REI_3)... ✓ (3.05s)
+      Question 4/5 (REI_4)... ✓ (3.14s)
+      Question 5/5 (REI_5)... ✓ (3.07s)
+    REI completed: 15.71s total (avg 3.14s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.40s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (2.88s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.09s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.00s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.05s)
+    SD3_NARCISSISM_SUBPART completed: 15.42s total (avg 3.08s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.60s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.21s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.83s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.78s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.68s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.14s)
+    GENERAL_DECISION_MAKING completed: 20.25s total (avg 3.37s per question)
+
+Survey completed in 99.33s (1.66 minutes)
+Completed at: 2026-03-07 14:31:52
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0034/survey_responses.json
+Administering survey to agent: Isabella Rodriguez (0034)
+Started at: 2026-03-07 14:31:52
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.50s)
+      Question 2/10 (BFI-10_2)... ✓ (2.77s)
+      Question 3/10 (BFI-10_3)... ✓ (3.79s)
+      Question 4/10 (BFI-10_4)... ✓ (2.73s)
+      Question 5/10 (BFI-10_5)... ✓ (3.49s)
+      Question 6/10 (BFI-10_6)... ✓ (2.96s)
+      Question 7/10 (BFI-10_7)... ✓ (2.52s)
+      Question 8/10 (BFI-10_8)... ✓ (2.59s)
+      Question 9/10 (BFI-10_9)... ✓ (2.76s)
+      Question 10/10 (BFI-10_10)... ✓ (2.86s)
+    BFI-10 completed: 28.97s total (avg 2.90s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.15s)
+      Question 2/5 (BES-A_2)... ✓ (3.51s)
+      Question 3/5 (BES-A_3)... ✓ (3.32s)
+      Question 4/5 (BES-A_4)... ✓ (2.75s)
+      Question 5/5 (BES-A_5)... ✓ (3.49s)
+    BES-A completed: 16.21s total (avg 3.24s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.77s)
+      Question 2/5 (REI_2)... ✓ (3.31s)
+      Question 3/5 (REI_3)... ✓ (3.09s)
+      Question 4/5 (REI_4)... ✓ (2.94s)
+      Question 5/5 (REI_5)... ✓ (3.28s)
+    REI completed: 15.39s total (avg 3.08s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.36s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.36s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.63s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (2.92s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.44s)
+    SD3_NARCISSISM_SUBPART completed: 16.71s total (avg 3.34s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.23s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.48s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.72s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.07s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.75s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.62s)
+    GENERAL_DECISION_MAKING completed: 18.87s total (avg 3.14s per question)
+
+Survey completed in 96.16s (1.60 minutes)
+Completed at: 2026-03-07 14:33:28
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0034/survey_responses.json
+  0035: running 2 new attempt(s)...
+Administering survey to agent: Kelsey Marrero (0035)
+Started at: 2026-03-07 14:33:28
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.90s)
+      Question 2/10 (BFI-10_2)... ✓ (2.77s)
+      Question 3/10 (BFI-10_3)... ✓ (2.86s)
+      Question 4/10 (BFI-10_4)... ✓ (3.48s)
+      Question 5/10 (BFI-10_5)... ✓ (3.31s)
+      Question 6/10 (BFI-10_6)... ✓ (2.74s)
+      Question 7/10 (BFI-10_7)... ✓ (2.91s)
+      Question 8/10 (BFI-10_8)... ✓ (2.85s)
+      Question 9/10 (BFI-10_9)... ✓ (3.24s)
+      Question 10/10 (BFI-10_10)... ✓ (3.14s)
+    BFI-10 completed: 30.21s total (avg 3.02s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.44s)
+      Question 2/5 (BES-A_2)... ✓ (3.40s)
+      Question 3/5 (BES-A_3)... ✓ (3.41s)
+      Question 4/5 (BES-A_4)... ✓ (2.85s)
+      Question 5/5 (BES-A_5)... ✓ (3.36s)
+    BES-A completed: 16.46s total (avg 3.29s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.22s)
+      Question 2/5 (REI_2)... ✓ (2.93s)
+      Question 3/5 (REI_3)... ✓ (2.73s)
+      Question 4/5 (REI_4)... ✓ (2.89s)
+      Question 5/5 (REI_5)... ✓ (2.53s)
+    REI completed: 14.30s total (avg 2.86s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.42s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.05s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (2.78s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.45s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.38s)
+    SD3_NARCISSISM_SUBPART completed: 16.08s total (avg 3.22s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.46s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.47s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.55s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.09s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.63s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (3.29s)
+    GENERAL_DECISION_MAKING completed: 19.61s total (avg 3.25s per question)
+
+Survey completed in 96.67s (1.61 minutes)
+Completed at: 2026-03-07 14:35:05
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0035/survey_responses.json
+Administering survey to agent: Kelsey Marrero (0035)
+Started at: 2026-03-07 14:35:05
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.82s)
+      Question 2/10 (BFI-10_2)... ✓ (2.91s)
+      Question 3/10 (BFI-10_3)... ✓ (3.06s)
+      Question 4/10 (BFI-10_4)... ✓ (3.39s)
+      Question 5/10 (BFI-10_5)... ✓ (2.58s)
+      Question 6/10 (BFI-10_6)... ✓ (2.72s)
+      Question 7/10 (BFI-10_7)... ✓ (2.89s)
+      Question 8/10 (BFI-10_8)... ✓ (3.81s)
+      Question 9/10 (BFI-10_9)... ✓ (3.15s)
+      Question 10/10 (BFI-10_10)... ✓ (3.25s)
+    BFI-10 completed: 30.59s total (avg 3.06s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.45s)
+      Question 2/5 (BES-A_2)... ✓ (3.31s)
+      Question 3/5 (BES-A_3)... ✓ (3.19s)
+      Question 4/5 (BES-A_4)... ✓ (2.92s)
+      Question 5/5 (BES-A_5)... ✓ (2.96s)
+    BES-A completed: 15.83s total (avg 3.17s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (2.92s)
+      Question 2/5 (REI_2)... ✓ (3.38s)
+      Question 3/5 (REI_3)... ✓ (2.67s)
+      Question 4/5 (REI_4)... ✓ (3.05s)
+      Question 5/5 (REI_5)... ✓ (3.66s)
+    REI completed: 15.68s total (avg 3.14s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.57s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.25s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.38s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.02s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.04s)
+    SD3_NARCISSISM_SUBPART completed: 16.26s total (avg 3.25s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (3.47s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (2.81s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (2.91s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (2.75s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (2.53s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.97s)
+    GENERAL_DECISION_MAKING completed: 17.45s total (avg 2.91s per question)
+
+Survey completed in 95.82s (1.60 minutes)
+Completed at: 2026-03-07 14:36:40
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0035/survey_responses.json
+  0036: running 2 new attempt(s)...
+Administering survey to agent: Sean O'Sullivan (0036)
+Started at: 2026-03-07 14:36:40
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.86s)
+      Question 2/10 (BFI-10_2)... ✓ (3.09s)
+      Question 3/10 (BFI-10_3)... ✓ (2.81s)
+      Question 4/10 (BFI-10_4)... ✓ (3.31s)
+      Question 5/10 (BFI-10_5)... ✓ (3.04s)
+      Question 6/10 (BFI-10_6)... ✓ (2.89s)
+      Question 7/10 (BFI-10_7)... ✓ (2.85s)
+      Question 8/10 (BFI-10_8)... ✓ (3.01s)
+      Question 9/10 (BFI-10_9)... ✓ (2.86s)
+      Question 10/10 (BFI-10_10)... ✓ (3.01s)
+    BFI-10 completed: 29.74s total (avg 2.97s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.18s)
+      Question 2/5 (BES-A_2)... ✓ (3.09s)
+      Question 3/5 (BES-A_3)... ✓ (2.69s)
+      Question 4/5 (BES-A_4)... ✓ (3.41s)
+      Question 5/5 (BES-A_5)... ✓ (3.13s)
+    BES-A completed: 15.51s total (avg 3.10s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... ✓ (3.21s)
+      Question 2/5 (REI_2)... ✓ (3.02s)
+      Question 3/5 (REI_3)... ✓ (2.78s)
+      Question 4/5 (REI_4)... ✓ (2.94s)
+      Question 5/5 (REI_5)... ✓ (3.12s)
+    REI completed: 15.07s total (avg 3.01s per question)
+    Administering SD3_NARCISSISM_SUBPART (5 questions, one at a time)...
+      Question 1/5 (SD3_NARCISSISM_SUBPART_1)... ✓ (3.09s)
+      Question 2/5 (SD3_NARCISSISM_SUBPART_2)... ✓ (3.06s)
+      Question 3/5 (SD3_NARCISSISM_SUBPART_3)... ✓ (3.00s)
+      Question 4/5 (SD3_NARCISSISM_SUBPART_4)... ✓ (3.09s)
+      Question 5/5 (SD3_NARCISSISM_SUBPART_5)... ✓ (3.15s)
+    SD3_NARCISSISM_SUBPART completed: 15.40s total (avg 3.08s per question)
+    Administering GENERAL_DECISION_MAKING (6 questions, one at a time)...
+      Question 1/6 (GENERAL_DECISION_MAKING_1)... ✓ (2.72s)
+      Question 2/6 (GENERAL_DECISION_MAKING_2)... ✓ (3.56s)
+      Question 3/6 (GENERAL_DECISION_MAKING_3)... ✓ (3.11s)
+      Question 4/6 (GENERAL_DECISION_MAKING_4)... ✓ (3.43s)
+      Question 5/6 (GENERAL_DECISION_MAKING_5)... ✓ (3.11s)
+      Question 6/6 (GENERAL_DECISION_MAKING_6)... ✓ (2.93s)
+    GENERAL_DECISION_MAKING completed: 18.87s total (avg 3.14s per question)
+
+Survey completed in 94.60s (1.58 minutes)
+Completed at: 2026-03-07 14:38:15
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0036/survey_responses.json
+Administering survey to agent: Sean O'Sullivan (0036)
+Started at: 2026-03-07 14:38:15
+    Administering BFI-10 (10 questions, one at a time)...
+      Question 1/10 (BFI-10_1)... ✓ (2.75s)
+      Question 2/10 (BFI-10_2)... ✓ (2.69s)
+      Question 3/10 (BFI-10_3)... ✓ (3.20s)
+      Question 4/10 (BFI-10_4)... ✓ (3.17s)
+      Question 5/10 (BFI-10_5)... ✓ (2.99s)
+      Question 6/10 (BFI-10_6)... ✓ (2.94s)
+      Question 7/10 (BFI-10_7)... ✓ (2.71s)
+      Question 8/10 (BFI-10_8)... ✓ (3.19s)
+      Question 9/10 (BFI-10_9)... ✓ (3.08s)
+      Question 10/10 (BFI-10_10)... ✓ (3.03s)
+    BFI-10 completed: 29.77s total (avg 2.98s per question)
+    Administering BES-A (5 questions, one at a time)...
+      Question 1/5 (BES-A_1)... ✓ (3.09s)
+      Question 2/5 (BES-A_2)... ✓ (2.93s)
+      Question 3/5 (BES-A_3)... ✓ (3.32s)
+      Question 4/5 (BES-A_4)... ✓ (2.67s)
+      Question 5/5 (BES-A_5)... ✓ (3.02s)
+    BES-A completed: 15.03s total (avg 3.01s per question)
+    Administering REI (5 questions, one at a time)...
+      Question 1/5 (REI_1)... 

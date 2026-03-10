@@ -1,0 +1,383 @@
+Population base: agent_bank/populations/Qwen2.5-7B_agents
+Target attempts per agent: 3
+Agents: 200
+Mode: one header per inference (no batch)
+
+  0039: running 1 new attempt(s)...
+Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+Embedding model loaded!
+Administering Wavelength game to agent: Kevin Anderson (0039)
+Started at: 2026-03-10 00:40:10
+    Administering game (22 headers, one at a time)...
+      Header 1/22 (A coworker takes credit for your idea)... Using local tokenizer files from: /projects/bdks/yueshen7/models/Qwen2.5-7B-Instruct
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.87s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.73s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.89s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:08<00:00,  2.13s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:08<00:00,  2.02s/it]
+Model loaded successfully!
+✓ (13.21s, response: 60)
+      Header 2/22 (A large party)... ✓ (3.89s, response: 70)
+      Header 3/22 (Planning a weekend trip)... ✓ (4.22s, response: 50)
+      Header 4/22 (Quitting stable job for a new startup)... ✓ (4.61s, response: 75)
+      Header 5/22 (Bungee jumping)... ✓ (3.84s, response: 75)
+      Header 6/22 (Beach)... ✓ (3.89s, response: 30)
+      Header 7/22 (Your music taste)... ✓ (4.44s, response: 40)
+      Header 8/22 (Public speaking)... ✓ (4.24s, response: 75)
+      Header 9/22 (Smartphone)... ✓ (3.80s, response: 65)
+      Header 10/22 (Alarm Clock)... ✓ (4.63s, response: 75)
+      Header 11/22 (Neighbor)... ✓ (3.39s, response: 50)
+      Header 12/22 (Beautifulness)... ✓ (4.35s, response: 65)
+      Header 13/22 (Vacation)... ✓ (4.02s, response: 55)
+      Header 14/22 (Drinking)... ✓ (4.21s, response: 75)
+      Header 15/22 (Competition)... ✓ (3.84s, response: 60)
+      Header 16/22 (Glass)... ✓ (4.62s, response: 60)
+      Header 17/22 (Aircraft engine)... ✓ (3.43s, response: 85)
+      Header 18/22 (Coffee)... ✓ (3.90s, response: 55)
+      Header 19/22 (Surprise party)... ✓ (3.61s, response: 85)
+      Header 20/22 (Texting style)... ✓ (3.74s, response: 55)
+      Header 21/22 (Genius)... ✓ (3.92s, response: 85)
+      Header 22/22 (Deadline)... ✓ (4.35s, response: 60)
+    Game completed: 98.16s total (avg 4.46s per header)
+
+Game completed in 98.19s (1.64 minutes)
+Completed at: 2026-03-10 00:41:48
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0039/wavelength_responses.json
+  0041: running 1 new attempt(s)...
+Administering Wavelength game to agent: Jessica Williams (0041)
+Started at: 2026-03-10 00:41:48
+    Administering game (22 headers, one at a time)...
+      Header 1/22 (A coworker takes credit for your idea)... ✓ (3.77s, response: 60)
+      Header 2/22 (A large party)... ✓ (3.92s, response: 75)
+      Header 3/22 (Planning a weekend trip)... ✓ (4.01s, response: 50)
+      Header 4/22 (Quitting stable job for a new startup)... ✓ (4.85s, response: 75)
+      Header 5/22 (Bungee jumping)... ✓ (3.74s, response: 85)
+      Header 6/22 (Beach)... ✓ (3.78s, response: 50)
+      Header 7/22 (Your music taste)... ✓ (4.28s, response: 55)
+      Header 8/22 (Public speaking)... ✓ (3.96s, response: 60)
+      Header 9/22 (Smartphone)... ✓ (3.93s, response: 60)
+      Header 10/22 (Alarm Clock)... ✓ (3.61s, response: 75)
+      Header 11/22 (Neighbor)... ✓ (3.75s, response: 50)
+      Header 12/22 (Beautifulness)... ✓ (4.14s, response: 75)
+      Header 13/22 (Vacation)... ✓ (3.46s, response: 60)
+      Header 14/22 (Drinking)... ✓ (4.07s, response: 55)
+      Header 15/22 (Competition)... ✓ (4.45s, response: 65)
+      Header 16/22 (Glass)... ✓ (4.26s, response: 65)
+      Header 17/22 (Aircraft engine)... ✓ (3.64s, response: 75)
+      Header 18/22 (Coffee)... ✓ (3.68s, response: 75)
+      Header 19/22 (Surprise party)... ✓ (3.96s, response: 85)
+      Header 20/22 (Texting style)... ✓ (4.28s, response: 55)
+      Header 21/22 (Genius)... ✓ (4.42s, response: 60)
+      Header 22/22 (Deadline)... ✓ (3.81s, response: 60)
+    Game completed: 87.78s total (avg 3.99s per header)
+
+Game completed in 87.79s (1.46 minutes)
+Completed at: 2026-03-10 00:43:16
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0041/wavelength_responses.json
+  0045: running 1 new attempt(s)...
+Administering Wavelength game to agent: Melissa Griffin (0045)
+Started at: 2026-03-10 00:43:16
+    Administering game (22 headers, one at a time)...
+      Header 1/22 (A coworker takes credit for your idea)... ✓ (4.19s, response: 65)
+      Header 2/22 (A large party)... ✓ (3.34s, response: 75)
+      Header 3/22 (Planning a weekend trip)... ✓ (4.45s, response: 60)
+      Header 4/22 (Quitting stable job for a new startup)... ✓ (4.05s, response: 75)
+      Header 5/22 (Bungee jumping)... ✓ (4.42s, response: 75)
+      Header 6/22 (Beach)... ✓ (4.22s, response: 60)
+      Header 7/22 (Your music taste)... ✓ (4.40s, response: 50)
+      Header 8/22 (Public speaking)... ✓ (4.52s, response: 60)
+      Header 9/22 (Smartphone)... ✓ (3.77s, response: 60)
+      Header 10/22 (Alarm Clock)... ✓ (4.25s, response: 65)
+      Header 11/22 (Neighbor)... ✓ (4.42s, response: 45)
+      Header 12/22 (Beautifulness)... ✓ (4.38s, response: 70)
+      Header 13/22 (Vacation)... ✓ (4.59s, response: 85)
+      Header 14/22 (Drinking)... ✓ (4.41s, response: 75)
+      Header 15/22 (Competition)... ✓ (4.11s, response: 55)
+      Header 16/22 (Glass)... ✓ (4.15s, response: 70)
+      Header 17/22 (Aircraft engine)... ✓ (3.48s, response: 35)
+      Header 18/22 (Coffee)... ✓ (3.78s, response: 75)
+      Header 19/22 (Surprise party)... ✓ (4.09s, response: 60)
+      Header 20/22 (Texting style)... ✓ (4.46s, response: 65)
+      Header 21/22 (Genius)... ✓ (4.31s, response: 75)
+      Header 22/22 (Deadline)... ✓ (3.91s, response: 60)
+    Game completed: 91.71s total (avg 4.17s per header)
+
+Game completed in 91.72s (1.53 minutes)
+Completed at: 2026-03-10 00:44:48
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0045/wavelength_responses.json
+  0067: running 1 new attempt(s)...
+Administering Wavelength game to agent: Precious Jackson (0067)
+Started at: 2026-03-10 00:44:48
+    Administering game (22 headers, one at a time)...
+      Header 1/22 (A coworker takes credit for your idea)... ✓ (3.76s, response: 55)
+      Header 2/22 (A large party)... ✓ (3.91s, response: 65)
+      Header 3/22 (Planning a weekend trip)... ✓ (4.10s, response: 60)
+      Header 4/22 (Quitting stable job for a new startup)... ✓ (4.02s, response: 75)
+      Header 5/22 (Bungee jumping)... ✓ (4.10s, response: 85)
+      Header 6/22 (Beach)... ✓ (4.41s, response: 70)
+      Header 7/22 (Your music taste)... ✓ (4.12s, response: 55)
+      Header 8/22 (Public speaking)... ✓ (3.81s, response: 70)
+      Header 9/22 (Smartphone)... ✓ (4.27s, response: 75)
+      Header 10/22 (Alarm Clock)... ✓ (4.26s, response: 70)
+      Header 11/22 (Neighbor)... ✓ (4.13s, response: 50)
+      Header 12/22 (Beautifulness)... ✓ (4.52s, response: 70)
+      Header 13/22 (Vacation)... ✓ (3.78s, response: 50)
+      Header 14/22 (Drinking)... ✓ (4.29s, response: 50)
+      Header 15/22 (Competition)... ✓ (4.33s, response: 60)
+      Header 16/22 (Glass)... ✓ (3.73s, response: 70)
+      Header 17/22 (Aircraft engine)... ✓ (3.90s, response: 65)
+      Header 18/22 (Coffee)... ✓ (4.02s, response: 75)
+      Header 19/22 (Surprise party)... ✓ (3.83s, response: 75)
+      Header 20/22 (Texting style)... ✓ (3.91s, response: 60)
+      Header 21/22 (Genius)... ✓ (4.31s, response: 70)
+      Header 22/22 (Deadline)... ✓ (4.16s, response: 50)
+    Game completed: 89.70s total (avg 4.08s per header)
+
+Game completed in 89.72s (1.50 minutes)
+Completed at: 2026-03-10 00:46:18
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0067/wavelength_responses.json
+  0071: running 1 new attempt(s)...
+Administering Wavelength game to agent: Yolanda Howard (0071)
+Started at: 2026-03-10 00:46:18
+    Administering game (22 headers, one at a time)...
+      Header 1/22 (A coworker takes credit for your idea)... ✓ (4.16s, response: 70)
+      Header 2/22 (A large party)... ✓ (4.04s, response: 70)
+      Header 3/22 (Planning a weekend trip)... ✓ (3.99s, response: 60)
+      Header 4/22 (Quitting stable job for a new startup)... ✓ (4.47s, response: 75)
+      Header 5/22 (Bungee jumping)... ✓ (4.00s, response: 80)
+      Header 6/22 (Beach)... ✓ (3.89s, response: 50)
+      Header 7/22 (Your music taste)... ✓ (4.04s, response: 50)
+      Header 8/22 (Public speaking)... ✓ (3.87s, response: 65)
+      Header 9/22 (Smartphone)... ✓ (4.21s, response: 75)
+      Header 10/22 (Alarm Clock)... ✓ (4.11s, response: 50)
+      Header 11/22 (Neighbor)... ✓ (3.25s, response: 55)
+      Header 12/22 (Beautifulness)... ✓ (4.17s, response: 60)
+      Header 13/22 (Vacation)... ✓ (4.01s, response: 55)
+      Header 14/22 (Drinking)... ✓ (3.74s, response: 55)
+      Header 15/22 (Competition)... ✓ (4.63s, response: 65)
+      Header 16/22 (Glass)... ✓ (3.46s, response: 30)
+      Header 17/22 (Aircraft engine)... ✓ (3.55s, response: 70)
+      Header 18/22 (Coffee)... ✓ (3.87s, response: 55)
+      Header 19/22 (Surprise party)... ✓ (4.55s, response: 85)
+      Header 20/22 (Texting style)... ✓ (3.75s, response: 60)
+      Header 21/22 (Genius)... ✓ (4.01s, response: 85)
+      Header 22/22 (Deadline)... ✓ (3.53s, response: 70)
+    Game completed: 87.29s total (avg 3.97s per header)
+
+Game completed in 87.30s (1.46 minutes)
+Completed at: 2026-03-10 00:47:45
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0071/wavelength_responses.json
+  0075: running 1 new attempt(s)...
+Administering Wavelength game to agent: Miguel Garcia (0075)
+Started at: 2026-03-10 00:47:45
+    Administering game (22 headers, one at a time)...
+      Header 1/22 (A coworker takes credit for your idea)... ✓ (3.67s, response: 50)
+      Header 2/22 (A large party)... ✓ (3.90s, response: 55)
+      Header 3/22 (Planning a weekend trip)... ✓ (4.11s, response: 60)
+      Header 4/22 (Quitting stable job for a new startup)... ✓ (4.08s, response: 70)
+      Header 5/22 (Bungee jumping)... ✓ (4.26s, response: 75)
+      Header 6/22 (Beach)... ✓ (3.94s, response: 55)
+      Header 7/22 (Your music taste)... ✓ (3.62s, response: 40)
+      Header 8/22 (Public speaking)... ✓ (4.35s, response: 60)
+      Header 9/22 (Smartphone)... ✓ (3.89s, response: 75)
+      Header 10/22 (Alarm Clock)... ✓ (4.02s, response: 65)
+      Header 11/22 (Neighbor)... ✓ (3.69s, response: 60)
+      Header 12/22 (Beautifulness)... ✓ (4.26s, response: 60)
+      Header 13/22 (Vacation)... ✓ (3.75s, response: 65)
+      Header 14/22 (Drinking)... ✓ (3.82s, response: 55)
+      Header 15/22 (Competition)... ✓ (4.38s, response: 55)
+      Header 16/22 (Glass)... ✓ (3.97s, response: 95)
+      Header 17/22 (Aircraft engine)... ✓ (4.05s, response: 50)
+      Header 18/22 (Coffee)... ✓ (4.11s, response: 70)
+      Header 19/22 (Surprise party)... ✓ (3.83s, response: 75)
+      Header 20/22 (Texting style)... ✓ (3.80s, response: 60)
+      Header 21/22 (Genius)... ✓ (4.73s, response: 75)
+      Header 22/22 (Deadline)... ✓ (3.76s, response: 55)
+    Game completed: 88.00s total (avg 4.00s per header)
+
+Game completed in 88.01s (1.47 minutes)
+Completed at: 2026-03-10 00:49:13
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0075/wavelength_responses.json
+  0087: running 1 new attempt(s)...
+Administering Wavelength game to agent: Mindy O'Connor (0087)
+Started at: 2026-03-10 00:49:14
+    Administering game (22 headers, one at a time)...
+      Header 1/22 (A coworker takes credit for your idea)... ✓ (3.49s, response: 55)
+      Header 2/22 (A large party)... ✓ (3.98s, response: 55)
+      Header 3/22 (Planning a weekend trip)... ✓ (4.52s, response: 55)
+      Header 4/22 (Quitting stable job for a new startup)... ✓ (4.39s, response: 70)
+      Header 5/22 (Bungee jumping)... ✓ (3.82s, response: 70)
+      Header 6/22 (Beach)... ✓ (3.81s, response: 60)
+      Header 7/22 (Your music taste)... ✓ (4.01s, response: 60)
+      Header 8/22 (Public speaking)... ✓ (4.06s, response: 65)
+      Header 9/22 (Smartphone)... ✓ (4.10s, response: 60)
+      Header 10/22 (Alarm Clock)... ✓ (14.04s, response: 50)
+      Header 11/22 (Neighbor)... ✓ (8.17s, response: 55)
+      Header 12/22 (Beautifulness)... ✓ (5.56s, response: 65)
+      Header 13/22 (Vacation)... ✓ (4.00s, response: 65)
+      Header 14/22 (Drinking)... ✓ (8.78s, response: 70)
+      Header 15/22 (Competition)... ✓ (4.90s, response: 65)
+      Header 16/22 (Glass)... ✓ (4.01s, response: 50)
+      Header 17/22 (Aircraft engine)... ✓ (3.53s, response: 55)
+      Header 18/22 (Coffee)... ✓ (3.66s, response: 75)
+      Header 19/22 (Surprise party)... ✓ (4.29s, response: 85)
+      Header 20/22 (Texting style)... ✓ (3.75s, response: 75)
+      Header 21/22 (Genius)... ✓ (3.80s, response: 70)
+      Header 22/22 (Deadline)... ✓ (4.11s, response: 65)
+    Game completed: 108.77s total (avg 4.94s per header)
+
+Game completed in 108.79s (1.81 minutes)
+Completed at: 2026-03-10 00:51:02
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0087/wavelength_responses.json
+  0113: running 1 new attempt(s)...
+Administering Wavelength game to agent: Claudia Schultz (0113)
+Started at: 2026-03-10 00:51:04
+    Administering game (22 headers, one at a time)...
+      Header 1/22 (A coworker takes credit for your idea)... ✓ (7.45s, response: 65)
+      Header 2/22 (A large party)... ✓ (4.25s, response: 55)
+      Header 3/22 (Planning a weekend trip)... ✓ (4.63s, response: 55)
+      Header 4/22 (Quitting stable job for a new startup)... ✓ (4.50s, response: 75)
+      Header 5/22 (Bungee jumping)... ✓ (4.21s, response: 85)
+      Header 6/22 (Beach)... ✓ (4.04s, response: 50)
+      Header 7/22 (Your music taste)... ✓ (4.27s, response: 65)
+      Header 8/22 (Public speaking)... ✓ (4.17s, response: 60)
+      Header 9/22 (Smartphone)... ✓ (4.11s, response: 75)
+      Header 10/22 (Alarm Clock)... ✓ (4.42s, response: 60)
+      Header 11/22 (Neighbor)... ✓ (4.23s, response: 65)
+      Header 12/22 (Beautifulness)... ✓ (4.36s, response: 60)
+      Header 13/22 (Vacation)... ✓ (4.24s, response: 55)
+      Header 14/22 (Drinking)... ✓ (4.19s, response: 70)
+      Header 15/22 (Competition)... ✓ (4.43s, response: 65)
+      Header 16/22 (Glass)... ✓ (4.11s, response: 75)
+      Header 17/22 (Aircraft engine)... ✓ (3.86s, response: 60)
+      Header 18/22 (Coffee)... ✓ (4.05s, response: 85)
+      Header 19/22 (Surprise party)... ✓ (4.29s, response: 75)
+      Header 20/22 (Texting style)... ✓ (4.09s, response: 60)
+      Header 21/22 (Genius)... ✓ (4.68s, response: 70)
+      Header 22/22 (Deadline)... ✓ (3.71s, response: 50)
+    Game completed: 96.28s total (avg 4.38s per header)
+
+Game completed in 96.29s (1.60 minutes)
+Completed at: 2026-03-10 00:52:40
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0113/wavelength_responses.json
+  0147: running 1 new attempt(s)...
+Administering Wavelength game to agent: Anne Mullins (0147)
+Started at: 2026-03-10 00:52:40
+    Administering game (22 headers, one at a time)...
+      Header 1/22 (A coworker takes credit for your idea)... ✓ (4.27s, response: 75)
+      Header 2/22 (A large party)... ✓ (3.72s, response: 75)
+      Header 3/22 (Planning a weekend trip)... ✓ (4.41s, response: 50)
+      Header 4/22 (Quitting stable job for a new startup)... ✓ (3.91s, response: 75)
+      Header 5/22 (Bungee jumping)... ✓ (4.57s, response: 75)
+      Header 6/22 (Beach)... ✓ (4.60s, response: 75)
+      Header 7/22 (Your music taste)... ✓ (3.90s, response: 55)
+      Header 8/22 (Public speaking)... ✓ (4.62s, response: 65)
+      Header 9/22 (Smartphone)... ✓ (4.07s, response: 65)
+      Header 10/22 (Alarm Clock)... ✓ (4.63s, response: 70)
+      Header 11/22 (Neighbor)... ✓ (4.21s, response: 50)
+      Header 12/22 (Beautifulness)... ✓ (4.67s, response: 65)
+      Header 13/22 (Vacation)... ✓ (4.75s, response: 65)
+      Header 14/22 (Drinking)... ✓ (5.06s, response: 45)
+      Header 15/22 (Competition)... ✓ (4.58s, response: 80)
+      Header 16/22 (Glass)... ✓ (4.06s, response: 55)
+      Header 17/22 (Aircraft engine)... ✓ (4.01s, response: 55)
+      Header 18/22 (Coffee)... ✓ (3.99s, response: 75)
+      Header 19/22 (Surprise party)... ✓ (5.09s, response: 75)
+      Header 20/22 (Texting style)... ✓ (3.94s, response: 60)
+      Header 21/22 (Genius)... ✓ (4.40s, response: 85)
+      Header 22/22 (Deadline)... ✓ (4.54s, response: 70)
+    Game completed: 95.99s total (avg 4.36s per header)
+
+Game completed in 96.00s (1.60 minutes)
+Completed at: 2026-03-10 00:54:16
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0147/wavelength_responses.json
+  0153: running 1 new attempt(s)...
+Administering Wavelength game to agent: Lauren Kallas (0153)
+Started at: 2026-03-10 00:54:16
+    Administering game (22 headers, one at a time)...
+      Header 1/22 (A coworker takes credit for your idea)... ✓ (5.39s, response: 55)
+      Header 2/22 (A large party)... ✓ (3.79s, response: 70)
+      Header 3/22 (Planning a weekend trip)... ✓ (4.56s, response: 55)
+      Header 4/22 (Quitting stable job for a new startup)... ✓ (5.16s, response: 60)
+      Header 5/22 (Bungee jumping)... ✓ (4.08s, response: 85)
+      Header 6/22 (Beach)... ✓ (4.48s, response: 60)
+      Header 7/22 (Your music taste)... ✓ (4.72s, response: 55)
+      Header 8/22 (Public speaking)... ✓ (4.57s, response: 75)
+      Header 9/22 (Smartphone)... ✓ (4.57s, response: 75)
+      Header 10/22 (Alarm Clock)... ✓ (4.42s, response: 50)
+      Header 11/22 (Neighbor)... ✓ (4.17s, response: 55)
+      Header 12/22 (Beautifulness)... ✓ (4.47s, response: 65)
+      Header 13/22 (Vacation)... ✓ (4.56s, response: 75)
+      Header 14/22 (Drinking)... ✓ (4.67s, response: 75)
+      Header 15/22 (Competition)... ✓ (4.70s, response: 75)
+      Header 16/22 (Glass)... ✓ (4.14s, response: 70)
+      Header 17/22 (Aircraft engine)... ✓ (4.36s, response: 65)
+      Header 18/22 (Coffee)... ✓ (4.13s, response: 55)
+      Header 19/22 (Surprise party)... ✓ (4.49s, response: 75)
+      Header 20/22 (Texting style)... ✓ (4.26s, response: 70)
+      Header 21/22 (Genius)... ✓ (4.35s, response: 75)
+      Header 22/22 (Deadline)... ✓ (4.60s, response: 50)
+    Game completed: 98.67s total (avg 4.48s per header)
+
+Game completed in 98.68s (1.64 minutes)
+Completed at: 2026-03-10 00:55:55
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0153/wavelength_responses.json
+  0170: running 1 new attempt(s)...
+Administering Wavelength game to agent: Leticia Daniels (0170)
+Started at: 2026-03-10 00:55:55
+    Administering game (22 headers, one at a time)...
+      Header 1/22 (A coworker takes credit for your idea)... ✓ (3.78s, response: 65)
+      Header 2/22 (A large party)... ✓ (3.72s, response: 60)
+      Header 3/22 (Planning a weekend trip)... ✓ (4.31s, response: 60)
+      Header 4/22 (Quitting stable job for a new startup)... ✓ (4.45s, response: 65)
+      Header 5/22 (Bungee jumping)... ✓ (4.10s, response: 75)
+      Header 6/22 (Beach)... ✓ (4.59s, response: 50)
+      Header 7/22 (Your music taste)... ✓ (4.54s, response: 60)
+      Header 8/22 (Public speaking)... ✓ (4.21s, response: 65)
+      Header 9/22 (Smartphone)... ✓ (3.96s, response: 75)
+      Header 10/22 (Alarm Clock)... ✓ (4.63s, response: 50)
+      Header 11/22 (Neighbor)... ✓ (3.99s, response: 50)
+      Header 12/22 (Beautifulness)... ✓ (4.56s, response: 75)
+      Header 13/22 (Vacation)... ✓ (4.77s, response: 65)
+      Header 14/22 (Drinking)... ✓ (4.49s, response: 75)
+      Header 15/22 (Competition)... ✓ (4.41s, response: 65)
+      Header 16/22 (Glass)... ✓ (4.34s, response: 55)
+      Header 17/22 (Aircraft engine)... ✓ (4.00s, response: 55)
+      Header 18/22 (Coffee)... ✓ (3.75s, response: 75)
+      Header 19/22 (Surprise party)... ✓ (4.50s, response: 60)
+      Header 20/22 (Texting style)... ✓ (3.80s, response: 65)
+      Header 21/22 (Genius)... ✓ (3.98s, response: 75)
+      Header 22/22 (Deadline)... ✓ (4.31s, response: 65)
+    Game completed: 93.19s total (avg 4.24s per header)
+
+Game completed in 93.20s (1.55 minutes)
+Completed at: 2026-03-10 00:57:28
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0170/wavelength_responses.json
+  0191: running 1 new attempt(s)...
+Administering Wavelength game to agent: Emily Murphy (0191)
+Started at: 2026-03-10 00:57:29
+    Administering game (22 headers, one at a time)...
+      Header 1/22 (A coworker takes credit for your idea)... ✓ (4.22s, response: 55)
+      Header 2/22 (A large party)... ✓ (3.98s, response: 55)
+      Header 3/22 (Planning a weekend trip)... ✓ (4.27s, response: 60)
+      Header 4/22 (Quitting stable job for a new startup)... ✓ (4.90s, response: 60)
+      Header 5/22 (Bungee jumping)... ✓ (4.45s, response: 85)
+      Header 6/22 (Beach)... ✓ (4.53s, response: 50)
+      Header 7/22 (Your music taste)... ✓ (4.06s, response: 65)
+      Header 8/22 (Public speaking)... ✓ (4.39s, response: 55)
+      Header 9/22 (Smartphone)... ✓ (4.36s, response: 75)
+      Header 10/22 (Alarm Clock)... ✓ (4.01s, response: 75)
+      Header 11/22 (Neighbor)... ✓ (4.14s, response: 55)
+      Header 12/22 (Beautifulness)... ✓ (4.70s, response: 65)
+      Header 13/22 (Vacation)... ✓ (4.34s, response: 50)
+      Header 14/22 (Drinking)... ✓ (4.15s, response: 75)
+      Header 15/22 (Competition)... ✓ (4.31s, response: 65)
+      Header 16/22 (Glass)... ✓ (3.82s, response: 60)
+      Header 17/22 (Aircraft engine)... ✓ (4.13s, response: 65)
+      Header 18/22 (Coffee)... ✓ (4.26s, response: 70)
+      Header 19/22 (Surprise party)... ✓ (4.51s, response: 60)
+      Header 20/22 (Texting style)... ✓ (3.92s, response: 65)
+      Header 21/22 (Genius)... ✓ (4.18s, response: 80)
+      Header 22/22 (Deadline)... ✓ (4.40s, response: 50)
+    Game completed: 94.03s total (avg 4.27s per header)
+
+Game completed in 94.04s (1.57 minutes)
+Completed at: 2026-03-10 00:59:03
+Saved to: agent_bank/populations/Qwen2.5-7B_agents/0191/wavelength_responses.json
+Done.

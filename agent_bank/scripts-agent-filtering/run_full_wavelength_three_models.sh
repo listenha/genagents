@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Run Wavelength game once for all agents in Mistral-Nemo, Llama-3.1-8B, and Qwen2.5-7B
-# population folders using the corresponding base model. Excludes Qwen3-14B.
+# Run Wavelength game once for all agents in four population folders using the
+# corresponding base model. One header per inference (do not use --batch-by-header).
 # Usage: run from repo root inside tmux.
 
 set -e
-REPO_ROOT="/taiga/common_resources/yueshen7/genagents"
+REPO_ROOT="/projects/bdks/yueshen7/repos/genagents"
 SETTINGS="${REPO_ROOT}/simulation_engine/settings.py"
 LOG_DIR="${REPO_ROOT}/agent_bank/scripts-agent-filtering/wavelength_logs"
 mkdir -p "$LOG_DIR"
@@ -24,12 +24,13 @@ run_wavelength_for_model() {
   return $status
 }
 
-echo "========== Full Wavelength game for 3 models (started $(date -Iseconds)) =========="
+echo "========== Full Wavelength game for 4 models (started $(date -Iseconds)) =========="
 echo "Logs directory: $LOG_DIR"
 
 run_wavelength_for_model "mistral-nemo-2407" "agent_bank/populations/Mistral-Nemo_agents" || true
 run_wavelength_for_model "llama3.1-8b"      "agent_bank/populations/Llama-3.1-8B_agents"    || true
 run_wavelength_for_model "7b"               "agent_bank/populations/Qwen2.5-7B_agents"     || true
+run_wavelength_for_model "14b"              "agent_bank/populations/Qwen3-14B_agents"      || true
 
 # Restore default model choice
 sed -i 's/^MODEL_CHOICE = .*/MODEL_CHOICE = "14b"/' "$SETTINGS"

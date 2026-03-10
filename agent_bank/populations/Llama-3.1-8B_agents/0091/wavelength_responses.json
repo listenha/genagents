@@ -1,0 +1,628 @@
+{
+  "game_metadata": {
+    "game_name": "Wavelength Game",
+    "game_version": "1.0",
+    "extraction_date": "2026-03-09T08:19:18.434759"
+  },
+  "agent_metadata": {
+    "agent_id": "0091",
+    "agent_name": "Mark Stevens"
+  },
+  "attempts": [
+    {
+      "attempt_id": 1,
+      "timestamp": "2026-03-09T08:20:50.496574",
+      "headers": {
+        "header_0": {
+          "spectrum": {
+            "left": "Confront them directly",
+            "right": "Let it go to avoid tension"
+          },
+          "cue": "A coworker takes credit for your idea",
+          "response": 60,
+          "raw_response": "Based on my personality and experiences, I tend to value open communication and honesty in my relationships. However, I also believe in being considerate of others' feelings and avoiding unnecessary conflict. In this situation, I would likely try to address the issue in a calm and constructive manner, rather than immediately confronting the coworker. I would aim to find a balance between asserting my needs and maintaining a positive working relationship."
+        },
+        "header_1": {
+          "spectrum": {
+            "left": "Leave early and rest",
+            "right": "Stay late and meet people"
+          },
+          "cue": "A large party",
+          "response": 60,
+          "raw_response": "Based on my personality and experiences, I tend to be an introverted person who values my alone time and prefers quieter activities. However, I also appreciate the importance of social connections and community engagement. Given this, I think a large party would be more of a social event that I would stay late for, but not necessarily because I'm a night owl or a party animal. Rather, it's because I value the opportunity to connect with others and build relationships, which is an important aspect of my life."
+        },
+        "header_2": {
+          "spectrum": {
+            "left": "Detailed itinerary",
+            "right": "Go with the flow"
+          },
+          "cue": "Planning a weekend trip",
+          "response": 60,
+          "raw_response": "Given my personality and experiences, I tend to be a planner, but I also value flexibility and adaptability. When planning a weekend trip, I like to have some structure, but I also leave room for spontaneity and exploration. I've had experiences where I've had to be flexible and go with the flow, and I've learned to appreciate the beauty of unexpected moments. Considering my values and perspective, I think planning a weekend trip would fall somewhere in the middle of the spectrum, with a mix of structure and flexibility."
+        },
+        "header_3": {
+          "spectrum": {
+            "left": "Uncomfortable",
+            "right": "Excited"
+          },
+          "cue": "Quitting stable job for a new startup",
+          "response": 50,
+          "raw_response": "Considering my personality and experiences, I would place the marker at around 50. I've had moments of uncertainty and anxiety when faced with significant life changes, but I've also had experiences that have pushed me out of my comfort zone and led to growth. Quitting a stable job for a new startup would be a significant risk, but it would also offer the potential for new experiences, learning, and personal growth. I think I would be cautiously optimistic and excited about the possibilities, but also aware of the potential risks and challenges."
+        },
+        "header_4": {
+          "spectrum": {
+            "left": "Stressful",
+            "right": "Thrilling"
+          },
+          "cue": "Bungee jumping",
+          "response": 80,
+          "raw_response": "Based on my personality and experiences, I would place the marker at 80. While I acknowledge that bungee jumping can be a thrilling experience, I also recognize that it can be intimidating and stressful for many people. As someone who values stability and balance in life, I think bungee jumping would be an activity that I would approach with caution and respect, but not necessarily seek out for the thrill. However, I also appreciate the idea of pushing one's limits and trying new things, which is why I wouldn't place it at 0."
+        },
+        "header_5": {
+          "spectrum": {
+            "left": "Calm",
+            "right": "Crowded"
+          },
+          "cue": "Beach",
+          "response": 30,
+          "raw_response": "Based on my experience of visiting beaches, I think of them as generally calm and peaceful places where people can relax and enjoy the scenery. While some beaches can get crowded, especially during peak season, they often have a laid-back atmosphere. Considering my personal preference for relaxation and calmness, I think the clue 'Beach' belongs more towards the 'Calm' side of the spectrum."
+        },
+        "header_6": {
+          "spectrum": {
+            "left": "Quiet",
+            "right": "Bombastic"
+          },
+          "cue": "Your music taste",
+          "response": 30,
+          "raw_response": "Based on my personality and experiences, I would say that my music taste is generally on the quieter side, but not to the point of being unadventurous. I enjoy listening to a wide range of music, from indie folk to electronic tracks, but I tend to lean towards more mellow and introspective sounds. However, I also appreciate the energy and creativity that comes with more bombastic music, and I've been known to crank up the volume and get pumped up when listening to certain tracks. Overall, I think my music taste falls somewhere in the middle of the spectrum, but slightly leaning towards the quieter side."
+        },
+        "header_7": {
+          "spectrum": {
+            "left": "Uncomfortable",
+            "right": "Energizing"
+          },
+          "cue": "Public speaking",
+          "response": 40,
+          "raw_response": "Based on my personality and experiences, I would place the marker at around 40. As a policy analyst, I do have to communicate my ideas and findings to various stakeholders, but I don't find it to be particularly energizing. I do get nervous before presentations, but I have learned to manage my anxiety and prepare well in advance. I would say that public speaking is a necessary skill for my job, but it's not something that I particularly enjoy or find energizing."
+        },
+        "header_8": {
+          "spectrum": {
+            "left": "Useful",
+            "right": "Harmful"
+          },
+          "cue": "Smartphone",
+          "response": 60,
+          "raw_response": "Considering my personal experiences and values, I believe that smartphones can be both useful and harmful. While they can be a source of distraction and addiction, they also provide access to a wealth of information, allow for connection with others, and enable people to stay organized and productive. I place the marker at 60 because I think the benefits of smartphones outweigh the drawbacks, but there is still room for improvement and responsible use."
+        },
+        "header_9": {
+          "spectrum": {
+            "left": "Helpful",
+            "right": "Annoying"
+          },
+          "cue": "Alarm Clock",
+          "response": 60,
+          "raw_response": "Based on my personality and experiences, I find alarm clocks to be a necessary evil. While they can be annoying at times, especially if they're loud or persistent, I believe they're an essential tool for waking people up on time. I've had my fair share of early morning wake-up calls, and I appreciate the reliability of an alarm clock in getting me ready for the day. However, I also understand that some people might find them extremely annoying, especially if they're not a morning person. Considering my perspective, I place the marker at 60, indicating that alarm clocks are more helpful than annoying, but not to the point of being extremely helpful."
+        },
+        "header_10": {
+          "spectrum": {
+            "left": "Friendly",
+            "right": "Nosy"
+          },
+          "cue": "Neighbor",
+          "response": 30,
+          "raw_response": "Based on my personality and experiences, I would place the clue 'Neighbor' at around 30 on the spectrum. I think it's natural to be curious about one's neighbors, but there's a fine line between being friendly and being nosy. I've had neighbors in the past who were friendly and welcoming, but also respected my boundaries. I've also had neighbors who were a bit nosy, but I've learned to set clear boundaries and communicate my needs. Overall, I think a balance between friendliness and respect for boundaries is key, which is why I wouldn't place the clue at either extreme."
+        },
+        "header_11": {
+          "spectrum": {
+            "left": "Objective",
+            "right": "Subjective"
+          },
+          "cue": "Beautifulness",
+          "response": 60,
+          "raw_response": "Based on my understanding of beauty as a multifaceted concept that encompasses both objective and subjective aspects, I believe that beautifulness falls somewhere in the middle of the spectrum. While there are certainly universal principles of aesthetics that can be applied to beauty, such as symmetry and harmony, I also recognize that personal taste and emotional connections play a significant role in what we find beautiful. My experiences with art, nature, and relationships have taught me that beauty is often a complex interplay between objective and subjective factors."
+        },
+        "header_12": {
+          "spectrum": {
+            "left": "Familiar place",
+            "right": "New destination"
+          },
+          "cue": "Vacation",
+          "response": 50,
+          "raw_response": "Based on my personality and experiences, I would place the marker at around 50. As a policy analyst, I have a stable job and a comfortable life, but I also value exploration and trying new things. I've had some experience with traveling and exploring new places, but I wouldn't say I'm an avid adventurer. I think a vacation is a nice break from my routine, but it's not something I get overly excited about. I'm more interested in the experiences and connections I make during my travels rather than the destination itself."
+        },
+        "header_13": {
+          "spectrum": {
+            "left": "Cringe",
+            "right": "Cool"
+          },
+          "cue": "Drinking",
+          "response": 60,
+          "raw_response": "Based on my personality and experiences, I would place the marker for 'Drinking' at around 60. I don't find drinking to be cringeworthy or embarrassing, but I also don't think it's something that I enjoy or seek out as a way to have fun. I've had some positive experiences with drinking, such as enjoying a glass of wine with friends or trying new craft beers, but I also know that excessive drinking can have negative consequences. I think my marker placement reflects a neutral or moderate view of drinking, acknowledging its potential benefits and drawbacks."
+        },
+        "header_14": {
+          "spectrum": {
+            "left": "Motivating",
+            "right": "Stressful"
+          },
+          "cue": "Competition",
+          "response": 50,
+          "raw_response": "Considering my personality and experiences, I believe that competition can be a motivating force, but it can also be stressful if taken to an extreme. In my current job, I experience a mix of both motivating and stressful situations, but I've learned to manage my stress levels and find a balance. However, I've also seen how excessive competition can lead to burnout and anxiety. Based on this, I place the marker at 50, acknowledging that competition can be both motivating and stressful, but not to an extreme degree."
+        },
+        "header_15": {
+          "spectrum": {
+            "left": "Durable",
+            "right": "Fragile"
+          },
+          "cue": "Glass",
+          "response": 60,
+          "raw_response": "Based on my understanding of glass as a material, I believe it falls somewhere in the middle of the spectrum. While glass can be strong and durable, it can also be brittle and prone to breaking. I've seen glass shatter from minor impacts, but I've also seen it withstand significant stress without breaking. Considering my personal experiences and general knowledge, I think glass is more fragile than durable, but not to the extent that it's completely fragile."
+        },
+        "header_16": {
+          "spectrum": {
+            "left": "Distraction",
+            "right": "Focus"
+          },
+          "cue": "Aircraft engine",
+          "response": 50,
+          "raw_response": "Considering my personality and experiences, I think the clue 'Aircraft engine' belongs somewhere in the middle of the spectrum. As a policy analyst, I have to stay focused on complex data and information, but I also appreciate the intricate details of various systems, including aircraft engines. While I can get lost in the technical aspects of an engine, I don't find it completely distracting. I think my ability to focus and analyze information helps me navigate the complexities of an aircraft engine, making it a topic of interest rather than a source of distraction."
+        },
+        "header_17": {
+          "spectrum": {
+            "left": "Relaxing",
+            "right": "Energizing"
+          },
+          "cue": "Coffee",
+          "response": 70,
+          "raw_response": "Based on my personality and experiences, I would place coffee at around 70 on the spectrum. I'm someone who values balance and moderation, and while I do enjoy a cup of coffee in the morning to get me going, I don't rely on it to feel energized. I also appreciate the relaxing qualities of coffee, especially when I'm unwinding with a good book or conversation. However, I'm not someone who would describe coffee as a drink that makes me feel extremely relaxed or drowsy."
+        },
+        "header_18": {
+          "spectrum": {
+            "left": "Overwhelming",
+            "right": "Delightful"
+          },
+          "cue": "Surprise party",
+          "response": 60,
+          "raw_response": "Based on my personality and experiences, I would place the marker at 60. As someone who values relationships and community, I think a surprise party could be a wonderful way to celebrate a special occasion. However, I also understand that surprises can be overwhelming, especially if someone is not a fan of surprises or has anxiety. Considering my own experiences, I have had both positive and negative reactions to surprise parties, but overall, I lean towards the delightful side. I've had friends throw me surprise parties in the past, and while it was initially overwhelming, the excitement and joy that followed made it a memorable experience. I think this is a common reaction for many people, and that's why I place the marker at 60."
+        },
+        "header_19": {
+          "spectrum": {
+            "left": "Brief and direct",
+            "right": "Expressive and detailed"
+          },
+          "cue": "Texting style",
+          "response": 60,
+          "raw_response": "Based on my personality and communication style, I tend to be a bit more expressive and detailed in my communication, especially when it comes to topics that I'm passionate about. However, I also value efficiency and brevity, and I often try to get straight to the point in my messages. Given this, I think the clue 'Texting style' would fall somewhere in the middle of the spectrum, but leaning slightly towards the expressive and detailed side. This is because I often use emojis and try to add a bit of personality to my messages, even if they're brief."
+        },
+        "header_20": {
+          "spectrum": {
+            "left": "Lucky",
+            "right": "Hardworking"
+          },
+          "cue": "Genius",
+          "response": 60,
+          "raw_response": "I place the marker at 60 because, in my opinion, being a genius is a combination of both innate ability and hard work. While it's true that some people may be naturally more intelligent or talented, I believe that dedication and perseverance are essential in unlocking one's full potential. My experiences in attending community college and working hard to achieve my goals have shown me that with persistence and a willingness to learn, anyone can achieve great things. Additionally, my work as a policy analyst requires a high level of intelligence and critical thinking, and I've seen how hard work and dedication can help individuals develop these skills. Therefore, I believe that the clue 'Genius' falls somewhere in the middle of the spectrum, where both luck and hard work play a role."
+        },
+        "header_21": {
+          "spectrum": {
+            "left": "Early completion",
+            "right": "Last-minute burst"
+          },
+          "cue": "Deadline",
+          "response": 60,
+          "raw_response": "Based on my personality and experiences, I tend to thrive in situations where I have a clear plan and a sense of control. I'm someone who values organization and time management, and I believe that having a deadline can actually help me stay focused and motivated. However, I also believe that being too rigid with deadlines can be counterproductive and lead to burnout. Considering my current role as a policy analyst, I often work on projects with tight deadlines, but I also prioritize self-care and flexibility to ensure that I can maintain my well-being. Therefore, I would place the marker at 60, indicating that I value having a deadline, but also appreciate some flexibility and wiggle room."
+        }
+      },
+      "completion_status": "completed"
+    },
+    {
+      "attempt_id": 2,
+      "timestamp": "2026-03-09T08:22:19.025805",
+      "headers": {
+        "header_0": {
+          "spectrum": {
+            "left": "Confront them directly",
+            "right": "Let it go to avoid tension"
+          },
+          "cue": "A coworker takes credit for your idea",
+          "response": 60,
+          "raw_response": "Based on my personality and experiences, I tend to value open communication and honesty. However, I also understand the importance of maintaining a positive work environment and avoiding unnecessary conflicts. In this situation, I would likely choose to address the issue directly, but in a calm and professional manner, rather than letting it go entirely. I would want to express my feelings and concerns while also considering the potential impact on our working relationship."
+        },
+        "header_1": {
+          "spectrum": {
+            "left": "Leave early and rest",
+            "right": "Stay late and meet people"
+          },
+          "cue": "A large party",
+          "response": 60,
+          "raw_response": "Considering my personality and experiences, I value community and connection, but also prioritize self-care and rest. A large party would likely be something I would stay for, but also make sure to take breaks and rest when needed. I've had experiences where I've stayed late and met new people, but also had to leave early to recharge. This balance reflects my personality and values, so I would place the marker around the middle of the spectrum."
+        },
+        "header_2": {
+          "spectrum": {
+            "left": "Detailed itinerary",
+            "right": "Go with the flow"
+          },
+          "cue": "Planning a weekend trip",
+          "response": 30,
+          "raw_response": "Based on my personality and experiences, I tend to value flexibility and spontaneity in my travel plans. While I do enjoy planning and researching, I also believe in leaving some room for spontaneity and flexibility. Given this, I would place the marker at 0, indicating that planning a weekend trip would involve a more structured and detailed itinerary, but not to the point of being overly rigid or inflexible."
+        },
+        "header_3": {
+          "spectrum": {
+            "left": "Uncomfortable",
+            "right": "Excited"
+          },
+          "cue": "Quitting stable job for a new startup",
+          "response": 50,
+          "raw_response": "Based on my personality and experiences, I've always been someone who values stability and security, but I've also been drawn to new challenges and opportunities. When I made the decision to attend community college instead of immediately entering the workforce, it was a scary but ultimately empowering experience. I think that's why I would place the clue at around 50, because while quitting a stable job for a new startup would be a significant risk, it's also an opportunity for growth and excitement. I think it's a decision that would require a mix of caution and courage, and I would be excited but also a bit apprehensive."
+        },
+        "header_4": {
+          "spectrum": {
+            "left": "Stressful",
+            "right": "Thrilling"
+          },
+          "cue": "Bungee jumping",
+          "response": 80,
+          "raw_response": "Based on my personality and experiences, I would place bungee jumping at 80 on the spectrum. While I can appreciate the thrill and excitement of adventure sports, I'm not someone who actively seeks out extreme activities. However, I can understand why others might find it exhilarating. I think bungee jumping would be an intense experience, but not necessarily something I would enjoy or seek out. It's more of a 'once-in-a-lifetime' experience that I might consider if I had the right mindset and support."
+        },
+        "header_5": {
+          "spectrum": {
+            "left": "Calm",
+            "right": "Crowded"
+          },
+          "cue": "Beach",
+          "response": 60,
+          "raw_response": "Based on my personal experiences and perspective, I think a beach can be both calm and crowded at different times. However, when I think of a beach, I often associate it with relaxation and serenity. I've had many peaceful moments by the ocean, watching the sunset or simply listening to the sound of the waves. While it's true that beaches can get crowded during peak season, I believe that's not the defining characteristic of a beach. Therefore, I place the marker at 60, indicating that a beach is more likely to be calm than crowded."
+        },
+        "header_6": {
+          "spectrum": {
+            "left": "Quiet",
+            "right": "Bombastic"
+          },
+          "cue": "Your music taste",
+          "response": 60,
+          "raw_response": "Considering my personality and experiences, I think my music taste falls somewhere in the middle of the spectrum. I enjoy a wide range of genres, from indie rock to electronic music, but I also appreciate more mellow and acoustic sounds. I'm not afraid to try new music, but I also value familiarity and comfort. I think my marker should be placed around 60, as I'm not too adventurous, but I'm not stuck in one particular style either."
+        },
+        "header_7": {
+          "spectrum": {
+            "left": "Uncomfortable",
+            "right": "Energizing"
+          },
+          "cue": "Public speaking",
+          "response": 60,
+          "raw_response": "Based on my personality and experiences, I have always been a bit introverted and have had to work on building my public speaking skills. While I still get some nerves before speaking in front of a crowd, I have learned to manage them and have become more comfortable with public speaking over time. I enjoy sharing my ideas and perspectives with others and find that public speaking can be a great way to connect with people and make a positive impact. Therefore, I would place the marker at around 60, indicating that public speaking is not necessarily my favorite activity, but it's no longer a source of significant discomfort for me."
+        },
+        "header_8": {
+          "spectrum": {
+            "left": "Useful",
+            "right": "Harmful"
+          },
+          "cue": "Smartphone",
+          "response": 70,
+          "raw_response": "Based on my perspective as a user of smartphones, I believe that they have the potential to be both useful and harmful. However, in my opinion, the benefits of smartphones far outweigh the drawbacks. I use my smartphone to stay connected with friends and family, access information, and access essential services. I also use it for creative pursuits, such as photography and writing. While there are certainly risks associated with smartphone use, such as addiction and social isolation, I believe that these can be mitigated with responsible use and digital literacy. Therefore, I place the marker at 70, indicating that smartphones are generally useful but can also have negative consequences if not used wisely."
+        },
+        "header_9": {
+          "spectrum": {
+            "left": "Helpful",
+            "right": "Annoying"
+          },
+          "cue": "Alarm Clock",
+          "response": 60,
+          "raw_response": "Considering my experiences and perspective, I place the alarm clock at 60. As someone who values a good night's sleep and a balanced lifestyle, I find alarm clocks to be a necessary tool for waking up on time. However, I also appreciate the importance of a gentle and soothing wake-up experience. While I wouldn't consider an alarm clock to be completely helpful (100), I also don't find it to be completely annoying (0). Therefore, I place it at 60, indicating that it's a useful tool that can be annoying at times but is generally helpful in my daily routine."
+        },
+        "header_10": {
+          "spectrum": {
+            "left": "Friendly",
+            "right": "Nosy"
+          },
+          "cue": "Neighbor",
+          "response": 50,
+          "raw_response": "Based on my personality and experiences, I would place the marker at around 50. I have had positive experiences with friendly neighbors who have become like a second family to me, but I have also had encounters with nosy neighbors who have made me feel uncomfortable. I think the clue 'Neighbor' leans more towards the friendly side, but it's not necessarily at the extreme end of the spectrum. I value my independence and personal space, so I would not want to be at the extreme nosy end of the spectrum."
+        },
+        "header_11": {
+          "spectrum": {
+            "left": "Objective",
+            "right": "Subjective"
+          },
+          "cue": "Beautifulness",
+          "response": 50,
+          "raw_response": "Based on my perspective, I believe that beautifulness is a combination of both objective and subjective elements. While there are certain objective qualities that contribute to beauty, such as symmetry and proportion, beauty is also deeply personal and influenced by individual experiences and emotions. I think that a beautiful sunset, for example, is not just about the objective qualities of the colors and lighting, but also about the emotional response it evokes in the viewer. Therefore, I place the marker at 50, indicating that beautifulness is a balance between objective and subjective factors."
+        },
+        "header_12": {
+          "spectrum": {
+            "left": "Familiar place",
+            "right": "New destination"
+          },
+          "cue": "Vacation",
+          "response": 30,
+          "raw_response": "Based on my personality and experiences, I would place the clue 'Vacation' at around 30. I value routine and comfort, but I also appreciate trying new things and exploring new places. I've had some experience traveling and trying new activities, but I'm not someone who is always looking for adventure or excitement. I think a vacation is a great way to relax and recharge, but it's not something I do excessively or with a sense of restlessness."
+        },
+        "header_13": {
+          "spectrum": {
+            "left": "Cringe",
+            "right": "Cool"
+          },
+          "cue": "Drinking",
+          "response": 80,
+          "raw_response": "Based on my personality and experiences, I would place the marker at around 80. As someone who values social connections and community engagement, I view drinking as a way to bring people together and foster meaningful relationships. I've had positive experiences with drinking, such as enjoying a glass of wine with Emily or trying new craft beers with friends. However, I'm also aware of the potential downsides of excessive drinking and try to approach it in a responsible manner. Overall, I think drinking can be a fun and enjoyable activity when done in moderation, which is why I place it at 80 on the spectrum."
+        },
+        "header_14": {
+          "spectrum": {
+            "left": "Motivating",
+            "right": "Stressful"
+          },
+          "cue": "Competition",
+          "response": 60,
+          "raw_response": "Based on my personality and experiences, I believe that competition can be motivating, but it can also be stressful. I've had experiences where competition has driven me to work harder and achieve my goals, but I've also felt overwhelmed and anxious in situations where the competition was too intense. However, I've learned to manage my stress and find ways to stay motivated in competitive environments. Considering my values and perspective, I think competition is more motivating than stressful for me, but I also recognize that it can be a double-edged sword."
+        },
+        "header_15": {
+          "spectrum": {
+            "left": "Durable",
+            "right": "Fragile"
+          },
+          "cue": "Glass",
+          "response": 50,
+          "raw_response": "Considering my experience with glass, I have seen that it can be quite fragile, but also surprisingly durable in certain situations. For example, tempered glass is designed to be more resistant to impact and shattering. However, regular glass can be quite fragile and prone to breaking. Based on this, I would place the marker at around 50, as glass can be both durable and fragile depending on the type and context."
+        },
+        "header_16": {
+          "spectrum": {
+            "left": "Distraction",
+            "right": "Focus"
+          },
+          "cue": "Aircraft engine",
+          "response": 50,
+          "raw_response": "Considering my background in public policy and my experience working at a non-profit organization, I believe that an aircraft engine is a highly complex system that requires a great deal of focus and technical expertise. However, I don't think it's so distracting that it would take away focus completely. Therefore, I place the marker at 50, indicating that the clue is somewhat focused but still requires a significant amount of attention and concentration."
+        },
+        "header_17": {
+          "spectrum": {
+            "left": "Relaxing",
+            "right": "Energizing"
+          },
+          "cue": "Coffee",
+          "response": 60,
+          "raw_response": "Based on my personal experiences, I know that coffee has a stimulating effect on me. I often drink coffee in the morning to wake me up and get me ready for the day. However, I also know that too much coffee can make me feel jittery and anxious. Considering my perspective, I think coffee falls more towards the energizing side of the spectrum, but not to the extreme. I would place the marker at around 60, as it provides a moderate level of energy and alertness without being overly stimulating."
+        },
+        "header_18": {
+          "spectrum": {
+            "left": "Overwhelming",
+            "right": "Delightful"
+          },
+          "cue": "Surprise party",
+          "response": 60,
+          "raw_response": "Based on my personality and experiences, I would place the marker at around 60. As someone who values community and relationships, I think a surprise party can be a wonderful way to bring people together and create lasting memories. However, I also understand that surprises can be overwhelming, especially if they're not planned carefully. In my case, I've had positive experiences with surprise parties, and I believe that with good planning and consideration for others' feelings, a surprise party can be a delightful and enjoyable experience."
+        },
+        "header_19": {
+          "spectrum": {
+            "left": "Brief and direct",
+            "right": "Expressive and detailed"
+          },
+          "cue": "Texting style",
+          "response": 50,
+          "raw_response": "Based on my texting style, I would place the marker at around 50. I tend to strike a balance between being concise and expressive, often using a mix of short sentences and personal anecdotes to convey my thoughts and feelings. However, I'm not typically verbose or overly elaborate in my texting, preferring to keep my messages clear and to the point. I think this reflects my personality and communication style, which values efficiency and effectiveness in my interactions."
+        },
+        "header_20": {
+          "spectrum": {
+            "left": "Lucky",
+            "right": "Hardworking"
+          },
+          "cue": "Genius",
+          "response": 60,
+          "raw_response": "I place the marker at 60 because, while I believe that hard work and dedication are essential for achieving success, I also think that innate talent and natural abilities can play a significant role in one's accomplishments. As someone who has worked hard to achieve my goals, I recognize the importance of effort and perseverance, but I also appreciate the value of being born with a natural aptitude for certain things. In my case, I've been fortunate to have had supportive parents and a good education, which have helped me develop my skills and talents. However, I've also had to work hard to achieve my goals, and I believe that a balance between natural ability and hard work is necessary for success."
+        },
+        "header_21": {
+          "spectrum": {
+            "left": "Early completion",
+            "right": "Last-minute burst"
+          },
+          "cue": "Deadline",
+          "response": 60,
+          "raw_response": "I place the marker at 60 because, in my experience, deadlines are often set to provide a sense of structure and motivation for completing tasks. While I prefer to complete tasks early, I also understand that deadlines can be necessary for meeting expectations and staying on track. A deadline at 60 on this spectrum suggests a balance between flexibility and accountability, which aligns with my approach to managing my time and tasks."
+        }
+      },
+      "completion_status": "completed"
+    },
+    {
+      "attempt_id": 3,
+      "timestamp": "2026-03-09T08:23:47.355964",
+      "headers": {
+        "header_0": {
+          "spectrum": {
+            "left": "Confront them directly",
+            "right": "Let it go to avoid tension"
+          },
+          "cue": "A coworker takes credit for your idea",
+          "response": 60,
+          "raw_response": "Based on my personality and experiences, I tend to value open communication and honesty in my relationships, but I also believe in maintaining a positive and respectful atmosphere in the workplace. In this situation, I think a balanced approach would be to address the issue in a calm and professional manner, acknowledging the coworker's mistake and finding a resolution that works for everyone. Therefore, I would place the marker at 60, indicating a middle ground between confrontation and avoidance."
+        },
+        "header_1": {
+          "spectrum": {
+            "left": "Leave early and rest",
+            "right": "Stay late and meet people"
+          },
+          "cue": "A large party",
+          "response": 60,
+          "raw_response": "Considering my personality and experiences, I tend to be a social person who values community and relationships. However, I also value my personal time and need to recharge. A large party would likely be overwhelming for me, but I would still want to stay for a while to meet new people and enjoy the atmosphere. Based on this, I think the clue would be around 60, where I'm willing to stay for a while but also make sure to take some time for myself."
+        },
+        "header_2": {
+          "spectrum": {
+            "left": "Detailed itinerary",
+            "right": "Go with the flow"
+          },
+          "cue": "Planning a weekend trip",
+          "response": 60,
+          "raw_response": "Based on my personality and experiences, I tend to be someone who values flexibility and spontaneity. I enjoy planning, but I also like to leave room for unexpected experiences and changes in plans. Given this, I think planning a weekend trip would be more likely to involve going with the flow, with a mix of planned activities and room for spontaneity."
+        },
+        "header_3": {
+          "spectrum": {
+            "left": "Uncomfortable",
+            "right": "Excited"
+          },
+          "cue": "Quitting stable job for a new startup",
+          "response": 60,
+          "raw_response": "Based on my personality and experiences, I would place the marker at 60. I have taken calculated risks in my life, such as choosing to attend community college instead of immediately entering the workforce, and it has led to personal growth and new opportunities. However, I also value stability and security, and I understand the importance of considering the potential risks and consequences of quitting a stable job for a new startup. I think quitting a stable job for a new startup is a complex decision that requires careful consideration, and it's not necessarily an all-or-nothing experience. It's a nuanced decision that involves weighing the pros and cons, and I would place the marker at 60, indicating a moderate level of excitement and comfort."
+        },
+        "header_4": {
+          "spectrum": {
+            "left": "Stressful",
+            "right": "Thrilling"
+          },
+          "cue": "Bungee jumping",
+          "response": 80,
+          "raw_response": "Considering my personality and experiences, I would place the marker at 80. While I can appreciate the thrill of adventure and taking calculated risks, I also value my safety and well-being. Bungee jumping, while not something I would do regularly, would still be an exciting and thrilling experience for me. I can imagine the rush of adrenaline and the sense of accomplishment that comes with facing my fears and pushing my limits. However, I would not consider it a completely carefree or stress-free experience, which is why I wouldn't place it at 100."
+        },
+        "header_5": {
+          "spectrum": {
+            "left": "Calm",
+            "right": "Crowded"
+          },
+          "cue": "Beach",
+          "response": 30,
+          "raw_response": "I place the beach at around 30 on the spectrum because, while it's a public place where people can gather, it's not typically as crowded as a city street or a festival. However, it can still have a decent number of people, especially during peak season or on holidays. My personal experience of visiting beaches has shown me that they can be both peaceful and lively, depending on the time of day and the number of people present."
+        },
+        "header_6": {
+          "spectrum": {
+            "left": "Quiet",
+            "right": "Bombastic"
+          },
+          "cue": "Your music taste",
+          "response": 40,
+          "raw_response": "Based on my personality and experiences, I would place the marker at around 40. I enjoy a wide range of music, from classical to indie rock, and I appreciate the emotional depth and storytelling in many songs. While I may not always be the most energetic person, I do enjoy music that evokes strong emotions and creates a sense of community. I think my taste in music is more eclectic and nuanced than purely quiet or bombastic."
+        },
+        "header_7": {
+          "spectrum": {
+            "left": "Uncomfortable",
+            "right": "Energizing"
+          },
+          "cue": "Public speaking",
+          "response": 60,
+          "raw_response": "Based on my personality and experiences, I would place the marker at 60. As a policy analyst, I often have to present my findings and recommendations to various stakeholders, which can be nerve-wracking at times. However, I've learned to manage my nerves and find ways to channel my energy into the presentation. I enjoy sharing my ideas and insights with others, and I find it fulfilling to see the impact of my work. While public speaking is not my favorite activity, I don't find it completely uncomfortable either. I think 60 is a good midpoint that reflects my mixed feelings about public speaking."
+        },
+        "header_8": {
+          "spectrum": {
+            "left": "Useful",
+            "right": "Harmful"
+          },
+          "cue": "Smartphone",
+          "response": 60,
+          "raw_response": "Considering my own experiences and perspective, I think a smartphone can be both useful and harmful, depending on how it's used. While I've seen friends and family members get sucked into the vortex of social media and experience negative effects, I've also used my smartphone to stay connected with loved ones, access information, and learn new skills. I believe that the benefits of smartphones can outweigh the drawbacks if used responsibly and mindfully."
+        },
+        "header_9": {
+          "spectrum": {
+            "left": "Helpful",
+            "right": "Annoying"
+          },
+          "cue": "Alarm Clock",
+          "response": 50,
+          "raw_response": "I place the alarm clock at 50 because, while it can be annoying at times, it's also a necessary tool to wake me up and start my day. I appreciate the functionality of an alarm clock, but I also acknowledge that it can be a source of stress. My experience with alarm clocks has been mixed, but I think they serve a purpose in helping me get out of bed and begin my day."
+        },
+        "header_10": {
+          "spectrum": {
+            "left": "Friendly",
+            "right": "Nosy"
+          },
+          "cue": "Neighbor",
+          "response": 60,
+          "raw_response": "Based on my personality and experiences, I would place the marker at 60. I have had positive experiences with my neighbors in Charlotte, and I believe that being friendly and approachable is an important aspect of building a strong community. However, I also value my personal space and don't want to be overly intrusive or nosy. I think a balance between being friendly and respecting boundaries is key, which is why I'm leaning towards the friendly side but not all the way to 100."
+        },
+        "header_11": {
+          "spectrum": {
+            "left": "Objective",
+            "right": "Subjective"
+          },
+          "cue": "Beautifulness",
+          "response": 60,
+          "raw_response": "I place the marker at 60 because I believe that beauty is a complex and multifaceted concept that cannot be reduced to a single perspective. While there are certainly objective aspects of beauty, such as symmetry and proportion, I believe that personal experiences, cultural background, and individual emotions also play a significant role in determining what we find beautiful. My upbringing and education have taught me to appreciate the importance of both objective and subjective aspects of beauty, and I believe that this balance is reflected in my own perspective."
+        },
+        "header_12": {
+          "spectrum": {
+            "left": "Familiar place",
+            "right": "New destination"
+          },
+          "cue": "Vacation",
+          "response": 60,
+          "raw_response": "Considering my personality and experiences, I tend to enjoy trying new things and exploring new places. I've had a few vacations where I've visited new destinations, and I found them to be incredibly rewarding. However, I also value relaxation and comfort, and I often choose vacations that allow me to unwind and recharge in familiar surroundings. Based on this, I would place the marker at 60, as I think the clue 'Vacation' is slightly more associated with new destinations than familiar places, but still has a strong element of relaxation and comfort."
+        },
+        "header_13": {
+          "spectrum": {
+            "left": "Cringe",
+            "right": "Cool"
+          },
+          "cue": "Drinking",
+          "response": 60,
+          "raw_response": "Based on my perspective, I think drinking is generally seen as a neutral or positive activity, especially when done in moderation. As someone who enjoys trying new experiences and appreciates social gatherings, I tend to view drinking as a way to relax and connect with others. However, I also recognize that excessive drinking can have negative consequences, so I try to approach it with caution. Considering my personality and values, I think drinking falls more on the 'cool' side of the spectrum, but not to an extreme."
+        },
+        "header_14": {
+          "spectrum": {
+            "left": "Motivating",
+            "right": "Stressful"
+          },
+          "cue": "Competition",
+          "response": 30,
+          "raw_response": "Based on my personality and experiences, I believe that competition can be motivating when it's done in a healthy and supportive way, but it can quickly become stressful and toxic when it becomes overly aggressive or cutthroat. As someone who values community and collaboration, I tend to shy away from environments that prioritize winning over mutual respect and support. However, I also recognize that some level of competition can be beneficial for personal growth and improvement. Therefore, I place the marker at 30, indicating that competition can be motivating, but it's not the primary driver of my motivation or success."
+        },
+        "header_15": {
+          "spectrum": {
+            "left": "Durable",
+            "right": "Fragile"
+          },
+          "cue": "Glass",
+          "response": 50,
+          "raw_response": "Based on my understanding of the physical properties of glass, I believe it is more fragile than durable. While it can be made to be more durable through various treatments and manufacturing processes, in its natural state, glass is prone to breaking or shattering. Considering my experiences with glass objects in my daily life, I have seen how easily they can break or crack, which aligns with the idea that glass is fragile."
+        },
+        "header_16": {
+          "spectrum": {
+            "left": "Distraction",
+            "right": "Focus"
+          },
+          "cue": "Aircraft engine",
+          "response": 50,
+          "raw_response": "I place the marker at 50 because an aircraft engine is a complex machine that requires attention to detail and technical expertise, but it's not inherently a distraction. In fact, pilots and mechanics need to be highly focused to operate and maintain aircraft engines safely and efficiently. However, an aircraft engine can also be a source of stress and anxiety, especially during takeoff and landing. Overall, I think the clue 'Aircraft engine' falls somewhere in the middle of the spectrum, requiring a balance between focus and attention to detail."
+        },
+        "header_17": {
+          "spectrum": {
+            "left": "Relaxing",
+            "right": "Energizing"
+          },
+          "cue": "Coffee",
+          "response": 80,
+          "raw_response": "Based on my perspective, I believe that coffee is more energizing than relaxing. While it can be a calming drink in small amounts, its primary function is to provide a energy boost and increase alertness. I often drink coffee in the morning to wake myself up and get ready for the day, and I've noticed that it helps me feel more alert and focused. Therefore, I would place the marker at 80, indicating that coffee is more energizing than relaxing."
+        },
+        "header_18": {
+          "spectrum": {
+            "left": "Overwhelming",
+            "right": "Delightful"
+          },
+          "cue": "Surprise party",
+          "response": 80,
+          "raw_response": "Considering my personality and experiences, I tend to enjoy surprises that are well-planned and come from a place of love and appreciation. I value experiences that bring people together and create positive emotions. Given this, I would place the surprise party at 80 on the spectrum, as it would likely be a joyful and delightful experience for me."
+        },
+        "header_19": {
+          "spectrum": {
+            "left": "Brief and direct",
+            "right": "Expressive and detailed"
+          },
+          "cue": "Texting style",
+          "response": 30,
+          "raw_response": "Based on my personality and experiences, I tend to communicate in a clear and concise manner, often prioritizing efficiency over elaborate expression. However, I also value creativity and self-expression, which is why I think the clue 'Texting style' falls somewhere in the middle of the spectrum. Considering my preference for direct communication, I would place the marker around 30, indicating a style that is brief but not overly simplistic."
+        },
+        "header_20": {
+          "spectrum": {
+            "left": "Lucky",
+            "right": "Hardworking"
+          },
+          "cue": "Genius",
+          "response": 60,
+          "raw_response": "Based on my understanding of what it means to be a genius, I believe that it's a combination of both luck and hard work. While it's true that hard work and dedication can contribute to one's success, it's also true that some people may have a natural inclination towards intelligence and creativity. In my own life, I've seen how my parents' emphasis on education and hard work has contributed to my own success, but I've also experienced moments of luck and serendipity that have helped me achieve my goals. Therefore, I place the marker at 60, indicating that being a genius is a balance of both luck and hard work."
+        },
+        "header_21": {
+          "spectrum": {
+            "left": "Early completion",
+            "right": "Last-minute burst"
+          },
+          "cue": "Deadline",
+          "response": 60,
+          "raw_response": "Based on my personality and experiences, I tend to be someone who values planning and organization, but also acknowledges the importance of flexibility and adaptability. I've learned to manage my time effectively and prioritize tasks, but I'm not someone who waits until the last minute to complete tasks. However, I also recognize that deadlines can be stressful, and I try to find a balance between being proactive and being realistic about my capabilities. Considering these aspects, I place the marker at 60, indicating that I'm generally someone who completes tasks ahead of time, but not always perfectly, and may experience some level of stress when faced with deadlines."
+        }
+      },
+      "completion_status": "completed"
+    }
+  ]
+}

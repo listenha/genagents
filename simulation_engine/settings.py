@@ -18,38 +18,39 @@ KEY_OWNER = "NAME"
 
 MODEL_CHOICE = "mistral-nemo-2407"
 
-# Model paths configuration
+# Model paths configuration (NCSA Delta: under /projects/bdks/yueshen7/models)
+_MODELS_BASE = "/projects/bdks/yueshen7/models"
 MODEL_PATHS = {
     "7b": {
-        "path": "/taiga/common_resources/models/Qwen2.5-7B-Instruct/snapshots/a09a35458c702b33eeacc393d103063234e8bc28",
+        "path": f"{_MODELS_BASE}/Qwen2.5-7B-Instruct",
         "name": "Qwen2.5-7B-Instruct"
     },
     "llama3.1-8b": {
-        "path": "/taiga/common_resources/models/Llama-3.1-8B-Instruct",
+        "path": f"{_MODELS_BASE}/Llama-3.1-8B-Instruct",
         "name": "Llama-3.1-8B-Instruct"
     },
     "gemma2-9b": {
-        "path": "/taiga/common_resources/models/gemma-2-9b",
+        "path": f"{_MODELS_BASE}/gemma-2-9b",
         "name": "gemma-2-9b"
     },
     "mistral-nemo-2407": {
-        "path": "/taiga/common_resources/models/Mistral-Nemo-Instruct-2407",
+        "path": f"{_MODELS_BASE}/Mistral-Nemo-Instruct-2407",
         "name": "Mistral-Nemo-Instruct-2407"
     },
     "14b": {
-        "path": "/taiga/common_resources/models/Qwen3-14B",
+        "path": f"{_MODELS_BASE}/Qwen3-14B",
         "name": "Qwen3-14B"
     },
     "32b": {
-        "path": "/taiga/common_resources/models/Qwen3-32B",
+        "path": f"{_MODELS_BASE}/Qwen3-32B",
         "name": "Qwen3-32B"
     },
     "32b-gptq": {
-        "path": "/taiga/common_resources/models/Qwen2.5-32B-Instruct-GPTQ-Int8",
+        "path": f"{_MODELS_BASE}/Qwen2.5-32B-Instruct-GPTQ-Int8",
         "name": "Qwen2.5-32B-Instruct-GPTQ-Int8"
     },
     "32b-gptq-int4": {
-        "path": "/taiga/common_resources/models/Qwen3-32B-GPTQ-Int4",
+        "path": f"{_MODELS_BASE}/Qwen3-32B-GPTQ-Int4",
         "name": "Qwen3-32B-GPTQ-Int4"
     }
 }
