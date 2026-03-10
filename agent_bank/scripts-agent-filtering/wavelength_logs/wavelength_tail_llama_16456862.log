@@ -1,0 +1,73 @@
+Population base: agent_bank/populations/Llama-3.1-8B_agents
+Target attempts per agent: 3
+Agents: 200
+Mode: one header per inference (no batch)
+
+  0003: running 1 new attempt(s)...
+Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+Embedding model loaded!
+Administering Wavelength game to agent: Molly O'Connor (0003)
+Started at: 2026-03-10 00:35:41
+    Administering game (22 headers, one at a time)...
+      Header 1/22 (A coworker takes credit for your idea)... Using local tokenizer files from: /projects/bdks/yueshen7/models/Llama-3.1-8B-Instruct
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:06,  2.22s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.09s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:06<00:02,  2.09s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:07<00:00,  1.63s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:07<00:00,  1.81s/it]
+Model loaded successfully!
+✓ (35.80s, response: 60)
+      Header 2/22 (A large party)... ✓ (4.20s, response: 80)
+      Header 3/22 (Planning a weekend trip)... ✓ (3.69s, response: 60)
+      Header 4/22 (Quitting stable job for a new startup)... ✓ (4.72s, response: 80)
+      Header 5/22 (Bungee jumping)... ✓ (3.65s, response: 90)
+      Header 6/22 (Beach)... ✓ (3.55s, response: 60)
+      Header 7/22 (Your music taste)... ✓ (3.88s, response: 40)
+      Header 8/22 (Public speaking)... ✓ (4.30s, response: 60)
+      Header 9/22 (Smartphone)... ✓ (4.15s, response: 20)
+      Header 10/22 (Alarm Clock)... ✓ (3.75s, response: 60)
+      Header 11/22 (Neighbor)... ✓ (3.62s, response: 70)
+      Header 12/22 (Beautifulness)... ✓ (4.10s, response: 50)
+      Header 13/22 (Vacation)... ✓ (3.33s, response: 60)
+      Header 14/22 (Drinking)... ✓ (3.69s, response: 50)
+      Header 15/22 (Competition)... ✓ (3.77s, response: 60)
+      Header 16/22 (Glass)... ✓ (3.63s, response: 50)
+      Header 17/22 (Aircraft engine)... ✓ (3.83s, response: 95)
+      Header 18/22 (Coffee)... ✓ (4.16s, response: 50)
+      Header 19/22 (Surprise party)... ✓ (3.97s, response: 60)
+      Header 20/22 (Texting style)... ✓ (4.03s, response: 60)
+      Header 21/22 (Genius)... ✓ (3.77s, response: 60)
+      Header 22/22 (Deadline)... ✓ (4.23s, response: 60)
+    Game completed: 117.84s total (avg 5.36s per header)
+
+Game completed in 117.85s (1.96 minutes)
+Completed at: 2026-03-10 00:37:38
+Saved to: agent_bank/populations/Llama-3.1-8B_agents/0003/wavelength_responses.json
+  0113: running 1 new attempt(s)...
+Administering Wavelength game to agent: Claudia Schultz (0113)
+Started at: 2026-03-10 00:37:39
+    Administering game (22 headers, one at a time)...
+      Header 1/22 (A coworker takes credit for your idea)... ✓ (4.56s, response: 60)
+      Header 2/22 (A large party)... ✓ (5.20s, response: 95)
+      Header 3/22 (Planning a weekend trip)... ✓ (4.35s, response: 60)
+      Header 4/22 (Quitting stable job for a new startup)... ✓ (5.09s, response: 60)
+      Header 5/22 (Bungee jumping)... ✓ (4.13s, response: 80)
+      Header 6/22 (Beach)... ✓ (3.86s, response: 20)
+      Header 7/22 (Your music taste)... ✓ (4.29s, response: 30)
+      Header 8/22 (Public speaking)... ✓ (4.43s, response: 30)
+      Header 9/22 (Smartphone)... ✓ (5.06s, response: 60)
+      Header 10/22 (Alarm Clock)... ✓ (4.21s, response: 60)
+      Header 11/22 (Neighbor)... ✓ (4.20s, response: 90)
+      Header 12/22 (Beautifulness)... ✓ (4.06s, response: 60)
+      Header 13/22 (Vacation)... ✓ (5.14s, response: 80)
+      Header 14/22 (Drinking)... ✓ (3.86s, response: 60)
+      Header 15/22 (Competition)... ✓ (4.18s, response: 60)
+      Header 16/22 (Glass)... ✓ (3.87s, response: 20)
+      Header 17/22 (Aircraft engine)... ✓ (4.88s, response: 60)
+      Header 18/22 (Coffee)... ✓ (4.41s, response: 50)
+      Header 19/22 (Surprise party)... ✓ (3.89s, response: 85)
+      Header 20/22 (Texting style)... ✓ (4.11s, response: 60)
+      Header 21/22 (Genius)... ✓ (4.00s, response: 80)
+      Header 22/22 (Deadline)... ✓ (4.73s, response: 60)
+    Game completed: 96.50s total (avg 4.39s per header)
+
+Game completed in 96.52s (1.61 minutes)
+Completed at: 2026-03-10 00:39:15
+Saved to: agent_bank/populations/Llama-3.1-8B_agents/0113/wavelength_responses.json
+Done.

@@ -1,0 +1,628 @@
+{
+  "game_metadata": {
+    "game_name": "Wavelength Game",
+    "game_version": "1.0",
+    "extraction_date": "2026-03-09T04:59:22.001891"
+  },
+  "agent_metadata": {
+    "agent_id": "0047",
+    "agent_name": "Stephanie Richards"
+  },
+  "attempts": [
+    {
+      "attempt_id": 1,
+      "timestamp": "2026-03-09T05:00:56.869110",
+      "headers": {
+        "header_0": {
+          "spectrum": {
+            "left": "Confront them directly",
+            "right": "Let it go to avoid tension"
+          },
+          "cue": "A coworker takes credit for your idea",
+          "response": 60,
+          "raw_response": "In my experience, it's important to address such situations directly to maintain professional respect and prevent misunderstandings. However, I also value maintaining a positive work environment, so I wouldn't escalate the situation unnecessarily. Therefore, I would place the marker at 60, indicating a balance between addressing the issue and avoiding unnecessary tension."
+        },
+        "header_1": {
+          "spectrum": {
+            "left": "Leave early and rest",
+            "right": "Stay late and meet people"
+          },
+          "cue": "A large party",
+          "response": 85,
+          "raw_response": "A large party is more likely to involve a mix of people, activities, and interactions that would encourage guests to stay later rather than leave early to rest. The clue 'A large party' suggests a significant number of attendees, which is more likely to be found at a late-night event where people can meet and socialize with others."
+        },
+        "header_2": {
+          "spectrum": {
+            "left": "Detailed itinerary",
+            "right": "Go with the flow"
+          },
+          "cue": "Planning a weekend trip",
+          "response": 70,
+          "raw_response": "Planning a weekend trip involves some level of organization, but it's not as rigid as a completely planned itinerary. There's room for spontaneity and flexibility, which leans more towards the 'Go with the flow' side of the spectrum. However, it's not entirely spontaneous, as there's some planning involved, such as booking accommodation or deciding on a destination. Therefore, I place it closer to the 'Go with the flow' side but not completely there."
+        },
+        "header_3": {
+          "spectrum": {
+            "left": "Uncomfortable",
+            "right": "Excited"
+          },
+          "cue": "Quitting stable job for a new startup",
+          "response": 70,
+          "raw_response": "For me, this clue falls around 70 on the spectrum. While I understand the risks and uncertainties associated with quitting a stable job, I also appreciate the potential for growth, learning, and innovation that a startup can offer. Having taken some calculated risks in my career, I can relate to the excitement and anticipation that comes with venturing into the unknown. However, I'm also mindful of the potential discomfort and instability that can accompany such a move."
+        },
+        "header_4": {
+          "spectrum": {
+            "left": "Stressful",
+            "right": "Thrilling"
+          },
+          "cue": "Bungee jumping",
+          "response": 75,
+          "raw_response": "Bungee jumping is an activity that combines elements of both stress and thrill. While it can be intimidating and push one's comfort zone, it also offers an unparalleled sense of exhilaration and a rush of adrenaline. For me, the thrill of the experience outweighs the initial stress, as I've had experiences in the past where pushing through that initial fear led to a great sense of accomplishment and enjoyment."
+        },
+        "header_5": {
+          "spectrum": {
+            "left": "Calm",
+            "right": "Crowded"
+          },
+          "cue": "Beach",
+          "response": 20,
+          "raw_response": "Beaches can be both calm and crowded depending on the time of day, season, and location. However, the term 'beach' itself is more commonly associated with calm, peaceful settings rather than crowded ones. I've had many personal experiences of beaches being calm and serene, with the sound of waves and the gentle breeze as the only noise. Therefore, I place the marker closer to the calm end of the spectrum."
+        },
+        "header_6": {
+          "spectrum": {
+            "left": "Quiet",
+            "right": "Bombastic"
+          },
+          "cue": "Your music taste",
+          "response": 30,
+          "raw_response": "My music taste is quite varied, but I tend to prefer songs with meaningful lyrics and a balance between instrumental and vocal elements. I enjoy both soft, introspective tracks and upbeat, energetic songs, but I'm not drawn to music that is overly loud or aggressive. Therefore, I place my marker at 30 on the spectrum, as my music taste is more on the quiet side but still has some elements of energy and dynamism."
+        },
+        "header_7": {
+          "spectrum": {
+            "left": "Uncomfortable",
+            "right": "Energizing"
+          },
+          "cue": "Public speaking",
+          "response": 85,
+          "raw_response": "For me, public speaking falls closer to the 'Energizing' side of the spectrum. While I may experience some initial nerves, once I start speaking, I find it engaging and even enjoyable. I've had experiences where public speaking has helped me connect with audiences and share valuable information, which has been rewarding and energizing."
+        },
+        "header_8": {
+          "spectrum": {
+            "left": "Useful",
+            "right": "Harmful"
+          },
+          "cue": "Smartphone",
+          "response": 75,
+          "raw_response": "Smartphones have become integral tools in my life, allowing me to stay connected, work efficiently, and access information instantly. However, they can also be a source of distraction and addiction. I try to maintain a balanced approach by setting boundaries and using apps that monitor and limit my screen time. Overall, I find smartphones more useful than harmful, but it's a delicate balance."
+        },
+        "header_9": {
+          "spectrum": {
+            "left": "Helpful",
+            "right": "Annoying"
+          },
+          "cue": "Alarm Clock",
+          "response": 15,
+          "raw_response": "While alarm clocks can be annoying when they disrupt your sleep, they are ultimately helpful in ensuring you wake up on time. I've found that having an alarm clock with customizable features, like a gradual wake-up function or a variety of sounds, can make a big difference in how I start my day. Therefore, I place the alarm clock closer to the 'Helpful' end of the spectrum."
+        },
+        "header_10": {
+          "spectrum": {
+            "left": "Friendly",
+            "right": "Nosy"
+          },
+          "cue": "Neighbor",
+          "response": 70,
+          "raw_response": "In my experience, neighbors can be a mix of friendly and nosy. A good neighbor is friendly and caring, but also respects your privacy. However, some neighbors might cross that line and become too nosy. I would place 'Neighbor' closer to the friendly side, around 70, because while they might show interest in your life, they typically do so with good intentions and within reasonable limits."
+        },
+        "header_11": {
+          "spectrum": {
+            "left": "Objective",
+            "right": "Subjective"
+          },
+          "cue": "Beautifulness",
+          "response": 60,
+          "raw_response": "In my experience, beauty is often a combination of both objective and subjective elements. While there are certain universal principles of aesthetics, such as balance and harmony, the perception of beauty is highly individual and influenced by personal experiences, emotions, and cultural backgrounds. Therefore, I place 'Beautifulness' at 60 on the spectrum, as it leans more towards the subjective end but still acknowledges the role of objective criteria."
+        },
+        "header_12": {
+          "spectrum": {
+            "left": "Familiar place",
+            "right": "New destination"
+          },
+          "cue": "Vacation",
+          "response": 55,
+          "raw_response": "When I think of a vacation, I imagine a balance between familiarity and new experiences. While I enjoy revisiting places I've been to before, I also crave the excitement of exploring new destinations. Therefore, I place the clue 'Vacation' closer to the middle of the spectrum, leaning slightly towards 'New destination' because vacations often involve a mix of both familiar and new elements."
+        },
+        "header_13": {
+          "spectrum": {
+            "left": "Cringe",
+            "right": "Cool"
+          },
+          "cue": "Drinking",
+          "response": 85,
+          "raw_response": "For me, 'drinking' is generally associated with socializing and enjoying a drink or two with friends or at a nice restaurant. It's a part of many social situations I've been in and has never been cringe-worthy. However, it's important to note that I'm not a big drinker myself, and I've always been mindful of my limits and those of others. I place 'drinking' more towards the 'cool' end of the spectrum because it's often associated with positive social experiences and responsible adult behavior."
+        },
+        "header_14": {
+          "spectrum": {
+            "left": "Motivating",
+            "right": "Stressful"
+          },
+          "cue": "Competition",
+          "response": 50,
+          "raw_response": "For me, competition can be a double-edged sword. On one hand, it can push me to strive for excellence and improve my skills. On the other hand, too much focus on outperforming others can create unnecessary stress and tension. I find that a balance between healthy competition and cooperation is ideal. Therefore, I place the marker at 50, as competition can be motivating when it's balanced with collaboration and mutual support."
+        },
+        "header_15": {
+          "spectrum": {
+            "left": "Durable",
+            "right": "Fragile"
+          },
+          "cue": "Glass",
+          "response": 15,
+          "raw_response": "Glass is inherently fragile, as it can shatter easily when exposed to sudden impacts or temperature changes. However, it can also be made more durable through tempering or other strengthening processes. Considering its typical fragility, I would place glass closer to the fragile end of the spectrum."
+        },
+        "header_16": {
+          "spectrum": {
+            "left": "Distraction",
+            "right": "Focus"
+          },
+          "cue": "Aircraft engine",
+          "response": 70,
+          "raw_response": "An aircraft engine, by its nature, is a source of noise and vibration that can be quite distracting. However, it's not as intrusive as some other potential distractions, like a loud conversation or a blaring television. Therefore, I would place it closer to the 'Distraction' side but not all the way to the right."
+        },
+        "header_17": {
+          "spectrum": {
+            "left": "Relaxing",
+            "right": "Energizing"
+          },
+          "cue": "Coffee",
+          "response": 75,
+          "raw_response": "For me, coffee is both relaxing and energizing. I enjoy a cup in the morning to wake up and start my day, but I also appreciate a warm cup in the evening to unwind. However, the energizing aspect is more pronounced, as it helps me focus and stay alert. So, I would place it closer to the energizing end of the spectrum."
+        },
+        "header_18": {
+          "spectrum": {
+            "left": "Overwhelming",
+            "right": "Delightful"
+          },
+          "cue": "Surprise party",
+          "response": 85,
+          "raw_response": "Surprise parties, when executed well, can be delightful due to the element of surprise and the joy it brings to the person being celebrated. However, if not planned well, they can also be overwhelming due to the unexpected nature and the potential chaos. In my experience, the delight usually outweighs the initial surprise, so I place it closer to the 'Delightful' end of the spectrum."
+        },
+        "header_19": {
+          "spectrum": {
+            "left": "Brief and direct",
+            "right": "Expressive and detailed"
+          },
+          "cue": "Texting style",
+          "response": 20,
+          "raw_response": "Based on my personal texting style, I tend to be brief and direct, preferring to get to the point quickly. I use emojis sparingly and avoid excessive text. However, I'm not entirely devoid of expressiveness, as I do use punctuation and capitalization for emphasis. Therefore, I place my marker closer to the 'Brief and direct' end of the spectrum but not completely on the left."
+        },
+        "header_20": {
+          "spectrum": {
+            "left": "Lucky",
+            "right": "Hardworking"
+          },
+          "cue": "Genius",
+          "response": 85,
+          "raw_response": "In my opinion, a genius is more likely to be hardworking than lucky. While luck may play a small role in opportunities that arise, true genius is often the result of immense dedication, continuous learning, and perseverance. I've seen this in my own life and in the lives of those around me. Therefore, I place the marker closer to 'Hardworking'."
+        },
+        "header_21": {
+          "spectrum": {
+            "left": "Early completion",
+            "right": "Last-minute burst"
+          },
+          "cue": "Deadline",
+          "response": 30,
+          "raw_response": "Deadlines are a part of my work life, and I tend to start tasks early and work consistently towards completion. While I do sometimes have to work closer to the deadline, it's not a common occurrence. Therefore, I place the marker closer to 'Early completion' than 'Last-minute burst'."
+        }
+      },
+      "completion_status": "completed"
+    },
+    {
+      "attempt_id": 2,
+      "timestamp": "2026-03-09T05:02:32.013603",
+      "headers": {
+        "header_0": {
+          "spectrum": {
+            "left": "Confront them directly",
+            "right": "Let it go to avoid tension"
+          },
+          "cue": "A coworker takes credit for your idea",
+          "response": 60,
+          "raw_response": "In this situation, I would place the marker at 60. While I value direct communication and addressing issues head-on, I also understand the importance of maintaining a positive work environment. I would first approach the coworker privately and calmly explain the situation, giving them the benefit of the doubt that it might have been an honest mistake. However, if the behavior continues, I would not hesitate to escalate the matter to my manager or HR to ensure my ideas are properly credited and that my contributions are valued."
+        },
+        "header_1": {
+          "spectrum": {
+            "left": "Leave early and rest",
+            "right": "Stay late and meet people"
+          },
+          "cue": "A large party",
+          "response": 85,
+          "raw_response": "A large party typically involves a significant number of people, suggesting a high potential for social interaction. Therefore, it leans more towards the 'Stay late and meet people' end of the spectrum. However, the size of the party alone doesn't dictate the level of socialization; personal preferences and energy levels also play a role. Given my tendency to enjoy social events but also value self-care, I would place the marker slightly closer to the right but not at the very end."
+        },
+        "header_2": {
+          "spectrum": {
+            "left": "Detailed itinerary",
+            "right": "Go with the flow"
+          },
+          "cue": "Planning a weekend trip",
+          "response": 30,
+          "raw_response": "Planning a weekend trip involves some level of organization, but it's not as rigid as a detailed itinerary. There's room for spontaneity and flexibility, so it's more towards the 'Go with the flow' side, but not completely. I'd place it around 30 on the spectrum."
+        },
+        "header_3": {
+          "spectrum": {
+            "left": "Uncomfortable",
+            "right": "Excited"
+          },
+          "cue": "Quitting stable job for a new startup",
+          "response": 75,
+          "raw_response": "While quitting a stable job for a new startup can be nerve-wracking due to the uncertainty involved, it also presents an opportunity for growth, learning, and potentially greater rewards. Having been in a stable job for several years, I understand the comfort and security it provides, but I also appreciate the excitement and challenge of starting something new. Therefore, I place this clue closer to the 'Excited' end of the spectrum."
+        },
+        "header_4": {
+          "spectrum": {
+            "left": "Stressful",
+            "right": "Thrilling"
+          },
+          "cue": "Bungee jumping",
+          "response": 75,
+          "raw_response": "Bungee jumping is an activity that combines elements of both stress and thrill. The initial jump can be quite stressful due to the fear of heights and the uncertainty of the jump. However, once the jump is made, the experience can be incredibly thrilling as one freefalls and then bounces back up. Having experienced similar adrenaline-pumping activities, I find bungee jumping to be more on the thrilling side, but the initial stress cannot be ignored. Therefore, I place it closer to the thrilling end of the spectrum, around 75."
+        },
+        "header_5": {
+          "spectrum": {
+            "left": "Calm",
+            "right": "Crowded"
+          },
+          "cue": "Beach",
+          "response": 50,
+          "raw_response": "Beaches can indeed be either calm or crowded, depending on the time of day, the season, and the specific location. However, the term 'beach' itself doesn't inherently imply one over the other. It's a place where people go to relax, but it can also be a popular spot for social gatherings. Therefore, I would place the marker somewhere in the middle, as it's not completely calm nor completely crowded."
+        },
+        "header_6": {
+          "spectrum": {
+            "left": "Quiet",
+            "right": "Bombastic"
+          },
+          "cue": "Your music taste",
+          "response": 30,
+          "raw_response": "My music taste is quite diverse, ranging from classical and jazz to pop and rock. I enjoy both soft, instrumental pieces and upbeat, lyrical songs. However, I wouldn't say my taste is excessively quiet or bombastic. I prefer a balance, leaning more towards the quiet side when I'm working or relaxing, but I also enjoy listening to lively music when I'm active or socializing. Therefore, I place my marker at 30 on the spectrum."
+        },
+        "header_7": {
+          "spectrum": {
+            "left": "Uncomfortable",
+            "right": "Energizing"
+          },
+          "cue": "Public speaking",
+          "response": 40,
+          "raw_response": "While public speaking can be nerve-wracking, I've grown more comfortable with it over time, especially when discussing topics I'm passionate about. It's not always energizing, but it can be when I feel well-prepared and connected with the audience. My experiences volunteering and presenting at work have helped me improve, but I'm still not entirely at ease."
+        },
+        "header_8": {
+          "spectrum": {
+            "left": "Useful",
+            "right": "Harmful"
+          },
+          "cue": "Smartphone",
+          "response": 40,
+          "raw_response": "While smartphones have undeniable benefits like communication and access to information, they also present significant challenges such as addiction, constant distraction, and potential health issues. Therefore, I place the marker at 40, indicating that smartphones are more useful than harmful, but the harm is still considerable."
+        },
+        "header_9": {
+          "spectrum": {
+            "left": "Helpful",
+            "right": "Annoying"
+          },
+          "cue": "Alarm Clock",
+          "response": 40,
+          "raw_response": "While an alarm clock can be helpful in ensuring we wake up on time, its usefulness can quickly turn into annoyance if it's not set to our preferences or if it's too harsh. I personally find a balance between the two, as I appreciate the functionality of an alarm clock but prefer one that wakes me up gradually rather than jarring me awake. Therefore, I place the alarm clock at 40 on the spectrum."
+        },
+        "header_10": {
+          "spectrum": {
+            "left": "Friendly",
+            "right": "Nosy"
+          },
+          "cue": "Neighbor",
+          "response": 20,
+          "raw_response": "A neighbor, by definition, is someone who lives close to you. This proximity can lead to varying levels of interaction and interest in each other's lives. However, a good neighbor strikes a balance between being friendly and respecting your privacy. They are interested in your life but not to the point of being intrusive or nosy. Therefore, I place the clue 'Neighbor' closer to the 'Friendly' end of the spectrum."
+        },
+        "header_11": {
+          "spectrum": {
+            "left": "Objective",
+            "right": "Subjective"
+          },
+          "cue": "Beautifulness",
+          "response": 70,
+          "raw_response": "In my experience, the concept of beautifulness lies somewhere between objective and subjective. While there are certain universal principles of beauty, such as symmetry and proportion, the appreciation of beauty is highly subjective and varies greatly from person to person. For example, I might find a sunset beautiful, while someone else might find it dull or even ugly. Therefore, I place 'Beautifulness' closer to the subjective end of the spectrum, around 70."
+        },
+        "header_12": {
+          "spectrum": {
+            "left": "Familiar place",
+            "right": "New destination"
+          },
+          "cue": "Vacation",
+          "response": 50,
+          "raw_response": "Vacation typically involves a balance between familiar and new experiences. While it often includes visiting new places, it also often involves familiar activities like relaxing, reading, or spending time with loved ones. Therefore, it's more towards the middle of the spectrum."
+        },
+        "header_13": {
+          "spectrum": {
+            "left": "Cringe",
+            "right": "Cool"
+          },
+          "cue": "Drinking",
+          "response": 75,
+          "raw_response": "For me, drinking is often associated with social events, relaxation, and enjoying a good wine or cocktail with friends. While excessive drinking can lead to negative consequences, I've had many positive experiences related to drinking. Therefore, I place it closer to the 'Cool' end of the spectrum."
+        },
+        "header_14": {
+          "spectrum": {
+            "left": "Motivating",
+            "right": "Stressful"
+          },
+          "cue": "Competition",
+          "response": 40,
+          "raw_response": "Competition can be a double-edged sword. On one hand, it can push individuals to excel and achieve their best, which can be motivating. On the other hand, too much competition can lead to stress, anxiety, and a constant feeling of not being good enough. In my experience, a balance is key. Some competition can drive me to do better, but too much of it can be overwhelming. Therefore, I place the marker at 40, as competition can be motivating but also has the potential to become stressful if not managed properly."
+        },
+        "header_15": {
+          "spectrum": {
+            "left": "Durable",
+            "right": "Fragile"
+          },
+          "cue": "Glass",
+          "response": 85,
+          "raw_response": "Glass is a material that is known for its fragility. It can break easily and is not very durable. However, it's not as fragile as something like an eggshell, which would be closer to 100 on this spectrum. Therefore, I would place glass closer to the fragile end, but not at the very extreme."
+        },
+        "header_16": {
+          "spectrum": {
+            "left": "Distraction",
+            "right": "Focus"
+          },
+          "cue": "Aircraft engine",
+          "response": 70,
+          "raw_response": "An aircraft engine is typically quite loud, especially when in operation. This loudness would likely be a significant distraction, making it difficult to focus on anything else. However, if the engine were turned off or very far away, it might not be a distraction at all. Therefore, I place the marker closer to the 'Focus' side, but not all the way, as the engine's noise can still be noticeable even when it's not extremely loud."
+        },
+        "header_17": {
+          "spectrum": {
+            "left": "Relaxing",
+            "right": "Energizing"
+          },
+          "cue": "Coffee",
+          "response": 75,
+          "raw_response": "For me, coffee is generally energizing due to its caffeine content. However, it can also be relaxing, depending on the situation and my mindset. I might enjoy a cup of coffee while reading a book or working on a project at home, feeling relaxed and focused. But the energizing aspect is more prominent in my experience, especially when I have it in the morning or before a big task at work."
+        },
+        "header_18": {
+          "spectrum": {
+            "left": "Overwhelming",
+            "right": "Delightful"
+          },
+          "cue": "Surprise party",
+          "response": 70,
+          "raw_response": "Surprise parties can vary greatly in their impact, but in my experience, they tend to lean more towards delightful than overwhelming. The element of surprise, when executed well, brings joy and excitement. However, I've also experienced surprise parties that were overwhelming due to the unexpectedness and the sheer number of people present. Therefore, I place the marker at 70 on the spectrum."
+        },
+        "header_19": {
+          "spectrum": {
+            "left": "Brief and direct",
+            "right": "Expressive and detailed"
+          },
+          "cue": "Texting style",
+          "response": 20,
+          "raw_response": "My texting style tends to be more on the brief and direct side, as I prefer concise and efficient communication. I use emojis sparingly and only when necessary to convey emotion. However, I'm not overly minimalistic, so I don't fall completely on the left side of the spectrum."
+        },
+        "header_20": {
+          "spectrum": {
+            "left": "Lucky",
+            "right": "Hardworking"
+          },
+          "cue": "Genius",
+          "response": 85,
+          "raw_response": "While geniuses may possess innate talents, true success often requires hard work, dedication, and continuous learning. Therefore, I believe that the clue 'Genius' leans more towards the 'Hardworking' end of the spectrum, as their exceptional abilities and achievements are likely the result of their intense efforts and commitment."
+        },
+        "header_21": {
+          "spectrum": {
+            "left": "Early completion",
+            "right": "Last-minute burst"
+          },
+          "cue": "Deadline",
+          "response": 50,
+          "raw_response": "Deadlines are typically associated with a balance between early completion and last-minute bursts. The clue 'Deadline' itself doesn't lean too much towards either end of the spectrum, as it represents a time limit that can be managed with varying degrees of urgency and preparation. Therefore, I place it closer to the middle of the spectrum."
+        }
+      },
+      "completion_status": "completed"
+    },
+    {
+      "attempt_id": 3,
+      "timestamp": "2026-03-09T05:04:05.016063",
+      "headers": {
+        "header_0": {
+          "spectrum": {
+            "left": "Confront them directly",
+            "right": "Let it go to avoid tension"
+          },
+          "cue": "A coworker takes credit for your idea",
+          "response": 60,
+          "raw_response": "In this situation, I would place the marker at 60. While I value open communication and addressing issues directly, I also understand the importance of maintaining a positive work environment. Confronting the coworker is necessary, but it's also important to approach the situation with tact and understanding. I would address the issue privately and professionally, aiming to resolve the matter without creating unnecessary tension."
+        },
+        "header_1": {
+          "spectrum": {
+            "left": "Leave early and rest",
+            "right": "Stay late and meet people"
+          },
+          "cue": "A large party",
+          "response": 85,
+          "raw_response": "Given the clue 'A large party', the focus is more on socializing and meeting new people rather than resting. While a large party might involve some rest or relaxation, the primary purpose is to bring people together. Therefore, I would place the marker closer to the 'Stay late and meet people' side of the spectrum."
+        },
+        "header_2": {
+          "spectrum": {
+            "left": "Detailed itinerary",
+            "right": "Go with the flow"
+          },
+          "cue": "Planning a weekend trip",
+          "response": 50,
+          "raw_response": "When planning a weekend trip, I usually strike a balance between having a general idea of what I want to do and leaving room for spontaneous exploration. I typically research and book accommodations and any must-do activities, but I also like to keep some time open for impromptu adventures. Therefore, I would place the marker around 50 on the spectrum."
+        },
+        "header_3": {
+          "spectrum": {
+            "left": "Uncomfortable",
+            "right": "Excited"
+          },
+          "cue": "Quitting stable job for a new startup",
+          "response": 85,
+          "raw_response": "For me, this clue lands more on the excited side of the spectrum. While there are certainly risks and uncertainties involved in leaving a stable job for a startup, I've always been drawn to new challenges and opportunities for growth. Having made a similar career change in the past, I can attest to the sense of excitement and anticipation that comes with stepping into the unknown."
+        },
+        "header_4": {
+          "spectrum": {
+            "left": "Stressful",
+            "right": "Thrilling"
+          },
+          "cue": "Bungee jumping",
+          "response": 75,
+          "raw_response": "Bungee jumping is an activity that involves a significant amount of risk and uncertainty, which can induce stress. However, it's also an extreme sport that promises a rush of adrenaline and a thrilling experience. Having done some adventurous activities in the past, I can relate to the mix of stress and thrill that comes with them. While bungee jumping might not be on my personal bucket list, I can understand why someone might find it thrilling. Therefore, I place it more towards the 'Thrilling' side of the spectrum."
+        },
+        "header_5": {
+          "spectrum": {
+            "left": "Calm",
+            "right": "Crowded"
+          },
+          "cue": "Beach",
+          "response": 20,
+          "raw_response": "Beaches can indeed be either calm or crowded, depending on the time of day, season, and location. However, even at popular beaches, there are often quieter, less crowded areas. Therefore, I would place the clue 'Beach' more towards the calm end of the spectrum, as it is not exclusively associated with crowds."
+        },
+        "header_6": {
+          "spectrum": {
+            "left": "Quiet",
+            "right": "Bombastic"
+          },
+          "cue": "Your music taste",
+          "response": 25,
+          "raw_response": "My music taste leans more towards the quiet side. I prefer genres like indie folk, jazz, and lo-fi hip-hop beats, which create a relaxed and introspective atmosphere. While I can enjoy upbeat music, I tend to gravitate towards quieter, more contemplative sounds. My experiences volunteering and gardening have also influenced this preference, as these activities require a calm and focused environment."
+        },
+        "header_7": {
+          "spectrum": {
+            "left": "Uncomfortable",
+            "right": "Energizing"
+          },
+          "cue": "Public speaking",
+          "response": 75,
+          "raw_response": "For me, public speaking falls closer to the 'Energizing' side of the spectrum. While I may experience some initial nerves, I find that once I start speaking, I become more comfortable and even enjoy the experience. I've had many positive experiences with public speaking, including presentations at work and volunteering at local events, which have boosted my confidence and given me a sense of accomplishment."
+        },
+        "header_8": {
+          "spectrum": {
+            "left": "Useful",
+            "right": "Harmful"
+          },
+          "cue": "Smartphone",
+          "response": 70,
+          "raw_response": "Smartphones, while having many useful features like communication, information access, and productivity tools, also present potential harms such as addiction, privacy concerns, and health issues like eye strain and poor posture. However, the benefits generally outweigh the harms for me, given my reliance on it for work and personal connections. Therefore, I place it closer to the 'Useful' side."
+        },
+        "header_9": {
+          "spectrum": {
+            "left": "Helpful",
+            "right": "Annoying"
+          },
+          "cue": "Alarm Clock",
+          "response": 70,
+          "raw_response": "An alarm clock is helpful because it ensures we wake up on time, which is crucial for maintaining a productive routine. However, it can be annoying if it's too loud, doesn't work properly, or goes off at an inconvenient time. I place the marker at 70 because while alarm clocks serve a helpful purpose, they can also be annoying if not used correctly."
+        },
+        "header_10": {
+          "spectrum": {
+            "left": "Friendly",
+            "right": "Nosy"
+          },
+          "cue": "Neighbor",
+          "response": 20,
+          "raw_response": "In my experience, neighbors can vary greatly in their level of friendliness and nosiness. However, the concept of a 'neighbor' typically leans more towards the friendly side of the spectrum. A neighbor is someone who lives nearby and shares a community with you, often looking out for each other and fostering a sense of camaraderie. While they may be curious about your life, it's usually out of genuine interest and concern rather than nosiness. Therefore, I place the marker closer to the friendly side of the spectrum."
+        },
+        "header_11": {
+          "spectrum": {
+            "left": "Objective",
+            "right": "Subjective"
+          },
+          "cue": "Beautifulness",
+          "response": 60,
+          "raw_response": "Beauty is often considered to be in the eye of the beholder, making it inherently subjective. However, there are some universally accepted standards of beauty, such as the golden ratio or symmetry, which give it some objective elements. I place 'Beautifulness' at 60 on the spectrum because while there are objective elements to consider, the ultimate determination of beauty is highly subjective and varies from person to person."
+        },
+        "header_12": {
+          "spectrum": {
+            "left": "Familiar place",
+            "right": "New destination"
+          },
+          "cue": "Vacation",
+          "response": 50,
+          "raw_response": "Vacations often involve a mix of familiar and new experiences. While we might revisit favorite spots or activities, we also tend to explore new attractions or try out new things. Therefore, I place 'Vacation' closer to the middle of the spectrum, as it typically balances familiarity and newness."
+        },
+        "header_13": {
+          "spectrum": {
+            "left": "Cringe",
+            "right": "Cool"
+          },
+          "cue": "Drinking",
+          "response": 50,
+          "raw_response": "For me, drinking is neither entirely cringe nor completely cool. It depends on the context. I've had experiences where drinking was enjoyable and social, like at wine tastings or when sharing a bottle of wine with friends. However, I've also seen drinking in less appealing contexts, like excessive binge drinking at college parties. Therefore, I place the marker at 50, as drinking can lean towards either end of the spectrum depending on the situation."
+        },
+        "header_14": {
+          "spectrum": {
+            "left": "Motivating",
+            "right": "Stressful"
+          },
+          "cue": "Competition",
+          "response": 60,
+          "raw_response": "For me, competition can be both motivating and stressful, depending on the context. In a healthy environment, it can push me to improve and achieve more. However, excessive competition can create unnecessary stress and negatively impact my well-being. I place competition around 60 on this spectrum because it can be motivating when it encourages growth and learning, but it can also become stressful when it's overly intense or focuses solely on outperforming others."
+        },
+        "header_15": {
+          "spectrum": {
+            "left": "Durable",
+            "right": "Fragile"
+          },
+          "cue": "Glass",
+          "response": 60,
+          "raw_response": "Glass is inherently fragile, as it can shatter easily. However, it's not as fragile as something like an egg or a soap bubble. It's also more durable than something like a paper cup, which can tear or rip. So, I would place glass somewhere in the middle of the spectrum."
+        },
+        "header_16": {
+          "spectrum": {
+            "left": "Distraction",
+            "right": "Focus"
+          },
+          "cue": "Aircraft engine",
+          "response": 50,
+          "raw_response": "An aircraft engine is typically associated with noise and vibration, which can be quite distracting. However, in certain contexts, like when working on an aircraft or studying the mechanics of engines, it could be seen as a focus point. Therefore, I would place it around the middle of the spectrum."
+        },
+        "header_17": {
+          "spectrum": {
+            "left": "Relaxing",
+            "right": "Energizing"
+          },
+          "cue": "Coffee",
+          "response": 60,
+          "raw_response": "For me, coffee is a bit of a mix. It's not purely relaxing, but it's also not just an energy boost. It's more about the ritual and the taste. I'd say it's more energizing than relaxing, but not to the extreme. I usually have it in the morning to wake me up, but I don't rely on it to keep me going throughout the day."
+        },
+        "header_18": {
+          "spectrum": {
+            "left": "Overwhelming",
+            "right": "Delightful"
+          },
+          "cue": "Surprise party",
+          "response": 85,
+          "raw_response": "A surprise party can be a delightful experience when executed well, as it often brings people together in a joyful and unexpected way. However, there's always a risk of it being overwhelming if the element of surprise is not handled well, or if the person being surprised is not fond of such events. Given my personal preference for planned events and my experience with successful surprise parties, I place the marker closer to the delightful side."
+        },
+        "header_19": {
+          "spectrum": {
+            "left": "Brief and direct",
+            "right": "Expressive and detailed"
+          },
+          "cue": "Texting style",
+          "response": 60,
+          "raw_response": "In my personal texting style, I aim for a balance between being clear and concise while also expressing my thoughts and emotions. I don't use excessive abbreviations or emojis, but I also don't limit myself to one-word responses. I'd say my style is more detailed than brief, but not overly expressive. Considering the spectrum, I'd place my texting style around 60."
+        },
+        "header_20": {
+          "spectrum": {
+            "left": "Lucky",
+            "right": "Hardworking"
+          },
+          "cue": "Genius",
+          "response": 85,
+          "raw_response": "In my experience, a 'Genius' is often someone who has worked extremely hard to develop their skills and talents, rather than simply being lucky. While luck might play a small role in opportunities or timing, the core of their success is built on their own efforts. Therefore, I place 'Genius' closer to 'Hardworking' than 'Lucky'."
+        },
+        "header_21": {
+          "spectrum": {
+            "left": "Early completion",
+            "right": "Last-minute burst"
+          },
+          "cue": "Deadline",
+          "response": 50,
+          "raw_response": "Deadlines often fall somewhere in the middle of this spectrum. They can be met with early completion, but they also often involve some last-minute effort. However, the clue 'Deadline' itself doesn't specify how close to the deadline the work is completed. Therefore, I place it closer to the middle of the spectrum."
+        }
+      },
+      "completion_status": "completed"
+    }
+  ]
+}

@@ -5,7 +5,7 @@
 # Usage: run from repo root, e.g. ./agent_bank/scripts-agent-filtering/run_full_survey_all_models.sh
 
 set -e
-REPO_ROOT="/taiga/common_resources/yueshen7/genagents"
+REPO_ROOT="/projects/bdks/yueshen7/repos/genagents"
 SETTINGS="${REPO_ROOT}/simulation_engine/settings.py"
 LOG_DIR="${REPO_ROOT}/agent_bank/scripts-agent-filtering/survey_logs"
 mkdir -p "$LOG_DIR"
@@ -20,6 +20,7 @@ run_survey_for_model() {
   local log_file="${LOG_DIR}/survey_${choice}_$(date +%Y%m%d_%H%M%S).log"
   echo "[$(date -Iseconds)] Setting MODEL_CHOICE=$choice and running survey for $base_path (log: $log_file)"
   sed -i "s/^MODEL_CHOICE = .*/MODEL_CHOICE = \"${choice}\"/" "$SETTINGS"
+  # One question per inference (default; do not use --batch-by-section)
   python3 -u Surveys/run_survey.py --base "$base_path" --all >> "$log_file" 2>&1
   local status=$?
   echo "[$(date -Iseconds)] Finished $choice exit_code=$status"
