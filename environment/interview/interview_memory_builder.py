@@ -55,7 +55,7 @@ class InterviewMemoryBuilder:
                 "manual": {"enabled": False, "question_ids": []}
             },
             "interviewer_name": "Interviewer",
-            "prompt_template": f"{LLM_PROMPT_DIR}/generative_agent/interaction/utternace/interview_v1.txt"
+            "prompt_template": f"{LLM_PROMPT_DIR}/generative_agent/interaction/utterance/interview_v1.txt"
         }
         
         # Merge with user config

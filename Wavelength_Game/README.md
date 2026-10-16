@@ -1,15 +1,13 @@
 # Wavelength Game Module
 
-This module provides a complete workflow for administering the Wavelength Game to generative agents, collecting their responses, and performing statistical analysis on consistency and distribution patterns.
+This module administers the Wavelength spectrum-placement game used in the TUX study to generative agents and stores their responses. Analysis of the collected responses lives in a separate repository.
 
 ## Overview
 
 The Wavelength Game module enables:
 
 1. **Game Administration**: Run Wavelength-style games on agents and store responses
-2. **Consistency Analysis**: Measure agent self-consistency across multiple attempts
-3. **Distribution Analysis**: Analyze how responses are distributed across different agents
-4. **Response Management**: Archive and manage game response data
+2. **Attempt Patching**: Remove incomplete attempts and top every agent up to a target number of clean attempts
 
 ## Wavelength Game Rules
 
@@ -32,9 +30,6 @@ The Wavelength Game is a spectrum-based game where:
 
 - [Quick Start](#quick-start)
 - [Game Administration](#game-administration)
-- [Data Analysis](#data-analysis)
-  - [Consistency Analysis](#consistency-analysis)
-  - [Distribution Analysis](#distribution-analysis)
 - [Game Headers (Source of Truth)](#game-headers-source-of-truth)
 - [File Structure](#file-structure)
 - [Output Format](#output-format)
@@ -57,33 +52,21 @@ See [Game Headers (Source of Truth)](#game-headers-source-of-truth) for details.
 ### 2. Run Game on Single Agent
 
 ```bash
-python3 -u Wavelength_Game/run_wavelength.py --agent agent_bank/populations/gss_agents/0000
+python3 -u Wavelength_Game/run_wavelength.py --agent agent_bank/populations/Qwen3-14B_agents/0000
 ```
 
 ### 3. Run Game on Multiple Agents
 
 ```bash
 # Range of agents
-python3 -u Wavelength_Game/run_wavelength.py --base agent_bank/populations/gss_agents --range 0000-0049
+python3 -u Wavelength_Game/run_wavelength.py --base agent_bank/populations/Qwen3-14B_agents --range 0000-0049
 
 # Specific agents
-python3 -u Wavelength_Game/run_wavelength.py --base agent_bank/populations/gss_agents --agents 0000 0001 0002
+python3 -u Wavelength_Game/run_wavelength.py --base agent_bank/populations/Qwen3-14B_agents --agents 0000 0001 0002
 
 # All agents
-python3 -u Wavelength_Game/run_wavelength.py --base agent_bank/populations/gss_agents --all
+python3 -u Wavelength_Game/run_wavelength.py --base agent_bank/populations/Qwen3-14B_agents --all
 ```
-
-### 4. Analyze Results
-
-```bash
-# Consistency analysis
-python3 Wavelength_Game/analyze_consistency.py --base agent_bank/populations/gss_agents --range 0000-0049 --attempts 1-10
-
-# Distribution analysis
-python3 Wavelength_Game/analyze_distribution.py --base agent_bank/populations/gss_agents --range 0000-0049 --attempts 1-10
-```
-
----
 
 ## Game Headers (Source of Truth)
 
@@ -133,16 +116,16 @@ The main entry point is `run_wavelength.py`, which administers the Wavelength Ga
 
 ```bash
 # Single agent, all headers
-python3 -u Wavelength_Game/run_wavelength.py --agent agent_bank/populations/gss_agents/0000
+python3 -u Wavelength_Game/run_wavelength.py --agent agent_bank/populations/Qwen3-14B_agents/0000
 
 # Range of agents
-python3 -u Wavelength_Game/run_wavelength.py --base agent_bank/populations/gss_agents --range 0000-0049
+python3 -u Wavelength_Game/run_wavelength.py --base agent_bank/populations/Qwen3-14B_agents --range 0000-0049
 
 # New attempt for consistency testing
-python3 -u Wavelength_Game/run_wavelength.py --agent agent_bank/populations/gss_agents/0000 --new-attempt
+python3 -u Wavelength_Game/run_wavelength.py --agent agent_bank/populations/Qwen3-14B_agents/0000 --new-attempt
 
 # Faster mode (no reasoning, batch processing)
-python3 -u Wavelength_Game/run_wavelength.py --base agent_bank/populations/gss_agents --range 0000-0049 --no-reasoning --batch-by-header
+python3 -u Wavelength_Game/run_wavelength.py --base agent_bank/populations/Qwen3-14B_agents --range 0000-0049 --no-reasoning --batch-by-header
 ```
 
 ### How It Works
@@ -172,172 +155,18 @@ Each agent can have multiple game attempts for consistency testing:
 - Easy to track consistency across attempts
 - Use `--new-attempt` to create a new attempt
 
----
+### Patching to a Target Number of Clean Attempts
 
-## Data Analysis
-
-### Consistency Analysis
-
-**Script**: `analyze_consistency.py`
-
-Measures how consistent agents are across multiple game attempts using statistical reliability metrics.
-
-#### Metrics Computed
-
-1. **ICC(2,k)** - Intraclass Correlation Coefficient (two-way random, absolute agreement)
-   - Range: 0-1
-   - Interpretation: >0.75 excellent, 0.60-0.74 good, 0.40-0.59 fair, <0.40 poor
-
-2. **ICC(3,k)** - Intraclass Correlation Coefficient (two-way mixed, consistency)
-   - More lenient than ICC(2,k), allows systematic shifts
-
-3. **Cronbach's Alpha (α)** - Internal consistency reliability
-   - Range: 0-1
-   - Interpretation: >0.9 excellent, 0.8-0.9 good, 0.7-0.8 acceptable
-
-4. **Coefficient of Variation (CV)** - Relative variability
-   - Lower = more consistent
-   - Formula: (SD / Mean) × 100
-
-5. **Standard Deviation (SD)** - Absolute variability
-   - Lower = more consistent
-
-6. **Range** - Max - Min across attempts
-   - Lower = more consistent
-
-#### Usage
+`run_wavelength_patch_attempts.py` is how the TUX populations were brought to exactly 3 attempts per agent. For every agent it removes "dirty" attempts (any header missing or `null`), renumbers the rest, then runs new attempts (one header per inference) until the target is reached.
 
 ```bash
-# Basic analysis
-python3 Wavelength_Game/analyze_consistency.py \
-  --base agent_bank/populations/gss_agents \
-  --range 0000-0049 \
-  --attempts 1-10 \
-  --output consistency_report.html
+GENAGENTS_MODEL=14b python3 -u Wavelength_Game/run_wavelength_patch_attempts.py \
+  --base agent_bank/populations/Qwen3-14B_agents --target-attempts 3
 
-# Specific agents and attempts
-python3 Wavelength_Game/analyze_consistency.py \
-  --base agent_bank/populations/gss_agents \
-  --agents 0000 0001 0002 \
-  --attempts 1,2,3,5-10
-
-# Save CSV files too
-python3 Wavelength_Game/analyze_consistency.py \
-  --base agent_bank/populations/gss_agents \
-  --range 0000-0049 \
-  --attempts 1-10 \
-  --csv consistency_results/
+# Equivalent, selecting the model by flag and pinning one GPU
+CUDA_VISIBLE_DEVICES=0 python3 -u Wavelength_Game/run_wavelength_patch_attempts.py \
+  --base agent_bank/populations/Mistral-Nemo_agents --target-attempts 3 --model-choice mistral-nemo-2407
 ```
-
-#### Command-Line Options
-
-- `--base PATH`: Base path to agent bank directory (required)
-- `--agents ID1 ID2 ...`: Specific agent IDs to analyze
-- `--range START-END`: Range of agent IDs (e.g., `0000-0049`)
-- `--attempts RANGE`: Attempt range (e.g., `1-10`) or comma-separated (e.g., `1,2,3,5-10`)
-- `--output PATH`: Output HTML file path (default: `wavelength_consistency_report.html`)
-- `--csv DIR`: Also save results as CSV files in specified directory
-
-#### Analysis Levels
-
-Metrics are computed at multiple levels:
-
-1. **Header-Level**: Consistency for each game header across attempts
-2. **Agent-Level**: Overall consistency per agent
-3. **Overall Summary**: Aggregate statistics across all headers
-
-#### HTML Report Features
-
-The generated HTML report includes:
-
-- **Summary Tab**: Overall metrics dashboard, header comparison charts
-- **Header-Level Tab**: Interactive heatmap (ICC by header and agent), detailed data table
-- **Agent-Level Tab**: Bar chart comparing agents, agent consistency table
-- **Trajectories Tab**: Line plots showing how responses change across attempts
-
-#### Output Files
-
-- **HTML Report**: Interactive report with Plotly visualizations (self-contained)
-- **CSV Files** (if `--csv` specified):
-  - `header_level.csv`: Per-header metrics
-  - `agent_level.csv`: Per-agent metrics
-  - `overall_summary.csv`: Overall summary statistics
-
-### Distribution Analysis
-
-**Script**: `analyze_distribution.py`
-
-Analyzes how game responses are distributed across different agents, identifying patterns, diversity, and potential issues.
-
-#### Metrics Computed
-
-For each agent-header pair:
-- **Mean Score**: Average response across attempts (central tendency)
-- **Standard Deviation**: Variability across attempts (internal consistency)
-- **Min/Max/Range**: Response range
-- **Coefficient of Variation**: Relative variability
-
-Then analyzes distribution of these metrics across agents:
-- **Distribution Statistics**: Mean, median, SD of agent means
-- **Coverage Analysis**: Which values (0-100) are used by agents
-- **Diversity Metrics**: How spread out responses are
-- **Outlier Detection**: Agents with unusual response patterns
-
-#### Usage
-
-```bash
-# Basic analysis
-python3 Wavelength_Game/analyze_distribution.py \
-  --base agent_bank/populations/gss_agents \
-  --range 0000-0049 \
-  --attempts 1-10 \
-  --output distribution_report.html
-```
-
-#### Command-Line Options
-
-- `--base PATH`: Base path to agent bank directory (required)
-- `--agents ID1 ID2 ...`: Specific agent IDs to analyze
-- `--range START-END`: Range of agent IDs
-- `--attempts RANGE`: Attempt range or comma-separated list
-- `--output PATH`: Output HTML file path (default: `wavelength_distribution_report.html`)
-- `--csv DIR`: Save CSV files
-
-#### Visualizations
-
-The HTML report includes:
-
-1. **Box Plots**: Distribution of agent mean scores for each header
-   - Shows median, IQR, outliers
-   - Quick assessment of central location and spread
-
-2. **Violin Plots**: Detailed density distribution of agent mean scores
-   - Shows probability density
-   - Detects multimodal distributions (polarization)
-
-3. **Scatter Plots**: Mean vs. Standard Deviation
-   - X-axis: Mean Score (central tendency)
-   - Y-axis: SD (internal consistency)
-   - Identifies patterns in response stability
-
-4. **Histograms**: Distribution of agent means for each header
-   - Shows frequency of different response levels
-
-5. **Coverage Heatmap**: Which values (0-100) are used by how many agents
-   - Identifies unused values or lack of diversity
-
-6. **Edge Case Detection**: Flags headers with:
-   - Lack of diversity (all agents give similar responses)
-   - Unused values (no agent uses certain scale points)
-   - Outliers (agents with unusual patterns)
-
-#### Output Files
-
-- **HTML Report**: Interactive visualizations with Plotly
-- **CSV Files** (if `--csv` specified):
-  - `agent_header_metrics.csv`: Per-agent, per-header metrics
-  - `header_distribution.csv`: Distribution statistics per header
-  - `edge_cases.csv`: Detected edge cases and issues
 
 ---
 
@@ -350,9 +179,8 @@ Wavelength_Game/
 ├── extract_game_headers.py            # Converts Game Headers.csv → game_headers.json
 ├── game_headers.json                  # Game data used at runtime (generated from CSV)
 ├── wavelength_response_builder.py     # Main workflow class
-├── run_wavelength.py                 # CLI script to run game
-├── analyze_consistency.py             # Consistency analysis script
-└── analyze_distribution.py           # Distribution analysis script
+├── run_wavelength.py                  # CLI script to run game
+└── run_wavelength_patch_attempts.py   # Drop dirty attempts, top up to N clean attempts
 ```
 
 ---
@@ -417,7 +245,7 @@ import json
 import pandas as pd
 
 # Load responses
-with open('agent_bank/populations/gss_agents/0000/wavelength_responses.json') as f:
+with open('agent_bank/populations/Qwen3-14B_agents/0000/wavelength_responses.json') as f:
     data = json.load(f)
 
 # Extract first attempt
@@ -492,10 +320,6 @@ df = pd.DataFrame(rows)
 - Game requires all headers to be completed (configurable in code)
 - Each header is administered individually by default (can batch with `--batch-by-header`)
 - Responses are automatically validated (0-100 scale)
-- Missing/null responses are excluded from analysis calculations
-- Metrics are computed only when at least 2 attempts are available
-- All HTML reports are self-contained (includes Plotly.js from CDN)
-- Visualizations are interactive (zoom, pan, hover for details)
 
 ---
 
@@ -516,26 +340,6 @@ df = pd.DataFrame(rows)
 **Problem**: `game_headers.json` not found.
 
 **Solution**: Run `python3 Wavelength_Game/extract_game_headers.py` to generate it from `Game Headers.csv`. Ensure `Game Headers.csv` exists in `Wavelength_Game/`.
-
-### Issue: No Responses Found
-
-**Problem**: Analysis scripts find no data.
-
-**Solution**: Ensure:
-- Game has been run on agents (`wavelength_responses.json` exists)
-- Attempt IDs match (`--attempts` flag)
-- Agent folders are correctly specified
-
-### Issue: Out of Memory (Distribution Analysis)
-
-**Problem**: Large agent populations cause memory issues.
-
-**Solution**: 
-- Process in smaller ranges
-- Use `--csv` to save intermediate results
-- Process headers separately
-
----
 
 ## References
 

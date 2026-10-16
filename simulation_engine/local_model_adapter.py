@@ -8,7 +8,6 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 from sentence_transformers import SentenceTransformer
 from typing import List, Optional
 from pathlib import Path
-import os
 
 from simulation_engine.settings import *
 
@@ -52,30 +51,15 @@ def get_available_gpu():
     # Fallback to default
     return "cuda"
 
-# Get local model settings with defaults
-try:
-    _local_model_name = LOCAL_MODEL_NAME
-except NameError:
-    _local_model_name = "Qwen/Qwen2.5-7B-Instruct"
+_local_model_name = LOCAL_MODEL_NAME
+_local_embedding_model = LOCAL_EMBEDDING_MODEL
+_hf_token = HF_TOKEN
 
-try:
-    _local_embedding_model = LOCAL_EMBEDDING_MODEL
-except NameError:
-    _local_embedding_model = "sentence-transformers/all-MiniLM-L6-v2"
-
-try:
-    _device = DEVICE
-    # If DEVICE is just "cuda", try to find an available GPU
-    if _device == "cuda":
-        _device = get_available_gpu()
-        print(f"Auto-selected GPU: {_device}")
-except NameError:
-    _device = get_available_gpu() if torch.cuda.is_available() else "cpu"
-
-try:
-    _hf_token = HF_TOKEN
-except NameError:
-    _hf_token = None
+# If DEVICE is just "cuda", pick the GPU with the most free memory.
+_device = DEVICE
+if _device == "cuda":
+    _device = get_available_gpu()
+    print(f"Auto-selected GPU: {_device}")
 
 # Global model cache to avoid reloading
 _model_cache = {}
@@ -102,30 +86,12 @@ def load_local_model(model_name: str = None, device: str = None):
     
     # Check cache first
     cache_key = f"{model_name}_{device}"
-    # Debug: report cache status
-    # if len(_model_cache) > 0:
-    #     print(f"DEBUG: Model cache has {len(_model_cache)} entries: {list(_model_cache.keys())}", flush=True)
     if cache_key in _model_cache:
-        # print(f"Using cached model for {cache_key}", flush=True)
-        # Report memory when using cached model
-        # if device.startswith("cuda") and torch.cuda.is_available():
-        #     # Convert device string to device index for memory reporting
-        #     if ":" in device:
-        #         device_idx = int(device.split(":")[1])
-        #     else:
-        #         device_idx = 0
-        #     allocated = torch.cuda.memory_allocated(device_idx) / 1e9
-        #     reserved = torch.cuda.memory_reserved(device_idx) / 1e9
-        #     # Check model dtype
-        #     model = _model_cache[cache_key]
-        #     first_param_dtype = next(model.parameters()).dtype
-        #     print(f"Cached model dtype: {first_param_dtype}, Memory: {allocated:.2f} GB allocated, {reserved:.2f} GB reserved on {device}", flush=True)
         # Clear cache before returning to free up fragmented memory
         if device.startswith("cuda"):
             torch.cuda.empty_cache()
         return _model_cache[cache_key], _tokenizer_cache[cache_key]
     
-    # print(f"Loading new model for {cache_key} (cache miss)", flush=True)
     
     # Prepare authentication
     auth_kwargs = {}
@@ -134,117 +100,16 @@ def load_local_model(model_name: str = None, device: str = None):
         # For older transformers versions
         auth_kwargs['use_auth_token'] = _hf_token
     
-    # Determine if we're using a local path or HuggingFace model name
-    is_local_path = os.path.exists(model_name) if os.path.isabs(model_name) else False
-    
-    if is_local_path:
-        # Check if tokenizer files exist locally (preferred - faster and guaranteed match)
-        model_path = Path(model_name)
-        tokenizer_json = model_path / "tokenizer.json"
-        
-        if tokenizer_json.exists():
-            # Use local tokenizer files (best option - guaranteed to match the model)
-            print(f"Using local tokenizer files from: {model_name}")
-            tokenizer = AutoTokenizer.from_pretrained(model_name, **auth_kwargs)
-        else:
-            # Tokenizer files not found locally, try to infer HuggingFace model name
-            # Path format: /path/to/models/Qwen2.5-7B-Instruct/snapshots/...
-            # Extract model name from the path
-            path_parts = model_name.split('/')
-            
-            # Find the model directory name (usually before "snapshots")
-            tokenizer_model_name = None
-            for i, part in enumerate(path_parts):
-                if part == "snapshots" and i > 0:
-                    # The model name should be the directory before "snapshots"
-                    tokenizer_model_name = path_parts[i-1]
-                    break
-            
-            # If we didn't find it, try to extract from the path
-            if not tokenizer_model_name:
-                # Look for common model name patterns in the path
-                for part in path_parts:
-                    if "Qwen3" in part or "Qwen2.5" in part or ("Qwen" in part and ("Instruct" in part or "32B" in part or "14B" in part or "8B" in part)):
-                        tokenizer_model_name = part
-                        break
-            
-            # Map to HuggingFace model name for downloading
-            if tokenizer_model_name:
-                # Handle GPTQ models (tokenizer is same as base model, just strip GPTQ suffix)
-                if "GPTQ" in tokenizer_model_name:
-                    # Remove GPTQ-related suffixes to get base model name
-                    base_name = tokenizer_model_name.split("-GPTQ")[0]
-                    tokenizer_model_name = base_name
-                
-                if "Qwen3" in tokenizer_model_name:
-                    # Qwen3 models
-                    if "32B" in tokenizer_model_name:
-                        tokenizer_model_name = "Qwen/Qwen3-32B"
-                    elif "14B" in tokenizer_model_name:
-                        tokenizer_model_name = "Qwen/Qwen3-14B"
-                    elif "8B" in tokenizer_model_name:
-                        tokenizer_model_name = "Qwen/Qwen3-8B"
-                    else:
-                        tokenizer_model_name = "Qwen/Qwen3-32B"  # Default for Qwen3
-                elif "Qwen2.5" in tokenizer_model_name:
-                    # Extract version (7B, 14B, etc.)
-                    if "7B" in tokenizer_model_name:
-                        tokenizer_model_name = "Qwen/Qwen2.5-7B-Instruct"
-                    elif "14B" in tokenizer_model_name:
-                        tokenizer_model_name = "Qwen/Qwen2.5-14B-Instruct"
-                    elif "32B" in tokenizer_model_name:
-                        tokenizer_model_name = "Qwen/Qwen2.5-32B-Instruct"
-                    else:
-                        tokenizer_model_name = "Qwen/Qwen2.5-7B-Instruct"  # Default
-                elif "Llama" in tokenizer_model_name:
-                    tokenizer_model_name = f"meta-llama/{tokenizer_model_name}"
-                else:
-                    # Fallback: use the extracted name as-is
-                    tokenizer_model_name = tokenizer_model_name
-            else:
-                # Ultimate fallback - try to infer from the full path
-                # Handle GPTQ models
-                if "GPTQ" in model_name:
-                    # Remove GPTQ-related suffixes
-                    base_name = model_name.split("-GPTQ")[0]
-                    if "Qwen3" in base_name:
-                        if "32B" in base_name:
-                            tokenizer_model_name = "Qwen/Qwen3-32B"
-                        elif "14B" in base_name:
-                            tokenizer_model_name = "Qwen/Qwen3-14B"
-                        elif "8B" in base_name:
-                            tokenizer_model_name = "Qwen/Qwen3-8B"
-                        else:
-                            tokenizer_model_name = "Qwen/Qwen3-32B"
-                    elif "Qwen2.5" in base_name:
-                        if "32B" in base_name:
-                            tokenizer_model_name = "Qwen/Qwen2.5-32B-Instruct"
-                        elif "14B" in base_name:
-                            tokenizer_model_name = "Qwen/Qwen2.5-14B-Instruct"
-                        elif "7B" in base_name:
-                            tokenizer_model_name = "Qwen/Qwen2.5-7B-Instruct"
-                        else:
-                            tokenizer_model_name = "Qwen/Qwen2.5-7B-Instruct"
-                    else:
-                        tokenizer_model_name = "Qwen/Qwen2.5-7B-Instruct"
-                elif "Qwen3" in model_name:
-                    if "32B" in model_name:
-                        tokenizer_model_name = "Qwen/Qwen3-32B"
-                    elif "14B" in model_name:
-                        tokenizer_model_name = "Qwen/Qwen3-14B"
-                    elif "8B" in model_name:
-                        tokenizer_model_name = "Qwen/Qwen3-8B"
-                    else:
-                        tokenizer_model_name = "Qwen/Qwen3-32B"
-                else:
-                    tokenizer_model_name = "Qwen/Qwen2.5-7B-Instruct"
-            
-            print(f"Tokenizer files not found locally, downloading from HuggingFace: {tokenizer_model_name}")
-            # Load tokenizer from HuggingFace (will download if needed)
-            tokenizer = AutoTokenizer.from_pretrained(tokenizer_model_name, **auth_kwargs)
+    # Local weight folders normally ship tokenizer files; if one does not,
+    # fall back to the hub id of the selected model.
+    model_path = Path(model_name)
+    if model_path.is_dir() and not (model_path / "tokenizer.json").exists() \
+            and not (model_path / "tokenizer_config.json").exists():
+        print(f"Tokenizer files not found in {model_name}, loading from {LOCAL_MODEL_HF_ID}")
+        tokenizer_source = LOCAL_MODEL_HF_ID
     else:
-        # Use the model name directly (HuggingFace identifier)
-        tokenizer = AutoTokenizer.from_pretrained(model_name, **auth_kwargs)
+        tokenizer_source = model_name
+    tokenizer = AutoTokenizer.from_pretrained(tokenizer_source, **auth_kwargs)
     
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
@@ -279,21 +144,6 @@ def load_local_model(model_name: str = None, device: str = None):
     
     model.eval()
     
-    # Verify model dtype and print memory usage
-    # if device.startswith("cuda") and torch.cuda.is_available():
-    #     # Check actual model dtype
-    #     first_param_dtype = next(model.parameters()).dtype
-    #     print(f"Model dtype: {first_param_dtype}, Expected: torch.float16", flush=True)
-    #     
-    #     # Print GPU memory usage - convert device string to index
-    #     if torch.cuda.is_available():
-    #         if ":" in device:
-    #             device_idx = int(device.split(":")[1])
-    #         else:
-    #             device_idx = 0
-    #         allocated = torch.cuda.memory_allocated(device_idx) / 1e9
-    #         reserved = torch.cuda.memory_reserved(device_idx) / 1e9
-    #         print(f"GPU memory after loading: {allocated:.2f} GB allocated, {reserved:.2f} GB reserved on {device} (device_idx={device_idx})", flush=True)
     
     # Cache the model
     _model_cache[cache_key] = model
@@ -384,14 +234,6 @@ def local_model_request(prompt: str,
             if device.startswith("cuda"):
                 torch.cuda.empty_cache()
                 torch.cuda.synchronize()
-                # Report memory before generation - convert device string to index
-                # if ":" in device:
-                #     device_idx = int(device.split(":")[1])
-                # else:
-                #     device_idx = 0
-                # allocated = torch.cuda.memory_allocated(device_idx) / 1e9
-                # reserved = torch.cuda.memory_reserved(device_idx) / 1e9
-                # print(f"Memory before generation: {allocated:.2f} GB allocated, {reserved:.2f} GB reserved on {device} (device_idx={device_idx})", flush=True)
         else:
             # Fallback: simple prompt formatting
             inputs = tokenizer(prompt, return_tensors="pt")
@@ -446,14 +288,6 @@ def local_model_request(prompt: str,
             del inputs, outputs, generated_tokens
             torch.cuda.empty_cache()
             torch.cuda.synchronize()
-            # Report memory after generation
-            # if ":" in device:
-            #     device_idx = int(device.split(":")[1])
-            # else:
-            #     device_idx = 0
-            # allocated = torch.cuda.memory_allocated(device_idx) / 1e9
-            # reserved = torch.cuda.memory_reserved(device_idx) / 1e9
-            # print(f"Memory after generation: {allocated:.2f} GB allocated, {reserved:.2f} GB reserved on {device}", flush=True)
         
         # Clean up reasoning blocks if present (for Qwen3 thinking mode)
         # Even with enable_thinking=False, sometimes blocks may appear

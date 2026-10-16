@@ -2,7 +2,7 @@
 """
 Extract demographic information from all agent scratch.json files to CSV.
 
-This script scans all agent folders in agent_bank/populations/gss_agents/
+This script scans all agent folders in agent_bank/populations/placeholder_agents/
 and extracts demographic information from each agent's scratch.json file,
 converting it to a CSV file for easy filtering and statistical analysis.
 """
@@ -118,10 +118,10 @@ def main():
     """Main function."""
     # Get the base directory of this script
     script_dir = Path(__file__).resolve().parent
-    project_root = script_dir.parent
+    project_root = script_dir.parent.parent
     
     # Define paths
-    agents_base_path = project_root / "agent_bank" / "populations" / "gss_agents"
+    agents_base_path = project_root / "agent_bank" / "populations" / "placeholder_agents"
     output_csv = project_root / "agent_bank" / "gss_agents_demographics.csv"
     
     print("=" * 60)

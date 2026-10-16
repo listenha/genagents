@@ -17,6 +17,9 @@ from typing import Dict, List, Any, Set, Tuple
 from datetime import datetime
 import re
 
+# agent_bank/ directory, so defaults work from any working directory.
+AGENT_BANK_DIR = Path(__file__).resolve().parent.parent
+
 
 class FilterTypes:
     """Filter type implementations."""
@@ -462,7 +465,7 @@ def main():
     parser.add_argument(
         '--csv',
         type=str,
-        default='agent_bank/gss_agents_demographics.csv',
+        default=str(AGENT_BANK_DIR / 'gss_agents_demographics.csv'),
         help='Path to demographics CSV file (default: agent_bank/gss_agents_demographics.csv)'
     )
     parser.add_argument(
@@ -481,13 +484,13 @@ def main():
     parser.add_argument(
         '--agents-path',
         type=str,
-        default='agent_bank/populations/gss_agents',
-        help='Path to agent folders (default: agent_bank/populations/gss_agents)'
+        default=str(AGENT_BANK_DIR / 'populations' / 'placeholder_agents'),
+        help='Path to agent folders (default: agent_bank/populations/placeholder_agents)'
     )
     parser.add_argument(
         '--backup-path',
         type=str,
-        default='agent_bank/populations/backup_agents',
+        default=str(AGENT_BANK_DIR / 'populations' / 'backup_agents'),
         help='Path to backup folder (default: agent_bank/populations/backup_agents)'
     )
     parser.add_argument(

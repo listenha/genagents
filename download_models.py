@@ -1,152 +1,71 @@
 #!/usr/bin/env python3
 """
-Script to download Qwen models to the local models directory.
+Download model weights into GENAGENTS_MODELS_DIR.
 
-This script downloads models to: /projects/bdks/yueshen7/models/
-(NCSA Delta: use this path under your project space.)
+Each model is stored in <GENAGENTS_MODELS_DIR>/<last part of hub id>, which is
+where simulation_engine/settings.py looks for it. Models are chosen by their
+MODEL_REGISTRY key; with no arguments, the four model families used in the TUX
+paper are downloaded.
+
+Usage:
+  export GENAGENTS_MODELS_DIR=/path/to/models
+  export HF_TOKEN=hf_...            # needed for gated models (Llama, Gemma, Ministral)
+  python3 download_models.py                    # paper models
+  python3 download_models.py gemma-3-12b-it 32b # specific registry keys
 """
 
-import os
+import argparse
+import shutil
+import sys
 from pathlib import Path
-from transformers import AutoTokenizer, AutoModelForCausalLM
+
 from huggingface_hub import snapshot_download
 
-# Models to download
-# Note: "Qwen3-32B" doesn't exist yet - using Qwen2.5-32B-Instruct instead
-# If you need a different model, update these names
-MODELS_TO_DOWNLOAD = [
-    "meta-llama/Llama-3.1-8B-Instruct",
-    "mistralai/Mistral-Nemo-Instruct-2407",
-    "Qwen/Qwen2.5-7B-Instruct",
-    "Qwen/Qwen3-14B",
-    # Additional models to download
-    "google/gemma-3-12b-it",
-    "mistralai/Ministral-3-14B-Instruct-2512",
-]
+from simulation_engine.settings import MODEL_REGISTRY, MODELS_DIR, HF_TOKEN
 
-# Base directory for models (NCSA Delta)
-BASE_MODELS_DIR = Path("/projects/bdks/yueshen7/models")
+PAPER_MODELS = ["14b", "7b", "llama3.1-8b", "mistral-nemo-2407"]
 
-# Optional: Hugging Face token (required for gated models)
-HF_TOKEN = os.environ.get("HF_TOKEN", None)
 
-def download_model(model_name: str, base_dir: Path, token: str = None):
-    """
-    Download a model using snapshot_download to maintain the proper structure.
-    
-    Args:
-        model_name: Hugging Face model identifier (e.g., "Qwen/Qwen2.5-32B-Instruct")
-        base_dir: Base directory where models will be stored
-        token: Optional Hugging Face token for gated models
-    """
-    print(f"\n{'='*60}")
-    print(f"Downloading model: {model_name}")
-    print(f"{'='*60}")
-    
-    # Extract model folder name (e.g., "Qwen2.5-32B-Instruct" from "Qwen/Qwen2.5-32B-Instruct")
-    model_folder_name = model_name.split('/')[-1]
-    target_dir = base_dir / model_folder_name
-    
-    # Create base directory if it doesn't exist
-    base_dir.mkdir(parents=True, exist_ok=True)
-    
-    try:
-        # Use snapshot_download to download the model
-        # This creates the proper snapshots/ directory structure
-        auth_kwargs = {}
-        if token:
-            auth_kwargs['token'] = token
-            print(f"Using Hugging Face token for authentication")
-        
-        print(f"Target directory: {target_dir}")
-        print(f"This may take a while depending on model size and internet speed...")
-        
-        snapshot_download(
-            repo_id=model_name,
-            local_dir=str(target_dir),
-            local_dir_use_symlinks=False,  # Copy files instead of symlinks
-            token=token if token else None,
-            resume_download=True,  # Resume if interrupted
-        )
-        
-        # Find the snapshot directory (HuggingFace creates snapshots/<hash>/ structure)
-        snapshot_dirs = list(target_dir.glob("snapshots/*"))
-        if snapshot_dirs:
-            snapshot_path = snapshot_dirs[0]
-            print(f"\n✓ Model downloaded successfully!")
-            print(f"  Model path: {snapshot_path}")
-            print(f"  Use this path in settings.py: {snapshot_path}")
-        else:
-            # If no snapshots dir, the model might be directly in target_dir
-            print(f"\n✓ Model downloaded successfully!")
-            print(f"  Model path: {target_dir}")
-            print(f"  Use this path in settings.py: {target_dir}")
-            
-    except Exception as e:
-        print(f"\n✗ Error downloading {model_name}: {e}")
-        print(f"  Make sure you have:")
-        print(f"  1. Sufficient disk space (32B models are large!)")
-        print(f"  2. Internet connection")
-        print(f"  3. Hugging Face token if model is gated (set HF_TOKEN environment variable)")
-        return False
-    
-    return True
+def download_model(hf_id: str, base_dir: Path) -> bool:
+  target_dir = base_dir / hf_id.split("/")[-1]
+  print(f"\n{'=' * 60}\nDownloading {hf_id}\n  -> {target_dir}\n{'=' * 60}")
+  try:
+    snapshot_download(repo_id=hf_id, local_dir=str(target_dir), token=HF_TOKEN)
+  except Exception as e:
+    print(f"✗ Error downloading {hf_id}: {e}")
+    print("  Check disk space, network access, and HF_TOKEN for gated models.")
+    return False
+  print(f"✓ {hf_id} downloaded")
+  return True
+
 
 def main():
-    print("Qwen Model Download Script")
-    print("=" * 60)
-    print(f"Models will be downloaded to: {BASE_MODELS_DIR}")
-    print(f"Current models directory exists: {BASE_MODELS_DIR.exists()}")
-    
-    # Check available space (rough estimate)
-    import shutil
-    if BASE_MODELS_DIR.exists():
-        stat = shutil.disk_usage(BASE_MODELS_DIR)
-        free_gb = stat.free / (1024**3)
-        print(f"Available disk space: {free_gb:.2f} GB")
-        if free_gb < 100:
-            print(f"  WARNING: 32B models require ~60-80GB each. Make sure you have enough space!")
-    
-    # Download each model
-    successful = []
-    failed = []
-    
-    for model_name in MODELS_TO_DOWNLOAD:
-        if download_model(model_name, BASE_MODELS_DIR, HF_TOKEN):
-            successful.append(model_name)
-        else:
-            failed.append(model_name)
-    
-    # Summary
-    print(f"\n{'='*60}")
-    print("Download Summary")
-    print(f"{'='*60}")
-    print(f"Successfully downloaded: {len(successful)}/{len(MODELS_TO_DOWNLOAD)}")
-    for model in successful:
-        print(f"  ✓ {model}")
-    
-    if failed:
-        print(f"\nFailed to download: {len(failed)}/{len(MODELS_TO_DOWNLOAD)}")
-        for model in failed:
-            print(f"  ✗ {model}")
-    
-    if successful:
-        print(f"\n{'='*60}")
-        print("Next Steps:")
-        print(f"{'='*60}")
-        print("1. Find the snapshot path for each downloaded model:")
-        for model in successful:
-            model_folder = model.split('/')[-1]
-            model_path = BASE_MODELS_DIR / model_folder
-            snapshot_dirs = list(model_path.glob("snapshots/*"))
-            if snapshot_dirs:
-                print(f"   {model}: {snapshot_dirs[0]}")
-            else:
-                print(f"   {model}: {model_path}")
-        print("\n2. Update simulation_engine/settings.py:")
-        print("   LOCAL_MODEL_NAME = \"/path/to/model/snapshots/<hash>\"")
-        print("   LLM_VERS = \"ModelName\"")
+  parser = argparse.ArgumentParser(description=__doc__,
+                                   formatter_class=argparse.RawDescriptionHelpFormatter)
+  parser.add_argument("models", nargs="*", metavar="MODEL",
+                      help=f"Registry keys to download: {', '.join(MODEL_REGISTRY)} "
+                           f"(default: {' '.join(PAPER_MODELS)})")
+  args = parser.parse_args()
+  models = args.models or PAPER_MODELS
+  unknown = [key for key in models if key not in MODEL_REGISTRY]
+  if unknown:
+    parser.error(f"unknown model key(s): {', '.join(unknown)}")
+
+  if not MODELS_DIR:
+    sys.exit("GENAGENTS_MODELS_DIR is not set. Point it at the directory that should hold model weights.")
+  base_dir = Path(MODELS_DIR)
+  base_dir.mkdir(parents=True, exist_ok=True)
+  print(f"Models directory: {base_dir}")
+  print(f"Available disk space: {shutil.disk_usage(base_dir).free / 1024**3:.1f} GB")
+
+  failed = [key for key in models
+            if not download_model(MODEL_REGISTRY[key]["hf_id"], base_dir)]
+
+  print(f"\nDownloaded {len(models) - len(failed)}/{len(models)} models.")
+  if failed:
+    print(f"Failed: {', '.join(failed)}")
+    sys.exit(1)
+
 
 if __name__ == "__main__":
-    main()
-
+  main()

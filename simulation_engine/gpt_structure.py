@@ -1,34 +1,16 @@
 import openai
 import time
-import base64
 from typing import List, Union
 
 from simulation_engine.settings import *
 
-# Default to OpenAI if MODEL_PROVIDER not defined (backward compatibility)
-try:
-    _model_provider = MODEL_PROVIDER
-except NameError:
-    _model_provider = "openai"
-
-# Only set OpenAI API key if using OpenAI provider
-if _model_provider == "openai":
-    openai.api_key = OPENAI_API_KEY
-
-# Import local model adapter if using local models
-if _model_provider == "local":
-    try:
-        from simulation_engine.local_model_adapter import (
-            local_model_request,
-            local_get_text_embedding
-        )
-    except ImportError:
-        print("Warning: local_model_adapter not found. Install transformers, torch, and sentence-transformers to use local models.")
-        local_model_request = None
-        local_get_text_embedding = None
+if MODEL_PROVIDER == "local":
+  from simulation_engine.local_model_adapter import (
+    local_model_request,
+    local_get_text_embedding
+  )
 else:
-    local_model_request = None
-    local_get_text_embedding = None
+  openai.api_key = OPENAI_API_KEY
 
 
 # ============================================================================
@@ -77,23 +59,10 @@ def gpt_request(prompt: str,
                 model: str = "gpt-4o", 
                 max_tokens: int = 1500) -> str:
   """Make a request to either OpenAI or local model based on MODEL_PROVIDER."""
-  try:
-    _model_provider = MODEL_PROVIDER
-  except NameError:
-    _model_provider = "openai"
-  
-  if _model_provider == "local":
-    # Use local model
-    if local_model_request is None:
-      return "GENERATION ERROR: Local model adapter not available. Install required dependencies."
-    try:
-      model_name = LOCAL_MODEL_NAME
-    except NameError:
-      model_name = "Qwen/Qwen2.5-7B-Instruct"
-    return local_model_request(prompt, model_name=model_name, 
-                              max_tokens=max_tokens, temperature=0.7)
+  if MODEL_PROVIDER == "local":
+    return local_model_request(prompt, model_name=LOCAL_MODEL_NAME,
+                               max_tokens=max_tokens, temperature=0.7)
   else:
-    # Original OpenAI code
     if model == "o1-preview": 
       try:
         client = openai.OpenAI(api_key=OPENAI_API_KEY)
@@ -124,21 +93,6 @@ def gpt_request(prompt: str,
       return f"GENERATION ERROR: {str(e)}"
 
 
-def gpt4_vision(messages: List[dict], max_tokens: int = 1500) -> str:
-  """Make a request to OpenAI's GPT-4 Vision model."""
-  try:
-    client = openai.OpenAI(api_key=OPENAI_API_KEY)
-    response = client.chat.completions.create(
-      model="gpt-4o",
-      messages=messages,
-      max_tokens=max_tokens,
-      temperature=0.7
-    )
-    return response.choices[0].message.content
-  except Exception as e:
-    return f"GENERATION ERROR: {str(e)}"
-
-
 def chat_safe_generate(prompt_input: Union[str, List[str]], 
                        prompt_lib_file: str,
                        gpt_version: str = "gpt-4o", 
@@ -146,44 +100,16 @@ def chat_safe_generate(prompt_input: Union[str, List[str]],
                        fail_safe: str = "error", 
                        func_clean_up: callable = None,
                        verbose: bool = False,
-                       max_tokens: int = 1500,
-                       file_attachment: str = None,
-                       file_type: str = None) -> tuple:
+                       max_tokens: int = 1500) -> tuple:
   """Generate a response using GPT models with error handling & retries."""
-  if file_attachment and file_type:
-    prompt = generate_prompt(prompt_input, prompt_lib_file)
-    messages = [{"role": "user", "content": prompt}]
-
-    if file_type.lower() == 'image':
-      with open(file_attachment, "rb") as image_file:
-        base64_image = base64.b64encode(image_file.read()).decode('utf-8')
-      messages.append({
-        "role": "user",
-        "content": [
-            {"type": "text", "text": "Please refer to the attached image."},
-            {"type": "image_url", "image_url": 
-              {"url": f"data:image/jpeg;base64,{base64_image}"}}
-        ]
-      })
-      response = gpt4_vision(messages, max_tokens)
-
-    elif file_type.lower() == 'pdf':
-      pdf_text = extract_text_from_pdf_file(file_attachment)
-      pdf = f"PDF attachment in text-form:\n{pdf_text}\n\n"
-      instruction = generate_prompt(prompt_input, prompt_lib_file)
-      prompt = f"{pdf}"
-      prompt += f"<End of the PDF attachment>\n=\nTask description:\n{instruction}"
-      response = gpt_request(prompt, gpt_version, max_tokens)
-
+  prompt = generate_prompt(prompt_input, prompt_lib_file)
+  for i in range(repeat):
+    response = gpt_request(prompt, model=gpt_version, max_tokens=max_tokens)
+    if response != "GENERATION ERROR":
+      break
+    time.sleep(2**i)
   else:
-    prompt = generate_prompt(prompt_input, prompt_lib_file)
-    for i in range(repeat):
-      response = gpt_request(prompt, model=gpt_version, max_tokens=max_tokens)
-      if response != "GENERATION ERROR":
-        break
-      time.sleep(2**i)
-    else:
-      response = fail_safe
+    response = fail_safe
 
   if func_clean_up:
     response = func_clean_up(response, prompt=prompt)
@@ -201,21 +127,9 @@ def chat_safe_generate(prompt_input: Union[str, List[str]],
 def get_text_embedding(text: str, 
                        model: str = "text-embedding-3-small") -> List[float]:
   """Generate embedding using either OpenAI or local model."""
-  try:
-    _model_provider = MODEL_PROVIDER
-  except NameError:
-    _model_provider = "openai"
-  
-  if _model_provider == "local":
-    if local_get_text_embedding is None:
-      raise ValueError("Local embedding model adapter not available. Install required dependencies.")
-    try:
-      embedding_model = LOCAL_EMBEDDING_MODEL
-    except NameError:
-      embedding_model = "sentence-transformers/all-MiniLM-L6-v2"
-    return local_get_text_embedding(text, model_name=embedding_model)
+  if MODEL_PROVIDER == "local":
+    return local_get_text_embedding(text, model_name=LOCAL_EMBEDDING_MODEL)
   else:
-    # Original OpenAI code
     if not isinstance(text, str) or not text.strip():
       raise ValueError("Input text must be a non-empty string.")
 
@@ -223,12 +137,3 @@ def get_text_embedding(text: str,
     response = openai.embeddings.create(
       input=[text], model=model).data[0].embedding
     return response
-
-
-
-
-
-
-
-
-

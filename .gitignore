@@ -1,7 +1,9 @@
 *.DS_Store
 __pycache__/
 *.pyc
-*.html
+
+# Machine-specific configuration (see .env.example)
+.env
 
 # Virtual environment
 venv/
@@ -9,9 +11,6 @@ env/
 ENV/
 .venv
 
-# Agent data (large files - don't commit embeddings)
-agent_bank/populations/*/memory_stream/embeddings.json
-
-# Test files (optional - remove if you want to commit)
-test_agent.py
-
+# Run logs
+logs/
+*.log

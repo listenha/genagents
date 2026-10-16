@@ -6,10 +6,12 @@ Tests with a single agent to verify the workflow.
 
 import sys
 import os
+import shutil
+import tempfile
 from pathlib import Path
 
 # Add project root to path
-project_root = Path(__file__).parent.parent.parent
+project_root = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(project_root))
 
 from environment.interview.interview_memory_builder import InterviewMemoryBuilder
@@ -21,7 +23,12 @@ def test_single_agent():
     # Paths
     script_dir = Path(__file__).parent
     interview_script_path = script_dir / "interview_script.json"
-    agent_folder = project_root / "agent_bank/populations/gss_agents/0000"
+    # The interview appends memories and saves the agent, so it runs on a
+    # temporary copy holding only the seed profile of agent 0000.
+    seed_agent = project_root / "agent_bank/populations/placeholder_agents/0000"
+    agent_folder = Path(tempfile.mkdtemp(prefix="interview_test_")) / "0000"
+    agent_folder.mkdir()
+    shutil.copy(seed_agent / "scratch.json", agent_folder / "scratch.json")
     
     if not interview_script_path.exists():
         print(f"Error: Interview script not found at {interview_script_path}")
@@ -93,6 +100,7 @@ def test_single_agent():
     finally:
         # Restore original script
         builder.interview_script = original_script
+        shutil.rmtree(agent_folder.parent, ignore_errors=True)
 
 
 if __name__ == "__main__":

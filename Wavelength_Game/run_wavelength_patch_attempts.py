@@ -17,7 +17,7 @@ from typing import List, Dict, Any, Set, Tuple
 project_root = Path(__file__).parent.parent.resolve()
 sys.path.insert(0, str(project_root))
 
-import simulation_engine.settings as settings
+from simulation_engine.agent_selection import get_agent_folders
 
 
 def get_expected_header_ids(game_headers: List[Dict[str, Any]]) -> Set[str]:
@@ -61,18 +61,6 @@ def clean_and_count_attempts(
     return len(clean), removed
 
 
-def get_agent_folders(base_path: str) -> List[str]:
-    """Return list of agent folder paths under base_path that have scratch.json."""
-    base = Path(base_path)
-    if not base.exists():
-        raise ValueError(f"Base path does not exist: {base_path}")
-    folders = []
-    for agent_folder in sorted(base.iterdir()):
-        if agent_folder.is_dir() and (agent_folder / "scratch.json").exists():
-            folders.append(str(agent_folder))
-    return folders
-
-
 def main():
     parser = argparse.ArgumentParser(
         description="Patch Wavelength attempts: remove dirty attempts, then run new ones until target per agent. One header per inference."
@@ -87,18 +75,13 @@ def main():
     parser.add_argument("--dry-run", action="store_true",
                         help="Only report what would be done, do not run games")
     parser.add_argument("--model-choice", type=str, default=None,
-                        help="Override MODEL_CHOICE (e.g. mistral-nemo-2407, llama3.1-8b, 7b, 14b). Use with CUDA_VISIBLE_DEVICES for parallel runs.")
+                        help="Model key from MODEL_REGISTRY in simulation_engine/settings.py (overrides GENAGENTS_MODEL), e.g. 14b, 7b, llama3.1-8b, mistral-nemo-2407. Use with CUDA_VISIBLE_DEVICES for parallel runs.")
     args = parser.parse_args()
 
+    # Settings are read when the builder is first imported, so the model
+    # override has to be in the environment before that import.
     if args.model_choice:
-        if args.model_choice not in settings.MODEL_PATHS:
-            print(f"Error: Unknown model choice '{args.model_choice}'. Valid: {list(settings.MODEL_PATHS.keys())}")
-            sys.exit(1)
-        settings.MODEL_CHOICE = args.model_choice
-        sel = settings.MODEL_PATHS[args.model_choice]
-        settings.LOCAL_MODEL_NAME = sel["path"]
-        settings.LLM_VERS = sel["name"]
-        settings.DEVICE = "cuda:0"
+        os.environ["GENAGENTS_MODEL"] = args.model_choice
 
     from Wavelength_Game.wavelength_response_builder import WavelengthResponseBuilder
 

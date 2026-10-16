@@ -11,7 +11,7 @@ The Interview Memory Builder conducts interviews with agents to build rich, deta
 ### 1. Interview Script Extraction
 **File:** `extract_interview_script.py`
 
-Extracts interview questions from the example agent's memory stream nodes and saves them as a JSON file.
+Parses `Interview/Interview_Script.md` (question text followed by its time limit in seconds) into a JSON list of questions.
 
 **Usage:**
 ```bash
@@ -43,7 +43,7 @@ builder = InterviewMemoryBuilder(
 )
 
 # Build memory for a single agent
-result = builder.build_memory("agent_bank/populations/gss_agents/0000")
+result = builder.build_memory("agent_bank/populations/my_agents/0000")
 print(f"Questions answered: {result['questions_answered']}")
 print(f"Memories created: {result['memories_created']}")
 print(f"Reflections triggered: {result['reflections_triggered']}")
@@ -53,8 +53,8 @@ print(f"Reflections triggered: {result['reflections_triggered']}")
 ```python
 # Process multiple agents
 agent_folders = [
-    "agent_bank/populations/gss_agents/0000",
-    "agent_bank/populations/gss_agents/0001",
+    "agent_bank/populations/my_agents/0000",
+    "agent_bank/populations/my_agents/0001",
     # ...
 ]
 
@@ -97,7 +97,7 @@ for result in results:
     "context": "You are developing a detailed personal profile...",
     "interviewer_name": "Interviewer",
     "save_interval": 10,
-    "prompt_template": "simulation_engine/prompt_template/generative_agent/interaction/utternace/interview_v1.txt"
+    "prompt_template": "simulation_engine/prompt_template/generative_agent/interaction/utterance/interview_v1.txt"
 }
 ```
 
@@ -138,34 +138,34 @@ Progress is stored in `{agent_folder}/interview_progress.json`:
 Run a complete interview on a single agent:
 
 ```bash
-python3 Interview/run_interview.py --agent agent_bank/populations/gss_agents/0000
+python3 Interview/run_interview.py --agent agent_bank/populations/my_agents/0000
 ```
 
 ### Common Usage Examples
 
 **Test with limited questions:**
 ```bash
-python3 Interview/run_interview.py --agent agent_bank/populations/gss_agents/0000 --limit 10
+python3 Interview/run_interview.py --agent agent_bank/populations/my_agents/0000 --limit 10
 ```
 
 **Use custom configuration:**
 ```bash
-python3 Interview/run_interview.py --agent agent_bank/populations/gss_agents/0000 --config interview_config_example.json
+python3 Interview/run_interview.py --agent agent_bank/populations/my_agents/0000 --config interview_config_example.json
 ```
 
 **Process multiple specific agents:**
 ```bash
-python3 Interview/run_interview.py --base agent_bank/populations/gss_agents --agents 0000 0001 0002
+python3 Interview/run_interview.py --base agent_bank/populations/my_agents --agents 0000 0001 0002
 ```
 
 **Process all agents in directory:**
 ```bash
-python3 Interview/run_interview.py --base agent_bank/populations/gss_agents --all
+python3 Interview/run_interview.py --base agent_bank/populations/my_agents --all
 ```
 
 **Dry run (preview without executing):**
 ```bash
-python3 Interview/run_interview.py --agent agent_bank/populations/gss_agents/0000 --dry-run
+python3 Interview/run_interview.py --agent agent_bank/populations/my_agents/0000 --dry-run
 ```
 
 ### Command-Line Options

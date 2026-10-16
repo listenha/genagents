@@ -1,24 +1,20 @@
-# Surveys Module: PRE-TASK SURVEY Administration and Analysis
+# Surveys Module: PRE-TASK SURVEY Administration
 
-This module provides a complete workflow for administering the PRE-TASK SURVEY to generative agents, collecting responses, and performing statistical analysis on consistency and distribution patterns.
+This module administers the PRE-TASK SURVEY (BFI-10, BES-A, REI, SD3 narcissism, GDMS) to generative agents and stores their responses. Analysis of the collected responses lives in a separate repository.
 
 ## Overview
 
 The Surveys module enables:
 
 1. **Survey Administration**: Run standardized surveys on agents and store responses
-2. **Consistency Analysis**: Measure agent self-consistency across multiple attempts
-3. **Distribution Analysis**: Analyze how responses are distributed across different agents
-4. **Response Management**: Archive, translate, and manage survey response data
+2. **Attempt Patching**: Remove incomplete attempts and top every agent up to a target number of clean attempts
+3. **Response Management**: Archive survey response data
 
 ## Table of Contents
 
 - [Survey Instruments](#survey-instruments)
 - [Quick Start](#quick-start)
 - [Survey Administration](#survey-administration)
-- [Data Analysis](#data-analysis)
-  - [Consistency Analysis](#consistency-analysis)
-  - [Distribution Analysis](#distribution-analysis)
 - [Response Management](#response-management)
 - [File Structure](#file-structure)
 - [Output Format](#output-format)
@@ -28,7 +24,7 @@ The Surveys module enables:
 
 ## Survey Instruments
 
-The PRE-TASK SURVEY consists of three standardized psychological instruments:
+The PRE-TASK SURVEY consists of five sections (see `PRE-TASK SURVEY.md`; item counts below are those in `survey_questions.json`):
 
 ### 1. BFI-10 (Big Five Personality Inventory)
 - **10 questions** measuring personality traits
@@ -37,18 +33,24 @@ The PRE-TASK SURVEY consists of three standardized psychological instruments:
 - Measures: Extraversion, Agreeableness, Conscientiousness, Neuroticism, Openness
 
 ### 2. BES-A (Empathy Scale for Adults - Cognitive Subscale)
-- **9 questions** measuring cognitive empathy
+- **5 questions** measuring cognitive empathy
 - **Scale**: 1-5 Likert scale
 - **Reference**: Carré et al., 2013
 - Measures: Ability to understand and recognize others' emotions
 
 ### 3. REI (Rational-Experiential Inventory - Rational Ability Subscale)
-- **10 questions** measuring rational thinking ability
+- **5 questions** measuring rational thinking ability
 - **Scale**: 1-5 Likert scale
 - **Reference**: Pacini & Epstein, 1999
 - Measures: Logical reasoning and analytical thinking capabilities
 
-**Total**: 29 questions, all using 1-5 Likert scale where:
+### 4. SD3 Narcissism Subpart
+- **5 questions** from the Short Dark Triad narcissism scale
+
+### 5. GDMS (General Decision Making Style, reduced)
+- **6 questions** on decision-making style
+
+**Total**: 31 questions, all using 1-5 Likert scale where:
 - 1 = Disagree Strongly
 - 2 = Disagree a Little
 - 3 = Neither Agree nor Disagree
@@ -66,7 +68,6 @@ See `PRE-TASK SURVEY.md` for the complete survey text.
 First, extract survey questions from the markdown file:
 
 ```bash
-cd /taiga/common_resources/yueshen7/genagents
 python3 Surveys/extract_survey_questions.py
 ```
 
@@ -75,33 +76,21 @@ This generates `Surveys/survey_questions.json` from `PRE-TASK SURVEY.md`.
 ### 2. Run Survey on Single Agent
 
 ```bash
-python3 -u Surveys/run_survey.py --agent agent_bank/populations/gss_agents/0000
+python3 -u Surveys/run_survey.py --agent agent_bank/populations/Qwen3-14B_agents/0000
 ```
 
 ### 3. Run Survey on Multiple Agents
 
 ```bash
 # Range of agents
-python3 -u Surveys/run_survey.py --base agent_bank/populations/gss_agents --range 0000-0049
+python3 -u Surveys/run_survey.py --base agent_bank/populations/Qwen3-14B_agents --range 0000-0049
 
 # Specific agents
-python3 -u Surveys/run_survey.py --base agent_bank/populations/gss_agents --agents 0000 0001 0002
+python3 -u Surveys/run_survey.py --base agent_bank/populations/Qwen3-14B_agents --agents 0000 0001 0002
 
 # All agents
-python3 -u Surveys/run_survey.py --base agent_bank/populations/gss_agents --all
+python3 -u Surveys/run_survey.py --base agent_bank/populations/Qwen3-14B_agents --all
 ```
-
-### 4. Analyze Results
-
-```bash
-# Consistency analysis
-python3 Surveys/analyze_consistency.py --base agent_bank/populations/gss_agents --range 0000-0049 --attempts 1-10
-
-# Distribution analysis
-python3 Surveys/analyze_distribution.py --base agent_bank/populations/gss_agents --range 0000-0049 --attempts 1-10
-```
-
----
 
 ## Survey Administration
 
@@ -133,19 +122,19 @@ The main entry point is `run_survey.py`, which administers surveys to agents usi
 
 ```bash
 # Single agent, all sections
-python3 -u Surveys/run_survey.py --agent agent_bank/populations/gss_agents/0000
+python3 -u Surveys/run_survey.py --agent agent_bank/populations/Qwen3-14B_agents/0000
 
 # Range of agents, specific sections
-python3 -u Surveys/run_survey.py --base agent_bank/populations/gss_agents --range 0000-0049 --sections BFI-10 REI
+python3 -u Surveys/run_survey.py --base agent_bank/populations/Qwen3-14B_agents --range 0000-0049 --sections BFI-10 REI
 
 # New attempt for consistency testing
-python3 -u Surveys/run_survey.py --agent agent_bank/populations/gss_agents/0000 --new-attempt
+python3 -u Surveys/run_survey.py --agent agent_bank/populations/Qwen3-14B_agents/0000 --new-attempt
 
 # Faster mode (no reasoning, batch processing)
-python3 -u Surveys/run_survey.py --base agent_bank/populations/gss_agents --range 0000-0049 --no-reasoning --batch-by-section
+python3 -u Surveys/run_survey.py --base agent_bank/populations/Qwen3-14B_agents --range 0000-0049 --no-reasoning --batch-by-section
 
-# Multiple attempts script
-bash Surveys/run_multiple_attempts.sh
+# Multiple attempts (repo-root script; settings via environment)
+NUM_ATTEMPTS=3 BASE_PATH=agent_bank/populations/Qwen3-14B_agents ./run_multiple_attempts.sh survey
 ```
 
 ### How It Works
@@ -174,183 +163,22 @@ Each agent can have multiple survey attempts for consistency testing:
 - Easy to track consistency across attempts
 - Use `--new-attempt` to create a new attempt
 
----
+### Patching to a Target Number of Clean Attempts
 
-## Data Analysis
-
-### Consistency Analysis
-
-**Script**: `analyze_consistency.py`
-
-Measures how consistent agents are across multiple survey attempts using statistical reliability metrics.
-
-#### Metrics Computed
-
-1. **ICC(2,k)** - Intraclass Correlation Coefficient (two-way random, absolute agreement)
-   - Range: 0-1
-   - Interpretation: >0.75 excellent, 0.60-0.74 good, 0.40-0.59 fair, <0.40 poor
-
-2. **ICC(3,k)** - Intraclass Correlation Coefficient (two-way mixed, consistency)
-   - More lenient than ICC(2,k), allows systematic shifts
-
-3. **Cronbach's Alpha (α)** - Internal consistency reliability
-   - Range: 0-1
-   - Interpretation: >0.9 excellent, 0.8-0.9 good, 0.7-0.8 acceptable
-
-4. **Coefficient of Variation (CV)** - Relative variability
-   - Lower = more consistent
-   - Formula: (SD / Mean) × 100
-
-5. **Standard Deviation (SD)** - Absolute variability
-   - Lower = more consistent
-
-6. **Range** - Max - Min across attempts
-   - Lower = more consistent
-
-#### Usage
+`run_survey_patch_attempts.py` is how the TUX populations were brought to exactly 3 attempts per agent. For every agent it removes "dirty" attempts (any missing or `null` response), renumbers the rest, then runs new attempts (one question per inference) until the target is reached.
 
 ```bash
-# Basic analysis
-python3 Surveys/analyze_consistency.py \
-  --base agent_bank/populations/gss_agents \
-  --range 0000-0049 \
-  --attempts 1-10 \
-  --output consistency_report.html
+# Model chosen via environment (see .env.example) ...
+GENAGENTS_MODEL=14b python3 -u Surveys/run_survey_patch_attempts.py \
+  --base agent_bank/populations/Qwen3-14B_agents --target-attempts 3
 
-# Specific agents and attempts
-python3 Surveys/analyze_consistency.py \
-  --base agent_bank/populations/gss_agents \
-  --agents 0000 0001 0002 \
-  --attempts 1,2,3,5-10
+# ... or via flag; pin to one GPU to run several populations in parallel
+CUDA_VISIBLE_DEVICES=1 python3 -u Surveys/run_survey_patch_attempts.py \
+  --base agent_bank/populations/Llama-3.1-8B_agents --target-attempts 3 --model-choice llama3.1-8b
 
-# Save CSV files too
-python3 Surveys/analyze_consistency.py \
-  --base agent_bank/populations/gss_agents \
-  --range 0000-0049 \
-  --attempts 1-10 \
-  --csv consistency_results/
+# Report only
+python3 Surveys/run_survey_patch_attempts.py --base agent_bank/populations/Qwen3-14B_agents --dry-run
 ```
-
-#### Command-Line Options
-
-- `--base PATH`: Base path to agent bank directory (required)
-- `--agents ID1 ID2 ...`: Specific agent IDs to analyze
-- `--range START-END`: Range of agent IDs (e.g., `0000-0049`)
-- `--attempts RANGE`: Attempt range (e.g., `1-10`) or comma-separated (e.g., `1,2,3,5-10`)
-- `--output PATH`: Output HTML file path (default: `consistency_report.html`)
-- `--csv DIR`: Also save results as CSV files in specified directory
-
-#### Analysis Levels
-
-Metrics are computed at multiple levels:
-
-1. **Question-Level**: Consistency for each question across attempts
-2. **Section-Level**: Consistency for each section (BFI-10, BES-A, REI)
-3. **Agent-Level**: Overall consistency per agent
-4. **Overall Summary**: Aggregate statistics by section
-
-#### HTML Report Features
-
-The generated HTML report includes:
-
-- **Summary Tab**: Overall metrics dashboard, section comparison charts
-- **Question-Level Tab**: Interactive heatmap (ICC by question and agent), detailed data table
-- **Agent-Level Tab**: Bar chart comparing agents, agent consistency table
-- **Section-Level Tab**: Section comparison charts, section summary table
-- **Trajectories Tab**: Line plots showing how responses change across attempts
-
-#### Output Files
-
-- **HTML Report**: Interactive report with Plotly visualizations (self-contained)
-- **CSV Files** (if `--csv` specified):
-  - `question_level.csv`: Per-question metrics
-  - `section_level.csv`: Per-section metrics
-  - `agent_level.csv`: Per-agent metrics
-  - `overall_section.csv`: Overall section summary
-
-### Distribution Analysis
-
-**Script**: `analyze_distribution.py`
-
-Analyzes how survey responses are distributed across different agents, identifying patterns, diversity, and potential issues.
-
-#### Metrics Computed
-
-For each agent-question pair:
-- **Mean Score**: Average response across attempts (central tendency)
-- **Standard Deviation**: Variability across attempts (internal consistency)
-- **Min/Max/Range**: Response range
-- **Coefficient of Variation**: Relative variability
-
-Then analyzes distribution of these metrics across agents:
-- **Distribution Statistics**: Mean, median, SD of agent means
-- **Coverage Analysis**: Which values (1-5) are used by agents
-- **Diversity Metrics**: How spread out responses are
-- **Outlier Detection**: Agents with unusual response patterns
-
-#### Usage
-
-```bash
-# Basic analysis
-python3 Surveys/analyze_distribution.py \
-  --base agent_bank/populations/gss_agents \
-  --range 0000-0049 \
-  --attempts 1-10 \
-  --output distribution_report.html
-
-# Include distilled scores
-python3 Surveys/analyze_distribution.py \
-  --base agent_bank/populations/gss_agents \
-  --range 0000-0049 \
-  --attempts 1-10 \
-  --include-distilled
-```
-
-#### Command-Line Options
-
-- `--base PATH`: Base path to agent bank directory (required)
-- `--agents ID1 ID2 ...`: Specific agent IDs to analyze
-- `--range START-END`: Range of agent IDs
-- `--attempts RANGE`: Attempt range or comma-separated list
-- `--output PATH`: Output HTML file path (default: `distribution_report.html`)
-- `--include-distilled`: Also analyze distilled scores if available
-- `--csv DIR`: Save CSV files
-
-#### Visualizations
-
-The HTML report includes:
-
-1. **Box Plots**: Distribution of agent mean scores for each question
-   - Shows median, IQR, outliers
-   - Quick assessment of central location and spread
-
-2. **Violin Plots**: Detailed density distribution of agent mean scores
-   - Shows probability density
-   - Detects multimodal distributions (polarization)
-
-3. **Scatter Plots**: Mean vs. Standard Deviation
-   - X-axis: Mean Score (central tendency)
-   - Y-axis: SD (internal consistency)
-   - Identifies patterns in response stability
-
-4. **Histograms**: Distribution of agent means for each question
-   - Shows frequency of different response levels
-
-5. **Coverage Heatmap**: Which values (1-5) are used by how many agents
-   - Identifies unused values or lack of diversity
-
-6. **Edge Case Detection**: Flags questions with:
-   - Lack of diversity (all agents give similar responses)
-   - Unused values (no agent uses certain scale points)
-   - Outliers (agents with unusual patterns)
-
-#### Output Files
-
-- **HTML Report**: Interactive visualizations with Plotly
-- **CSV Files** (if `--csv` specified):
-  - `agent_question_metrics.csv`: Per-agent, per-question metrics
-  - `question_distribution.csv`: Distribution statistics per question
-  - `edge_cases.csv`: Detected edge cases and issues
 
 ---
 
@@ -360,29 +188,13 @@ The HTML report includes:
 
 **Script**: `archive_survey_responses.py`
 
-Archive survey responses to a separate location for backup or analysis.
+Move each agent's current `survey_responses.json` (and `survey_distilled_responses.json`, if present) into `<agent>/archive/<timestamp>_*.json`, so a fresh round of attempts can start from an empty file.
 
 ```bash
 python3 Surveys/archive_survey_responses.py \
-  --base agent_bank/populations/gss_agents \
-  --range 0000-0049 \
-  --archive-dir archived_responses/
+  --base agent_bank/populations/my_agents \
+  --range 0000-0049
 ```
-
-### Translating Responses
-
-**Script**: `translate_responses.py`
-
-Translate survey responses to different languages (useful for international research).
-
-```bash
-python3 Surveys/translate_responses.py \
-  --base agent_bank/populations/gss_agents \
-  --range 0000-0049 \
-  --target-language es  # Spanish
-```
-
----
 
 ## File Structure
 
@@ -394,15 +206,9 @@ Surveys/
 ├── extract_survey_questions.py        # Extract questions from markdown
 ├── survey_response_builder.py          # Main workflow class
 ├── run_survey.py                      # CLI script to run surveys
-├── analyze_consistency.py             # Consistency analysis script
-├── analyze_distribution.py            # Distribution analysis script
-├── archive_survey_responses.py        # Archive responses
-├── translate_responses.py             # Translate responses
-├── run_multiple_attempts.sh           # Batch script for multiple attempts
-└── Survey Translation/                # Translation files
-    ├── BFI-10.md
-    ├── BES-A.md
-    └── REI.md
+├── run_survey_patch_attempts.py       # Drop dirty attempts, top up to N clean attempts
+├── archive_survey_responses.py        # Archive responses into <agent>/archive/
+└── PROMPT_EXAMPLE.md                  # Worked example of an assembled survey prompt
 ```
 
 ---
@@ -460,7 +266,7 @@ import json
 import pandas as pd
 
 # Load responses
-with open('agent_bank/populations/gss_agents/0000/survey_responses.json') as f:
+with open('agent_bank/populations/Qwen3-14B_agents/0000/survey_responses.json') as f:
     data = json.load(f)
 
 # Extract first attempt
@@ -539,10 +345,6 @@ df = pd.DataFrame(rows)
 - Survey requires all sections to be completed (configurable in code)
 - Each section is administered as a batch to the LLM (efficient)
 - Responses are automatically validated (1-5 scale)
-- Missing/null responses are excluded from analysis calculations
-- Metrics are computed only when at least 2 attempts are available
-- All HTML reports are self-contained (includes Plotly.js from CDN)
-- Visualizations are interactive (zoom, pan, hover for details)
 
 ---
 
@@ -565,26 +367,6 @@ df = pd.DataFrame(rows)
 ```bash
 python3 Surveys/extract_survey_questions.py
 ```
-
-### Issue: No Responses Found
-
-**Problem**: Analysis scripts find no data.
-
-**Solution**: Ensure:
-- Survey has been run on agents (`survey_responses.json` exists)
-- Attempt IDs match (`--attempts` flag)
-- Agent folders are correctly specified
-
-### Issue: Out of Memory (Distribution Analysis)
-
-**Problem**: Large agent populations cause memory issues.
-
-**Solution**: 
-- Process in smaller ranges
-- Use `--csv` to save intermediate results
-- Process sections separately
-
----
 
 ## References
 

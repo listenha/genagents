@@ -217,7 +217,7 @@ def run_gpt_generate_utterance(
 
   # Use provided template or default to utterance_v1.txt
   if prompt_template is None:
-    prompt_lib_file = f"{LLM_PROMPT_DIR}/generative_agent/interaction/utternace/utterance_v1.txt" 
+    prompt_lib_file = f"{LLM_PROMPT_DIR}/generative_agent/interaction/utterance/utterance_v1.txt" 
   else:
     prompt_lib_file = prompt_template 
 
@@ -245,72 +245,3 @@ def utterance(agent, curr_dialogue, context="", prompt_template=None):
   return run_gpt_generate_utterance(
            agent_desc, str_dialogue, context, "1", LLM_VERS, 
            verbose=False, prompt_template=prompt_template)[0]
-
-##  Ask function.
-def run_gpt_generate_ask(
-    agent_desc,
-    questions,
-    prompt_version="1",
-    gpt_version="GPT4o",
-    verbose=False):
-
-    def create_prompt_input(agent_desc, questions):
-        str_questions = ""
-        i = 1
-        for q in questions:
-            str_questions += f"Q{i}: {q['question']}\n"
-            str_questions += f"Type: {q['response-type']}\n"
-            if q['response-type'] == 'categorical':
-                str_questions += f"Options: {', '.join(q['response-options'])}\n"
-            elif q['response-type'] in ['int', 'float']:
-                str_questions += f"Range: {q['response-scale']}\n"
-            elif q['response-type'] == 'open':
-                char_limit = q.get('response-char-limit', 200)
-                str_questions += f"Character Limit: {char_limit}\n"
-            str_questions += "\n"
-            i += 1
-        return [agent_desc, str_questions.strip()]
-
-    def _func_clean_up(gpt_response, prompt=""):
-        responses = extract_first_json_dict(gpt_response)
-        return responses
-
-    def _get_fail_safe():
-        return None
-
-    prompt_lib_file = f"{LLM_PROMPT_DIR}/generative_agent/interaction/ask/batch_v1.txt"
-
-    prompt_input = create_prompt_input(agent_desc, questions)
-    fail_safe = _get_fail_safe()
-
-    output, prompt, prompt_input, fail_safe = chat_safe_generate(
-        prompt_input, prompt_lib_file, gpt_version, 1, fail_safe,
-        _func_clean_up, verbose)
-
-    return output, [output, prompt, prompt_input, fail_safe]
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-

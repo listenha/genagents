@@ -9,7 +9,15 @@ from genagents.modules.memory_stream import *
 # ############################################################################
 
 class GenerativeAgent: 
-  def __init__(self, agent_folder=None):
+  def __init__(self, agent_folder=None, save_reembedded=False):
+    """
+    Parameters:
+      agent_folder: folder with scratch.json and memory_stream/; None creates
+        an empty agent.
+      save_reembedded: if the stored embeddings do not match the current
+        embedding model, memories are re-embedded in memory. Only when this is
+        True are the new embeddings written back to agent_folder.
+    """
     if agent_folder: 
       # We stop the process if the agent storage folder already exists. 
       if not check_if_file_exists(f"{agent_folder}/scratch.json"):
@@ -29,7 +37,7 @@ class GenerativeAgent:
       self.memory_stream = MemoryStream(nodes, embeddings)
 
       # Check for embedding dimension mismatch and re-embed if needed
-      self._check_and_fix_embeddings(agent_folder)
+      self._check_and_fix_embeddings(agent_folder, save_reembedded)
 
     else: 
       self.id = uuid.uuid4()
@@ -141,10 +149,10 @@ class GenerativeAgent:
     return ret 
 
 
-  def _check_and_fix_embeddings(self, agent_folder):
+  def _check_and_fix_embeddings(self, agent_folder, save_reembedded=False):
     """
     Check if embeddings are compatible with current embedding model.
-    If not, re-embed all memories.
+    If not, re-embed all memories (and persist them if save_reembedded).
     """
     if len(self.memory_stream.embeddings) == 0:
       return
@@ -181,16 +189,14 @@ class GenerativeAgent:
       
       self.memory_stream.re_embed_all_memories()
       
-      # Optionally save the updated embeddings back to disk
+      if not save_reembedded:
+        print("  Re-embedded in memory only; stored embeddings.json left unchanged.\n")
+        return
+
+      embeddings_file = f"{agent_folder}/memory_stream/embeddings.json"
       try:
-        import os
-        embeddings_file = f"{agent_folder}/memory_stream/embeddings.json"
-        if os.path.exists(os.path.dirname(embeddings_file)):
-          import json
-          with open(embeddings_file, "w") as json_file:
-            json.dump(self.memory_stream.embeddings, json_file)
-          print(f"✓ Updated embeddings saved to {embeddings_file}\n")
+        with open(embeddings_file, "w") as json_file:
+          json.dump(self.memory_stream.embeddings, json_file)
+        print(f"✓ Updated embeddings saved to {embeddings_file}\n")
       except Exception as e:
         print(f"  Note: Could not save updated embeddings: {e}\n")
-
-

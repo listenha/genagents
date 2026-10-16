@@ -1,4 +1,6 @@
-import json
+import sys
+
+from simulation_engine.settings import POPULATIONS_DIR
 from simulation_engine.global_methods import *
 from genagents.genagents import GenerativeAgent
 
@@ -25,12 +27,11 @@ class Conversation:
       # Add the agent's response to the conversation history
       self.conversation_history.append([self.agent.get_fullname(), agent_response])
 
-# Example usage:
+# Usage: python3 main.py [agent_folder]
 if __name__ == "__main__":
-  # Specify the folder where the agent is stored
-  agent_folder = "agent_bank/populations/single_agent/01fd7d2a-0357-4c1b-9f3e-8eade2d537ae"
-  # agent_folder = "agent_bank/populations/gss_agents/0a1aa8c2-382a-4cd3-9d02-3a34e0592bbd"
-  # Create a Conversation instance
+  if len(sys.argv) > 1:
+    agent_folder = sys.argv[1]
+  else:
+    agent_folder = f"{POPULATIONS_DIR}/Qwen3-14B_agents/0000"
   conversation = Conversation(agent_folder, interviewer_name="Jane Doe")
-  # Start the conversation
   conversation.start()

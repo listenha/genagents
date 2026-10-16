@@ -4,6 +4,7 @@ Test script to validate the agent pipeline with local Qwen model
 """
 import sys
 from genagents.genagents import GenerativeAgent
+from simulation_engine.settings import POPULATIONS_DIR
 
 def test_agent_loading():
     """Test loading an existing agent"""
@@ -11,7 +12,7 @@ def test_agent_loading():
     print("Testing Agent Loading")
     print("=" * 60)
     
-    agent_folder = "agent_bank/populations/gss_agents/0000"
+    agent_folder = f"{POPULATIONS_DIR}/Qwen3-14B_agents/0000"
     
     try:
         agent = GenerativeAgent(agent_folder)
@@ -58,7 +59,7 @@ def test_agent_utterance(agent):
         # Check embedding dimension compatibility
         import json
         import os
-        agent_folder = "agent_bank/populations/gss_agent/0000"
+        agent_folder = f"{POPULATIONS_DIR}/Qwen3-14B_agents/0000"
         embeddings_file = os.path.join(agent_folder, "memory_stream/embeddings.json")
         
         if os.path.exists(embeddings_file):

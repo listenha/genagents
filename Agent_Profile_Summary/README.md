@@ -28,32 +28,32 @@ The module uses a prompt template to instruct an LLM to infer stable patterns in
 
 ```bash
 # Generate summary for a single agent
-python3 Agent_Profile_Summary/run_profile_summary.py --agent agent_bank/populations/gss_agents/0000
+python3 Agent_Profile_Summary/run_profile_summary.py --agent agent_bank/populations/Qwen3-14B_agents/0000
 
 # Generate summaries for range of agents (0000 to 0049)
-python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/gss_agents --range 0000-0049
+python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/Qwen3-14B_agents --range 0000-0049
 
 # Generate summaries for multiple specific agents
-python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/gss_agents --agents 0000 0001 0002
+python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/Qwen3-14B_agents --agents 0000 0001 0002
 
 # Generate summaries for all agents in directory
-python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/gss_agents --all
+python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/Qwen3-14B_agents --all
 ```
 
 ### Advanced Options
 
 ```bash
 # Use custom prompt template
-python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/gss_agents --range 0000-0049 --template custom_prompt.txt
+python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/Qwen3-14B_agents --range 0000-0049 --template custom_prompt.txt
 
 # Adjust max tokens for longer summaries
-python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/gss_agents --range 0000-0049 --max-tokens 800
+python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/Qwen3-14B_agents --range 0000-0049 --max-tokens 800
 
 # Specify custom log file
-python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/gss_agents --range 0000-0049 --log-file my_log.log
+python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/Qwen3-14B_agents --range 0000-0049 --log-file my_log.log
 
 # Dry run (show what would be processed)
-python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/gss_agents --range 0000-0049 --dry-run
+python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/Qwen3-14B_agents --range 0000-0049 --dry-run
 ```
 
 ## Command Line Arguments
@@ -160,19 +160,19 @@ LLM_VERS = "gpt-4o-mini"  # or gpt-4o, gpt-4-turbo, etc.
 
 ```bash
 # 1. Test with one agent
-python3 Agent_Profile_Summary/run_profile_summary.py --agent agent_bank/populations/gss_agents/0000
+python3 Agent_Profile_Summary/run_profile_summary.py --agent agent_bank/populations/Qwen3-14B_agents/0000
 
 # 2. Check the output in scratch.json
-cat agent_bank/populations/gss_agents/0000/scratch.json | grep -A 5 agent_profile_summary
+cat agent_bank/populations/Qwen3-14B_agents/0000/scratch.json | grep -A 5 agent_profile_summary
 
 # 3. Run on a range
-python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/gss_agents --range 0000-0199
+python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/Qwen3-14B_agents --range 0000-0199
 
 # 4. Check the log for any errors
 tail -f logs/profile_summary_*.log
 
 # 5. Re-run to process any failed agents (skips successful ones)
-python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/gss_agents --range 0000-0199
+python3 Agent_Profile_Summary/run_profile_summary.py --base agent_bank/populations/Qwen3-14B_agents --range 0000-0199
 ```
 
 ## Troubleshooting

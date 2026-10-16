@@ -19,6 +19,8 @@ from datetime import datetime
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
+from simulation_engine.agent_selection import parse_range, get_agent_folders
+
 from simulation_engine.gpt_structure import gpt_request
 from simulation_engine.settings import LLM_VERS
 
@@ -38,66 +40,6 @@ def setup_logging(log_file: Optional[str] = None):
         datefmt=date_format,
         handlers=handlers
     )
-
-
-def parse_range(range_str: str) -> List[str]:
-    """
-    Parse a range string like "0000-0049" into a list of agent IDs.
-    
-    Args:
-        range_str: Range string in format "START-END" (e.g., "0000-0049")
-    
-    Returns:
-        List of zero-padded agent IDs
-    """
-    try:
-        start_str, end_str = range_str.split('-')
-        start = int(start_str)
-        end = int(end_str)
-        
-        if start > end:
-            raise ValueError(f"Start ({start}) must be <= end ({end})")
-        
-        # Determine padding length from the input strings
-        padding = len(start_str)
-        
-        return [f"{i:0{padding}d}" for i in range(start, end + 1)]
-    except ValueError as e:
-        raise ValueError(f"Invalid range format '{range_str}'. Expected format: '0000-0049'. Error: {e}")
-
-
-def get_agent_folders(base_path: str, agent_ids: Optional[List[str]] = None) -> List[str]:
-    """
-    Get list of agent folders to process.
-    
-    Args:
-        base_path: Base path to agent bank (e.g., gss_agents/)
-        agent_ids: Optional list of specific agent IDs to process. If None, processes all.
-    
-    Returns:
-        List of agent folder paths
-    """
-    base = Path(base_path)
-    if not base.exists():
-        raise ValueError(f"Base path does not exist: {base_path}")
-    
-    if agent_ids:
-        # Process specific agents
-        folders = []
-        for agent_id in agent_ids:
-            agent_folder = base / agent_id
-            if (agent_folder / "scratch.json").exists():
-                folders.append(str(agent_folder))
-            else:
-                logging.warning(f"Agent {agent_id} not found at {agent_folder}")
-        return folders
-    else:
-        # Process all agents
-        folders = []
-        for agent_folder in sorted(base.iterdir()):
-            if agent_folder.is_dir() and (agent_folder / "scratch.json").exists():
-                folders.append(str(agent_folder))
-        return folders
 
 
 def load_prompt_template(template_path: str) -> str:
@@ -280,25 +222,25 @@ def main():
         epilog="""
 Examples:
   # Generate summary for a single agent
-  python3 run_profile_summary.py --agent agent_bank/populations/gss_agents/0000
+  python3 run_profile_summary.py --agent agent_bank/populations/Qwen3-14B_agents/0000
 
   # Generate summaries for range of agents (0000 to 0049)
-  python3 run_profile_summary.py --base agent_bank/populations/gss_agents --range 0000-0049
+  python3 run_profile_summary.py --base agent_bank/populations/Qwen3-14B_agents --range 0000-0049
 
   # Generate summaries for multiple specific agents
-  python3 run_profile_summary.py --base agent_bank/populations/gss_agents --agents 0000 0001 0002
+  python3 run_profile_summary.py --base agent_bank/populations/Qwen3-14B_agents --agents 0000 0001 0002
 
   # Generate summaries for all agents in directory
-  python3 run_profile_summary.py --base agent_bank/populations/gss_agents --all
+  python3 run_profile_summary.py --base agent_bank/populations/Qwen3-14B_agents --all
 
   # Use custom prompt template
-  python3 run_profile_summary.py --base agent_bank/populations/gss_agents --range 0000-0049 --template custom_prompt.txt
+  python3 run_profile_summary.py --base agent_bank/populations/Qwen3-14B_agents --range 0000-0049 --template custom_prompt.txt
 
   # Dry run (show what would be processed)
-  python3 run_profile_summary.py --base agent_bank/populations/gss_agents --range 0000-0049 --dry-run
+  python3 run_profile_summary.py --base agent_bank/populations/Qwen3-14B_agents --range 0000-0049 --dry-run
 
   # Overwrite existing summaries
-  python3 run_profile_summary.py --base agent_bank/populations/gss_agents --range 0000-0049 --force
+  python3 run_profile_summary.py --base agent_bank/populations/Qwen3-14B_agents --range 0000-0049 --force
         """
     )
     
@@ -312,7 +254,7 @@ Examples:
     input_group.add_argument(
         '--base',
         type=str,
-        help='Base path to agent bank directory (e.g., agent_bank/populations/gss_agents)'
+        help='Base path to agent bank directory (e.g., agent_bank/populations/Qwen3-14B_agents)'
     )
     
     parser.add_argument(

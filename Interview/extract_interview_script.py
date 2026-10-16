@@ -122,12 +122,8 @@ def extract_interview_script(md_path, output_json_path):
 
 
 if __name__ == "__main__":
-    # Get project root (assuming script is in agent_bank/scripts/)
     script_dir = Path(__file__).parent
-    project_root = script_dir.parent.parent
-    
-    # Paths
-    interview_script_md = project_root / "Research Paper/Interview_Script.md"
+    interview_script_md = script_dir / "Interview_Script.md"
     output_path = script_dir / "interview_script.json"
     
     if not interview_script_md.exists():

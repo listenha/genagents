@@ -1,143 +1,29 @@
-# genagents: Generative Agent Simulations of 1,000 People
+# genagents — TUX Agent Study
 
-![Cover Image](static_dir/cover3.png)
+This repository builds the **profile-conditioned LLM agent bank** used in the agent study of
+*TUX: Measuring Human–AI Tacit Understanding* (Li, Min, Das Swain & Saha, EMNLP). It extends the
+generative-agent architecture of Park et al. (2024), *Generative Agent Simulations of 1,000 People*.
 
-## Overview
+The pipeline:
 
-This project introduces a novel agent architecture that simulates the attitudes and behaviors of real individuals by applying large language models (LLMs) to qualitative interviews about their lives. These agents replicate participants' responses on various social science measures, providing a foundation for new tools to investigate individual and collective behavior.
+1. **Seed personas.** 200 GSS-based demographic seed profiles (`scratch.json`) are selected from the
+   original agent bank (`agent_bank/scripts-agent-filtering/`).
+2. **Persona enrichment.** Each agent answers a 45-question semi-structured life-story interview
+   (`Interview/`). Every Q/A turn is stored as a memory node, with periodic reflections. An LLM-written
+   holistic profile summary is then added to `scratch.json` (`Agent_Profile_Summary/`).
+3. **Task inference.** For every query, the agent retrieves its top-K memories (relevance + importance)
+   and answers in persona:
+   - **Pre-task survey** (`Surveys/`): 31 items on a 1–5 Likert scale: BFI-10, the BES-A cognitive subscale,
+     the REI rational-ability subscale, an SD3 narcissism subset, and a reduced GDMS.
+   - **Wavelength game** (`Wavelength_Game/`): 22 spectrum headers, each placed on a 0–100 scale.
+4. **Repeated attempts.** Each task is run 3 times per agent and model family, and incomplete attempts
+   are replaced, so every agent ends with 3 clean attempts.
 
-This codebase offers two main components:
+The same interview-built memory streams are reused across model families. Only the inference model
+changes between populations.
 
-1. **Codebase for Creating and Interacting with Generative Agents**: Tools to build new agents based on your own data and interact with them. Query agents with surveys, experiments, and other stimuli to study their responses.
-2. **Demographic Agent Banks**: A bank of over 3,000 agents created using demographic information from the General Social Survey (GSS) as a starting point to explore the codebase. *Note: The names and addresses are fictional.*
-
-Apart from basic agent creation and interaction, this project serves for a specific research experiment purpose. The experiment structure is as follows:
-
-1. **Agent Creation**: Basic agent information is stored in `agent_bank/populations/gss_agents`, where each agent has its own folder. Each agent has basic demographic information described by `scratch.json`, which is given as initial data.
-
-2. **Persona Enrichment**: Agent personas are further enriched and created via a memory stream injection technique through letting the agent answer a semi-structured interview. Each question-answer pair is stored as the agent's memory, with details described in the [Interview Module](#interview-module).
-
-3. **Data Collection**: After agents with various personas are created, we record the agents' data on two main interaction tasks:
-   - **Survey**: Standardized psychological surveys (PRE-TASK SURVEY) administered to agents. See the [Surveys Module](#surveys-module) for details.
-   - **Game (Behavioral)**: Wavelength-style behavioral game where agents make choices on spectrum-based questions. See the [Wavelength Game Module](#wavelength-game-module) for details.
-
-4. **Analysis**: We run analysis over the recorded data. Currently, this includes:
-   - Consistency/distribution analysis for responses 
-   - Correlation analysis between agent's profile (we take the survey answers to represent agent's persona, aka profile) and agent's behavior (game's choice). Further analysis might be added later.
-
-## Table of Contents
-
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Repository Structure](#repository-structure)
-- [Quick Start](#quick-start)
-- [Core Concepts](#core-concepts)
-  - [Creating Agents](#creating-agents)
-  - [Interacting with Agents](#interacting-with-agents)
-  - [Memory and Reflection](#memory-and-reflection)
-  - [Saving and Loading Agents](#saving-and-loading-agents)
-- [Model Configuration](#model-configuration)
-  - [Using OpenAI Models](#using-openai-models)
-  - [Using Open Source Models](#using-open-source-models)
-  - [Switching Between Models](#switching-between-models)
-- [Agent Interaction Modules](#agent-interaction-modules)
-  - [Interview Module](#interview-module)
-  - [Surveys Module](#surveys-module)
-  - [Wavelength Game Module](#wavelength-game-module)
-- [Agent Memory System](#agent-memory-system)
-- [Sample Agent](#sample-agent)
-- [Agent Bank Access](#agent-bank-access)
-- [Contributing](#contributing)
-- [License](#license)
-- [References](#references)
-- [Contact](#contact)
-
----
-
-## Installation
-
-### Requirements
-
-- Python 3.7 or higher
-- An OpenAI API key (for OpenAI models) OR local model setup (for open-source models)
-
-### Dependencies
-
-Install the required Python packages using pip:
-
-```bash
-pip install -r requirements.txt
-```
-
-**For Open Source Models** (optional):
-```bash
-pip install transformers torch sentence-transformers
-```
-
-**Note:** For GPU acceleration with open-source models, install PyTorch with CUDA support:
-```bash
-pip install torch --index-url https://download.pytorch.org/whl/cu118  # For CUDA 11.8
-```
-
----
-
-## Configuration
-
-Create a `settings.py` file in the `simulation_engine` folder (where `example-settings.py` is located). Place the following content in `settings.py`:
-
-### Basic Configuration (OpenAI)
-
-```python
-from pathlib import Path
-
-# Model Provider Configuration
-MODEL_PROVIDER = "openai"  # Options: "openai" or "local"
-
-# OpenAI Configuration
-OPENAI_API_KEY = "YOUR_API_KEY"
-KEY_OWNER = "YOUR_NAME"
-
-# Debug mode
-DEBUG = False
-MAX_CHUNK_SIZE = 4
-
-# LLM version
-LLM_VERS = "gpt-4o-mini"
-
-BASE_DIR = f"{Path(__file__).resolve().parent.parent}"
-POPULATIONS_DIR = f"{BASE_DIR}/agent_bank/populations"
-LLM_PROMPT_DIR = f"{BASE_DIR}/simulation_engine/prompt_template"
-```
-
-### Configuration for Open Source Models
-
-```python
-from pathlib import Path
-
-# Model Provider Configuration
-MODEL_PROVIDER = "local"  # Use local models
-
-# Local Model Configuration
-LOCAL_MODEL_NAME = "Qwen/Qwen2.5-7B-Instruct"  # Hugging Face model ID
-LOCAL_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"  # For embeddings
-DEVICE = "cuda"  # Options: "cuda", "cpu", or "mps" (for Apple Silicon)
-
-# Optional: Hugging Face token (required for gated models)
-HF_TOKEN = None  # Set to your HF token if needed: "hf_your_token_here"
-
-# Debug mode
-DEBUG = False
-MAX_CHUNK_SIZE = 4
-
-# LLM version (used as identifier)
-LLM_VERS = "Qwen2.5-7B-Instruct"
-
-BASE_DIR = f"{Path(__file__).resolve().parent.parent}"
-POPULATIONS_DIR = f"{BASE_DIR}/agent_bank/populations"
-LLM_PROMPT_DIR = f"{BASE_DIR}/simulation_engine/prompt_template"
-```
-
-Replace `"YOUR_API_KEY"` with your actual OpenAI API key and `"YOUR_NAME"` with your name.
+Analysis of the collected data (TUX computation, consistency, trait regressions) is not part of this
+repository. The released data bank is at <https://github.com/listenha/tux-data-bank>.
 
 ---
 
@@ -145,604 +31,206 @@ Replace `"YOUR_API_KEY"` with your actual OpenAI API key and `"YOUR_NAME"` with 
 
 ```
 genagents/
-├── genagents/                          # Core module for creating and interacting with agents
-│   ├── genagents.py                    # Main GenerativeAgent class
-│   └── modules/                         # Submodules
-│       ├── interaction.py               # Handles agent interactions and responses
-│       └── memory_stream.py            # Manages agent memory and reflections
-├── simulation_engine/                  # Settings and global methods
-│   ├── settings.py                     # Configuration settings (create this)
-│   ├── example-settings.py             # Example configuration
-│   ├── global_methods.py               # Helper functions
-│   ├── gpt_structure.py                # Functions for interacting with LLMs
-│   ├── llm_json_parser.py             # Parses JSON outputs from language models
-│   └── prompt_template/                # All LLM prompts used in this project
-├── agent_bank/                         # Directory for storing agent data
-│   └── populations/                   # Contains pre-generated agents
-│       ├── gss_agents/                 # Agent relevant data, including demorgraphic, memory stream, interaction result (survey/game)
-│       ├── model_name_agents/                 # Future agents created using other model family (e.g. llama, mistral) 
-├── Interview/                          # Interview module (see Interview/README.md)
-│   ├── README.md                       # Interview module documentation
-│   ├── run_interview.py                 # CLI for running interviews
-│   └── ...
-├── Surveys/                             # Surveys module (see Surveys/README.md)
-│   ├── README.md                       # Surveys module documentation
-│   ├── run_survey.py                   # CLI for running surveys
-│   └── ...
-├── Wavelength_Game/                    # Wavelength Game module (see Wavelength_Game/README.md)
-│   ├── README.md                       # Wavelength Game module documentation
-│   ├── run_wavelength.py              # CLI for running Wavelength Game
-│   └── ...
-├── README.md                           # This file
-└── requirements.txt                    # Python dependencies
+├── genagents/                        # Agent architecture
+│   ├── genagents.py                  #   GenerativeAgent: load/save, remember, reflect, respond
+│   └── modules/
+│       ├── memory_stream.py          #   Memory nodes, importance scoring, retrieval, reflection
+│       └── interaction.py            #   categorical / numerical / utterance response generation
+├── simulation_engine/                # LLM + configuration layer
+│   ├── settings.py                   #   ALL configuration (reads machine-specific values from env)
+│   ├── gpt_structure.py              #   Provider dispatch (local HF model or OpenAI), prompt filling
+│   ├── local_model_adapter.py        #   HF transformers generation + sentence-transformers embeddings
+│   ├── llm_json_parser.py            #   Robust JSON extraction from model output
+│   ├── agent_selection.py            #   --range / --agents / --all helpers shared by the CLIs
+│   ├── global_methods.py             #   File/CSV/JSON helpers
+│   └── prompt_template/              #   All prompt templates
+├── environment/
+│   └── interview/interview_memory_builder.py   # Runs the interview and writes memories/reflections
+├── Interview/                        # Persona enrichment (see Interview/README.md)
+│   ├── Interview_Script.md           #   Source interview protocol
+│   ├── interview_script.json         #   Parsed script used at runtime
+│   ├── extract_interview_script.py   #   .md -> .json
+│   ├── run_interview.py              #   CLI
+│   └── test_interview_builder.py     #   3-question smoke test
+├── Agent_Profile_Summary/            # Holistic persona summary -> scratch.json (see its README)
+├── Surveys/                          # Pre-task survey (see Surveys/README.md)
+│   ├── PRE-TASK SURVEY.md, survey_questions.json, extract_survey_questions.py
+│   ├── survey_response_builder.py, run_survey.py
+│   ├── run_survey_patch_attempts.py  #   Drop dirty attempts, top up to N clean attempts
+│   ├── archive_survey_responses.py
+│   └── PROMPT_EXAMPLE.md
+├── Wavelength_Game/                  # Wavelength game (see Wavelength_Game/README.md)
+│   ├── Game Headers.csv, game_headers.json, extract_game_headers.py
+│   ├── wavelength_response_builder.py, run_wavelength.py
+│   └── run_wavelength_patch_attempts.py
+├── agent_bank/
+│   ├── populations/                  # Agent data, one folder per population (see below)
+│   ├── scripts-agent-filtering/      # How the 200 seed agents were selected (see README_FILTER.md)
+│   └── gss_agents_demographics_*.csv # Demographics of the selected agents
+├── main.py                           # Interactive chat with one agent
+├── test_agent.py                     # Agent/model loading sanity check
+├── download_models.py                # Download model weights into GENAGENTS_MODELS_DIR
+├── run_multiple_attempts.sh          # Run survey|wavelength N times over a population
+├── .env.example                      # Template for machine-specific configuration
+└── requirements.txt
+```
+
+### Agent populations
+
+Every population folder holds agents `0000`–`0199`, and all of them share identical `scratch.json` and
+`memory_stream/nodes.json`.
+
+| Folder | Inference model (`GENAGENTS_MODEL`) | Survey attempts | Wavelength attempts |
+|---|---|---|---|
+| `Qwen3-14B_agents` | `14b`, the paper's primary family | 3 | 3 |
+| `Qwen2.5-7B_agents` | `7b` | 3 | 3 |
+| `Llama-3.1-8B_agents` | `llama3.1-8b` | 3 | 3 |
+| `Mistral-Nemo_agents` | `mistral-nemo-2407` | 3 | 3 |
+| `gemma-3-12b-it_agents` | `gemma-3-12b-it` | 3 | 3 (one agent has 1) |
+| `Ministral-3-14B-Instruct-2512_agents` | `ministral-3-14b-instruct-2512` | 3 | 3 |
+| `placeholder_agents` | none: interviewed agents without task data, the template for new families | – | – |
+
+Per-agent files:
+
+```
+<population>/<agent_id>/
+├── scratch.json                    # Demographics + agent_profile_summary
+├── meta.json
+├── memory_stream/
+│   ├── nodes.json                  # Interview Q/A observations + reflections
+│   └── embeddings.json             # Content -> embedding (384-d MiniLM unless re-embedded)
+├── survey_responses.json           # {survey_metadata, agent_metadata, attempts[...]}
+├── survey_distilled_responses.json # Trait scores derived from survey (paper's four families)
+└── wavelength_responses.json       # {game_metadata, agent_metadata, attempts[...]}
 ```
 
 ---
 
-## Quick Start
+## Installation
 
-### 1. Create a New Agent
+```bash
+python3 -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+# For GPU inference, install a CUDA build of torch matching your driver, e.g.
+# pip install torch --index-url https://download.pytorch.org/whl/cu121
+```
+
+## Configuration
+
+Everything that differs between machines is read from environment variables in
+`simulation_engine/settings.py`. Nothing server- or path-specific is hard-coded anywhere else, and
+every script resolves repo paths from its own location, so any working directory works.
+
+```bash
+cp .env.example .env      # edit as needed; .env is git-ignored
+set -a; source .env; set +a
+```
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `GENAGENTS_PROVIDER` | `local` | `local` (HF transformers) or `openai` |
+| `GENAGENTS_MODEL` | `14b` | Key into `MODEL_REGISTRY` in `settings.py` |
+| `GENAGENTS_MODELS_DIR` | unset | Folder of downloaded weights. If unset, or the model's folder is missing, weights load from the HF hub/cache (`HF_HOME`) |
+| `GENAGENTS_DEVICE` | `cuda` | `cuda` picks the GPU with most free memory; or `cuda:N`, `cpu`, `mps` |
+| `GENAGENTS_EMBEDDING_MODEL` | `sentence-transformers/all-MiniLM-L6-v2` | Memory embedding model |
+| `GENAGENTS_POPULATIONS_DIR` | `<repo>/agent_bank/populations` | Population root used by `main.py` / `test_agent.py` |
+| `GENAGENTS_DEBUG` | `0` | `1` prints every prompt and raw output |
+| `HF_TOKEN` | unset | Needed for gated models (Llama, Gemma, Ministral) |
+| `OPENAI_API_KEY`, `GENAGENTS_OPENAI_MODEL` | unset, `gpt-5-mini` | OpenAI provider |
+
+To add a model, add an entry to `MODEL_REGISTRY` in `settings.py`. Memory-retrieval hyperparameters
+(`MEMORY_N_COUNT=120`, `MEMORY_HP=[0, 1, 0.5]`, …) are experiment settings and also live there.
+
+Optionally pre-download weights:
+
+```bash
+export GENAGENTS_MODELS_DIR=/path/to/models
+python3 download_models.py                    # the four paper models
+python3 download_models.py gemma-3-12b-it     # or specific registry keys
+```
+
+---
+
+## Running the Pipeline
+
+Commands are shown from the repo root. The scripts locate their own resources, so only the paths you
+pass on the command line depend on the working directory. Use `python3 -u` for live progress.
+
+```bash
+# 1. Persona enrichment for NEW seed agents (folders containing only scratch.json).
+#    The interview appends memories and does not skip interviewed agents, so never rerun it on an
+#    existing population. Profile summaries skip agents that already have one (use --force to redo).
+python3 -u Interview/run_interview.py --base path/to/seed_agents --all
+python3 -u Agent_Profile_Summary/run_profile_summary.py --base path/to/seed_agents --all
+
+# 2. New model family: copy the interviewed template population
+cp -r agent_bank/populations/placeholder_agents agent_bank/populations/MyModel_agents
+
+# 3. Survey and Wavelength, 3 clean attempts per agent
+export GENAGENTS_MODEL=14b
+python3 -u Surveys/run_survey_patch_attempts.py         --base agent_bank/populations/MyModel_agents --target-attempts 3
+python3 -u Wavelength_Game/run_wavelength_patch_attempts.py --base agent_bank/populations/MyModel_agents --target-attempts 3
+
+# Several families in parallel, one GPU each
+CUDA_VISIBLE_DEVICES=0 python3 -u Surveys/run_survey_patch_attempts.py --base agent_bank/populations/Qwen3-14B_agents --model-choice 14b &
+CUDA_VISIBLE_DEVICES=1 python3 -u Surveys/run_survey_patch_attempts.py --base agent_bank/populations/Qwen2.5-7B_agents --model-choice 7b &
+```
+
+The lower-level runners (`run_survey.py`, `run_wavelength.py`) support single agents, ranges, specific
+sections/headers, explicit attempt IDs and batch mode. See the module READMEs. To append a fixed number
+of attempts without patching, use `./run_multiple_attempts.sh survey|wavelength`; settings are read from
+the environment, e.g. `NUM_ATTEMPTS=3 BASE_PATH=... AGENT_RANGE=0000-0049`.
+
+Sanity checks:
+
+```bash
+python3 test_agent.py                    # loads an agent and the local model, generates one utterance
+python3 main.py [agent_folder]           # chat with an agent (default: Qwen3-14B_agents/0000)
+```
+
+---
+
+## Agent Architecture
+
+### Using an agent from Python
 
 ```python
 from genagents.genagents import GenerativeAgent
 
-# Initialize a new agent
-agent = GenerativeAgent()
+agent = GenerativeAgent("agent_bank/populations/Qwen3-14B_agents/0000")
 
-# Update the agent's scratchpad with personal information
-agent.update_scratch({
-    "first_name": "John",
-    "last_name": "Doe",
-    "age": 30,
-    "occupation": "Software Engineer",
-    "interests": ["reading", "hiking", "coding"]
-})
+agent.categorical_resp({"Do you enjoy outdoor activities?": ["Yes", "No", "Sometimes"]})
+agent.numerical_resp({"How much do you enjoy coding? (1-10)": [1, 10]}, float_resp=False)
+agent.utterance([("Interviewer", "Tell me about your favorite hobby.")])
+# -> {"responses": [...], "reasonings": [...]} for categorical/numerical; a string for utterance
+
+agent.remember("Participated in a survey about work preferences", time_step=1)
+agent.reflect(anchor="work preferences", time_step=2)
+agent.save("path/to/new_agent_folder")
 ```
 
-### 2. Interact with the Agent
+A new agent starts with `GenerativeAgent()` and `agent.update_scratch({...})`.
 
-```python
-# Categorical questions (multiple choice)
-questions = {
-    "Do you enjoy outdoor activities?": ["Yes", "No", "Sometimes"]
-}
-response = agent.categorical_resp(questions)
-print(response["responses"])
+### Memory system
 
-# Numerical questions (scale)
-questions = {
-    "On a scale of 1 to 10, how much do you enjoy coding?": [1, 10]
-}
-response = agent.numerical_resp(questions, float_resp=False)
-print(response["responses"])
-
-# Open-ended questions
-dialogue = [
-    ("Interviewer", "Tell me about your favorite hobby."),
-]
-response = agent.utterance(dialogue)
-print(response)
-```
-
-### 3. Save the Agent
-
-```python
-agent.save("path/to/save_directory")
-```
+- **Nodes**: `observation` nodes come from `remember()` (interview Q/A turns), and `reflection` nodes are
+  LLM-generated from retrieved observations (`pointer_id` lists their sources). Each node gets an
+  LLM-scored importance (0–100) when created.
+- **Retrieval** runs on every query. The query text is embedded and memories are scored by
+  `recency·w_r + relevance·w_v + importance·w_i` with `MEMORY_HP = [0, 1, 0.5]` (recency off). The
+  top `MEMORY_N_COUNT = 120` are injected after the self description (`scratch.json`).
+- **Prompt**: `Self description: {scratch}` + `==` + `Other observations about the subject:` +
+  the retrieved memories, followed by the task template from `simulation_engine/prompt_template/`.
+- Each call is a single-turn LLM request. No chat session state is kept.
+- **Embedding mismatch**: when an agent is loaded with an embedding model whose dimension differs from
+  the stored embeddings (for example, provider `openai`), its memories are re-embedded in memory. The
+  stored `embeddings.json` is rewritten only with `GenerativeAgent(folder, save_reembedded=True)` or
+  when the agent is explicitly `save()`d.
 
 ---
-
-## Core Concepts
-
-### Creating Agents
-
-#### Initialize a New Agent
-
-```python
-from genagents.genagents import GenerativeAgent
-
-# Create a new agent
-agent = GenerativeAgent()
-
-# The agent now has:
-# - A unique ID (automatically generated)
-# - An empty scratchpad (personal information)
-# - An empty memory stream
-```
-
-#### Populate Agent's Personal Information
-
-The "scratchpad" contains the agent's core identity and characteristics:
-
-```python
-agent.update_scratch({
-    "first_name": "John",
-    "last_name": "Doe",
-    "age": 30,
-    "sex": "Male",
-    "ethnicity": "Caucasian",
-    "occupation": "Software Engineer",
-    "education": "Bachelor's degree",
-    "political_views": "Moderate",
-    "religion": "None",
-    "interests": ["reading", "hiking", "coding"],
-    "personality_traits": "Introverted, analytical, detail-oriented",
-    "life_experiences": "Grew up in a suburban area, moved to city for work",
-    # Add any other relevant personal information
-})
-```
-
-**Key Points:**
-- The scratchpad is a dictionary that can contain any key-value pairs
-- Common fields include: demographics, personality traits, life experiences, values, etc.
-- This information is used by the LLM to generate contextually appropriate responses
-
-#### Add Initial Memories (Optional but Recommended)
-
-Memories help the agent maintain consistency and context across interactions:
-
-```python
-# Add memories about the agent's experiences
-agent.remember("Graduated from college with a degree in Computer Science", time_step=1)
-agent.remember("Started working as a software engineer at a tech company", time_step=2)
-agent.remember("Enjoys solving complex programming problems", time_step=3)
-agent.remember("Prefers working independently but values team collaboration", time_step=4)
-```
-
-**Note:** `time_step` represents the chronological order of events. Use sequential integers starting from 1.
-
-#### Load an Existing Agent
-
-```python
-from genagents.genagents import GenerativeAgent
-
-# Load an existing agent from a directory
-agent = GenerativeAgent(agent_folder="agent_bank/populations/single_agent")
-
-# Verify the agent loaded correctly
-print(f"Agent name: {agent.get_fullname()}")
-print(f"Agent description: {agent.get_self_description()}")
-```
-
-**Agent Folder Structure:**
-A saved agent folder should contain:
-- `scratch.json` - Personal information
-- `memory_stream/nodes.json` - Memory nodes
-- `memory_stream/embeddings.json` - Memory embeddings
-- `meta.json` - Agent metadata
-
-### Interacting with Agents
-
-The agent can answer three types of questions:
-
-1. **Categorical** - Multiple choice questions
-2. **Numerical** - Scale/rating questions
-3. **Open-ended** - Free-form text responses
-
-#### Categorical Responses (Multiple Choice Surveys)
-
-```python
-# Define questions as a dictionary
-# Key: question text
-# Value: list of possible answer options
-questions = {
-    "Do you enjoy outdoor activities?": ["Yes", "No", "Sometimes"],
-    "What is your preferred work environment?": ["Remote", "Office", "Hybrid"],
-    "How do you prefer to spend your weekends?": ["Relaxing at home", "Socializing", "Pursuing hobbies", "Working"]
-}
-
-# Get agent's responses
-response = agent.categorical_resp(questions)
-
-# Response structure:
-# {
-#     "responses": ["Yes", "Hybrid", "Pursuing hobbies"],  # List of answers
-#     "reasonings": ["reasoning for Q1", "reasoning for Q2", ...]  # Reasoning for each
-# }
-
-print("Responses:", response["responses"])
-print("Reasonings:", response["reasonings"])
-```
-
-#### Numerical Responses (Scale Questions)
-
-```python
-# Define questions with numerical ranges
-# Key: question text
-# Value: [min_value, max_value] - the range of possible answers
-questions = {
-    "On a scale of 1 to 10, how much do you enjoy coding?": [1, 10],
-    "Rate your work-life balance from 0 to 100": [0, 100],
-    "How satisfied are you with your current salary? (1-5 scale)": [1, 5]
-}
-
-# Get responses (integer values)
-response = agent.numerical_resp(questions, float_resp=False)
-
-# Response structure:
-# {
-#     "responses": [8, 65, 3],  # List of numerical answers
-#     "reasonings": ["reasoning for Q1", "reasoning for Q2", ...]
-# }
-
-print("Responses:", response["responses"])
-
-# For float responses (decimal values)
-questions_float = {
-    "Rate your confidence level (0.0-1.0)": [0.0, 1.0]
-}
-response_float = agent.numerical_resp(questions_float, float_resp=True)
-# Returns: {"responses": [0.75], ...}  # Float
-```
-
-#### Open-Ended Questions (Behavioral Choice-Making)
-
-```python
-# Create a dialogue format
-# Each entry is a tuple: (speaker_name, message)
-dialogue = [
-    ("Interviewer", "Tell me about your favorite hobby."),
-]
-
-# Get agent's response
-response = agent.utterance(dialogue)
-print(f"Agent: {response}")
-
-# Multi-turn conversation
-conversation = []
-
-# Question 1
-conversation.append(("Interviewer", "What are your career goals?"))
-response1 = agent.utterance(conversation)
-conversation.append((agent.get_fullname(), response1))
-print(f"Interviewer: What are your career goals?")
-print(f"{agent.get_fullname()}: {response1}\n")
-
-# Question 2 (with context from previous exchange)
-conversation.append(("Interviewer", "How do you plan to achieve those goals?"))
-response2 = agent.utterance(conversation)
-conversation.append((agent.get_fullname(), response2))
-print(f"Interviewer: How do you plan to achieve those goals?")
-print(f"{agent.get_fullname()}: {response2}\n")
-```
-
-### Memory and Reflection
-
-#### Adding Memories
-
-Memories help agents maintain consistency and learn from interactions:
-
-```python
-# Add a memory about an interaction
-agent.remember("Participated in a survey about work preferences", time_step=5)
-agent.remember("Expressed preference for remote work", time_step=6)
-agent.remember("Indicated high satisfaction with current role", time_step=7)
-```
-
-#### Reflection
-
-Reflections allow agents to form insights from multiple memories:
-
-```python
-# Trigger reflection on a topic
-# The agent will review relevant memories and generate insights
-agent.reflect(anchor="work preferences", time_step=8)
-
-# Reflection parameters:
-# - anchor: Topic or keyword to reflect on
-# - reflection_count: Number of insights to generate (default: 5)
-# - retrieval_count: Number of memories to consider (default: 120)
-# - time_step: Current time step
-
-# Custom reflection
-agent.reflect(
-    anchor="career goals and motivations",
-    reflection_count=3,  # Generate 3 insights
-    retrieval_count=50,  # Consider top 50 relevant memories
-    time_step=9
-)
-```
-
-**How Reflection Works:**
-1. The agent retrieves memories relevant to the anchor topic
-2. The LLM analyzes these memories
-3. New reflection nodes are created with insights
-4. These reflections influence future responses
-
-**How Memory Retrieval Works:**
-- Memory retrieval happens **automatically** in every interaction
-- Memories are **semantically selected** based on query relevance
-- Selection uses **three-dimensional scoring** (recency, relevance, importance)
-- Default: **120 memories** per interaction
-- Format: Scratchpad + "==\n" + "Other observations..." + memory contents
-
-See [Agent Memory System](#agent-memory-system) for detailed information.
-
-### Saving and Loading Agents
-
-#### Saving an Agent
-
-```python
-# Save agent to a directory
-save_directory = "agent_bank/populations/my_agent"
-agent.save(save_directory)
-
-# The agent will be saved with:
-# - scratch.json (personal information)
-# - memory_stream/nodes.json (all memories and reflections)
-# - memory_stream/embeddings.json (memory embeddings)
-# - meta.json (agent metadata)
-```
-
-#### Loading a Saved Agent
-
-```python
-# Load the saved agent
-agent = GenerativeAgent(agent_folder="agent_bank/populations/my_agent")
-
-# Continue interacting
-response = agent.categorical_resp({"Favorite color?": ["Red", "Blue", "Green"]})
-```
-
----
-
-## Model Configuration
-
-### Using OpenAI Models
-
-This is the default configuration. Set `MODEL_PROVIDER = "openai"` in `settings.py` and provide your OpenAI API key.
-
-**Supported Models:**
-- `gpt-4o-mini` (default, cost-effective)
-- `gpt-4o`
-- `gpt-4-turbo`
-- `gpt-3.5-turbo`
-- `o1-preview` (special handling)
-
-### Using Open Source Models
-
-The genagents framework can be configured to use open-source models (like Qwen2.5-7B-Instruct) instead of OpenAI's GPT models.
-
-#### Setup Steps
-
-1. **Install Additional Dependencies:**
-   ```bash
-   pip install transformers torch sentence-transformers
-   ```
-
-2. **Update Settings Configuration:**
-   ```python
-   MODEL_PROVIDER = "local"
-   LOCAL_MODEL_NAME = "Qwen/Qwen2.5-7B-Instruct"
-   LOCAL_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
-   DEVICE = "cuda"  # or "cpu" or "mps" (for Apple Silicon)
-   HF_TOKEN = None  # Set if needed for gated models
-   ```
-
-3. **Create Local Model Adapter:**
-   Create `simulation_engine/local_model_adapter.py` (see `USER_GUIDE.md` for full implementation details).
-
-4. **Modify gpt_structure.py:**
-   Add routing logic to use local models when `MODEL_PROVIDER == "local"`.
-
-**Supported Models:**
-- ✅ `Qwen/Qwen2.5-7B-Instruct`
-- ✅ `Qwen/Qwen2.5-14B-Instruct`
-- ✅ `meta-llama/Llama-3.1-8B-Instruct`
-- ✅ `meta-llama/Llama-3.1-70B-Instruct`
-
-**Embedding Models:**
-- ✅ `sentence-transformers/all-MiniLM-L6-v2` (default, fast, 384-dim)
-- ✅ `sentence-transformers/all-mpnet-base-v2` (slower, better quality, 768-dim)
-
-**Note:** Once configured, usage remains the same! The agent code doesn't need to change.
-
-### Switching Between Models
-
-#### Quick Model Switching
-
-To switch between models, change `LOCAL_MODEL_NAME` and `LLM_VERS` in `settings.py`:
-
-**For 7B model:**
-```python
-LOCAL_MODEL_NAME = "Qwen/Qwen2.5-7B-Instruct"
-LLM_VERS = "Qwen2.5-7B-Instruct"
-```
-
-**For 32B model:**
-```python
-LOCAL_MODEL_NAME = "/path/to/Qwen2.5-32B-Instruct/snapshots/<hash>"
-LLM_VERS = "Qwen2.5-32B-Instruct"
-```
-
-#### Downloading Models
-
-Use the download script to get models:
-
-```bash
-python3 download_models.py
-```
-
-Models are downloaded to `/srv/local/common_resources/models/` (or configured path).
-
-#### Finding Snapshot Paths
-
-After download, find the snapshot path:
-
-```bash
-ls /srv/local/common_resources/models/Qwen2.5-32B-Instruct/snapshots/
-```
-
-Use the hash directory as your `LOCAL_MODEL_NAME` path.
-
-**Model Comparison:**
-
-| Model | Size | Speed | Quality | Use Case |
-|-------|------|-------|---------|----------|
-| Qwen2.5-7B-Instruct | ~14GB | Fast | Good | Current default |
-| Qwen2.5-32B-Instruct | ~60GB | Slower | Better | Higher quality needed |
-| Qwen2.5-32B-Instruct-GPTQ | ~18GB | Medium | Similar to 32B | Faster 32B variant |
-
----
-
-## Agent Interaction Modules
-
-The codebase includes specialized modules for different types of agent interactions:
-
-### Interview Module
-
-**Location**: `Interview/`
-
-The Interview module conducts semi-structured interviews with agents to build rich memory streams. Each question-answer pair is saved as an observation memory, and reflections are triggered based on configurable strategies.
-
-**Documentation**: See [`Interview/README.md`](Interview/README.md) for complete documentation.
-
-**Quick Start:**
-```bash
-# Run interview on a single agent
-python3 Interview/run_interview.py --agent agent_bank/populations/gss_agents/0000
-
-# Run on range of agents
-python3 Interview/run_interview.py --base agent_bank/populations/gss_agents --range 0000-0049
-```
-
-**Features:**
-- Modular reflection trigger system
-- Automatic Q&A memory saving
-- Progress tracking and resume capability
-- Batch processing support
-- Interview-specific prompt template
-
-### Surveys Module
-
-**Location**: `Surveys/`
-
-The Surveys module administers standardized psychological surveys (PRE-TASK SURVEY) to agents, collects responses, and performs statistical analysis on consistency and distribution patterns.
-
-**Documentation**: See [`Surveys/README.md`](Surveys/README.md) for complete documentation.
-
-**Quick Start:**
-```bash
-# Run survey on a single agent
-python3 Surveys/run_survey.py --agent agent_bank/populations/gss_agents/0000
-
-# Run on range of agents
-python3 Surveys/run_survey.py --base agent_bank/populations/gss_agents --range 0000-0049
-
-# Analyze consistency
-python3 Surveys/analyze_consistency.py --base agent_bank/populations/gss_agents --range 0000-0049 --attempts 1-10
-
-# Analyze distribution
-python3 Surveys/analyze_distribution.py --base agent_bank/populations/gss_agents --range 0000-0049 --attempts 1-10
-```
-
-**Features:**
-- Survey administration with multiple attempts
-- Consistency analysis (ICC, Cronbach's Alpha, etc.)
-- Distribution analysis (box plots, violin plots, scatter plots)
-- Response management (archive, translate)
-- Interactive HTML reports
-
----
-
-### Wavelength Game Module
-
-**Location**: `Wavelength_Game/`
-
-The Wavelength Game module administers Wavelength-style behavioral games to agents, where agents place markers on a spectrum (0-100) based on clues. This module collects behavioral choice data and performs statistical analysis on consistency and distribution patterns.
-
-**Documentation**: See [`Wavelength_Game/README.md`](Wavelength_Game/README.md) for complete documentation.
-
-**Quick Start:**
-# Run game on a single agent
-python3 -u Wavelength_Game/run_wavelength.py --agent agent_bank/populations/gss_agents/0000
-
-# Run on range of agents
-python3 -u Wavelength_Game/run_wavelength.py --base agent_bank/populations/gss_agents --range 0000-0049
-
-# Analyze consistency
-python3 Wavelength_Game/analyze_consistency.py --base agent_bank/populations/gss_agents --range 0000-0049 --attempts 1-10
-
-# Analyze distribution
-python3 Wavelength_Game/analyze_distribution.py --base agent_bank/populations/gss_agents --range 0000-0049 --attempts 1-10
-
----
-
-## Agent Memory System
-
-The agent memory system is a core component that enables agents to maintain consistency and context across interactions.
-
-### Memory Node Types
-
-There are exactly **2 node types**:
-
-1. **`"observation"`** - Direct memories/experiences
-   - Created via `agent.remember()`
-   - User-provided content
-   - `pointer_id = None`
-
-2. **`"reflection"`** - LLM-generated insights derived from observations
-   - Created via `agent.reflect()`
-   - LLM-generated content
-   - `pointer_id = [list of source node IDs]`
-
-### Memory Storage
-
-**Before `agent.save()`:**
-- All memory data is stored **in-memory** as Python objects
-- `self.memory_stream.seq_nodes` - List of ConceptNode objects (in RAM)
-- `self.memory_stream.id_to_node` - Dictionary for node lookup (in RAM)
-- `self.memory_stream.embeddings` - Dictionary of content→embedding mappings (in RAM)
-
-**After `agent.save()`:**
-- Data is serialized to JSON files on disk
-- `memory_stream/nodes.json` - All memory nodes
-- `memory_stream/embeddings.json` - Memory embeddings
-
-### Memory Retrieval
-
-Memory retrieval happens **automatically** in every interaction:
-
-1. **Query Formation**: Current question/topic becomes the "anchor"
-2. **Semantic Search**: Embeddings find relevant memories
-3. **Scoring**: Combines three dimensions:
-   - **Recency**: Exponential decay based on `last_retrieved` time step
-   - **Relevance**: Cosine similarity between query and memory embeddings
-   - **Importance**: Pre-computed LLM-generated score (0-100)
-4. **Top-N Selection**: Returns top 120 most relevant memories (default)
-5. **Context Building**: Memories are formatted into prompt text
-
-**Tunable Parameters** (in `settings.py`):
-- `MEMORY_N_COUNT = 120` - Number of memories to retrieve
-- `MEMORY_HP = [0, 1, 0.5]` - Weights for [recency, relevance, importance]
-- `MEMORY_RECENCY_DECAY = 0.99` - Exponential decay factor
-- `MEMORY_CURR_FILTER = "all"` - Filter by node type ("all", "observation", "reflection")
-
-### LLM Interaction Pattern
-
-The system uses **single-turn API calls with context injection**, NOT continuous conversation sessions:
-
-- Each interaction = **one independent API call**
-- Context is **manually constructed** in the prompt
-- Previous interactions are **retrieved from agent's memory** (if relevant)
-- No session state maintained with the LLM
-- Multi-turn feel is achieved by including dialogue history in the prompt text
-
-### Best Practices
-
-1. **Call `agent.save()` regularly** to persist changes
-2. **Use `remember()`** to store important interactions
-3. **Use `reflect()`** periodically to generate insights
-4. **Manage time_steps** sequentially for proper recency scoring
-
-For detailed technical documentation, see the memory system implementation in `genagents/modules/memory_stream.py`.
-
----
-
 
 ## References
 
-Please refer to the original paper for detailed information on the methodology and findings:
-
-- Park, J. S., Zou, C. Q., Shaw, A., Hill, B. M., Cai, C., Morris, M. R., Willer, R., Liang, P., & Bernstein, M. S. (2024). *Generative Agent Simulations of 1,000 People*.
-
+- Li, Y., Min, H., Das Swain, V., & Saha, K. *TUX: Measuring Human–AI Tacit Understanding.* EMNLP.
+- Park, J. S., Zou, C. Q., Shaw, A., Hill, B. M., Cai, C., Morris, M. R., Willer, R., Liang, P., &
+  Bernstein, M. S. (2024). *Generative Agent Simulations of 1,000 People.*

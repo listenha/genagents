@@ -18,7 +18,6 @@ import time
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Optional, Any
-import torch  # For GPU memory management
 
 # Add project root to path
 project_root = Path(__file__).parent.parent
@@ -238,8 +237,10 @@ class WavelengthResponseBuilder:
                 header_time = time.time() - header_start_time
                 header_times.append(header_time)
                 print(f"✓ ({header_time:.2f}s, response: {response_value})", flush=True)
-                if torch.cuda.is_available():
-                    torch.cuda.empty_cache()  # Free up fragmented memory
+                if MODEL_PROVIDER == "local":
+                    import torch
+                    if torch.cuda.is_available():
+                        torch.cuda.empty_cache()  # Free up fragmented memory
                 
             except (ValueError, TypeError, IndexError) as e:
                 header_time = time.time() - header_start_time

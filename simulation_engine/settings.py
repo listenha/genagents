@@ -1,152 +1,166 @@
+"""
+Central configuration for genagents.
+
+This is the ONLY place where machine-specific information (model locations,
+API keys, GPU selection, data location) enters the code base. Every value that
+differs between servers is read from an environment variable, so the repo can
+be cloned anywhere and run without editing code:
+
+    cp .env.example .env          # fill in your values
+    set -a; source .env; set +a   # export them into the shell
+    python3 Surveys/run_survey.py --base agent_bank/populations/Qwen3-14B_agents --all
+
+Everything else in this file (model registry, memory hyperparameters) is
+experiment configuration shared by all machines.
+"""
+
+import os
 from pathlib import Path
 
-# ============================================================================
-# MODEL PROVIDER CONFIGURATION
-# ============================================================================
-# Choose between OpenAI API or local open-source models
-MODEL_PROVIDER = "openai"  # Options: "openai" or "local"
-# MODEL_PROVIDER = "local"  # Uncomment to use local models
 
-# OpenAI Configuration (only needed if MODEL_PROVIDER == "openai")
-OPENAI_API_KEY = "REDACTED_OPENAI_API_KEY"
-KEY_OWNER = "Yueshen"
+def _env(name, default=None):
+  value = os.environ.get(name)
+  return value if value not in (None, "") else default
+
 
 # ============================================================================
-# MODEL SELECTION - Easy Switch Between Models
+# PATHS
 # ============================================================================
-# Simply change MODEL_CHOICE to switch between available models
+# Repo-relative paths are derived from this file's location, so the working
+# directory never matters.
+BASE_DIR = str(Path(__file__).resolve().parent.parent)
+LLM_PROMPT_DIR = f"{BASE_DIR}/simulation_engine/prompt_template"
+POPULATIONS_DIR = _env("GENAGENTS_POPULATIONS_DIR",
+                       f"{BASE_DIR}/agent_bank/populations")
 
-MODEL_CHOICE = "mistral-nemo-2407"
+# Directory holding locally downloaded model weights, one sub-folder per model
+# (see download_models.py). If unset, or if a model's folder is missing, the
+# Hugging Face hub id is used instead and weights are fetched into the HF cache
+# (controlled by the standard HF_HOME variable).
+MODELS_DIR = _env("GENAGENTS_MODELS_DIR")
 
-# Model paths configuration (NCSA Delta: under /projects/bdks/yueshen7/models)
-_MODELS_BASE = "/projects/bdks/yueshen7/models"
-MODEL_PATHS = {
-    "7b": {
-        "path": f"{_MODELS_BASE}/Qwen2.5-7B-Instruct",
-        "name": "Qwen2.5-7B-Instruct"
-    },
-    "llama3.1-8b": {
-        "path": f"{_MODELS_BASE}/Llama-3.1-8B-Instruct",
-        "name": "Llama-3.1-8B-Instruct"
-    },
-    "gemma2-9b": {
-        "path": f"{_MODELS_BASE}/gemma-2-9b",
-        "name": "gemma-2-9b"
-    },
-    "mistral-nemo-2407": {
-        "path": f"{_MODELS_BASE}/Mistral-Nemo-Instruct-2407",
-        "name": "Mistral-Nemo-Instruct-2407"
-    },
-    "14b": {
-        "path": f"{_MODELS_BASE}/Qwen3-14B",
-        "name": "Qwen3-14B"
-    },
-    "gemma-3-12b-it": {
-        "path": f"{_MODELS_BASE}/gemma-3-12b-it",
-        "name": "google/gemma-3-12b-it"
-    },
-    "ministral-3-14b-instruct-2512": {
-        "path": f"{_MODELS_BASE}/Ministral-3-14B-Instruct-2512",
-        "name": "mistralai/Ministral-3-14B-Instruct-2512"
-    },
-    "32b": {
-        "path": f"{_MODELS_BASE}/Qwen3-32B",
-        "name": "Qwen3-32B"
-    },
-    "32b-gptq": {
-        "path": f"{_MODELS_BASE}/Qwen2.5-32B-Instruct-GPTQ-Int8",
-        "name": "Qwen2.5-32B-Instruct-GPTQ-Int8"
-    },
-    "32b-gptq-int4": {
-        "path": f"{_MODELS_BASE}/Qwen3-32B-GPTQ-Int4",
-        "name": "Qwen3-32B-GPTQ-Int4"
-    }
+
+# ============================================================================
+# MODEL PROVIDER
+# ============================================================================
+# "local": Hugging Face transformers on this machine's GPUs.
+# "openai": OpenAI API (requires OPENAI_API_KEY).
+MODEL_PROVIDER = _env("GENAGENTS_PROVIDER", "local")
+
+OPENAI_API_KEY = _env("OPENAI_API_KEY")
+OPENAI_MODEL = _env("GENAGENTS_OPENAI_MODEL", "gpt-5-mini")
+
+# Required only for gated models (Llama, Gemma, Ministral).
+HF_TOKEN = _env("HF_TOKEN")
+
+# "cuda" auto-selects the GPU with the most free memory; "cuda:N", "cpu" and
+# "mps" are also accepted. Use CUDA_VISIBLE_DEVICES to restrict visible GPUs.
+DEVICE = _env("GENAGENTS_DEVICE", "cuda")
+
+LOCAL_EMBEDDING_MODEL = _env("GENAGENTS_EMBEDDING_MODEL",
+                             "sentence-transformers/all-MiniLM-L6-v2")
+
+DEBUG = _env("GENAGENTS_DEBUG", "0") == "1"
+
+
+# ============================================================================
+# LOCAL MODEL REGISTRY
+# ============================================================================
+# Short key -> Hugging Face id and display name. Select one with the
+# GENAGENTS_MODEL environment variable (or --model-choice on the patch
+# scripts). The local folder name is the last component of the hub id, which is
+# the layout produced by download_models.py.
+#
+# Population folders used in the TUX paper:
+#   14b -> Qwen3-14B_agents, 7b -> Qwen2.5-7B_agents,
+#   llama3.1-8b -> Llama-3.1-8B_agents, mistral-nemo-2407 -> Mistral-Nemo_agents,
+#   gemma-3-12b-it -> gemma-3-12b-it_agents,
+#   ministral-3-14b-instruct-2512 -> Ministral-3-14B-Instruct-2512_agents
+MODEL_REGISTRY = {
+  "7b": {
+    "hf_id": "Qwen/Qwen2.5-7B-Instruct",
+    "name": "Qwen2.5-7B-Instruct",
+  },
+  "14b": {
+    "hf_id": "Qwen/Qwen3-14B",
+    "name": "Qwen3-14B",
+  },
+  "llama3.1-8b": {
+    "hf_id": "meta-llama/Llama-3.1-8B-Instruct",
+    "name": "Llama-3.1-8B-Instruct",
+  },
+  "mistral-nemo-2407": {
+    "hf_id": "mistralai/Mistral-Nemo-Instruct-2407",
+    "name": "Mistral-Nemo-Instruct-2407",
+  },
+  "gemma-3-12b-it": {
+    "hf_id": "google/gemma-3-12b-it",
+    "name": "google/gemma-3-12b-it",
+  },
+  "ministral-3-14b-instruct-2512": {
+    "hf_id": "mistralai/Ministral-3-14B-Instruct-2512",
+    "name": "mistralai/Ministral-3-14B-Instruct-2512",
+  },
+  "32b": {
+    "hf_id": "Qwen/Qwen3-32B",
+    "name": "Qwen3-32B",
+  },
+  "32b-gptq": {
+    "hf_id": "Qwen/Qwen2.5-32B-Instruct-GPTQ-Int8",
+    "name": "Qwen2.5-32B-Instruct-GPTQ-Int8",
+  },
 }
 
-# Auto-configure based on MODEL_CHOICE for local models
-_selected_model = MODEL_PATHS[MODEL_CHOICE]
-LOCAL_MODEL_NAME = _selected_model["path"]
-LLM_VERS = _selected_model["name"]
+MODEL_CHOICE = _env("GENAGENTS_MODEL", "14b")
+if MODEL_CHOICE not in MODEL_REGISTRY:
+  raise ValueError(f"Unknown GENAGENTS_MODEL '{MODEL_CHOICE}'. "
+                   f"Valid choices: {list(MODEL_REGISTRY)}")
 
-# If using OpenAI as provider, override LLM_VERS with the desired API model name.
-# This value is passed to the OpenAI client as the `model` argument.
+
+def resolve_local_model_path(choice):
+  """Local weights folder if present under MODELS_DIR, else the HF hub id."""
+  hf_id = MODEL_REGISTRY[choice]["hf_id"]
+  if MODELS_DIR:
+    local_path = Path(MODELS_DIR) / hf_id.split("/")[-1]
+    if local_path.exists():
+      return str(local_path)
+  return hf_id
+
+
+LOCAL_MODEL_NAME = resolve_local_model_path(MODEL_CHOICE)
+LOCAL_MODEL_HF_ID = MODEL_REGISTRY[MODEL_CHOICE]["hf_id"]
+
+# Model identifier passed through the agent code. For OpenAI this is the API
+# model name; for local models it is a display name only.
 if MODEL_PROVIDER == "openai":
-    LLM_VERS = "gpt-5-mini"
+  LLM_VERS = OPENAI_MODEL
+else:
+  LLM_VERS = MODEL_REGISTRY[MODEL_CHOICE]["name"]
 
-# Local Model Configuration (only needed if MODEL_PROVIDER == "local")
-LOCAL_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"  # For embeddings
-DEVICE = "cuda:0"  # Options: "cuda", "cpu", or "mps" (for Apple Silicon) - Using CUDA for GPU acceleration
-
-# Optional: Hugging Face token (required for gated models)
-HF_TOKEN = None  # Set to your HF token if needed: "hf_your_token_here"
-
-DEBUG = False
-
-MAX_CHUNK_SIZE = 4
-
-# LLM version (for OpenAI) or model identifier (for local)
-# LLM_VERS = "gpt-4o-mini"  # Used when MODEL_PROVIDER == "openai"
-# LLM_VERS is now set automatically above based on MODEL_CHOICE
-
-BASE_DIR = f"{Path(__file__).resolve().parent.parent}"
-
-## To do: Are the following needed in the new structure? Ideally Populations_Dir is for the user to define.
-POPULATIONS_DIR = f"{BASE_DIR}/agent_bank/populations" 
-LLM_PROMPT_DIR = f"{BASE_DIR}/simulation_engine/prompt_template"
 
 # ============================================================================
-# MEMORY SYSTEM TUNABLE PARAMETERS
+# MEMORY SYSTEM PARAMETERS
 # ============================================================================
-# These parameters control how the agent's memory system retrieves and uses
-# memories during interactions. All parameters can be overridden in function
-# calls, but these serve as global defaults for consistency.
+# Global defaults for memory retrieval; all can be overridden per call.
 
-# Memory Retrieval Count (n_count)
-# Maximum number of memories to retrieve and include in agent description
-# Higher values = more context but longer prompts and higher API costs
-# Default: 120 memories per interaction
+# Maximum number of memories retrieved into the agent description per query.
 MEMORY_N_COUNT = 120
 
-# Memory Hyperparameters (hp)
-# Weights for the three-dimensional memory scoring system: [recency, relevance, importance]
-# - recency_w: Weight for how recently memory was accessed (0-1)
-# - relevance_w: Weight for semantic similarity to query (0-1) 
-# - importance_w: Weight for memory importance score (0-1)
-# Default: [0, 1, 0.5] means only relevance and importance matter (recency disabled)
-# Example: [0.3, 0.5, 0.2] gives equal emphasis to all three dimensions
+# Weights for [recency, relevance, importance] in retrieval scoring.
+# [0, 1, 0.5] disables recency.
 MEMORY_HP = [0, 1, 0.5]
 
-# Recency Decay Factor
-# Exponential decay rate for recency scoring (0-1)
-# Higher values (closer to 1) = slower decay, older memories retain more weight
-# Lower values = faster decay, only very recent memories matter
-# Formula: recency_score = decay_factor ^ (max_timestep - last_retrieved)
-# Default: 0.99 means ~1% decay per time step
+# Recency score = decay ^ (max_timestep - last_retrieved).
 MEMORY_RECENCY_DECAY = 0.99
 
-# Reflection Count
-# Number of reflection insights to generate when agent.reflect() is called
-# Reflections are LLM-generated insights derived from existing memories
-# Higher values = more diverse insights but more API calls and cost
-# Default: 5 reflections per reflect() call
+# Number of reflection nodes generated per agent.reflect() call.
 MEMORY_REFLECTION_COUNT = 1
 
-# Reflection Retrieval Count
-# Number of memories to retrieve when generating reflections
-# These memories are used as context for the LLM to generate reflection insights
-# Higher values = more context for reflections but longer prompts
-# Default: 120 memories (same as MEMORY_N_COUNT)
+# Number of memories retrieved as context when generating reflections.
 MEMORY_RETRIEVAL_COUNT = 120
 
-# Memory Time Step
-# Default time step used for memory retrieval operations
-# Used for recency calculations (determines "current time" for decay)
-# Typically set to 0 or current simulation step
-# Default: 0
+# Default "current" time step for retrieval (used in recency calculation).
 MEMORY_TIME_STEP = 0
 
-# Memory Filter Type
-# Filter memories by node type during retrieval
-# Options: "all" (both observations and reflections), "observation", "reflection"
-# Default: "all" (include all memory types)
+# Node types considered during retrieval: "all", "observation", "reflection".
 MEMORY_CURR_FILTER = "all"

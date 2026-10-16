@@ -117,13 +117,11 @@ Output format -- output your response in json, where you provide the following:
 
 This ensures sufficient tokens for complete responses.
 
-## Testing
+## Inspecting Prompts
 
-To see the complete prompt for a specific agent and section:
+To print every assembled prompt and raw model output, enable debug mode. Run it on a copy of an agent so the published response files are not modified:
 
 ```bash
-cd /srv/local/common_resources/yueshen7/genagents
-source venv/bin/activate
-python3 Surveys/debug_prompt.py agent_bank/populations/gss_agents/0000 BFI-10
+cp -r agent_bank/populations/Qwen3-14B_agents/0000 /tmp/agent_0000
+GENAGENTS_DEBUG=1 python3 -u Surveys/run_survey.py --agent /tmp/agent_0000 --sections BFI-10
 ```
-

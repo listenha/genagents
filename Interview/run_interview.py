@@ -21,6 +21,8 @@ from typing import List, Optional
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
+from simulation_engine.agent_selection import parse_range, get_agent_folders
+
 from environment.interview.interview_memory_builder import InterviewMemoryBuilder
 
 
@@ -32,66 +34,6 @@ def load_config(config_path: Optional[str]) -> dict:
     return None
 
 
-def parse_range(range_str: str) -> List[str]:
-    """
-    Parse a range string like "0000-0049" into a list of agent IDs.
-    
-    Args:
-        range_str: Range string in format "START-END" (e.g., "0000-0049")
-    
-    Returns:
-        List of zero-padded agent IDs
-    """
-    try:
-        start_str, end_str = range_str.split('-')
-        start = int(start_str)
-        end = int(end_str)
-        
-        if start > end:
-            raise ValueError(f"Start ({start}) must be <= end ({end})")
-        
-        # Determine padding length from the input strings
-        padding = len(start_str)
-        
-        return [f"{i:0{padding}d}" for i in range(start, end + 1)]
-    except ValueError as e:
-        raise ValueError(f"Invalid range format '{range_str}'. Expected format: '0000-0049'. Error: {e}")
-
-
-def get_agent_folders(base_path: str, agent_ids: Optional[List[str]] = None) -> List[str]:
-    """
-    Get list of agent folders to process.
-    
-    Args:
-        base_path: Base path to agent bank (e.g., gss_agents/)
-        agent_ids: Optional list of specific agent IDs to process. If None, processes all.
-    
-    Returns:
-        List of agent folder paths
-    """
-    base = Path(base_path)
-    if not base.exists():
-        raise ValueError(f"Base path does not exist: {base_path}")
-    
-    if agent_ids:
-        # Process specific agents
-        folders = []
-        for agent_id in agent_ids:
-            agent_folder = base / agent_id
-            if (agent_folder / "scratch.json").exists():
-                folders.append(str(agent_folder))
-            else:
-                print(f"Warning: Agent {agent_id} not found at {agent_folder}")
-        return folders
-    else:
-        # Process all agents
-        folders = []
-        for agent_folder in sorted(base.iterdir()):
-            if agent_folder.is_dir() and (agent_folder / "scratch.json").exists():
-                folders.append(str(agent_folder))
-        return folders
-
-
 def main():
     parser = argparse.ArgumentParser(
         description="Run interview process to populate agent memory streams",
@@ -99,22 +41,22 @@ def main():
         epilog="""
 Examples:
   # Run full interview on a single agent
-  python3 run_interview.py --agent agent_bank/populations/gss_agents/0000
+  python3 run_interview.py --agent agent_bank/populations/my_agents/0000
 
   # Run on range of agents (0000 to 0049)
-  python3 run_interview.py --base agent_bank/populations/gss_agents --range 0000-0049
+  python3 run_interview.py --base agent_bank/populations/my_agents --range 0000-0049
 
   # Run on multiple specific agents
-  python3 run_interview.py --base agent_bank/populations/gss_agents --agents 0000 0001 0002
+  python3 run_interview.py --base agent_bank/populations/my_agents --agents 0000 0001 0002
 
   # Run on all agents in directory
-  python3 run_interview.py --base agent_bank/populations/gss_agents --all
+  python3 run_interview.py --base agent_bank/populations/my_agents --all
 
   # Test with first 10 questions only
-  python3 run_interview.py --agent agent_bank/populations/gss_agents/0000 --limit 10
+  python3 run_interview.py --agent agent_bank/populations/my_agents/0000 --limit 10
 
   # Use custom configuration
-  python3 run_interview.py --agent agent_bank/populations/gss_agents/0000 --config my_config.json
+  python3 run_interview.py --agent agent_bank/populations/my_agents/0000 --config my_config.json
         """
     )
     
@@ -128,7 +70,7 @@ Examples:
     input_group.add_argument(
         '--base',
         type=str,
-        help='Base path to agent bank directory (e.g., agent_bank/populations/gss_agents)'
+        help='Base path to agent bank directory (e.g., agent_bank/populations/my_agents)'
     )
     
     parser.add_argument(
@@ -157,7 +99,7 @@ Examples:
         '--script',
         type=str,
         default=None,
-        help='Path to interview script JSON (default: agent_bank/scripts/interview_script.json)'
+        help='Path to interview script JSON (default: Interview/interview_script.json)'
     )
     
     # Execution options
