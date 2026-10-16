@@ -4,13 +4,14 @@ import seaborn as sns
 import numpy as np
 import os
 from pathlib import Path
+import argparse
 
 # 设置绘图风格
 sns.set(style="whitegrid")
 plt.rcParams['font.sans-serif'] = ['Arial']
 plt.rcParams['axes.unicode_minus'] = False
 
-def load_data(output_dir='my_correlation_results'):
+def load_data(output_dir: str):
     """加载之前分析生成的CSV结果"""
     path = Path(output_dir)
     try:
@@ -21,7 +22,7 @@ def load_data(output_dir='my_correlation_results'):
         print(f"Error: Could not find result files in {output_dir}. Please run analysis script first.")
         return None, None
 
-def plot_performance_metrics_v2(df_model, output_file='plot_model_performance_v2.png'):
+def plot_performance_metrics_v2(df_model, output_file: str):
     """
     绘制 R2 和 Mantel P-value 的双柱状图 (改进版)
     改进点：P-value 使用 -log10 变换，使显著结果更突出
@@ -68,7 +69,7 @@ def plot_performance_metrics_v2(df_model, output_file='plot_model_performance_v2
     print(f"Saved chart: {output_file}")
     plt.close()
 
-def plot_trait_heatmap_v2(df_corr, output_file='plot_trait_heatmap_v2.png'):
+def plot_trait_heatmap_v2(df_corr, output_file: str):
     """
     绘制特质-话题相关性热力图 (改进版)
     改进点：使用绝对值，使用单色系 (Greens) 强调强度
@@ -100,12 +101,30 @@ def plot_trait_heatmap_v2(df_corr, output_file='plot_trait_heatmap_v2.png'):
     plt.close()
 
 def main():
-    df_corr, df_model = load_data('my_correlation_results')
-    if df_corr is None: return
+    parser = argparse.ArgumentParser(description="Visualize correlation analysis results")
+    parser.add_argument(
+        "--input-dir",
+        required=True,
+        help="Directory containing phase1_correlations.csv and phase2_3_multivariate_results.csv",
+    )
+    parser.add_argument(
+        "--output-dir",
+        required=True,
+        help="Directory to write generated plots",
+    )
+    args = parser.parse_args()
+
+    in_dir = Path(args.input_dir)
+    out_dir = Path(args.output_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    df_corr, df_model = load_data(str(in_dir))
+    if df_corr is None:
+        return
 
     # 运行改进版绘图函数
-    plot_performance_metrics_v2(df_model)
-    plot_trait_heatmap_v2(df_corr)
+    plot_performance_metrics_v2(df_model, str(out_dir / "plot_model_performance_v2.png"))
+    plot_trait_heatmap_v2(df_corr, str(out_dir / "plot_trait_heatmap_v2.png"))
 
 if __name__ == "__main__":
     main()

@@ -107,12 +107,18 @@ def gpt_request(prompt: str,
 
     try:
       client = openai.OpenAI(api_key=OPENAI_API_KEY)
-      response = client.chat.completions.create(
-        model=model,
-        messages=[{"role": "user", "content": prompt}],
-        max_tokens=max_tokens,
-        temperature=0.7
-      )
+      # GPT-5 family uses max_completion_tokens instead of max_tokens.
+      kwargs = {
+        "model": model,
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.7,
+      }
+      if str(model).startswith("gpt-5"):
+        kwargs["max_completion_tokens"] = max_tokens
+      else:
+        kwargs["max_tokens"] = max_tokens
+
+      response = client.chat.completions.create(**kwargs)
       return response.choices[0].message.content
     except Exception as e:
       return f"GENERATION ERROR: {str(e)}"
@@ -172,7 +178,7 @@ def chat_safe_generate(prompt_input: Union[str, List[str]],
   else:
     prompt = generate_prompt(prompt_input, prompt_lib_file)
     for i in range(repeat):
-      response = gpt_request(prompt, model=gpt_version)
+      response = gpt_request(prompt, model=gpt_version, max_tokens=max_tokens)
       if response != "GENERATION ERROR":
         break
       time.sleep(2**i)

@@ -4,12 +4,12 @@ from pathlib import Path
 # MODEL PROVIDER CONFIGURATION
 # ============================================================================
 # Choose between OpenAI API or local open-source models
-# MODEL_PROVIDER = "openai"  # Options: "openai" or "local"
-MODEL_PROVIDER = "local"  # Uncomment to use local models
+MODEL_PROVIDER = "openai"  # Options: "openai" or "local"
+# MODEL_PROVIDER = "local"  # Uncomment to use local models
 
 # OpenAI Configuration (only needed if MODEL_PROVIDER == "openai")
-OPENAI_API_KEY = "API_KEY"
-KEY_OWNER = "NAME"
+OPENAI_API_KEY = "REDACTED_OPENAI_API_KEY"
+KEY_OWNER = "Yueshen"
 
 # ============================================================================
 # MODEL SELECTION - Easy Switch Between Models
@@ -41,6 +41,14 @@ MODEL_PATHS = {
         "path": f"{_MODELS_BASE}/Qwen3-14B",
         "name": "Qwen3-14B"
     },
+    "gemma-3-12b-it": {
+        "path": f"{_MODELS_BASE}/gemma-3-12b-it",
+        "name": "google/gemma-3-12b-it"
+    },
+    "ministral-3-14b-instruct-2512": {
+        "path": f"{_MODELS_BASE}/Ministral-3-14B-Instruct-2512",
+        "name": "mistralai/Ministral-3-14B-Instruct-2512"
+    },
     "32b": {
         "path": f"{_MODELS_BASE}/Qwen3-32B",
         "name": "Qwen3-32B"
@@ -55,10 +63,15 @@ MODEL_PATHS = {
     }
 }
 
-# Auto-configure based on MODEL_CHOICE
+# Auto-configure based on MODEL_CHOICE for local models
 _selected_model = MODEL_PATHS[MODEL_CHOICE]
 LOCAL_MODEL_NAME = _selected_model["path"]
 LLM_VERS = _selected_model["name"]
+
+# If using OpenAI as provider, override LLM_VERS with the desired API model name.
+# This value is passed to the OpenAI client as the `model` argument.
+if MODEL_PROVIDER == "openai":
+    LLM_VERS = "gpt-5-mini"
 
 # Local Model Configuration (only needed if MODEL_PROVIDER == "local")
 LOCAL_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"  # For embeddings

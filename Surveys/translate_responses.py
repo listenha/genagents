@@ -3,7 +3,12 @@
 Translate raw survey responses to distilled scores.
 
 This script applies reverse scoring and calculates trait/total scores according to
-the scoring rules for BFI-10, BES-A, and REI instruments.
+the scoring rules in Surveys/TRAIT_SCORING.md for:
+- BFI-10
+- BES-A (reduced cognitive empathy subset)
+- REI (reduced rational ability subset)
+- SD3 Narcissism subset
+- GDMS reduced form
 
 Output: survey_distilled_responses.json (only distilled scores, no raw responses)
 """
@@ -83,77 +88,114 @@ def translate_bfi10(responses: Dict[str, Optional[int]]) -> Dict[str, Optional[f
 
 def translate_bes_a(responses: Dict[str, Optional[int]]) -> Dict[str, Optional[int]]:
     """
-    Translate BES-A raw responses to Cognitive Empathy total score.
-    
-    Reverse score items: 2, 8, 9
-    Sum all 9 items (after reverse scoring)
+    Translate BES-A reduced cognitive empathy subset (5 items).
+
+    Trait (TRAIT_SCORING.md):
+      besa_cognitive_empathy_subset = mean(item_1_rev, item_2, item_3, item_4_rev, item_5_rev)
+
+    Reverse-coded items: 1, 4, 5
     """
-    # Reverse score items
-    item_2_rev = reverse_score(responses.get("BES-A_2"))
-    item_8_rev = reverse_score(responses.get("BES-A_8"))
-    item_9_rev = reverse_score(responses.get("BES-A_9"))
-    
-    # Normal items
-    item_1 = responses.get("BES-A_1")
+    def safe_mean(values: List[Optional[int]]) -> Optional[float]:
+        if any(v is None for v in values):
+            return None
+        return sum(values) / float(len(values))
+
+    item_1_rev = reverse_score(responses.get("BES-A_1"))
+    item_2 = responses.get("BES-A_2")
     item_3 = responses.get("BES-A_3")
-    item_4 = responses.get("BES-A_4")
-    item_5 = responses.get("BES-A_5")
-    item_6 = responses.get("BES-A_6")
-    item_7 = responses.get("BES-A_7")
-    
-    # Sum all items (skip None values)
-    items = [item_1, item_2_rev, item_3, item_4, item_5, item_6, item_7, item_8_rev, item_9_rev]
-    valid_items = [v for v in items if v is not None]
-    
-    if len(valid_items) == 0:
-        ce_total = None
-    else:
-        ce_total = sum(valid_items)
-        # If not all items present, we still calculate but note it's partial
-        # (user said to skip null items, so partial scores are allowed)
-    
+    item_4_rev = reverse_score(responses.get("BES-A_4"))
+    item_5_rev = reverse_score(responses.get("BES-A_5"))
+
+    subset_mean = safe_mean([item_1_rev, item_2, item_3, item_4_rev, item_5_rev])
     return {
-        "CE_total": ce_total,
-        "n_items": len(valid_items),  # Track how many items were used
-        "CE_normalized": ce_total / len(valid_items) if len(valid_items) > 0 else None
+        "subset_score": subset_mean,
+        "n_items": 5 if subset_mean is not None else 0,
     }
 
 
 def translate_rei(responses: Dict[str, Optional[int]]) -> Dict[str, Optional[int]]:
     """
-    Translate REI raw responses to Rational Ability total score.
-    
-    Reverse score items: 1, 2, 3, 4, 5
-    Sum all 10 items (after reverse scoring)
+    Translate REI reduced rational ability subset (5 items).
+
+    Trait (TRAIT_SCORING.md):
+      rei_rational_ability_subset = mean(item_1_rev, item_2_rev, item_3_rev, item_4_rev, item_5_rev)
+
+    All five items are reverse-coded.
     """
-    # Reverse score items
+    def safe_mean(values: List[Optional[int]]) -> Optional[float]:
+        if any(v is None for v in values):
+            return None
+        return sum(values) / float(len(values))
+
     item_1_rev = reverse_score(responses.get("REI_1"))
     item_2_rev = reverse_score(responses.get("REI_2"))
     item_3_rev = reverse_score(responses.get("REI_3"))
     item_4_rev = reverse_score(responses.get("REI_4"))
     item_5_rev = reverse_score(responses.get("REI_5"))
-    
-    # Normal items
-    item_6 = responses.get("REI_6")
-    item_7 = responses.get("REI_7")
-    item_8 = responses.get("REI_8")
-    item_9 = responses.get("REI_9")
-    item_10 = responses.get("REI_10")
-    
-    # Sum all items (skip None values)
-    items = [item_1_rev, item_2_rev, item_3_rev, item_4_rev, item_5_rev,
-             item_6, item_7, item_8, item_9, item_10]
-    valid_items = [v for v in items if v is not None]
-    
-    if len(valid_items) == 0:
-        ra_total = None
-    else:
-        ra_total = sum(valid_items)
-    
+
+    subset_mean = safe_mean([item_1_rev, item_2_rev, item_3_rev, item_4_rev, item_5_rev])
     return {
-        "RA_total": ra_total,
-        "n_items": len(valid_items),  # Track how many items were used
-        "RA_normalized": ra_total / len(valid_items) if len(valid_items) > 0 else None
+        "subset_score": subset_mean,
+        "n_items": 5 if subset_mean is not None else 0,
+    }
+
+
+def translate_sd3_narcissism_subset(responses: Dict[str, Optional[int]]) -> Dict[str, Optional[float]]:
+    """
+    Translate SD3 Narcissism subset (5 items).
+
+    Trait (TRAIT_SCORING.md):
+      sd3_narcissism_subset = mean(item_1, item_2_rev, item_3, item_4, item_5)
+
+    Reverse-coded items: 2
+    """
+    def safe_mean(values: List[Optional[int]]) -> Optional[float]:
+        if any(v is None for v in values):
+            return None
+        return sum(values) / float(len(values))
+
+    item_1 = responses.get("SD3_NARCISSISM_SUBPART_1")
+    item_2_rev = reverse_score(responses.get("SD3_NARCISSISM_SUBPART_2"))
+    item_3 = responses.get("SD3_NARCISSISM_SUBPART_3")
+    item_4 = responses.get("SD3_NARCISSISM_SUBPART_4")
+    item_5 = responses.get("SD3_NARCISSISM_SUBPART_5")
+
+    subset_mean = safe_mean([item_1, item_2_rev, item_3, item_4, item_5])
+    return {"subset_score": subset_mean, "n_items": 5 if subset_mean is not None else 0}
+
+
+def translate_gdms_reduced(responses: Dict[str, Optional[int]]) -> Dict[str, Optional[float]]:
+    """
+    Translate GDMS reduced form (6 items).
+
+    Traits (TRAIT_SCORING.md):
+      gdms_rational = mean(item_1, item_6)
+      gdms_avoidant = item_2
+      gdms_dependent = item_3
+      gdms_intuitive = item_4
+      gdms_spontaneous = item_5
+
+    No reverse coding in the current reduced form.
+    """
+    def safe_mean(values: List[Optional[int]]) -> Optional[float]:
+        if any(v is None for v in values):
+            return None
+        return sum(values) / float(len(values))
+
+    item_1 = responses.get("GENERAL_DECISION_MAKING_1")
+    item_2 = responses.get("GENERAL_DECISION_MAKING_2")
+    item_3 = responses.get("GENERAL_DECISION_MAKING_3")
+    item_4 = responses.get("GENERAL_DECISION_MAKING_4")
+    item_5 = responses.get("GENERAL_DECISION_MAKING_5")
+    item_6 = responses.get("GENERAL_DECISION_MAKING_6")
+
+    return {
+        "gdms_rational": safe_mean([item_1, item_6]),
+        "gdms_avoidant": item_2,
+        "gdms_dependent": item_3,
+        "gdms_intuitive": item_4,
+        "gdms_spontaneous": item_5,
+        "n_items": 6,
     }
 
 
@@ -177,16 +219,34 @@ def translate_attempt(attempt: Dict[str, Any]) -> Dict[str, Any]:
         elif section_id == "BES-A":
             distilled_scores = translate_bes_a(raw_responses)
             distilled_sections[section_id] = {
-                "total_score": distilled_scores["CE_total"],
+                "subset_score": distilled_scores["subset_score"],
                 "n_items": distilled_scores["n_items"],
-                "normalized_score": distilled_scores["CE_normalized"]
+                # Keep legacy field name used by analysis code
+                "normalized_score": distilled_scores["subset_score"],
             }
         elif section_id == "REI":
             distilled_scores = translate_rei(raw_responses)
             distilled_sections[section_id] = {
-                "total_score": distilled_scores["RA_total"],
+                "subset_score": distilled_scores["subset_score"],
                 "n_items": distilled_scores["n_items"],
-                "normalized_score": distilled_scores["RA_normalized"]
+                # Keep legacy field name used by analysis code
+                "normalized_score": distilled_scores["subset_score"],
+            }
+        elif section_id == "SD3_NARCISSISM_SUBPART":
+            distilled_scores = translate_sd3_narcissism_subset(raw_responses)
+            distilled_sections[section_id] = {
+                "subset_score": distilled_scores["subset_score"],
+                "n_items": distilled_scores["n_items"],
+            }
+        elif section_id == "GENERAL_DECISION_MAKING":
+            distilled_scores = translate_gdms_reduced(raw_responses)
+            distilled_sections[section_id] = {
+                "gdms_rational": distilled_scores["gdms_rational"],
+                "gdms_avoidant": distilled_scores["gdms_avoidant"],
+                "gdms_dependent": distilled_scores["gdms_dependent"],
+                "gdms_intuitive": distilled_scores["gdms_intuitive"],
+                "gdms_spontaneous": distilled_scores["gdms_spontaneous"],
+                "n_items": distilled_scores["n_items"],
             }
         else:
             # Unknown section - skip or preserve as-is
@@ -219,7 +279,7 @@ def translate_agent_responses(agent_folder: str) -> Optional[Dict[str, Any]]:
         "agent_metadata": raw_data.get("agent_metadata", {}),
         "translation_metadata": {
             "translation_date": datetime.now().isoformat(),
-            "translation_version": "1.0"
+            "translation_version": "2.0"
         },
         "attempts": []
     }

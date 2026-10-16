@@ -158,13 +158,16 @@ class GenerativeAgent:
     try:
       from simulation_engine.settings import MODEL_PROVIDER
       if MODEL_PROVIDER == "local":
+        # Local embedding model via sentence-transformers
         from simulation_engine.local_model_adapter import load_embedding_model
         test_model = load_embedding_model()
         test_embedding = test_model.encode("test", convert_to_numpy=True)
         new_dim = len(test_embedding)
       else:
-        # OpenAI embeddings - skip check
-        return
+        # When using OpenAI provider, use current get_text_embedding to infer dim
+        from simulation_engine.gpt_structure import get_text_embedding
+        test_embedding = get_text_embedding("test")
+        new_dim = len(test_embedding)
     except Exception:
       # If we can't determine, skip the check
       return

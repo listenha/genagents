@@ -19,13 +19,9 @@ MODELS_TO_DOWNLOAD = [
     "mistralai/Mistral-Nemo-Instruct-2407",
     "Qwen/Qwen2.5-7B-Instruct",
     "Qwen/Qwen3-14B",
-    # "JunHowie/Qwen3-32B-GPTQ-Int4",
-    # "Qwen/Qwen2.5-32B-Instruct",  # Standard 32B model
-    # "Qwen/Qwen3-32B",
-    # "Qwen/Qwen2.5-32B-Instruct-GPTQ-Int8"
-    # GPTQ models may have different names - check HuggingFace
-    # Common: "TheBloke/Qwen2.5-32B-Instruct-GPTQ" or similar
-    # "Qwen/Qwen2.5-32B-Instruct-GPTQ-Int8",  # Uncomment if this exact name exists
+    # Additional models to download
+    "google/gemma-3-12b-it",
+    "mistralai/Ministral-3-14B-Instruct-2512",
 ]
 
 # Base directory for models (NCSA Delta)
